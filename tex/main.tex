@@ -145,16 +145,45 @@ maxbibnames=100,
 
 \section{NCT models}
 
+Abbreviations:
+ODE = ordinary differential equations.
+
 \subsection{GSR'03 model of NCT}
 
-In the first step we
-implement
+First we implement
 the ``minimal Ran gradient system'' from 
 \cite{GoerlichSeewaldRibbeck2003}.
 %
 %
+The equations are shown in
+Table~\ref{t:GSR-Ran}
+and
+the constants are collected in 
+Table~\ref{t:GSR-const}.
+%
+%
+Simulating the ODE
+across the scenarios of 
+\cite{GoerlichSeewaldRibbeck2003}
+we obtain 
+results that are fairly close
+to the original,
+see Table~\ref{t:GSR-Ran-Runs}.
 
-\begin{figure}
+%
+
+A coupling of the Ran gradient
+to 
+importin--cargo transport
+was proposed in 
+\cite[Fig.~6A]{GoerlichSeewaldRibbeck2003}.
+%
+We formulate (part of) it in 
+Table~\ref{t:GSR-Imp}.
+
+
+
+\begin{table}
 %
 The following account for the cytoplasmic species.
 %
@@ -170,7 +199,7 @@ the complex \ce{{RanBP1} . Ran.GTP}.
 	\label{e:Eq1}
 	%
 	\ddt
-	\ce{[Ran.GDP_{cyt}]}
+	[\ce{Ran.GDP}]_\text{cyt}
 	& =
 	\ce{F_{\ce{Ran.GDP}}} \frac{V_\text{nuc}}{V_\text{cyt}} 
 	+
@@ -185,38 +214,38 @@ the complex \ce{{RanBP1} . Ran.GTP}.
 	\label{e:Eq2}
 	%
 	\ddt
-	\ce{[Ran.GTP_{cyt}]}
+	[\ce{Ran.GTP}]_\text{cyt}
 	& = 
 	\ce{F_{\ce{Ran.GTP}}} \frac{V_\text{nuc}}{V_\text{cyt}}
 	-
 	\ce{GAP}
 	-
 	k_\text{on}^\text{rbp}
-	\ce{[{RanBP1}]} \ce{[Ran.GTP_{cyt}]}
+	[\ce{{RanBP1}}] [\ce{Ran.GTP}]_\text{cyt}
 	+
 	k_\text{off}^\text{rbp}
-	\ce{[\ldots]}
+	[\ce{\ldots}]
 	%
 	%
 	\\
 	\label{e:Eq3}
 	%
 	\ddt
-	\ce{[{RanBP1} . Ran.GTP]}
+	[\ce{{RanBP1} . Ran.GTP}]
 	& =
 	-
 	\ce{GAP_{RanBP1}}
 	\quad\quad\quad
 	+
 	k_\text{on}^\text{rbp}
-	\ce{[{RanBP1}]} \ce{[Ran.GTP_{cyt}]}
+	[\ce{{RanBP1}}] [\ce{Ran.GTP}]_\text{cyt}
 	-
 	k_\text{off}^\text{rbp}
-	\ce{[\ldots]}
+	[\ce{\ldots}]
 \]
 \end{subequations}
 
-%
+
 The following account for the nuclear species.
 %
 \ce{E} denotes free \ce{{RCC1}}.
@@ -227,34 +256,34 @@ The following account for the nuclear species.
 	\label{e:Eq4}
 	%
 	\ddt
-	\ce{[Ran.GDP_{nuc}]}
+	[\ce{Ran.GDP}]_\text{nuc}
 	& =
 	-
 	\ce{F_{\ce{Ran.GDP}}}
 	+
 	r_8
-	\ce{[IntC]}
+	[\ce{IntC}]
 	-
 	r_1
-	\ce{[E]}
-	\ce{[Ran.GDP_{nuc}]}
+	[\ce{E}]
+	[\ce{Ran.GDP}]_\text{nuc}
 	%
 	%
 	\\
 	\label{e:Eq5}
 	%
 	\ddt
-	\ce{[Ran.GTP_{nuc}]}
+	[\ce{Ran.GTP}]_\text{nuc}
 	& =
 	-
 	\ce{F_{\ce{Ran.GTP}}}
 	+
 	r_4
-	\ce{[IntA]}
+	[\ce{IntA}]
 	-
 	r_5
-	\ce{[E]}
-	\ce{[Ran.GTP_{nuc}]}
+	[\ce{E}]
+	[\ce{Ran.GTP}]_\text{nuc}
 	-
 	\ce{Ex}
 \]
@@ -359,7 +388,7 @@ the nucleus to the cytoplasm:
 	& =
 	D_{\ce{Ran.GTP}}
 	\;
-	(\ce{[Ran.GTP_{nuc}]} - \ce{[Ran.GTP_{cyt}]})
+	([\ce{Ran.GTP}]_\text{nuc} - [\ce{Ran.GTP}]_\text{cyt})
 	%
 	\\
 	\label{e:Eq12}
@@ -368,7 +397,7 @@ the nucleus to the cytoplasm:
 	& =
 	D_{\ce{Ran.GDP}}
 	\;
-	(\ce{[Ran.GDP_{nuc}]} - \ce{[Ran.GDP_{cyt}]})
+	([\ce{Ran.GDP}]_\text{nuc} - [\ce{Ran.GDP}]_\text{cyt})
 \]
 \end{subequations}
 
@@ -392,7 +421,7 @@ reducing the IC50 seven-fold
 	k_{\ce{GAP}} [\ce{RanGAP}]
 	/
 	(
-		1 + K_{\ce{GAP}} / \ce{[Ran.GTP_{cyt}]}
+		1 + K_{\ce{GAP}} / [\ce{Ran.GTP}]_\text{cyt}
 	)
 	%
 	\\
@@ -403,24 +432,26 @@ reducing the IC50 seven-fold
 	k_{\ce{GAP}}' [\ce{RanGAP}]
 	/
 	(
-		1 + K_{\ce{GAP}}' / \ce{[{RanBP1} . Ran.GTP]}
+		1 + K_{\ce{GAP}}' / [\ce{{RanBP1} . Ran.GTP}]
 	)
 \]
 \end{subequations}
 %
 \caption{%
-	From \cite[Fig.~2]{GoerlichSeewaldRibbeck2003}.
+	The minimal Ran gradient system
+	from \cite[Fig.~2]{GoerlichSeewaldRibbeck2003}.
 	%
-	\ce{Ex} is additional potentially useful flux of 
+	\ce{Ex} is an additional potentially useful flux of 
 	nuclear \ce{Ran.GTP} to cytoplasmic \ce{Ran.GDP},
 	set by default to zero.
 }
-\label{f:--}
-\end{figure}
+\label{t:GSR-Ran}
+\end{table}
 
 
 \begin{table}
 \centering
+\small
 \begin{tabular}{c|c|c}
 %	Eqn & Constants & References
 %	\\
@@ -441,7 +472,7 @@ reducing the IC50 seven-fold
 	\eqref{e:Eq1}
 	&
 	initial condition
-	$[\ce{RanGDP_{cyt}}] = \SI{5}{\micro M}$
+	$[\ce{Ran . GDP}]_\text{cyt} = \SI{5}{\micro M}$
 	&
 	\cite[Table II]{GoerlichSeewaldRibbeck2003}
 	\\
@@ -523,9 +554,9 @@ reducing the IC50 seven-fold
 	}
 	&
 	\makecell{
-		$D_{\ce{RanGTP}} = \SI{0.03}{s^{-1}}$
+		$D_{\ce{Ran . GTP}} = \SI{0.03}{s^{-1}}$
 		\\
-		$D_{\ce{RanGDP}} = \SI{0.12}{s^{-1}}$
+		$D_{\ce{Ran . GDP}} = \SI{0.12}{s^{-1}}$
 	}
 	&
 	\cite[Table II]{GoerlichSeewaldRibbeck2003}
@@ -567,7 +598,7 @@ reducing the IC50 seven-fold
 	\hline
 	%
 	%
-	\TODO{\eqref{?}}
+	\TODO{Eq}
 	&
 	$K_R = \SI{5e-4}{\micro M}$
 	&
@@ -591,7 +622,7 @@ reducing the IC50 seven-fold
 
 \begin{table}
 \centering
-\small
+\footnotesize
 \begin{tabular}{c|c|c|c|c}
 	\hline
 	%
@@ -760,7 +791,7 @@ reducing the IC50 seven-fold
 	Saturating NTF2
 	% Fig.~3
 	&
-	$D_{\ce{RanGDP}} := \SI{0.48}{s^{-1}}$
+	$D_{\ce{Ran . GDP}} := \SI{0.48}{s^{-1}}$
 	&
 	5.12
 	(5.1)
@@ -775,7 +806,7 @@ reducing the IC50 seven-fold
 	%
 	No NTF2
 	&
-	$D_{\ce{RanGDP}} := D_{\ce{RanGTP}}$
+	$D_{\ce{Ran . GDP}} := D_{\ce{Ran . GTP}}$
 	&
 	2.55
 	(2.5)
@@ -820,7 +851,7 @@ reducing the IC50 seven-fold
 	%
 	50\% permeability
 	&
-	$D_{\ce{RanGTP}}$
+	$D_{\ce{Ran . GTP}}$
 	&
 	4.91
 	(4.9)
@@ -835,7 +866,7 @@ reducing the IC50 seven-fold
 	%
 	200\% permeability
 	&
-	$D_{\ce{RanGTP}}$
+	$D_{\ce{Ran . GTP}}$
 	&
 	3.41
 	(3.4)
@@ -850,7 +881,7 @@ reducing the IC50 seven-fold
 	%
 	400\% permeability
 	&
-	$D_{\ce{RanGTP}}$
+	$D_{\ce{Ran . GTP}}$
 	&
 	2.46
 	(2.5)
@@ -870,20 +901,104 @@ reducing the IC50 seven-fold
 	with
 	their results shown in brackets.
 	%
-	Value for $D_{\ce{RanGDP}}$ is
+	Value for $D_{\ce{Ran . GDP}}$ is
 	from \cite[Fig.~3]{GoerlichSeewaldRibbeck2003}.
 }
-\label{t:GSR-condi}
+\label{t:GSR-Ran-Runs}
 \end{table}
 
+
+\begin{table}
+\begin{subequations}
+\[
+	%
+	\label{e:6}
+	%
+	\ce{R_{cyt}}
+	& :=
+	-
+	k_\text{on}^\text{R} [\ce{Imp\beta}] [\ce{Ran . GTP}]_\text{cyt}
+	+
+	k_\text{off}^\text{R} [\ce{Imp\beta . Ran . GTP}]_\text{cyt}
+	%
+	\\
+	\label{e:}
+	%
+	\ce{C_{cyt}}
+	& :=
+	-
+	k_\text{on}^\text{C}
+	[\ce{Imp\beta}]
+	[\ce{Cargo}]_\text{cyt}
+	%\qquad
+	+
+	k_\text{off}^\text{C}
+	[\ce{Imp\beta . Cargo}]_\text{cyt}
+	%
+	\\
+	\label{e:}
+	%
+	\ddt
+	[\ce{Imp\beta . Ran . GTP}]_\text{cyt}
+	& = 
+	-
+	\ce{R_{cyt}}
+	+
+	\ce{F_{\ce{Imp\beta . Ran . GTP}}}
+	\frac{V_\text{nuc}}{V_\text{cyt}} 
+	%
+	\\
+	\label{e:}
+	%
+	\ddt
+	[\ce{Imp\beta}]_\text{cyt}
+	& = 
+	%
+	+
+	\ce{R}_\text{cyt} + \ce{C}_\text{cyt}
+	+
+	\ce{F_{\ce{Imp\beta}}}
+	\frac{V_\text{nuc}}{V_\text{cyt}} 
+	%
+	\\
+	\label{e:4}
+	%
+	\ddt
+	[\ce{Imp\beta . Cargo}]_\text{cyt}
+	& = 
+	- \ce{C}_\text{cyt}
+	+ \ce{F_{\ce{Imp\beta . Cargo}}} \frac{V_\text{nuc}}{V_\text{cyt}}
+	%
+	\\
+	\label{e:5}
+	%
+	\ddt
+	[\ce{Cargo}]_\text{cyt}
+	& = 
+	+ \ce{C}_\text{cyt}
+	+ \ce{F_{\ce{Cargo}}} \frac{V_\text{nuc}}{V_\text{cyt}}
+\]
+
+\TODO{Analogous equations for \emph{nuclear}}
+
+\TODO{Diffusion eqn}
+
+\TODO{Add \ce{R} to \ce{Ran . GTP} eqn}
+
+\TODO{Need \ce{Imp\beta . \ce{Ran . {GTP}} + Cargo <=> Imp\beta . Cargo + \ce{Ran . {GTP}}}?}
+\end{subequations}
+%
+\caption{%
+	Eq
+}
+\label{t:GSR-Imp}
+\end{table}
 
 %\url{https://web.archive.org/web/20200221012912/http://atlasgeneticsoncology.org/Genes/GC_RANBP2.html}
 
 %%% BIBLIOGRAPHY %%%
-%\clearpage
-
+\clearpage
 \printbibliography % biblatex
-%\bibliographystyle{apalike}\bibliography{refs} % bibtex
 \normalsize
 
 
