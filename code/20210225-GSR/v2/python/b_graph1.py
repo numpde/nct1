@@ -64,6 +64,12 @@ def get_graph():
         'Impβ·Ran·GTP (c)': "ImpB--RanGTP cyto",
 
         # 'RanBP1·Ran·GTP (c)': "RanGTP--RanBP1",
+
+        'Free cargo (c)': "Cargo cyto",
+        'Free cargo (n)': "Cargo nuc",
+
+        'Cargo·Impβ (c)': "ImpB--Cargo cyto",
+        'Cargo·Impβ (n)': "ImpB--Cargo nuc",
     }
 
     g.add_nodes_from(species.keys())
@@ -83,6 +89,14 @@ def get_graph():
     g.add_edge('Impβ·Ran·GTP (c)', 'Free Impβ (c)', matlab="R cyto")
     g.add_edge('Impβ·Ran·GTP (c)', 'Ran·GTP (c)', matlab="R cyto")
 
+    g.add_edge('Free cargo (n)', 'Free cargo (c)', matlab="F Cargo")
+    g.add_edge('Cargo·Impβ (n)', 'Cargo·Impβ (c)', matlab="F ImpB--Cargo")
+
+    g.add_edge('Cargo·Impβ (n)', 'Free Impβ (n)', matlab="C nuc")
+    g.add_edge('Cargo·Impβ (n)', 'Free cargo (n)', matlab="C nuc")
+    g.add_edge('Cargo·Impβ (c)', 'Free Impβ (c)', matlab="C cyto")
+    g.add_edge('Cargo·Impβ (c)', 'Free cargo (c)', matlab="C cyto")
+
     if not set(g.nodes).issubset(species):
         log.warning(f"Don't know species: {set(g.nodes) - set(species)}.")
 
@@ -90,12 +104,12 @@ def get_graph():
 
 
 def show(g: nx.MultiDiGraph, state: pd.Series):
-    pos = nx.shell_layout(g)
-    pos = nx.planar_layout(g)
-    pos = nx.spring_layout(g)
+    # pos = nx.shell_layout(g)
+    # pos = nx.planar_layout(g)
+    # pos = nx.spring_layout(g)
     pos = {
-        'Free Impβ (c)': [-4, +3], 'Impβ·Ran·GTP (c)': [-3, +3], 'Ran·GTP (c)': [-2, +2], 'Ran·GDP (c)': [+2, +2],
-        'Free Impβ (n)': [-4, -3], 'Impβ·Ran·GTP (n)': [-3, -3], 'Ran·GTP (n)': [-2, -2], 'Ran·GDP (n)': [+2, -2],
+        'Free cargo (c)': [-4, +2], 'Cargo·Impβ (c)': [-3, +2], 'Free Impβ (c)': [-2, +3], 'Impβ·Ran·GTP (c)': [-1, +3], 'Ran·GTP (c)': [0, +2], 'Ran·GDP (c)': [+1, +2],
+        'Free cargo (n)': [-4, -2], 'Cargo·Impβ (n)': [-3, -2], 'Free Impβ (n)': [-2, -3], 'Impβ·Ran·GTP (n)': [-1, -3], 'Ran·GTP (n)': [0, -2], 'Ran·GDP (n)': [+1, -2],
     }
     # pos = nx.get_node_attributes(g, name='pos')
 
