@@ -167,6 +167,9 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
     # node_size = node_size / node_size.sum()
     node_size = 300 * node_size
 
+    node_labels = pd.Series(data=species.index, index=species.index)
+    node_labels = node_labels.transform(lambda s: s.replace("(c)", "").replace("(n)", "").strip())
+
     edge_width = fluxes
     edge_width = edge_width[edge_width != 0]
     (fwd, bwd) = (edge_width[edge_width >= 0].index, edge_width[edge_width < 0].index)
@@ -174,28 +177,35 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
     edge_width = 0.4 + (edge_width - edge_width.min()) / ((edge_width.max() - edge_width.min()) or 1)
     edge_alpha = 0.7 * (edge_width / edge_width.max())
 
-    edge_labels = fluxes.transform(lambda x: f"{x:0.02g}").to_dict()
+    edge_labels = fluxes.abs().transform(lambda x: f"{x:0.02g}")
 
     style = {
         rc.Figure.frameon: False,
     }
 
     with Plox(style) as px:
-        kw = dict(G=g, pos=pos, ax=px.a, alpha=0.6)
+        kw = dict(G=g, pos=pos, ax=px.a, alpha=0.4)
         nx.draw_networkx_nodes(**kw, nodelist=node_size.index, node_size=node_size, node_color="C0", linewidths=0)
 
         kw = dict(G=ug, pos=pos, ax=px.a, edge_color='g')
         nx.draw_networkx_edges(**kw, width=edge_width[fwd], alpha=edge_alpha[fwd], edgelist=fwd)
         nx.draw_networkx_edges(**kw, width=edge_width[bwd], alpha=edge_alpha[bwd], edgelist=[(v, ug) for (ug, v) in bwd])
 
-        kw = dict(G=ug, pos=pos, ax=px.a, alpha=0.8)
-        nx.draw_networkx_edge_labels(**kw, edge_labels=edge_labels, font_size=3)
+        kw = dict(G=ug, pos=pos, ax=px.a, alpha=0.7)
+        nx.draw_networkx_edge_labels(**kw, edge_labels=edge_labels.to_dict(), font_size=5, font_color='g')
 
-        kw = dict(G=g, pos=pos, ax=px.a, alpha=0.7, font_color='k')
-        nx.draw_networkx_labels(**kw, font_size=5, verticalalignment="bottom")
-        nx.draw_networkx_labels(**kw, font_size=4, labels=species.transform(lambda x: f"{x:0.02g}"), verticalalignment="top")
+        kw = dict(G=g, pos=pos, ax=px.a, alpha=0.8, font_color='k')
+        nx.draw_networkx_labels(**kw, font_size=7, labels=node_labels, verticalalignment="bottom")
+        nx.draw_networkx_labels(**kw, font_size=6, labels=species.transform(lambda x: f"{x:0.02g}"), verticalalignment="top")
 
         px.a.axis('off')
+
+        y = np.mean(px.a.get_ylim())
+        px.a.plot(px.a.get_xlim(), [y, y], '--', color='k', lw=1, zorder=-100)
+
+        kw = dict(x=(min(px.a.get_xlim()) + 0.8), ha="center", zorder=100, alpha=0.5, fontdict=dict(fontsize=6))
+        px.a.text(**kw, y=(y + 0.1), s="Cytoplasm", va="bottom")
+        px.a.text(**kw, y=(y - 0.1), s="Nucleus", va="top")
 
         out_dir = mkdir(Path(__file__).with_suffix(''))
         px.f.savefig(out_dir / "onion.png")
