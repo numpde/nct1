@@ -106,6 +106,14 @@ def get_graph():
     g.add_edge('Cargo·Impβ (c)', 'Free Impβ (c)', matlab="C cyto")
     g.add_edge('Cargo·Impβ (c)', 'Free cargo (c)', matlab="C cyto")
 
+    g.add_edge('Cargo·Impβ (n)', 'Free cargo (n)', matlab="Cargo knock-off nuc")
+    g.add_edge('Cargo·Impβ (n)', 'Impβ·Ran·GTP (n)', matlab="Cargo knock-off nuc")
+    g.add_edge('Ran·GTP (n)', 'Impβ·Ran·GTP (n)', matlab="Cargo knock-off nuc")
+
+    g.add_edge('Cargo·Impβ (c)', 'Free cargo (c)', matlab="Cargo knock-off cyto")
+    g.add_edge('Cargo·Impβ (c)', 'Impβ·Ran·GTP (c)', matlab="Cargo knock-off cyto")
+    g.add_edge('Ran·GTP (c)', 'Impβ·Ran·GTP (c)', matlab="Cargo knock-off cyto")
+
     if not set(g.nodes).issubset(species):
         log.warning(f"Don't know species: {set(g.nodes) - set(species)}.")
 
@@ -162,7 +170,8 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
     edge_width = edge_width[edge_width != 0]
     (fwd, bwd) = (edge_width[edge_width >= 0].index, edge_width[edge_width < 0].index)
     edge_width = edge_width.transform(lambda x: np.log10(np.abs(x)))
-    edge_width = 1 + (edge_width - edge_width.min()) / ((edge_width.max() - edge_width.min()) or 1)
+    edge_width = 0.4 + (edge_width - edge_width.min()) / ((edge_width.max() - edge_width.min()) or 1)
+    edge_alpha = 0.7 * (edge_width / edge_width.max())
 
     edge_labels = fluxes.transform(lambda x: f"{x:0.02g}").to_dict()
 
@@ -170,11 +179,11 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
         kw = dict(G=g, pos=pos, ax=px.a, alpha=0.6)
         nx.draw_networkx_nodes(**kw, nodelist=node_size.index, node_size=node_size, node_color="C0", linewidths=0)
 
-        kw = dict(G=ug, pos=pos, ax=px.a, alpha=0.5, edge_color='g')
-        nx.draw_networkx_edges(**kw, width=edge_width[fwd], edgelist=fwd)
-        nx.draw_networkx_edges(**kw, width=edge_width[bwd], edgelist=[(v, ug) for (ug, v) in bwd])
+        kw = dict(G=ug, pos=pos, ax=px.a, edge_color='g')
+        nx.draw_networkx_edges(**kw, width=edge_width[fwd], alpha=edge_alpha[fwd], edgelist=fwd)
+        nx.draw_networkx_edges(**kw, width=edge_width[bwd], alpha=edge_alpha[bwd], edgelist=[(v, ug) for (ug, v) in bwd])
 
-        kw = dict(G=ug, pos=pos, ax=px.a, alpha=0.9)
+        kw = dict(G=ug, pos=pos, ax=px.a, alpha=0.8)
         nx.draw_networkx_edge_labels(**kw, edge_labels=edge_labels, font_size=3)
 
         kw = dict(G=g, pos=pos, ax=px.a, alpha=0.7, font_color='k')
