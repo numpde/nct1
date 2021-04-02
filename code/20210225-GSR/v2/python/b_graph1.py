@@ -63,7 +63,8 @@ def get_graph():
         'Impβ·Ran·GTP (n)': "ImpB--RanGTP nuc",
         'Impβ·Ran·GTP (c)': "ImpB--RanGTP cyto",
 
-        # 'RanBP1·Ran·GTP (c)': "RanGTP--RanBP1",
+        'RanBP1·Ran·GTP (c)': "RanGTP--RanBP1",
+        # 'RanBP1 (c)': "RanBP1",
 
         'Free cargo (c)': "Cargo cyto",
         'Free cargo (n)': "Cargo nuc",
@@ -78,7 +79,15 @@ def get_graph():
     # Flux and how to get its value
     g.add_edge('Ran·GTP (n)', 'Ran·GTP (c)', matlab="FluxRanGTP")
     g.add_edge('Ran·GDP (n)', 'Ran·GDP (c)', matlab="FluxRanGDP")
+
     g.add_edge('Ran·GTP (c)', 'Ran·GDP (c)', matlab="GAP")
+
+    g.add_edge('RanBP1·Ran·GTP (c)', 'Ran·GDP (c)', matlab="GAP_RanBP1")
+    g.add_edge('Ran·GTP (c)', 'RanBP1·Ran·GTP (c)', matlab="F RanGTP--RanBP1")
+
+    # g.add_edge('RanBP1·Ran·GTP (c)', 'RanBP1 (c)', matlab="GAP_RanBP1")
+    # g.add_edge('RanBP1 (c)', 'RanBP1·Ran·GTP (c)', matlab="F RanGTP--RanBP1")
+
     g.add_edge('Impβ·Ran·GTP (c)', 'Ran·GDP (c)', matlab="ImpB GAP")
     g.add_edge('Impβ·Ran·GTP (c)', 'Free Impβ (c)', matlab="ImpB GAP")
     g.add_edge('Free Impβ (n)', 'Free Impβ (c)', matlab="F ImpB")
@@ -108,8 +117,14 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
     # pos = nx.planar_layout(g)
     # pos = nx.spring_layout(g)
     pos = {
-        'Free cargo (c)': [-4, +2], 'Cargo·Impβ (c)': [-3, +2], 'Free Impβ (c)': [-2, +3], 'Impβ·Ran·GTP (c)': [-1, +3], 'Ran·GTP (c)': [0, +2], 'Ran·GDP (c)': [+1, +2],
-        'Free cargo (n)': [-4, -2], 'Cargo·Impβ (n)': [-3, -2], 'Free Impβ (n)': [-2, -3], 'Impβ·Ran·GTP (n)': [-1, -3], 'Ran·GTP (n)': [0, -2], 'Ran·GDP (n)': [+1, -2],
+        'Free cargo (c)': [-6, +8], 'Cargo·Impβ (c)': [+6, +8],
+        'Impβ·Ran·GTP (c)': [-4, +6], 'Free Impβ (c)': [+4, +6],
+        'Ran·GTP (c)': [-2, +4], 'Ran·GDP (c)': [+2, +4],
+        'RanBP1·Ran·GTP (c)': [0, 3],
+        # 'RanBP1 (c)': [0, 1],
+        'Ran·GTP (n)': [-2, -2], 'Ran·GDP (n)': [+2, -2],
+        'Impβ·Ran·GTP (n)': [-4, -4], 'Free Impβ (n)': [+4, -4],
+        'Free cargo (n)': [-6, -6], 'Cargo·Impβ (n)': [+6, -6],
     }
     # pos = nx.get_node_attributes(g, name='pos')
 
@@ -152,7 +167,7 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
     edge_labels = fluxes.transform(lambda x: f"{x:0.02g}").to_dict()
 
     with Plox() as px:
-        kw = dict(G=g, pos=pos, ax=px.a, alpha=0.8)
+        kw = dict(G=g, pos=pos, ax=px.a, alpha=0.6)
         nx.draw_networkx_nodes(**kw, nodelist=node_size.index, node_size=node_size, node_color="C0", linewidths=0)
 
         kw = dict(G=ug, pos=pos, ax=px.a, alpha=0.5, edge_color='g')
@@ -162,10 +177,13 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
         kw = dict(G=ug, pos=pos, ax=px.a, alpha=0.9)
         nx.draw_networkx_edge_labels(**kw, edge_labels=edge_labels, font_size=3)
 
-        kw = dict(G=g, pos=pos, ax=px.a, alpha=0.7)
-        nx.draw_networkx_labels(**kw, font_size=5, font_color='k', verticalalignment="bottom")
+        kw = dict(G=g, pos=pos, ax=px.a, alpha=0.7, font_color='k')
+        nx.draw_networkx_labels(**kw, font_size=5, verticalalignment="bottom")
+        nx.draw_networkx_labels(**kw, font_size=4, labels=species.transform(lambda x: f"{x:0.02g}"), verticalalignment="top")
 
-        px.show()
+        out_dir = mkdir(Path(__file__).with_suffix(''))
+        px.f.savefig(out_dir / "onion.png")
+        px.f.savefig(out_dir / "onion.pdf")
 
 
 def main():
@@ -173,7 +191,7 @@ def main():
 
     data = data['Baseline']
 
-    t = 7000
+    t = 10_000
     state = interp(data, t)
 
     g = get_graph()
