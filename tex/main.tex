@@ -54,7 +54,7 @@ maxbibnames=100,
 \usepackage{xspace}
 
 \usepackage{graphicx}
-\graphicspath{{..//}{../images/}}
+\graphicspath{{../code/}{../images/}}
 \DeclareGraphicsExtensions{.pdf,.eps,.png}
 
 % https://tex.stackexchange.com/questions/202046/width-of-the-caption-of-a-figure
@@ -148,7 +148,9 @@ maxbibnames=100,
 Abbreviations:
 ODE = ordinary differential equations.
 
-\subsection{GSR'03 model of NCT}
+\subsection{GSR'03 model of NCT} \label{s:GSR03}
+
+\subsubsection*{Ran gradient} \label{s:GSR03:Ran}
 
 First we implement
 the ``minimal Ran gradient system'' from 
@@ -162,17 +164,8 @@ the constants are collected in
 Table~\ref{t:GSR-const}.
 %
 %
-Simulating the ODE
-across the scenarios of 
-\cite{GoerlichSeewaldRibbeck2003}
-we obtain 
-results that are fairly close
-to the original,
-see Table~\ref{t:GSR-Ran-Runs}.
-%
-%
 The ``dynamic capacity'' \ce{Ex}
-is an optional maximal (positive) flux
+is an optional maximal steady-state (positive) flux
 of nuclear \ce{Ran.GTP} to cytoplasmic \ce{Ran.GDP},
 which we determine using the additional equation
 \[
@@ -186,8 +179,41 @@ which we determine using the additional equation
 	\TEXT{initial}
 	\ce{Ex} := \SI{0}{\micro M . s^{-1}}.
 \]
+%
+%
+The fluxes 
+are in units of concentration/time (\si{\micro M . s^{-1}}).
+%
+The ones across the nuclear boundary
+have positive sign when exiting the nucleus
+and are normalized to the nuclear volume.
+%
+The \emph{amount} exiting the nucleus per unit of time is
+$\ce{flux} \times V_\text{nuc}$.
 
 %
+
+Simulating the ODE
+across the scenarios of 
+\cite{GoerlichSeewaldRibbeck2003}
+we obtain 
+results that are sufficiently close
+to the original,
+see Table~\ref{t:GSR-Ran-Runs}.
+%
+%
+Importantly,
+a 1000-fold nuclear enrichment of \ce{Ran.GTP}
+is sustained in steady-state.
+
+%
+
+Code:
+\href{https://github.com/numpde/nct1/tree/d56d16f/code/20210225-GSR/v1}{d56d16f/code/20210225-GSR/v1}
+
+%
+
+\subsubsection*{Coupling to transport} \label{s:GSR03:Imp}
 
 A coupling of the Ran gradient
 to 
@@ -195,13 +221,53 @@ importin--cargo transport
 was proposed in 
 \cite[Fig.~6A]{GoerlichSeewaldRibbeck2003}.
 %
-We formulate (part of) it in 
-Table~\ref{t:GSR-Imp}.
+We formulate a version of it in 
+Table~\ref{t:GSR-ImpB}.
 
-
-
-\begin{table}
 %
+
+With the constants from Table~\ref{t:GSR-ImpB-const},
+the steady-state of the model
+(reached after some $\SI{10e4}{s}$)
+is reported in Fig.~\ref{f:GSR-v2}.
+%
+Nuclear
+accumulation of free cargo
+is over 20-fold.
+%
+%
+Sensitivity analysis shows
+that, in relative terms,
+the final nuclear concentration of free cargo
+depends 
+most strongly
+on
+$k_\text{knockoff}$
+(and the volume of the nucleus).
+%
+Doubling $k_\text{knockoff}$ almost doubles the concentration.
+%
+%
+Note, however, that NTF2 is 
+
+
+Code:
+\href{https://github.com/numpde/nct1/tree/2a2199d/code/20210225-GSR/v2}{2a2199d/code/20210225-GSR/v2}
+
+
+%
+
+\TODO{?
+\cite{Catimel2001} and \cite{RiddickMacara2005}
+discuss
+the reaction 
+\ce{Imp$\beta$ . Cargo <=> Imp$\beta$^* . Cargo}
+}
+
+
+
+
+\begin{table} \small
 The following account for the cytoplasmic species.
 %
 Here,
@@ -265,6 +331,7 @@ the complex \ce{{RanBP1} . Ran.GTP}.
 
 The following account for the nuclear species.
 %
+Following \cite{GoerlichSeewaldRibbeck2003},
 \ce{E} denotes free \ce{{RCC1}}.
 %
 %
@@ -375,8 +442,8 @@ Constraints on the total concentration:
 \[
 	\label{e:Eq9}
 	%
-	\text{Free \ce{{RCC1}}:}
-	\quad
+	\text{Free \ce{{RCC1}}}:
+	& &
 	\ce{[E]}
 	& =
 	\ce{{RCC1}_{total}} - (\ce{[IntA]} + \ce{[IntB]} + \ce{[IntC]})
@@ -384,8 +451,8 @@ Constraints on the total concentration:
 	\\
 	\label{e:Eq10}
 	%
-	\text{Free}
-	\quad
+	\text{Free \ce{{RanBP1}}}:
+	& &
 	\ce{[{RanBP1}]}
 	& =
 	\ce{{RanBP1}_{total}} - \ce{[{RanBP1} . Ran.GTP]}
@@ -613,20 +680,21 @@ reducing the IC50 seven-fold
 	% / \cite[Fig.~4]{GoerlichSeewaldRibbeck2003}
 	\\
 	\hline
-	%
-	%
-	\TODO{Eq}
-	&
-	$K_R = \SI{5e-4}{\micro M}$
-	&
-	\cite[Supp.~Table~A]{GoerlichSeewaldRibbeck2003}
-	\\
-	\hline
+%	%
+%	%
+%	\TODO{Eq}
+%	&
+%	$K_R = \SI{5e-4}{\micro M}$
+%	&
+%	\cite[Supp.~Table~A]{GoerlichSeewaldRibbeck2003}
+%	\\
+%	\hline
 \end{tabular}
 %
 \caption{%
 	Constants
 	for the ``standard simulation condition''
+	of \S\ref{s:GSR03}
 	at $\SI{25}{\celsius}$.
 	%
 	Except for \eqref{e:Eq1},
@@ -925,11 +993,15 @@ reducing the IC50 seven-fold
 \end{table}
 
 
-\begin{table}
+\begin{table} \small
+The following equations
+comprise
+the handling of cargo by \ce{Imp$\beta$} in the cytoplasm.
+%
 \begin{subequations}
 \[
 	%
-	\label{e:6}
+	\label{e:v2-R}
 	%
 	\ce{R_{cyt}}
 	& :=
@@ -939,7 +1011,7 @@ reducing the IC50 seven-fold
 	k_\text{off}^\text{R} [\ce{Imp\beta . Ran . GTP}]_\text{cyt}
 	%
 	\\
-	\label{e:}
+	\label{e:v2-C}
 	%
 	\ce{C_{cyt}}
 	& :=
@@ -953,7 +1025,7 @@ reducing the IC50 seven-fold
 	[\ce{Imp\beta . Cargo}]_\text{cyt}
 	%
 	\\
-	\label{e:}
+	\label{e:v2-1}
 	%
 	\ddt
 	[\ce{Imp\beta . Ran . GTP}]_\text{cyt}
@@ -963,60 +1035,214 @@ reducing the IC50 seven-fold
 	+
 	\ce{F_{\ce{Imp\beta . Ran . GTP}}}
 	\frac{V_\text{nuc}}{V_\text{cyt}} 
+	-
+	\ce{GAP_{{Imp\beta}}}
+	+
+	\ce{Knockoff_{cyt}}
 	%
 	\\
-	\label{e:}
+	\label{e:v2-2}
 	%
 	\ddt
 	[\ce{Imp\beta}]_\text{cyt}
 	& = 
 	%
 	+
-	\ce{R}_\text{cyt} + \ce{C}_\text{cyt}
+	\ce{R_{cyt}} + \ce{C_{cyt}}
 	+
 	\ce{F_{\ce{Imp\beta}}}
 	\frac{V_\text{nuc}}{V_\text{cyt}} 
+	+
+	\ce{GAP_{{Imp\beta}}}
 	%
 	\\
-	\label{e:4}
+	\label{e:v2-3}
 	%
 	\ddt
 	[\ce{Imp\beta . Cargo}]_\text{cyt}
 	& = 
-	- \ce{C}_\text{cyt}
-	+ \ce{F_{\ce{Imp\beta . Cargo}}} \frac{V_\text{nuc}}{V_\text{cyt}}
+	-
+	\ce{C_{cyt}}
+	+
+	\ce{F_{\ce{Imp\beta . Cargo}}} \frac{V_\text{nuc}}{V_\text{cyt}}
+	-
+	\ce{Knockoff_{cyt}}
 	%
 	\\
-	\label{e:5}
+	\label{e:v2-4}
 	%
 	\ddt
 	[\ce{Cargo}]_\text{cyt}
 	& = 
-	+ \ce{C}_\text{cyt}
-	+ \ce{F_{\ce{Cargo}}} \frac{V_\text{nuc}}{V_\text{cyt}}
+	+
+	\ce{C_{cyt}}
+	+
+	\ce{F_{\ce{Cargo}}} \frac{V_\text{nuc}}{V_\text{cyt}}
+	+
+	\ce{Knockoff_{cyt}}
+\]
+\end{subequations}
+
+%
+
+The flux of the reaction
+\[
+	\label{e:knockoff}
+	\ce{Imp\beta . Cargo + \ce{Ran . {GTP}} <=>> Imp\beta . \ce{Ran . {GTP}} + Cargo}
+\]
+is called \ce{Knockoff}.
+%
+It is modeled as a one-way reaction
+with forward rate $k_\text{knockoff}$.
+%
+%
+%
+The previous equations are modified accordingly:
+%
+\[
+	\label{e:Eq1'}
+	\tag{\ref{e:Eq1}$'$}
+	%
+	\ddt
+	[\ce{Ran.GDP}]_\text{cyt}
+	& =
+	\eqref{e:Eq1} + \ce{GAP_{{Imp\beta}}}
+	%
+	\\
+	\label{e:Eq2'}
+	\tag{\ref{e:Eq2}$'$}
+	%
+	\ddt
+	[\ce{Ran.GTP}]_\text{cyt}
+	& = 
+	\eqref{e:Eq2} + \ce{R_{cyt}} - \ce{Knockoff_{cyt}}
 \]
 
-\TODO{Analogous equations for \emph{nuclear}}
-
-\TODO{Diffusion eqn}
-
-\TODO{Add \ce{R} to \ce{Ran . GTP} eqn}
-
-\TODO{Need \ce{Imp\beta . \ce{Ran . {GTP}} + Cargo <=> Imp\beta . Cargo + \ce{Ran . {GTP}}}?}
-
-Following \cite{Catimel} and \cite{Riddick},
-we also add
-the reaction 
-\ce{Imp$\beta$ . Cargo <=> Imp$\beta$^* . Cargo}
-\end{subequations}
+Analogous nuclear equations
+(without \ce{GAP}) 
+are implemented but are omitted here.
 %
+Analogously to \eqref{e:Eq11}/\eqref{e:Eq12}
+we have 
+the additional nuclear-to-cytoplasmic diffusion fluxes
+\[
+	\label{e:F4}
+	%
+	\ce{F_{\ce{Imp\beta . Ran . GTP}}},
+	\quad
+	\ce{F_{\ce{Imp\beta}}},
+	\quad
+	\ce{F_{\ce{Imp\beta . Cargo}}},
+	\quad
+	\ce{F_{\ce{Cargo}}}
+	.
+\]
+
+%
+
 \caption{%
-	Eq
+	Equations for the coupling 
+	of the minimal Ran gradient system from \S\ref{s:GSR03:Ran}
+	to
+	importin-mediated cargo transport.
 }
-\label{t:GSR-Imp}
+\label{t:GSR-ImpB}
 \end{table}
 
-%\url{https://web.archive.org/web/20200221012912/http://atlasgeneticsoncology.org/Genes/GC_RANBP2.html}
+
+
+\begin{table}
+\centering
+\small
+\begin{tabular}{c|c|c}
+	\hline
+	%
+	%
+	\eqref{e:v2-R}
+	&
+	$k_\text{on}^\text{R} = \SI{0.096}{\micro M^{-1} . s^{-1}}$,
+	\;
+	$k_\text{off}^\text{R} = \SI{4.8e-6}{s^{-1}}$
+	&
+	\cite[Supp.~Table~A]{GoerlichSeewaldRibbeck2003},
+	\cite[Table II]{RiddickMacara2005}
+	\\
+	\hline
+	%
+	%
+	\eqref{e:v2-C}
+	&
+	$k_\text{on}^\text{C} = \SI{0.49}{\micro M^{-1} . s^{-1}}$,
+	\quad
+	$k_\text{off}^\text{C} = \SI{0.017}{s^{-1}}$
+	&
+	\cite[below Fig.~3]{Catimel2001},
+	\cite[Table II]{RiddickMacara2005}
+	\\
+	\hline
+	%
+	%
+	\eqref{e:knockoff}
+	&
+	$k_\text{knockoff} = \SI{2e-2}{\micro M^{-1} s^{-1}}$
+	&
+	\cite[Table II]{RiddickMacara2005}
+	\\
+	\hline
+	%
+	%
+	\eqref{e:F4}
+	&
+	\makecell{
+		$D_{\ce{Imp\beta . Ran . GTP}} = \SI{0.07}{s^{-1}}$, \quad
+		$D_{\ce{Imp\beta}} = \SI{0.4}{s^{-1}}$
+		\\
+		$D_{\ce{Imp\beta . Cargo}} = \SI{0.25}{s^{-1}}$, \;	
+		$D_{\ce{Cargo}} = \SI{5e-4}{s^{-1}}$
+	}
+	&
+	\cite[Table III]{RiddickMacara2005}
+	\\
+	\hline
+\end{tabular}
+%
+\caption{%
+	Constants for the \ce{Imp$\beta$}-mediated
+	transport from \S\ref{s:GSR03:Imp} / Table~\ref{t:GSR-ImpB}.
+}
+%
+\label{t:GSR-ImpB-const}
+\end{table}
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{20210225-GSR/v2/python/b_graph1/onion}
+\caption{%
+	Steady-state of 
+	the transport system from 
+	\S\ref{s:GSR03:Imp} / Table~\ref{t:GSR-ImpB}
+	with conditions 
+	of Table~\ref{t:GSR-ImpB-const}.
+	%
+	The free cargo
+	shows a 20-fold accumulation
+	in the nucleus.
+	%
+	Units are \si{\micro M} for species
+	and \si{\micro M . s^{-1}} for fluxes.
+	%
+	Initial conditions:
+	$[\ce{Ran . GDP}]_\text{cyt} = \SI{5}{\micro M}$,
+	$[\ce{Imp$\beta$}]_\text{cyt} = \SI{1}{\micro M}$,
+	$[\ce{Cargo}]_\text{cyt} = \SI{3}{\micro M}$,
+	all else zero.
+}
+\label{f:GSR-v2}
+\end{figure}
+
+
 
 %%% BIBLIOGRAPHY %%%
 \clearpage
