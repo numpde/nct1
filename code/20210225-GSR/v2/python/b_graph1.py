@@ -8,6 +8,7 @@ from bugs import *
 from twig import log
 from scipy.io import loadmat
 from scipy.interpolate import interp1d
+from plox import Plox, rcParam as rc
 
 from tcga.utils import First
 
@@ -175,7 +176,11 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
 
     edge_labels = fluxes.transform(lambda x: f"{x:0.02g}").to_dict()
 
-    with Plox() as px:
+    style = {
+        rc.Figure.frameon: False,
+    }
+
+    with Plox(style) as px:
         kw = dict(G=g, pos=pos, ax=px.a, alpha=0.6)
         nx.draw_networkx_nodes(**kw, nodelist=node_size.index, node_size=node_size, node_color="C0", linewidths=0)
 
@@ -190,6 +195,8 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
         nx.draw_networkx_labels(**kw, font_size=5, verticalalignment="bottom")
         nx.draw_networkx_labels(**kw, font_size=4, labels=species.transform(lambda x: f"{x:0.02g}"), verticalalignment="top")
 
+        px.a.axis('off')
+
         out_dir = mkdir(Path(__file__).with_suffix(''))
         px.f.savefig(out_dir / "onion.png")
         px.f.savefig(out_dir / "onion.pdf")
@@ -200,7 +207,7 @@ def main():
 
     data = data['Baseline']
 
-    t = 10_000
+    t = max(data.index)
     state = interp(data, t)
 
     g = get_graph()
