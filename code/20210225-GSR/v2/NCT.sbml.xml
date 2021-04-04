@@ -1,0 +1,1507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <annotation>
+    <SimBiology xmlns="http://www.mathworks.com">
+      <Version Major="6" Minor="1" Point="0"/>
+    </SimBiology>
+  </annotation>
+  <model id="mw5928b423_a2a2_4116_bb59_ae4c929f7216" name="NCT">
+    <listOfUnitDefinitions>
+      <unitDefinition id="MWBUILTINPREFIX_pico_MWBUILTINUNIT_liter" name="picoliter">
+        <listOfUnits>
+          <unit kind="metre" exponent="3"/>
+          <unit kind="dimensionless" multiplier="1e-15"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="MWBUILTINUNIT_liter" name="liter">
+        <listOfUnits>
+          <unit kind="metre" exponent="3"/>
+          <unit kind="dimensionless" multiplier="0.001"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="MWDERIVEDUNIT_micromolarity__second" name="micromolarity/second">
+        <listOfUnits>
+          <unit kind="metre" exponent="-3"/>
+          <unit kind="mole" exponent="1"/>
+          <unit kind="second" exponent="-1"/>
+          <unit kind="dimensionless" multiplier="0.001"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" name="micromolarity">
+        <listOfUnits>
+          <unit kind="metre" exponent="-3"/>
+          <unit kind="mole" exponent="1"/>
+          <unit kind="dimensionless" multiplier="0.001"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="MWDERIVEDUNIT_1__second" name="1/second">
+        <listOfUnits>
+          <unit kind="second" exponent="-1"/>
+          <unit kind="dimensionless" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="MWDERIVEDUNIT_1__micromolarity_second" name="1/(micromolarity*second)">
+        <listOfUnits>
+          <unit kind="metre" exponent="3"/>
+          <unit kind="mole" exponent="-1"/>
+          <unit kind="second" exponent="-1"/>
+          <unit kind="dimensionless" multiplier="1000"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="MWDERIVEDUNIT_1__second___2" name="1/second^2">
+        <listOfUnits>
+          <unit kind="second" exponent="-2"/>
+          <unit kind="dimensionless" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="MWDERIVEDUNIT_1__micromolarity__second" name="1/micromolarity/second">
+        <listOfUnits>
+          <unit kind="metre" exponent="3"/>
+          <unit kind="mole" exponent="-1"/>
+          <unit kind="second" exponent="-1"/>
+          <unit kind="dimensionless" multiplier="1000"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="mw60bf291d_4c80_41b3_8471_992d12371078" name="cell" spatialDimensions="3" size="3" units="MWBUILTINPREFIX_pico_MWBUILTINUNIT_liter" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="mwb5c2ab87_fecc_4aaf_b04e_c5dae1c8e709" name="RanGTP_nuc" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.5)
+</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mwbee6269e_9dbf_46a1_a309_ad219a593c98" name="RanGTP--RanBP1" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.3)
+</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mwc41fae69_ff4f_4560_8210_1ecdd0352fa4" name="RanGTP_cyto" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.2)
+</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw830d4310_644f_4881_8451_97652264072f" name="RanGDP_cyto" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="5e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.1)
+Initial condition: 5 uM from Table II</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw87eba706_76ce_454f_b888_a231d0a28fb2" name="IntA" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.6)
+</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw75096326_bcce_4d69_bf4e_33bc7f2d3666" name="IntB" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.7)
+</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mwf4774d64_05e9_4159_823c_506e4e03cb65" name="IntC" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.8)
+</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw2f8f7ca1_44d5_47e4_99b3_8b7fe53a29b9" name="RanBP1" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Constrained by Eq.10
+</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mwbe3a0c3c_ef34_4b48_bb83_4156f4126e6c" name="E" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Free RCC1 enzyme (cf. Fig.1)
+Constrained by Eq.9</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw40da62bf_cb07_464b_a503_cc76df679e23" name="RanGDP_nuc" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.4)
+</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mwd585fdf9_1f33_4a19_a275_be41a57c2aa9" name="Total cyto RanGTP" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw353ac01d_f0c2_44b6_9f48_bac2ad874365" name="ImpB cyto" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="1e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">GSR 2003
+Fig 6
+0.5 uM
+
+RM 2005
+Table I
+3 uM (citing Ribbeck et al 1998)
+
+We take 1uM for simplicity
+</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mwb7f12522_677f_40f0_89b5_df07dbaf0a3b" name="ImpB--RanGTP cyto" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw92b07167_5c5d_4bcb_8be1_918441907975" name="Cargo cyto" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="3e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">GSR 2020
+Fig 6
+
+RM 2005
+Fig 2: 3uM
+</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mwe870a78f_f0c4_40fc_bc6e_98fb7a115efa" name="ImpB--Cargo cyto" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Matlab doesn&apos;t let me set this to zero.</body>
+        </notes>
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mweb37980a_9dfc_44ea_897d_521db1555e6e" name="ImpB--RanGTP nuc" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw4402da2f_ac36_40bb_a7e0_63656483a4dc" name="ImpB nuc" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw9be54c75_1a9e_4449_b603_23d645a10df3" name="ImpB--Cargo nuc" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mwddefa01b_6865_4fb6_8ff5_de919d83cfa1" name="Cargo nuc" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mwa4756623_1051_483b_9f1b_34968d085f68" name="ImpB*--Cargo cyto" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw0322660b_32fd_4d8f_be96_0180895da757" name="ImpB*--Cargo nuc" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw02d0948b_bbed_4009_b7b2_2335ab2e9f4c" name="Total cyto ImpB" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw02d0948b_bbed_4009_b7b2_2335ab2e9f4c" name="Total nuc ImpB" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw66625936_7239_41cf_acb3_90d032868ccc" name="Total cyto Cargo" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mw66625936_7239_41cf_acb3_90d032868ccc" name="Total nuc Cargo" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+      <species id="mwd0d8daaa_a73d_47f4_9227_ed847363b7bb" name="Consumed nuclear cargo" compartment="mw60bf291d_4c80_41b3_8471_992d12371078" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <annotation>
+          <SimBiology xmlns="http://www.mathworks.com">
+            <Unit Numerator="mole" Denominator="liter"/>
+          </SimBiology>
+        </annotation>
+      </species>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="mwd1acaf46_a012_4a6c_998b_550c850563fb" name="FluxRanGTP" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.11)
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw0a148ad3_6fce_4b7f_b1f4_8ad7968f42b0" name="FluxRanGDP" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false"/>
+      <parameter id="mw59e00bb5_d280_43c8_b228_6b6de3934c4b" name="RCC1_total" value="0.7" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Used in (Eq.9)
+
+0.7 uM in Fig.4
+0.7 uM in ST B (nuclear)
+0.25 uM in ST B (HeLa cells)
+
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mwab02afa7_6cf9_4efa_970c_af274df81375" name="V_nuc" value="1.2" units="MWBUILTINPREFIX_pico_MWBUILTINUNIT_liter" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Defined in Fig.4</body>
+        </notes>
+      </parameter>
+      <parameter id="mw11052a34_9383_483d_ad17_b446ee8a44a2" name="V_cyto" value="1.8" units="MWBUILTINPREFIX_pico_MWBUILTINUNIT_liter" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Defined in Fig.4</body>
+        </notes>
+      </parameter>
+      <parameter id="mw2adac4fe_05ac_41d8_8e11_68d1039138e9" name="RanGAP" value="0.7" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">0.7 uM in Fig.4
+0.7 uM in ST B (cytoplasmic)
+0.4 uM in ST B (HeLa cells)
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw5fe1b8d5_be0c_43af_bb4b_b5d3c429cff8" name="RanBP1_total" value="2" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">2 uM in Fig.4
+2 uM in ST B (cytoplasmic)
+1.1 uM in ST B (HeLa cells)
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mwb082eff7_8483_4fa6_afb0_fb634023b01a" name="NTF2" value="0.3" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Cellular NTF2 concentration (homodimers)
+0.3 uM in Fig.4
+0.3 uM in ST B
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mwde8d808f_871e_4cc4_bcc0_0c82c3409866" name="Ran" value="3" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Cellular Ran concentration:
+3 uM in Fig.4
+6 uM in ST B
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw9f492fe2_68a5_493b_a279_9136b0455027" name="GAP_RanBP1" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.13)</body>
+        </notes>
+      </parameter>
+      <parameter id="mwa2200908_760e_4285_9337_757026bb1a3a" name="GAP" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Set by (Eq.13)</body>
+        </notes>
+      </parameter>
+      <parameter id="mw6b56a58c_5471_4376_a809_ec41f93dffa0" name="Exercise" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">aka dynamic capacity
+Table II
+
+p.5:
+The effects were assessed not only by
+the criteria of nuclear and cytoplasmic steady-state levels
+of RanGTP; we also considered that transport at the
+expense of the Ran gradient depletes the nuclear RanGTP
+pool. Therefore, it is an important criterion which level of
+work load or `exercise&apos; the system can sustain. This
+number reflects the maximum rate of nuclear RanGTP
+production (in mM/sec), and we refer to it here as the
+dynamic capacity for Ran-driven transport.
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw194be5a1_9bb8_437f_bfb3_bc84ac5676df" name="kPerm_RanGDP" value="0.12" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">In Fig.3: 0.48/s = permeability factor for NTF2--RanGDP
+Table II: 0.12/s corresponds to 0.3 uM NTF2 dimers
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mwadaaf6d0_2162_4474_a0e8_86852e8ef809" name="kPerm_NTF2--RanGDP" value="0.48" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">From Fig.3
+
+Don&apos;t delete (might be used in a script)</body>
+        </notes>
+      </parameter>
+      <parameter id="mw26ba61f3_bdd3_41a1_8095_832c52b0614e" name="kPerm_RanGTP" value="0.03" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Analogous to kPerm_RanGDP</body>
+        </notes>
+      </parameter>
+      <parameter id="mwa19aba62_7bc2_4d7b_b5fc_0b62ec6aaefa" name="k_off" value="0.0004" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">From Supp Table A: 4.0E-4 1/second</body>
+        </notes>
+      </parameter>
+      <parameter id="mw879db5a4_e4a2_473a_8fe6_49c2b2efbb63" name="k_on" value="0.3" units="MWDERIVEDUNIT_1__micromolarity_second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">From Supp Table A</body>
+        </notes>
+      </parameter>
+      <parameter id="mw741daccb_101e_45e7_a4b7_779fcf3b7dc6" name="r1" value="74" units="MWDERIVEDUNIT_1__micromolarity_second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw715ef881_0ff5_4eeb_963a_f9fa804b1462" name="r8" value="55" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A</body>
+        </notes>
+      </parameter>
+      <parameter id="mw9179f589_9bd3_462d_892d_1075c2f83b21" name="r4" value="55" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A</body>
+        </notes>
+      </parameter>
+      <parameter id="mwe81a2fe7_87b4_48ff_bec5_78883204d786" name="r5" value="100" units="MWDERIVEDUNIT_1__micromolarity_second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A</body>
+        </notes>
+      </parameter>
+      <parameter id="mwe02fcaa6_7922_496e_bd06_1b2afdcb3ddd" name="GTP" value="500" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">p.6 / Table II</body>
+        </notes>
+      </parameter>
+      <parameter id="mwa8318bc8_3ea3_4ad4_bd2d_fcd77758d65b" name="GDP" value="1.6" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">p.6 / Table II: 1.6 uM
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw3f9b4baa_d8a3_4677_a1aa_aea0de1069af" name="r3" value="0.6" units="MWDERIVEDUNIT_1__micromolarity_second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mwf3dde963_383c_46b8_8fea_2d046df1946f" name="r6" value="19" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mwbbe440b1_336d_4d58_aac3_4bdd2858ab2a" name="r2" value="21" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw171e4677_844d_44eb_86ac_2da9427ceea4" name="r7" value="11" units="MWDERIVEDUNIT_1__micromolarity_second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw3900f51d_9c38_404d_89ea_8bac2639071e" name="K_M_13" value="0.7" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A: 0.7 uM</body>
+        </notes>
+      </parameter>
+      <parameter id="mwe373f857_c303_4110_9b9f_b651a09d3325" name="k_cat_13" value="10.6" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A: 10.6 (1/second)</body>
+        </notes>
+      </parameter>
+      <parameter id="mw62171e3f_c9a6_4a6c_bd7e_ff78c2926aa4" name="K_M_14" value="0.1" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A: 0.1 uM</body>
+        </notes>
+      </parameter>
+      <parameter id="mwf21c56b4_042c_45c0_b5f1_4a845617c2c5" name="k_cat_14" value="10.8" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Supp Table A: 10.8 (1/second)</body>
+        </notes>
+      </parameter>
+      <parameter id="mw42b3a654_3c83_4322_90e0_4714c74f61f8" name="GSR -- CargoRatio" value="0" units="dimensionless" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">free nuclear cargo / free cytoplasmic cargo</body>
+        </notes>
+      </parameter>
+      <parameter id="mw1ac96866_080f_4930_a4d2_22b39c79232a" name="K_R" value="0.0005" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">K_D from Supp Table A
+Dissociation constant from RanGTP--ImpBeta, see Eq (16)
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mwe74da8c1_e7e6_448e_99a8_e0fc136d5bec" name="k_ex" value="10" units="MWDERIVEDUNIT_1__second___2" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">helper constant to equilibrate &quot;Exercise&quot; such that RanGTP_nuc = 0</body>
+        </notes>
+      </parameter>
+      <parameter id="mw0f021b4c_c036_484c_8bea_896790995193" name="R cyto" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Dissociation of ImpB--RanGTP</body>
+        </notes>
+      </parameter>
+      <parameter id="mw85706bea_6a7a_41e9_ba87_779d7449cb4e" name="F ImpB--RanGTP" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false"/>
+      <parameter id="mwb7e50c5d_4b4f_4c99_89a7_5886dda36005" name="C cyto" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Dissociation of ImpB--Cargo</body>
+        </notes>
+      </parameter>
+      <parameter id="mw0c032ae3_41e5_4a7c_b3d7_075d746166e5" name="F ImpB" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false"/>
+      <parameter id="mw96dec458_76e6_44b7_bfaf_0a2433bf3f8e" name="F ImpB--Cargo" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false"/>
+      <parameter id="mw996696cf_8a82_4be6_9e08_14dac3d76792" name="F Cargo" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false"/>
+      <parameter id="mw296c1799_69fe_4100_be6c_fe4dd86644c4" name="k_R_off" value="4.8e-06" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">GSR 2003
+Supp Table A
+&quot;upper limit&quot;
+4.8e-6
+
+RM 2005
+Table II
+4.8e-6
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw2da4eb4b_590b_4020_a307_4c405fcdd16d" name="k_R_on" value="0.096" units="MWDERIVEDUNIT_1__micromolarity_second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">GSR 2003
+Supp Table A
+&quot;upper limit&quot;
+9.6e4 1/M/s = 0.096 1/uM/s 
+
+RM 2005
+Table II
+9.6e4
+
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw0aeee9e8_5ef7_41ed_bc4c_29456a78b890" name="k_C1_off" value="0.017" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">RM 2005
+Table II
+0.017 1/s
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw5564afb9_9cd9_4ba9_9a5d_329b9be6b5f2" name="k_C1_on" value="0.49" units="MWDERIVEDUNIT_1__micromolarity__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">RM 2005
+Table II
+4.9e5 1/uM/s 
+Typo!
+
+Catimel 2001
+under Fig 3
+4.9e5 1/M/s = 0.49 1/uM/s
+
+(For ImpB -- ImpA)
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw458b1855_54f7_4304_a380_7e72c0eb4f6e" name="R nuc" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Dissociation of ImpB--RanGTP</body>
+        </notes>
+      </parameter>
+      <parameter id="mwb420e6a9_4966_418f_b4b4_f09e71b737f0" name="C nuc" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Dissociation of ImpB--Cargo</body>
+        </notes>
+      </parameter>
+      <parameter id="mw4a870c9d_0b5b_42b3_bcc1_f47ed059459d" name="k_perm ImpB--RanGTP" value="0.07" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">a guess</body>
+        </notes>
+      </parameter>
+      <parameter id="mw1a2d777d_768d_4fda_bdfc_2fd05a9aeca6" name="k_perm ImpB" value="0.4" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">a guess</body>
+        </notes>
+      </parameter>
+      <parameter id="mwc21b28e6_f093_4769_9e58_9868b309d9db" name="k_perm ImpB--Cargo" value="0.25" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Text to the right of Eqn (16)</body>
+        </notes>
+      </parameter>
+      <parameter id="mw9219c218_205f_46a6_9ef9_dbee3b98921a" name="k_perm Cargo" value="0.0005" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Text to the right of Eqn (16)</body>
+        </notes>
+      </parameter>
+      <parameter id="mw97550eb9_2f3a_41c7_bf59_c53b989b4e36" name="k_C2_off" value="0.00025" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">RM 2005
+Table II
+2.5e-4 1/second
+
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mw0a7c8017_4c1c_4f7d_9ef1_9f4d2d7d3595" name="k_C2_on" value="7900" units="MWDERIVEDUNIT_1__micromolarity__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">RM 2005
+Table II
+7900 1/uM/s
+</body>
+        </notes>
+      </parameter>
+      <parameter id="mwa35bc363_fb1f_489e_af15_eabb6de97758" name="Cargo consumption coeff" value="0.1" units="MWDERIVEDUNIT_1__second" constant="true"/>
+      <parameter id="mw1565749e_b4bb_4290_b19d_0457e3d6b9f7" name="Nuclear free cargo consumption" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false"/>
+      <parameter id="mw0f021b4c_c036_484c_8bea_896790995193" name="ImpB GAP" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Dissociation of ImpB--RanGTP by RanGAP into ImpB, RanGDP and Pi</body>
+        </notes>
+      </parameter>
+      <parameter id="mw56a464ef_b7b4_4525_a6e1_12bef89b6981" name="Nuc RanGDP to RanGTP conversion" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false"/>
+      <parameter id="mw0e97d6be_0dbf_4403_b95e_30177614b496" name="F RanGTP--RanBP1" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Rate of formation of the complex</body>
+        </notes>
+      </parameter>
+      <parameter id="mw43af9cd3_2641_464b_a678_e5298927148c" name="Cargo knock-off nuc" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Flux of ImpB--Cargo + RanGTP &lt;=&gt; ImpB--RanGTP + Cargo (all nuc)</body>
+        </notes>
+      </parameter>
+      <parameter id="mw183a8533_c68b_4244_a9a9_7cbea6f33b62" name="k_knockoff" value="0.02" units="MWDERIVEDUNIT_1__micromolarity__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Estimate from Table II of RM 2005</body>
+        </notes>
+      </parameter>
+      <parameter id="mw43af9cd3_2641_464b_a678_e5298927148c" name="Cargo knock-off cyto" value="0" units="MWDERIVEDUNIT_micromolarity__second" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Flux of ImpB--Cargo + RanGTP &lt;=&gt; ImpB--RanGTP + Cargo (all CYTO)</body>
+        </notes>
+      </parameter>
+      <parameter id="mw38ad8b7f_4d78_4be9_b9aa_1f6340ebd45a" name="Free cargo Ratio" value="NaN" units="dimensionless" constant="false"/>
+    </listOfParameters>
+    <listOfRules>
+      <assignmentRule variable="mwd1acaf46_a012_4a6c_998b_550c850563fb">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> mw26ba61f3_bdd3_41a1_8095_832c52b0614e </ci>
+            <apply>
+              <minus/>
+              <ci> mwb5c2ab87_fecc_4aaf_b04e_c5dae1c8e709 </ci>
+              <ci> mwc41fae69_ff4f_4560_8210_1ecdd0352fa4 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw0a148ad3_6fce_4b7f_b1f4_8ad7968f42b0">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> mw194be5a1_9bb8_437f_bfb3_bc84ac5676df </ci>
+            <apply>
+              <minus/>
+              <ci> mw40da62bf_cb07_464b_a503_cc76df679e23 </ci>
+              <ci> mw830d4310_644f_4881_8451_97652264072f </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <rateRule variable="mw830d4310_644f_4881_8451_97652264072f">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <ci> mw0a148ad3_6fce_4b7f_b1f4_8ad7968f42b0 </ci>
+              <apply>
+                <divide/>
+                <ci> mwab02afa7_6cf9_4efa_970c_af274df81375 </ci>
+                <ci> mw11052a34_9383_483d_ad17_b446ee8a44a2 </ci>
+              </apply>
+            </apply>
+            <ci> mwa2200908_760e_4285_9337_757026bb1a3a </ci>
+            <ci> mw9f492fe2_68a5_493b_a279_9136b0455027 </ci>
+            <apply>
+              <times/>
+              <ci> mw6b56a58c_5471_4376_a809_ec41f93dffa0 </ci>
+              <apply>
+                <divide/>
+                <ci> mwab02afa7_6cf9_4efa_970c_af274df81375 </ci>
+                <ci> mw11052a34_9383_483d_ad17_b446ee8a44a2 </ci>
+              </apply>
+            </apply>
+            <ci> mw0f021b4c_c036_484c_8bea_896790995193 </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mwc41fae69_ff4f_4560_8210_1ecdd0352fa4">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <apply>
+                  <minus/>
+                  <apply>
+                    <times/>
+                    <ci> mwd1acaf46_a012_4a6c_998b_550c850563fb </ci>
+                    <apply>
+                      <divide/>
+                      <ci> mwab02afa7_6cf9_4efa_970c_af274df81375 </ci>
+                      <ci> mw11052a34_9383_483d_ad17_b446ee8a44a2 </ci>
+                    </apply>
+                  </apply>
+                  <ci> mwa2200908_760e_4285_9337_757026bb1a3a </ci>
+                </apply>
+                <ci> mw0e97d6be_0dbf_4403_b95e_30177614b496 </ci>
+              </apply>
+              <ci> mw0f021b4c_c036_484c_8bea_896790995193 </ci>
+            </apply>
+            <ci> mw43af9cd3_2641_464b_a678_e5298927148c </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mwbee6269e_9dbf_46a1_a309_ad219a593c98">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <minus/>
+              <ci> mw9f492fe2_68a5_493b_a279_9136b0455027 </ci>
+            </apply>
+            <ci> mw0e97d6be_0dbf_4403_b95e_30177614b496 </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mw40da62bf_cb07_464b_a503_cc76df679e23">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <ci> mw0a148ad3_6fce_4b7f_b1f4_8ad7968f42b0 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mw715ef881_0ff5_4eeb_963a_f9fa804b1462 </ci>
+                <ci> mwf4774d64_05e9_4159_823c_506e4e03cb65 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <times/>
+              <ci> mw741daccb_101e_45e7_a4b7_779fcf3b7dc6 </ci>
+              <ci> mwbe3a0c3c_ef34_4b48_bb83_4156f4126e6c </ci>
+              <ci> mw40da62bf_cb07_464b_a503_cc76df679e23 </ci>
+            </apply>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mwb5c2ab87_fecc_4aaf_b04e_c5dae1c8e709">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <minus/>
+                    <apply>
+                      <minus/>
+                      <ci> mwd1acaf46_a012_4a6c_998b_550c850563fb </ci>
+                    </apply>
+                    <ci> mw6b56a58c_5471_4376_a809_ec41f93dffa0 </ci>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <ci> mw9179f589_9bd3_462d_892d_1075c2f83b21 </ci>
+                    <ci> mw87eba706_76ce_454f_b888_a231d0a28fb2 </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> mwe81a2fe7_87b4_48ff_bec5_78883204d786 </ci>
+                  <ci> mwbe3a0c3c_ef34_4b48_bb83_4156f4126e6c </ci>
+                  <ci> mwb5c2ab87_fecc_4aaf_b04e_c5dae1c8e709 </ci>
+                </apply>
+              </apply>
+              <ci> mw458b1855_54f7_4304_a380_7e72c0eb4f6e </ci>
+            </apply>
+            <ci> mw43af9cd3_2641_464b_a678_e5298927148c </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mw87eba706_76ce_454f_b888_a231d0a28fb2">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <plus/>
+              <apply>
+                <times/>
+                <ci> mwe81a2fe7_87b4_48ff_bec5_78883204d786 </ci>
+                <ci> mwbe3a0c3c_ef34_4b48_bb83_4156f4126e6c </ci>
+                <ci> mwb5c2ab87_fecc_4aaf_b04e_c5dae1c8e709 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mw3f9b4baa_d8a3_4677_a1aa_aea0de1069af </ci>
+                <ci> mwe02fcaa6_7922_496e_bd06_1b2afdcb3ddd </ci>
+                <ci> mw75096326_bcce_4d69_bf4e_33bc7f2d3666 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <times/>
+              <apply>
+                <plus/>
+                <ci> mw9179f589_9bd3_462d_892d_1075c2f83b21 </ci>
+                <ci> mwf3dde963_383c_46b8_8fea_2d046df1946f </ci>
+              </apply>
+              <ci> mw87eba706_76ce_454f_b888_a231d0a28fb2 </ci>
+            </apply>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mw75096326_bcce_4d69_bf4e_33bc7f2d3666">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <plus/>
+              <apply>
+                <times/>
+                <ci> mwf3dde963_383c_46b8_8fea_2d046df1946f </ci>
+                <ci> mw87eba706_76ce_454f_b888_a231d0a28fb2 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mwbbe440b1_336d_4d58_aac3_4bdd2858ab2a </ci>
+                <ci> mwf4774d64_05e9_4159_823c_506e4e03cb65 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <times/>
+              <apply>
+                <plus/>
+                <apply>
+                  <times/>
+                  <ci> mw3f9b4baa_d8a3_4677_a1aa_aea0de1069af </ci>
+                  <ci> mwe02fcaa6_7922_496e_bd06_1b2afdcb3ddd </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> mw171e4677_844d_44eb_86ac_2da9427ceea4 </ci>
+                  <ci> mwa8318bc8_3ea3_4ad4_bd2d_fcd77758d65b </ci>
+                </apply>
+              </apply>
+              <ci> mw75096326_bcce_4d69_bf4e_33bc7f2d3666 </ci>
+            </apply>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mwf4774d64_05e9_4159_823c_506e4e03cb65">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <plus/>
+              <apply>
+                <times/>
+                <ci> mw171e4677_844d_44eb_86ac_2da9427ceea4 </ci>
+                <ci> mwa8318bc8_3ea3_4ad4_bd2d_fcd77758d65b </ci>
+                <ci> mw75096326_bcce_4d69_bf4e_33bc7f2d3666 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mw741daccb_101e_45e7_a4b7_779fcf3b7dc6 </ci>
+                <ci> mwbe3a0c3c_ef34_4b48_bb83_4156f4126e6c </ci>
+                <ci> mw40da62bf_cb07_464b_a503_cc76df679e23 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <times/>
+              <apply>
+                <plus/>
+                <ci> mwbbe440b1_336d_4d58_aac3_4bdd2858ab2a </ci>
+                <ci> mw715ef881_0ff5_4eeb_963a_f9fa804b1462 </ci>
+              </apply>
+              <ci> mwf4774d64_05e9_4159_823c_506e4e03cb65 </ci>
+            </apply>
+          </apply>
+        </math>
+      </rateRule>
+      <assignmentRule variable="mwbe3a0c3c_ef34_4b48_bb83_4156f4126e6c">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> mw59e00bb5_d280_43c8_b228_6b6de3934c4b </ci>
+            <apply>
+              <plus/>
+              <ci> mw87eba706_76ce_454f_b888_a231d0a28fb2 </ci>
+              <ci> mw75096326_bcce_4d69_bf4e_33bc7f2d3666 </ci>
+              <ci> mwf4774d64_05e9_4159_823c_506e4e03cb65 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw2f8f7ca1_44d5_47e4_99b3_8b7fe53a29b9">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> mw5fe1b8d5_be0c_43af_bb4b_b5d3c429cff8 </ci>
+            <ci> mwbee6269e_9dbf_46a1_a309_ad219a593c98 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mwa2200908_760e_4285_9337_757026bb1a3a">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> mwe373f857_c303_4110_9b9f_b651a09d3325 </ci>
+              <ci> mw2adac4fe_05ac_41d8_8e11_68d1039138e9 </ci>
+              <ci> mwc41fae69_ff4f_4560_8210_1ecdd0352fa4 </ci>
+            </apply>
+            <apply>
+              <plus/>
+              <ci> mwc41fae69_ff4f_4560_8210_1ecdd0352fa4 </ci>
+              <ci> mw3900f51d_9c38_404d_89ea_8bac2639071e </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw9f492fe2_68a5_493b_a279_9136b0455027">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> mwf21c56b4_042c_45c0_b5f1_4a845617c2c5 </ci>
+              <ci> mw2adac4fe_05ac_41d8_8e11_68d1039138e9 </ci>
+              <ci> mwbee6269e_9dbf_46a1_a309_ad219a593c98 </ci>
+            </apply>
+            <apply>
+              <plus/>
+              <ci> mwbee6269e_9dbf_46a1_a309_ad219a593c98 </ci>
+              <ci> mw62171e3f_c9a6_4a6c_bd7e_ff78c2926aa4 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mwd585fdf9_1f33_4a19_a275_be41a57c2aa9">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> mwc41fae69_ff4f_4560_8210_1ecdd0352fa4 </ci>
+            <ci> mwbee6269e_9dbf_46a1_a309_ad219a593c98 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw42b3a654_3c83_4322_90e0_4714c74f61f8">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <plus/>
+              <ci> mw1ac96866_080f_4930_a4d2_22b39c79232a </ci>
+              <ci> mwb5c2ab87_fecc_4aaf_b04e_c5dae1c8e709 </ci>
+            </apply>
+            <apply>
+              <plus/>
+              <ci> mw1ac96866_080f_4930_a4d2_22b39c79232a </ci>
+              <ci> mwd585fdf9_1f33_4a19_a275_be41a57c2aa9 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw0f021b4c_c036_484c_8bea_896790995193">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Dissociation of ImpB--RanGTP</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <ci> mw2da4eb4b_590b_4020_a307_4c405fcdd16d </ci>
+              </apply>
+              <ci> mw353ac01d_f0c2_44b6_9f48_bac2ad874365 </ci>
+              <ci> mwc41fae69_ff4f_4560_8210_1ecdd0352fa4 </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> mw296c1799_69fe_4100_be6c_fe4dd86644c4 </ci>
+              <ci> mwb7f12522_677f_40f0_89b5_df07dbaf0a3b </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <rateRule variable="mwb7f12522_677f_40f0_89b5_df07dbaf0a3b">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <minus/>
+              <apply>
+                <plus/>
+                <apply>
+                  <minus/>
+                  <ci> mw0f021b4c_c036_484c_8bea_896790995193 </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> mw85706bea_6a7a_41e9_ba87_779d7449cb4e </ci>
+                  <apply>
+                    <divide/>
+                    <ci> mwab02afa7_6cf9_4efa_970c_af274df81375 </ci>
+                    <ci> mw11052a34_9383_483d_ad17_b446ee8a44a2 </ci>
+                  </apply>
+                </apply>
+              </apply>
+              <ci> mw0f021b4c_c036_484c_8bea_896790995193 </ci>
+            </apply>
+            <ci> mw43af9cd3_2641_464b_a678_e5298927148c </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <assignmentRule variable="mwb7e50c5d_4b4f_4c99_89a7_5886dda36005">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Dissociation of ImpB--Cargo</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <ci> mw5564afb9_9cd9_4ba9_9a5d_329b9be6b5f2 </ci>
+              </apply>
+              <ci> mw353ac01d_f0c2_44b6_9f48_bac2ad874365 </ci>
+              <ci> mw92b07167_5c5d_4bcb_8be1_918441907975 </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> mw0aeee9e8_5ef7_41ed_bc4c_29456a78b890 </ci>
+              <ci> mwe870a78f_f0c4_40fc_bc6e_98fb7a115efa </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <rateRule variable="mw92b07167_5c5d_4bcb_8be1_918441907975">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">This is a troublemaker.
+Requires high tolerance to resolve the equation loop when cytoplasmic cargo is large.
+
+</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> mwb7e50c5d_4b4f_4c99_89a7_5886dda36005 </ci>
+            <apply>
+              <times/>
+              <ci> mw996696cf_8a82_4be6_9e08_14dac3d76792 </ci>
+              <apply>
+                <divide/>
+                <ci> mwab02afa7_6cf9_4efa_970c_af274df81375 </ci>
+                <ci> mw11052a34_9383_483d_ad17_b446ee8a44a2 </ci>
+              </apply>
+            </apply>
+            <ci> mw43af9cd3_2641_464b_a678_e5298927148c </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mw353ac01d_f0c2_44b6_9f48_bac2ad874365">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> mw0f021b4c_c036_484c_8bea_896790995193 </ci>
+            <ci> mwb7e50c5d_4b4f_4c99_89a7_5886dda36005 </ci>
+            <apply>
+              <times/>
+              <ci> mw0c032ae3_41e5_4a7c_b3d7_075d746166e5 </ci>
+              <apply>
+                <divide/>
+                <ci> mwab02afa7_6cf9_4efa_970c_af274df81375 </ci>
+                <ci> mw11052a34_9383_483d_ad17_b446ee8a44a2 </ci>
+              </apply>
+            </apply>
+            <ci> mw0f021b4c_c036_484c_8bea_896790995193 </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mwe870a78f_f0c4_40fc_bc6e_98fb7a115efa">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <ci> mwb7e50c5d_4b4f_4c99_89a7_5886dda36005 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mw96dec458_76e6_44b7_bfaf_0a2433bf3f8e </ci>
+                <apply>
+                  <divide/>
+                  <ci> mwab02afa7_6cf9_4efa_970c_af274df81375 </ci>
+                  <ci> mw11052a34_9383_483d_ad17_b446ee8a44a2 </ci>
+                </apply>
+              </apply>
+            </apply>
+            <ci> mw43af9cd3_2641_464b_a678_e5298927148c </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <assignmentRule variable="mw458b1855_54f7_4304_a380_7e72c0eb4f6e">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Dissociation of ImpB--RanGTP</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <ci> mw2da4eb4b_590b_4020_a307_4c405fcdd16d </ci>
+              </apply>
+              <ci> mw4402da2f_ac36_40bb_a7e0_63656483a4dc </ci>
+              <ci> mwb5c2ab87_fecc_4aaf_b04e_c5dae1c8e709 </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> mw296c1799_69fe_4100_be6c_fe4dd86644c4 </ci>
+              <ci> mweb37980a_9dfc_44ea_897d_521db1555e6e </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mwb420e6a9_4966_418f_b4b4_f09e71b737f0">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Dissociation of ImpB--Cargo</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <ci> mw5564afb9_9cd9_4ba9_9a5d_329b9be6b5f2 </ci>
+              </apply>
+              <ci> mw4402da2f_ac36_40bb_a7e0_63656483a4dc </ci>
+              <ci> mwddefa01b_6865_4fb6_8ff5_de919d83cfa1 </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> mw0aeee9e8_5ef7_41ed_bc4c_29456a78b890 </ci>
+              <ci> mw9be54c75_1a9e_4449_b603_23d645a10df3 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <rateRule variable="mweb37980a_9dfc_44ea_897d_521db1555e6e">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <minus/>
+              <apply>
+                <minus/>
+                <ci> mw458b1855_54f7_4304_a380_7e72c0eb4f6e </ci>
+              </apply>
+              <ci> mw85706bea_6a7a_41e9_ba87_779d7449cb4e </ci>
+            </apply>
+            <ci> mw43af9cd3_2641_464b_a678_e5298927148c </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mw4402da2f_ac36_40bb_a7e0_63656483a4dc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <plus/>
+              <ci> mw458b1855_54f7_4304_a380_7e72c0eb4f6e </ci>
+              <ci> mwb420e6a9_4966_418f_b4b4_f09e71b737f0 </ci>
+            </apply>
+            <ci> mw0c032ae3_41e5_4a7c_b3d7_075d746166e5 </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mw9be54c75_1a9e_4449_b603_23d645a10df3">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <minus/>
+              <apply>
+                <minus/>
+                <ci> mwb420e6a9_4966_418f_b4b4_f09e71b737f0 </ci>
+              </apply>
+              <ci> mw96dec458_76e6_44b7_bfaf_0a2433bf3f8e </ci>
+            </apply>
+            <ci> mw43af9cd3_2641_464b_a678_e5298927148c </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <rateRule variable="mwddefa01b_6865_4fb6_8ff5_de919d83cfa1">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <minus/>
+              <apply>
+                <minus/>
+                <ci> mwb420e6a9_4966_418f_b4b4_f09e71b737f0 </ci>
+                <ci> mw996696cf_8a82_4be6_9e08_14dac3d76792 </ci>
+              </apply>
+              <ci> mw1565749e_b4bb_4290_b19d_0457e3d6b9f7 </ci>
+            </apply>
+            <ci> mw43af9cd3_2641_464b_a678_e5298927148c </ci>
+          </apply>
+        </math>
+      </rateRule>
+      <assignmentRule variable="mw85706bea_6a7a_41e9_ba87_779d7449cb4e">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">RM 2005
+Table III
+0.07 1/s
+</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> mw4a870c9d_0b5b_42b3_bcc1_f47ed059459d </ci>
+            <apply>
+              <minus/>
+              <ci> mweb37980a_9dfc_44ea_897d_521db1555e6e </ci>
+              <ci> mwb7f12522_677f_40f0_89b5_df07dbaf0a3b </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw0c032ae3_41e5_4a7c_b3d7_075d746166e5">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">RM 2005
+Table III
+0.4 1/s
+</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> mw1a2d777d_768d_4fda_bdfc_2fd05a9aeca6 </ci>
+            <apply>
+              <minus/>
+              <ci> mw4402da2f_ac36_40bb_a7e0_63656483a4dc </ci>
+              <ci> mw353ac01d_f0c2_44b6_9f48_bac2ad874365 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw96dec458_76e6_44b7_bfaf_0a2433bf3f8e">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">RM 2005
+Table III
+0.25 1/s
+</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> mwc21b28e6_f093_4769_9e58_9868b309d9db </ci>
+            <apply>
+              <minus/>
+              <ci> mw9be54c75_1a9e_4449_b603_23d645a10df3 </ci>
+              <ci> mwe870a78f_f0c4_40fc_bc6e_98fb7a115efa </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw996696cf_8a82_4be6_9e08_14dac3d76792">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">A guess
+
+Cf. GGNLS in 
+RM 2005
+Table III
+0.5e-3 1/s
+</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> mw9219c218_205f_46a6_9ef9_dbee3b98921a </ci>
+            <apply>
+              <minus/>
+              <ci> mwddefa01b_6865_4fb6_8ff5_de919d83cfa1 </ci>
+              <ci> mw92b07167_5c5d_4bcb_8be1_918441907975 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw02d0948b_bbed_4009_b7b2_2335ab2e9f4c">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> mw353ac01d_f0c2_44b6_9f48_bac2ad874365 </ci>
+            <ci> mwb7f12522_677f_40f0_89b5_df07dbaf0a3b </ci>
+            <ci> mwe870a78f_f0c4_40fc_bc6e_98fb7a115efa </ci>
+            <ci> mwa4756623_1051_483b_9f1b_34968d085f68 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw02d0948b_bbed_4009_b7b2_2335ab2e9f4c">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> mw4402da2f_ac36_40bb_a7e0_63656483a4dc </ci>
+            <ci> mweb37980a_9dfc_44ea_897d_521db1555e6e </ci>
+            <ci> mw9be54c75_1a9e_4449_b603_23d645a10df3 </ci>
+            <ci> mw0322660b_32fd_4d8f_be96_0180895da757 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw66625936_7239_41cf_acb3_90d032868ccc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> mw92b07167_5c5d_4bcb_8be1_918441907975 </ci>
+            <ci> mwe870a78f_f0c4_40fc_bc6e_98fb7a115efa </ci>
+            <ci> mwa4756623_1051_483b_9f1b_34968d085f68 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw66625936_7239_41cf_acb3_90d032868ccc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> mwddefa01b_6865_4fb6_8ff5_de919d83cfa1 </ci>
+            <ci> mw9be54c75_1a9e_4449_b603_23d645a10df3 </ci>
+            <ci> mw0322660b_32fd_4d8f_be96_0180895da757 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw0f021b4c_c036_484c_8bea_896790995193">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Dissociation of ImpB--RanGTP by RanGAP</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <times/>
+              <ci> mwe373f857_c303_4110_9b9f_b651a09d3325 </ci>
+              <ci> mw2adac4fe_05ac_41d8_8e11_68d1039138e9 </ci>
+              <ci> mwb7f12522_677f_40f0_89b5_df07dbaf0a3b </ci>
+            </apply>
+            <apply>
+              <plus/>
+              <ci> mwb7f12522_677f_40f0_89b5_df07dbaf0a3b </ci>
+              <ci> mw3900f51d_9c38_404d_89ea_8bac2639071e </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw56a464ef_b7b4_4525_a6e1_12bef89b6981">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">1/2 of (outgoing on one end + incoming on the other)</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <cn> 0.5 </cn>
+            <apply>
+              <plus/>
+              <apply>
+                <minus/>
+                <apply>
+                  <minus/>
+                  <apply>
+                    <times/>
+                    <ci> mw715ef881_0ff5_4eeb_963a_f9fa804b1462 </ci>
+                    <ci> mwf4774d64_05e9_4159_823c_506e4e03cb65 </ci>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <ci> mw741daccb_101e_45e7_a4b7_779fcf3b7dc6 </ci>
+                    <ci> mwbe3a0c3c_ef34_4b48_bb83_4156f4126e6c </ci>
+                    <ci> mw40da62bf_cb07_464b_a503_cc76df679e23 </ci>
+                  </apply>
+                </apply>
+              </apply>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> mw9179f589_9bd3_462d_892d_1075c2f83b21 </ci>
+                  <ci> mw87eba706_76ce_454f_b888_a231d0a28fb2 </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> mwe81a2fe7_87b4_48ff_bec5_78883204d786 </ci>
+                  <ci> mwbe3a0c3c_ef34_4b48_bb83_4156f4126e6c </ci>
+                  <ci> mwb5c2ab87_fecc_4aaf_b04e_c5dae1c8e709 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw0e97d6be_0dbf_4403_b95e_30177614b496">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <ci> mw879db5a4_e4a2_473a_8fe6_49c2b2efbb63 </ci>
+              <ci> mw2f8f7ca1_44d5_47e4_99b3_8b7fe53a29b9 </ci>
+              <ci> mwc41fae69_ff4f_4560_8210_1ecdd0352fa4 </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> mwa19aba62_7bc2_4d7b_b5fc_0b62ec6aaefa </ci>
+              <ci> mwbee6269e_9dbf_46a1_a309_ad219a593c98 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw43af9cd3_2641_464b_a678_e5298927148c">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Using the estimate from Table II of RM 2005
+</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> mw183a8533_c68b_4244_a9a9_7cbea6f33b62 </ci>
+            <ci> mw9be54c75_1a9e_4449_b603_23d645a10df3 </ci>
+            <ci> mwb5c2ab87_fecc_4aaf_b04e_c5dae1c8e709 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw43af9cd3_2641_464b_a678_e5298927148c">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Using the estimate from Table II of RM 2005
+</body>
+        </notes>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> mw183a8533_c68b_4244_a9a9_7cbea6f33b62 </ci>
+            <ci> mwe870a78f_f0c4_40fc_bc6e_98fb7a115efa </ci>
+            <ci> mwc41fae69_ff4f_4560_8210_1ecdd0352fa4 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="mw38ad8b7f_4d78_4be9_b9aa_1f6340ebd45a">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> mwddefa01b_6865_4fb6_8ff5_de919d83cfa1 </ci>
+            <ci> mw92b07167_5c5d_4bcb_8be1_918441907975 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+    </listOfRules>
+  </model>
+</sbml>
