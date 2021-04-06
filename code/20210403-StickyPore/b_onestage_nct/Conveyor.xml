@@ -190,7 +190,7 @@
       <parameter id="mw5e7dd13d_089f_473d_a5ce_30c0d35301a9" name="knockoff" value="0.02" units="MWDERIVEDUNIT_1__micromolarity__second" constant="true"/>
       <parameter id="mwcb586bf2_ae61_4f75_80e3_f5e202e69ef0" name="V_GAP" value="7" units="MWDERIVEDUNIT_micromolarity__second" constant="true"/>
       <parameter id="mwfe3aaedf_73d7_4891_996a_e03651be3dd2" name="K_M_14" value="0.1" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true"/>
-      <parameter id="mw13e62d7d_2f48_45c2_bdb1_479415c6d0fb" name="k_perm(c)" value="0.001" units="MWDERIVEDUNIT_1__second" constant="true"/>
+      <parameter id="mw13e62d7d_2f48_45c2_bdb1_479415c6d0fb" name="k_perm(c)" value="1" units="MWDERIVEDUNIT_1__second" constant="true"/>
       <parameter id="mwf12edae4_cb37_4789_9052_7dbf267bddea" name="k_perm(n)" value="1" units="MWDERIVEDUNIT_1__second" constant="true"/>
     </listOfParameters>
     <listOfReactions>

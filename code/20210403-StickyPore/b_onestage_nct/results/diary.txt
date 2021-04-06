@@ -14,7 +14,7 @@ Total ImpB ratio = 1 dimensionless
 Total ImpB in envelope = 76.3037 micromolarity
  
 NPC count = 0.001 picoliter x 1000 micromolarity
-Cargo ratio = 12.7615 dimensionless
-Total ImpB ratio = 0.91509 dimensionless
-Total ImpB in envelope = 971.0734 micromolarity
+Cargo ratio = 12.7623 dimensionless
+Total ImpB ratio = 0.94215 dimensionless
+Total ImpB in envelope = 971.1618 micromolarity
  
