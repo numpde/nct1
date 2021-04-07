@@ -44,7 +44,7 @@ with Plox(style) as px:
     px.a.set_xscale('log')
     px.a.set_xlabel("Time, s")
     px.a.set_ylabel("Concentration, $\mu$M")
-    px.a.set_yticks([0, 1, 2])
+    px.a.set_yticks(range[0, int(np.floor(max(px.a.get_ylim())))])
     px.a.grid(zorder=-10)
     px.a.legend(loc='upper left')
 
