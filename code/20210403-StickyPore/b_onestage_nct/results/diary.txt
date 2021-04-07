@@ -1,20 +1,24 @@
 NPC count = 1 picoliter x 1 micromolarity
-Cargo ratio = 12.7582 dimensionless
+Total cargo ratio = 7.3723 dimensionless
+Free cargo ratio = 81.9048 dimensionless
 Total ImpB ratio = 1 dimensionless
-Total ImpB in envelope = 0.63422 micromolarity
+Total ImpB in envelope = 0.63404 micromolarity
  
 NPC count = 0.1 picoliter x 10 micromolarity
-Cargo ratio = 12.7603 dimensionless
+Total cargo ratio = 6.3064 dimensionless
+Free cargo ratio = 81.9646 dimensionless
 Total ImpB ratio = 1 dimensionless
-Total ImpB in envelope = 7.1166 micromolarity
+Total ImpB in envelope = 7.1144 micromolarity
  
 NPC count = 0.01 picoliter x 100 micromolarity
-Cargo ratio = 12.761 dimensionless
+Total cargo ratio = 6.1996 dimensionless
+Free cargo ratio = 81.9709 dimensionless
 Total ImpB ratio = 1 dimensionless
-Total ImpB in envelope = 76.3037 micromolarity
+Total ImpB in envelope = 72.082 micromolarity
  
 NPC count = 0.001 picoliter x 1000 micromolarity
-Cargo ratio = 12.7623 dimensionless
-Total ImpB ratio = 0.94215 dimensionless
-Total ImpB in envelope = 971.1618 micromolarity
+Total cargo ratio = 8.5737 dimensionless
+Free cargo ratio = 82.0072 dimensionless
+Total ImpB ratio = 0.99924 dimensionless
+Total ImpB in envelope = 908.1 micromolarity
  

@@ -146,7 +146,7 @@
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw20cf422a_5cae_473d_af55_bcc663a18e52" name="RanGTP(n)" compartment="mw27c78ec3_2b0c_4451_b120_676e797068e0" initialConcentration="1e-11" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw20cf422a_5cae_473d_af55_bcc663a18e52" name="RanGTP(n)" compartment="mw27c78ec3_2b0c_4451_b120_676e797068e0" initialConcentration="3e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
@@ -174,7 +174,7 @@
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw0ce4b066_cdc6_4056_bae8_4b3e669b9be5" name="RanGDP(c)" compartment="mw27c78ec3_2b0c_4451_b120_676e797068e0" initialConcentration="1e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="true">
+      <species id="mw0ce4b066_cdc6_4056_bae8_4b3e669b9be5" name="RanGDP(c)" compartment="mw27c78ec3_2b0c_4451_b120_676e797068e0" initialConcentration="2e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="true">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
@@ -185,13 +185,33 @@
     <listOfParameters>
       <parameter id="mw1cff5d3f_ca36_49fb_9e16_c1f748785872" name="k_on" value="0.001" units="MWDERIVEDUNIT_1__micromolarity__second" constant="true"/>
       <parameter id="mw8de6455e_0bd7_4c6e_bba1_972ff25f0618" name="k_off" value="0.0001" units="MWDERIVEDUNIT_1__second" constant="true"/>
-      <parameter id="mw3162666b_270d_42c3_bef7_88c17199ade4" name="k_C1_on" value="0.49" units="MWDERIVEDUNIT_1__micromolarity__second" constant="true"/>
-      <parameter id="mwb1bd1469_23f7_4deb_b89c_c01b9a46b2c5" name="k_C1_off" value="0.017" units="MWDERIVEDUNIT_1__second" constant="true"/>
+      <parameter id="mw3162666b_270d_42c3_bef7_88c17199ade4" name="k_C_on" value="0.11" units="MWDERIVEDUNIT_1__micromolarity__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Catimel et al 2001, Table I, k_a1 = 0.11e6 / Ms</body>
+        </notes>
+      </parameter>
+      <parameter id="mwb1bd1469_23f7_4deb_b89c_c01b9a46b2c5" name="k_C_off" value="0.00074" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Catimel et al 2001, Table I, k_d1</body>
+        </notes>
+      </parameter>
       <parameter id="mw5e7dd13d_089f_473d_a5ce_30c0d35301a9" name="knockoff" value="0.02" units="MWDERIVEDUNIT_1__micromolarity__second" constant="true"/>
       <parameter id="mwcb586bf2_ae61_4f75_80e3_f5e202e69ef0" name="V_GAP" value="7" units="MWDERIVEDUNIT_micromolarity__second" constant="true"/>
       <parameter id="mwfe3aaedf_73d7_4891_996a_e03651be3dd2" name="K_M_14" value="0.1" units="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" constant="true"/>
       <parameter id="mw13e62d7d_2f48_45c2_bdb1_479415c6d0fb" name="k_perm(c)" value="1" units="MWDERIVEDUNIT_1__second" constant="true"/>
       <parameter id="mwf12edae4_cb37_4789_9052_7dbf267bddea" name="k_perm(n)" value="1" units="MWDERIVEDUNIT_1__second" constant="true"/>
+      <parameter id="mw7ccfce89_f7f4_4e8c_a200_a651f7e74ebb" name="kf" value="1" constant="true"/>
+      <parameter id="mw5846ef05_3a36_4211_b211_e451a1b6ebad" name="kr" value="1" constant="true"/>
+      <parameter id="mw6057076e_5af0_48d9_b2bd_a791912dfa79" name="k_a2" value="0.024" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Catimel et al 2001, Table I</body>
+        </notes>
+      </parameter>
+      <parameter id="mw23cb3119_b38d_487a_a46f_8017037f668c" name="k_d2" value="0.00074" units="MWDERIVEDUNIT_1__second" constant="true">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">Catimel et al 2001, Table I</body>
+        </notes>
+      </parameter>
     </listOfParameters>
     <listOfReactions>
       <reaction id="mwd17ba71b_71ee_434f_8606_dff6d895d66f" name="ImpB + NPC (n)" reversible="true">
@@ -630,6 +650,13 @@ K_M_14 is from GSR Eq.14</body>
                 <ci> mw55e64a8a_67f3_47c7_9679_431a4d298e4d </ci>
               </apply>
             </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="mw9f5306ac_abd0_4dbc_b36e_fbaac106340b" name="Reaction_1" reversible="false">
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> mw7ccfce89_f7f4_4e8c_a200_a651f7e74ebb </ci>
           </math>
         </kineticLaw>
       </reaction>
