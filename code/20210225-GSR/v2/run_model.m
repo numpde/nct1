@@ -1,6 +1,6 @@
 % RA, 2021-04-01
 
-function scenarios
+function run_model
 	close all;
 	
 	function [project_file] = load_model()
