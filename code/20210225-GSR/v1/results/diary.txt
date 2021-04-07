@@ -1,0 +1,64 @@
+Standard conditions
+Nuclear RanGTP     (uM): 4.2666
+Cytoplasmic RanGTP (nM): 7.7453
+Dynamic capacity (uM/s): 0.59111
+Omission of RanBP1
+Nuclear RanGTP     (uM): 4.2664
+Cytoplasmic RanGTP (nM): 8.1278
+Dynamic capacity (uM/s): 0.58637
+200% RCC1
+Nuclear RanGTP     (uM): 3.9546
+Cytoplasmic RanGTP (nM): 7.1734
+Dynamic capacity (uM/s): 0.59132
+50% RCC1
+Nuclear RanGTP     (uM): 4.3096
+Cytoplasmic RanGTP (nM): 7.8241
+Dynamic capacity (uM/s): 0.57846
+10% RCC1
+Nuclear RanGTP     (uM): 3.5877
+Cytoplasmic RanGTP (nM): 6.5021
+Dynamic capacity (uM/s): 0.46167
+1% RCC1
+Nuclear RanGTP     (uM): 1.3974
+Cytoplasmic RanGTP (nM): 2.5192
+Dynamic capacity (uM/s): 0.067572
+GTP:GDP = 500:0
+Nuclear RanGTP     (uM): 4.7969
+Cytoplasmic RanGTP (nM): 8.7191
+Dynamic capacity (uM/s): 0.59109
+GTP:GDP = 500:50
+Nuclear RanGTP     (uM): 0.97907
+Cytoplasmic RanGTP (nM): 1.7632
+Dynamic capacity (uM/s): 0.56556
+GTP:GDP = 500:500
+Nuclear RanGTP     (uM): 0.11993
+Cytoplasmic RanGTP (nM): 0.21554
+Dynamic capacity (uM/s): 0.33986
+Saturating NTF2
+Nuclear RanGTP     (uM): 5.121
+Cytoplasmic RanGTP (nM): 9.3155
+Dynamic capacity (uM/s): 2.1808
+Omission of NTF2
+Nuclear RanGTP     (uM): 2.5472
+Cytoplasmic RanGTP (nM): 4.6048
+Dynamic capacity (uM/s): 0.14151
+200% RanGAP
+Nuclear RanGTP     (uM): 4.2691
+Cytoplasmic RanGTP (nM): 3.95
+Dynamic capacity (uM/s): 0.58992
+50% RanGAP
+Nuclear RanGTP     (uM): 4.262
+Cytoplasmic RanGTP (nM): 14.9017
+Dynamic capacity (uM/s): 0.58611
+50% permeability for RanGTP
+Nuclear RanGTP     (uM): 4.9074
+Cytoplasmic RanGTP (nM): 4.4387
+Dynamic capacity (uM/s): 0.58733
+200% permeability for RanGTP
+Nuclear RanGTP     (uM): 3.4069
+Cytoplasmic RanGTP (nM): 12.4231
+Dynamic capacity (uM/s): 0.58989
+400% permeability for RanGTP
+Nuclear RanGTP     (uM): 2.4557
+Cytoplasmic RanGTP (nM): 17.9742
+Dynamic capacity (uM/s): 0.58915

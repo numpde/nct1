@@ -1,7 +1,13 @@
 % RA, 2021-02-26
 
 function scenarios
+	[~, ~, ~] = mkdir("results");
+	delete("results/diary.txt");
+	diary("results/diary.txt");
+	diary on;
+	
 	close all;
+
 
 	m1 = sbioloadproject("GSR_v1.sbproj").m1;
 
@@ -252,4 +258,5 @@ function scenarios
 	
 	report(m1, responses);
 	
+	diary off;
 end
