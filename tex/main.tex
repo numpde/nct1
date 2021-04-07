@@ -219,6 +219,93 @@ Table~\ref{t:GSR-ImpB}.
 
 %
 
+SPR experiments of \cite{Catimel2001}
+indicated that
+the N-terminal IBB domain of importin-$\alpha$ 
+(\TODO{fused to ?})
+binds importin-$\beta$
+followed by a conformational change,
+\ce{A + B $\rightleftharpoons$ AB $\rightleftharpoons$ AB^*}.
+%
+%
+Thus, in our case we expect
+\[
+	\label{e:AB*}
+	%
+	\ce{
+		{Imp\beta} + {Cargo}
+		<=>[k_{a1}][k_{d1}]
+		Imp\beta . Cargo
+		<=>[k_{a2}][k_{d2}]
+		Imp$\beta$^* . Cargo
+	}
+	.
+\]
+%
+%
+Examples of the kinetic constants
+are available in \cite[Table~I]{Catimel2001},
+e.g.~%
+\[
+	\label{e:k-AB*}
+	%
+	k_{a1} = \SI{0.11}{\micro M^{-1} . s^{-1}},
+	\quad
+	k_{d1} = \SI{0.024}{s^{-1}},
+	\qquad
+	k_{a2} = \SI{0.024}{s^{-1}},
+	\quad
+	k_{d2} = \SI{7.4e-4}{s^{-1}},
+\]
+for \ce{Imp\beta} binding to the IBB domain (see \cite{Catimel2001}).
+%
+%
+The intermediate state in \eqref{e:AB*} is transient
+on a moderately relevant time-scale,
+see Fig.~\ref{f:AB*}.
+%
+Therefore,
+in the present model
+we ignore the second reaction
+and take
+$k_\text{on}^\text{C} := k_{a1}$ and 
+$k_\text{off}^\text{C} := \frac{k_{d1}}{k_{a2}} k_{d2}$
+as the effective kinetic constants 
+for \eqref{e:v2-C}, cf.~Table~\ref{t:GSR-ImpB-const}.
+%
+% LK: 
+%	          kd1 kd2
+%	KD = -----------------
+%	      (ka2 + kd2) ka1
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{20210407-Rearrangement/python/timecourse}
+\caption{%
+	Stand-alone
+	simulation of
+	\eqref{e:AB*}
+	starting with $\SI{3}{\micro M}$ \ce{Imp\beta}
+	and $\SI{1}{\micro M}$ \ce{Cargo}
+	with
+	the constants \eqref{e:k-AB*}.
+	%
+	The dashed counterpart
+	is the effective system 
+	of the form
+	$\ce{A} + \ce{B} \rightleftharpoons \ce{AB^*}$,
+	cf.~\S\ref{s:GSR03:Imp}.
+	%
+	Code: \href{https://github.com/numpde/nct1/tree/main/code/20210407-Rearrangement}{here}
+}
+\TODO{code ref}
+\label{f:AB*}
+\end{figure}
+
+
+
+%
+
 With the constants from Table~\ref{t:GSR-ImpB-const},
 the steady-state of the model
 (reached after some $10^4 \si{. s}$)
@@ -226,7 +313,9 @@ is reported in Fig.~\ref{f:GSR-v2}.
 %
 Nuclear
 accumulation of free cargo
-is over 20-fold.
+is
+\protect\input{../code/20210225-GSR/v2/python/b_graph1/report/free_cargo_ratio.tex}\unskip
+-fold.
 %
 %
 Sensitivity analysis shows
@@ -240,21 +329,13 @@ $k_\text{knockoff}$
 %
 Doubling $k_\text{knockoff}$ almost doubles 
 the nuclear concentration.
+
 %
 
 
 Code:
 \href{https://github.com/numpde/nct1/tree/2a2199d/code/20210225-GSR/v2}{2a2199d/code/20210225-GSR/v2}
 
-
-%
-
-\TODO{?
-\cite{Catimel2001} and \cite{RiddickMacara2005}
-discuss
-the reaction 
-\ce{Imp$\beta$ . Cargo <=> Imp$\beta$^* . Cargo}
-}
 
 
 
@@ -268,10 +349,9 @@ inside the NPCs
 as they bind to the FG-nups.
 %
 %
-They might potentially shuttle
+They might shuttle
 the cargo across the pore
-without leaving the pore themselves,
-like a conveyor belt.
+without leaving the pore themselves.
 %
 %
 To account for this
@@ -1294,12 +1374,12 @@ the additional nuclear-to-cytoplasmic diffusion fluxes
 	%
 	\eqref{e:v2-C}
 	&
-	$k_\text{on}^\text{C} = \SI{0.49}{\micro M^{-1} . s^{-1}}$,
+	$k_\text{on}^\text{C} = \SI{0.11}{\micro M^{-1} . s^{-1}}$,
 	\quad
-	$k_\text{off}^\text{C} = \SI{0.017}{s^{-1}}$
+	$k_\text{off}^\text{C} = \SI{7.4e-4}{s^{-1}}$
 	&
-	\cite[below Fig.~3]{Catimel2001},
-	\cite[Table II]{RiddickMacara2005}
+	\cite[Table~I]{Catimel2001},
+	\cite[Table~II]{RiddickMacara2005}
 	\\
 	\hline
 	%
@@ -1349,8 +1429,14 @@ the additional nuclear-to-cytoplasmic diffusion fluxes
 	of Table~\ref{t:GSR-ImpB-const}.
 	%
 	The free cargo
-	shows a 20-fold accumulation
-	in the nucleus.
+	shows 
+	\protect\input{../code/20210225-GSR/v2/python/b_graph1/report/free_cargo_ratio.tex}\unskip
+	-fold accumulation
+	in the nucleus;
+	total nuclear to total cytoplasmic cargo
+	is
+	\protect\input{../code/20210225-GSR/v2/python/b_graph1/report/nuc_to_cyto_cargo_ratio.tex}\unskip
+	-fold.
 	%
 	Units are \si{\micro M} for species
 	and \si{\micro M . s^{-1}} for fluxes.
