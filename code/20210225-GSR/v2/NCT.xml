@@ -565,7 +565,7 @@ Table II
 </body>
         </notes>
       </parameter>
-      <parameter id="mw0aeee9e8_5ef7_41ed_bc4c_29456a78b890" name="k_C1_off" value="0.017" units="MWDERIVEDUNIT_1__second" constant="true">
+      <parameter id="mw0aeee9e8_5ef7_41ed_bc4c_29456a78b890" name="k_C1_off" value="0.00074" units="MWDERIVEDUNIT_1__second" constant="true">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">RM 2005
 Table II
@@ -573,7 +573,7 @@ Table II
 </body>
         </notes>
       </parameter>
-      <parameter id="mw5564afb9_9cd9_4ba9_9a5d_329b9be6b5f2" name="k_C1_on" value="0.49" units="MWDERIVEDUNIT_1__micromolarity__second" constant="true">
+      <parameter id="mw5564afb9_9cd9_4ba9_9a5d_329b9be6b5f2" name="k_C1_on" value="0.11" units="MWDERIVEDUNIT_1__micromolarity__second" constant="true">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">RM 2005
 Table II
