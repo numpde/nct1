@@ -1,3 +1,7 @@
+[Warning: Unable to parse the right-hand side of a rate rule. It will not be written. The rule (in id-space) is: [Consumed nuclear cargo] = +[Nuclear free cargo consumption]] 
+[> In privatesbmlio
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sbmlexport', '/home/ra/Documents/20200916-MATLAB/R2021a/toolbox/simbio/simbio/sbmlexport.m', 86)" style="font-weight:bold">sbmlexport</a> (<a href="matlab: opentoline('/home/ra/Documents/20200916-MATLAB/R2021a/toolbox/simbio/simbio/sbmlexport.m',86,0)">line 86</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('scenarios', '/home/ra/repos/nct1/code/20210225-GSR/v1/scenarios.m', 14)" style="font-weight:bold">scenarios</a> (<a href="matlab: opentoline('/home/ra/repos/nct1/code/20210225-GSR/v1/scenarios.m',14,0)">line 14</a>)] 
 Standard conditions
 Nuclear RanGTP     (uM): 4.2666
 Cytoplasmic RanGTP (nM): 7.7453

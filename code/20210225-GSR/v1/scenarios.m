@@ -10,6 +10,8 @@ function scenarios
 
 
 	m1 = sbioloadproject("GSR_v1.sbproj").m1;
+	
+	sbmlexport(m1);
 
 	index_of = containers.Map();
 	for s = (1 : length(m1.Species))
