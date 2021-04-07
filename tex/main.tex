@@ -146,6 +146,9 @@ maxbibnames=100,
 \section{NCT models}
 
 Abbreviations:
+FG-nups = FG-nucleoporins;
+NCT = nucleocytoplasmic transport;
+NPC = nuclear pore complex;
 ODE = ordinary differential equations.
 
 \subsection{GSR'03 model of NCT} \label{s:GSR03}
@@ -167,28 +170,18 @@ Table~\ref{t:GSR-const}.
 The ``dynamic capacity'' \ce{Ex}
 is an optional maximal steady-state (positive) flux
 of nuclear \ce{Ran.GTP} to cytoplasmic \ce{Ran.GDP},
-which we determine using the additional equation
-\[
-	\label{e:Ex}
-	%
-	\ddt \ce{Ex}
-	=
-	k_{\ce{Ex}} \, [\ce{Ran . {GTP}}]_\text{nuc},
-	\quad
-	k_{\ce{Ex}} := \SI{10}{s^{-2}},
-	\TEXT{initial}
-	\ce{Ex} := \SI{0}{\micro M . s^{-1}}.
-\]
+which we determine using the additional equation \eqref{e:Ex}.
 %
 %
 The fluxes 
-are in units of concentration/time (\si{\micro M . s^{-1}}).
+are in units of concentration/time (\si{\micro M \per s}).
 %
 The ones across the nuclear boundary
 have positive sign when exiting the nucleus
 and are normalized to the nuclear volume.
 %
-The \emph{amount} exiting the nucleus per unit of time is
+Thus,
+the \emph{amount} exiting the nucleus per unit of time is
 $\ce{flux} \times V_\text{nuc}$.
 
 %
@@ -228,7 +221,7 @@ Table~\ref{t:GSR-ImpB}.
 
 With the constants from Table~\ref{t:GSR-ImpB-const},
 the steady-state of the model
-(reached after some $\SI{10e4}{s}$)
+(reached after some $10^4 \si{. s}$)
 is reported in Fig.~\ref{f:GSR-v2}.
 %
 Nuclear
@@ -245,10 +238,9 @@ on
 $k_\text{knockoff}$
 (and the volume of the nucleus).
 %
-Doubling $k_\text{knockoff}$ almost doubles the concentration.
+Doubling $k_\text{knockoff}$ almost doubles 
+the nuclear concentration.
 %
-%
-Note, however, that NTF2 is 
 
 
 Code:
@@ -263,6 +255,117 @@ discuss
 the reaction 
 \ce{Imp$\beta$ . Cargo <=> Imp$\beta$^* . Cargo}
 }
+
+
+
+
+\subsection{NPC as compartments} \label{s:GSR03-redux}
+
+It has been observed \TODO{ref}
+that 
+certain transportins accumulate 
+inside the NPCs
+as they bind to the FG-nups.
+%
+%
+They might potentially shuttle
+the cargo across the pore
+without leaving the pore themselves,
+like a conveyor belt.
+%
+%
+To account for this
+we propose
+a three-compartment model
+with cytoplasm, nucleus
+and
+the nuclear envelope 
+(potentially including some perimembrane space)
+as the three compartments.
+%
+%
+The crux is that the nuclear envelope, 
+having small volume, 
+has a high concentration of NPCs.
+%
+%
+The unoccupied NPC space 
+is called \ce{NPC_{vacant}}.
+%
+%
+At the nuclear envelope we posit the reactions
+\begin{subequations}
+\[
+	\ce{Imp$\beta$_i + NPC_{vacant} & <=> Imp$\beta$.NPC}
+	\\
+	\ce{Cargo.Imp$\beta$_i + NPC_{vacant} & <=> Cargo.Imp$\beta$.NPC}
+	\\
+	\ce{Cargo_i + Imp$\beta$.NPC & <=> Cargo.Imp$\beta$.NPC}
+\]
+\end{subequations}
+where $i$ can be ``cytoplasmic'' or ``nuclear''.
+%
+%
+This envelope compartment
+is in diffusive exchange with 
+the cytoplasm (for $i = \text{cyt}$)
+and
+the nucleus (for $i = \text{nuc}$).
+%
+%
+In both, we also allow 
+\[
+	\ce{Cargo + Imp$\beta$ & <=> Cargo.Imp$\beta$}
+	.
+\]
+%
+%
+For simplicity,
+we assume 
+\ce{RanGTP} and \ce{RanGDP} 
+are maintained at fixed concentrations
+and are only relevant at the envelope,
+where we have
+\begin{subequations}
+\[
+	&
+	\text{cargo knockoff:}
+	&
+	\ce{
+		RanGTP_{nuc} + Cargo.Imp$\beta$.NPC
+		& ->
+		Cargo + RanGTP.Imp$\beta$.NPC
+	}
+	%
+	\\
+	%
+	&
+	\text{GTP hydrolysis: \hspace{-1cm}}
+	&
+	\ce{
+		RanGTP.Imp$\beta$.NPC 
+		& ->
+		RanGDP_{cyt} + P + Imp$\beta$.NPC 
+	}
+	.
+\]
+\end{subequations}
+
+%
+
+Under reasonable assumptions on the kinetic constants,
+the steady state of this model
+predicts some 10-fold accumulation
+of free cargo in the nucleus.
+%
+Meanwhile,
+the concentration of total \ce{Imp\beta}
+is roughly inversely proportional
+to the volume of the envelope compartment
+(keeping the total \ce{NPC} amount constant).
+
+Code:
+\href{https://github.com/numpde/nct1/tree/main/code/20210403-StickyPore/b_onestage_nct}{here}
 
 
 
@@ -520,6 +623,23 @@ reducing the IC50 seven-fold
 	)
 \]
 \end{subequations}
+%
+To determine the dynamic capacity \ce{Ex}
+at steady-state
+we introduce
+the additional equation:
+\[
+	\label{e:Ex}
+	%
+	\ddt \ce{Ex}
+	=
+	k_{\ce{Ex}} \, [\ce{Ran . {GTP}}]_\text{nuc},
+	\quad
+	k_{\ce{Ex}} := \SI{10}{s^{-2}},
+	\TEXT{initial}
+	\ce{Ex} := \SI{0}{\micro M . s^{-1}}
+	.
+\]
 %
 \caption{%
 	The minimal Ran gradient system
@@ -1085,7 +1205,7 @@ the handling of cargo by \ce{Imp$\beta$} in the cytoplasm.
 
 %
 
-The flux of the reaction
+The forward flux of the reaction
 \[
 	\label{e:knockoff}
 	\ce{Imp\beta . Cargo + \ce{Ran . {GTP}} <=>> Imp\beta . \ce{Ran . {GTP}} + Cargo}
@@ -1125,6 +1245,8 @@ are implemented but are omitted here.
 Analogously to \eqref{e:Eq11}/\eqref{e:Eq12}
 we have 
 the additional nuclear-to-cytoplasmic diffusion fluxes
+(cf.~Table~\ref{t:GSR-ImpB-const})
+%
 \[
 	\label{e:F4}
 	%
