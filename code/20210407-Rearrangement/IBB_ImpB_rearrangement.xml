@@ -45,14 +45,14 @@
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw58bfd3dd_0a33_46f3_bb2d_bd91d282f83a" name="Cargo" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="1e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw58bfd3dd_0a33_46f3_bb2d_bd91d282f83a" name="Cargo" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="3e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw66f23bc8_8056_482b_aba8_ab500d44df98" name="ImpB" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="2e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw66f23bc8_8056_482b_aba8_ab500d44df98" name="ImpB" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="1e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
@@ -66,14 +66,14 @@
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw58bfd3dd_0a33_46f3_bb2d_bd91d282f83a" name="Cargo&apos;" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="1e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw58bfd3dd_0a33_46f3_bb2d_bd91d282f83a" name="Cargo&apos;" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="3e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw66f23bc8_8056_482b_aba8_ab500d44df98" name="ImpB&apos;" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="2e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw66f23bc8_8056_482b_aba8_ab500d44df98" name="ImpB&apos;" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="1e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>

@@ -21,14 +21,14 @@ X = pd.DataFrame(
     dtype=float,
 )
 
-X = X[["ImpB", "ImpB'", "Cargo", "Cargo'", "Cargo·ImpB", "Cargo·ImpB*", "Cargo·ImpB*'"]]
+X = X[["Cargo", "Cargo'", "ImpB", "ImpB'", "Cargo·ImpB", "Cargo·ImpB*", "Cargo·ImpB*'"]]
 X = X[(1e-1 <= X.index) & (X.index <= 1e3)]
 
 kw = {
-    "ImpB": dict(color='C0', ls='-', lw=3),
-    "ImpB'": dict(color='C0', ls='--', lw=3),
     "Cargo": dict(color='C3', ls='-', lw=3),
     "Cargo'": dict(color='C3', ls='--', lw=3),
+    "ImpB": dict(color='C0', ls='-', lw=3),
+    "ImpB'": dict(color='C0', ls='--', lw=3),
     "Cargo·ImpB": dict(color='C1', ls='-', lw=2),
     "Cargo·ImpB*": dict(color='C4', ls='-', lw=3),
     "Cargo·ImpB*'": dict(color='C4', ls='--', lw=3),
