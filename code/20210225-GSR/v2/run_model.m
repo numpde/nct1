@@ -8,11 +8,8 @@ function run_model
 	end
 
 	m1 = load_model();
-
-	index_of = containers.Map();
-	for s = (1 : length(m1.Species))
-		index_of(m1.Species(s).Name) = s;
-	end
+	
+	sbmlexport(m1);
 
 	% Note: to iterate species do
 	%	for R = convertCharsToStrings({m1.Species.name})

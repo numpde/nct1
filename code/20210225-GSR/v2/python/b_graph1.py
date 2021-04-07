@@ -15,6 +15,39 @@ from tcga.utils import First
 import typing
 import networkx as nx
 
+species = {
+    # Display name -- Matlab name
+
+    # 'GTP': "GTP",
+    # 'GDP': "GDP",
+
+    'Ran·GTP (n)': "RanGTP_nuc",
+    'Ran·GTP (c)': "RanGTP_cyto",
+
+    # 'Total Ran·GTP (c)': "Total cyto RanGTP",
+
+    'Ran·GDP (n)': "RanGDP_nuc",
+    'Ran·GDP (c)': "RanGDP_cyto",
+
+    # 'Tot Impβ (n)': "Total cyto ImpB",
+    # 'Tot Impβ (c)': "Total nuc ImpB",
+
+    'Free Impβ (n)': "ImpB nuc",
+    'Free Impβ (c)': "ImpB cyto",
+
+    'Impβ·Ran·GTP (n)': "ImpB--RanGTP nuc",
+    'Impβ·Ran·GTP (c)': "ImpB--RanGTP cyto",
+
+    'RanBP1·Ran·GTP (c)': "RanGTP--RanBP1",
+    # 'RanBP1 (c)': "RanBP1",
+
+    'Free cargo (c)': "Cargo cyto",
+    'Free cargo (n)': "Cargo nuc",
+
+    'Cargo·Impβ (c)': "ImpB--Cargo cyto",
+    'Cargo·Impβ (n)': "ImpB--Cargo nuc",
+}
+
 
 def load_data() -> typing.Dict[str, pd.DataFrame]:
     load = First(str).then(loadmat).then(pd.Series).then(
@@ -40,39 +73,6 @@ def interp(data, t):
 
 def get_graph():
     g = nx.MultiDiGraph()
-
-    species = {
-        # Display name -- Matlab name
-
-        # 'GTP': "GTP",
-        # 'GDP': "GDP",
-
-        'Ran·GTP (n)': "RanGTP_nuc",
-        'Ran·GTP (c)': "RanGTP_cyto",
-
-        # 'Total Ran·GTP (c)': "Total cyto RanGTP",
-
-        'Ran·GDP (n)': "RanGDP_nuc",
-        'Ran·GDP (c)': "RanGDP_cyto",
-
-        # 'Tot Impβ (n)': "Total cyto ImpB",
-        # 'Tot Impβ (c)': "Total nuc ImpB",
-
-        'Free Impβ (n)': "ImpB nuc",
-        'Free Impβ (c)': "ImpB cyto",
-
-        'Impβ·Ran·GTP (n)': "ImpB--RanGTP nuc",
-        'Impβ·Ran·GTP (c)': "ImpB--RanGTP cyto",
-
-        'RanBP1·Ran·GTP (c)': "RanGTP--RanBP1",
-        # 'RanBP1 (c)': "RanBP1",
-
-        'Free cargo (c)': "Cargo cyto",
-        'Free cargo (n)': "Cargo nuc",
-
-        'Cargo·Impβ (c)': "ImpB--Cargo cyto",
-        'Cargo·Impβ (n)': "ImpB--Cargo nuc",
-    }
 
     g.add_nodes_from(species.keys())
     nx.set_node_attributes(g, species, name="matlab")
@@ -189,14 +189,16 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
 
         kw = dict(G=ug, pos=pos, ax=px.a, edge_color='g')
         nx.draw_networkx_edges(**kw, width=edge_width[fwd], alpha=edge_alpha[fwd], edgelist=fwd)
-        nx.draw_networkx_edges(**kw, width=edge_width[bwd], alpha=edge_alpha[bwd], edgelist=[(v, ug) for (ug, v) in bwd])
+        nx.draw_networkx_edges(**kw, width=edge_width[bwd], alpha=edge_alpha[bwd],
+                               edgelist=[(v, ug) for (ug, v) in bwd])
 
         kw = dict(G=ug, pos=pos, ax=px.a, alpha=0.7)
         nx.draw_networkx_edge_labels(**kw, edge_labels=edge_labels.to_dict(), font_size=5, font_color='g')
 
         kw = dict(G=g, pos=pos, ax=px.a, alpha=0.8, font_color='k')
         nx.draw_networkx_labels(**kw, font_size=7, labels=node_labels, verticalalignment="bottom")
-        nx.draw_networkx_labels(**kw, font_size=6, labels=species.transform(lambda x: f"{x:0.02g}"), verticalalignment="top")
+        nx.draw_networkx_labels(**kw, font_size=6, labels=species.transform(lambda x: f"{x:0.02g}"),
+                                verticalalignment="top")
 
         px.a.axis('off')
 
@@ -212,6 +214,22 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
         px.f.savefig(out_dir / "onion.pdf")
 
 
+def report(state: pd.Series):
+    x = {
+        'free_cargo_ratio':
+            state[species['Free cargo (n)']] /
+            state[species['Free cargo (c)']],
+
+        'nuc_to_cyto_cargo_ratio':
+            state[[species['Free cargo (n)'], species['Cargo·Impβ (n)']]].sum() /
+            state[[species['Free cargo (c)'], species['Cargo·Impβ (c)']]].sum(),
+    }
+
+    for (n, x) in x.items():
+        with (mkdir(Path(__file__).with_suffix('') / "report") / f"{n}.tex").open(mode='w') as fd:
+            print(int(x), file=fd, end="")
+
+
 def main():
     data = load_data()
 
@@ -219,6 +237,8 @@ def main():
 
     t = max(data.index)
     state = interp(data, t)
+
+    report(state)
 
     g = get_graph()
     show(g, state)
