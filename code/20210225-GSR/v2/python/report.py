@@ -16,7 +16,7 @@ def report(state: pd.Series):
     }
 
     for (n, x) in x.items():
-        with (mkdir(Path(__file__).with_suffix('') / "report") / f"{n}.tex").open(mode='w') as fd:
+        with (mkdir(Path(__file__).with_suffix('')) / f"{n}.tex").open(mode='w') as fd:
             print(int(x), file=fd, end="")
 
 
