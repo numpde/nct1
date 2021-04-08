@@ -6,65 +6,12 @@ Visualize concentrations in a graph -- draft.
 
 from bugs import *
 from twig import log
-from scipy.io import loadmat
 from scipy.interpolate import interp1d
 from plox import Plox, rcParam as rc
 
-from tcga.utils import First
+from data_source import load_data, species
 
-import typing
 import networkx as nx
-
-species = {
-    # Display name -- Matlab name
-
-    # 'GTP': "GTP",
-    # 'GDP': "GDP",
-
-    'Ran·GTP (n)': "RanGTP_nuc",
-    'Ran·GTP (c)': "RanGTP_cyto",
-
-    # 'Total Ran·GTP (c)': "Total cyto RanGTP",
-
-    'Ran·GDP (n)': "RanGDP_nuc",
-    'Ran·GDP (c)': "RanGDP_cyto",
-
-    # 'Tot Impβ (n)': "Total cyto ImpB",
-    # 'Tot Impβ (c)': "Total nuc ImpB",
-
-    'Free Impβ (n)': "ImpB nuc",
-    'Free Impβ (c)': "ImpB cyto",
-
-    'Impβ·Ran·GTP (n)': "ImpB--RanGTP nuc",
-    'Impβ·Ran·GTP (c)': "ImpB--RanGTP cyto",
-
-    'RanBP1·Ran·GTP (c)': "RanGTP--RanBP1",
-    # 'RanBP1 (c)': "RanBP1",
-
-    'Free cargo (c)': "Cargo cyto",
-    'Free cargo (n)': "Cargo nuc",
-
-    'Cargo·Impβ (c)': "ImpB--Cargo cyto",
-    'Cargo·Impβ (n)': "ImpB--Cargo nuc",
-}
-
-
-def load_data() -> typing.Dict[str, pd.DataFrame]:
-    load = First(str).then(loadmat).then(pd.Series).then(
-        lambda data: pd.DataFrame(
-            index=pd.Series(data.t.squeeze(), name='t', dtype=float),
-            columns=pd.Series(data.names.squeeze(), name='species').transform(unlist1),
-            data=data.x,
-            dtype=float,
-        )
-    )
-
-    data = {
-        file.stem: load(file)
-        for file in (Path(__file__).parent.parent / "results").glob("*.mat")
-    }
-
-    return data
 
 
 def interp(data, t):
@@ -214,22 +161,6 @@ def show(g: nx.MultiDiGraph, state: pd.Series):
         px.f.savefig(out_dir / "onion.pdf")
 
 
-def report(state: pd.Series):
-    x = {
-        'free_cargo_ratio':
-            state[species['Free cargo (n)']] /
-            state[species['Free cargo (c)']],
-
-        'nuc_to_cyto_cargo_ratio':
-            state[[species['Free cargo (n)'], species['Cargo·Impβ (n)']]].sum() /
-            state[[species['Free cargo (c)'], species['Cargo·Impβ (c)']]].sum(),
-    }
-
-    for (n, x) in x.items():
-        with (mkdir(Path(__file__).with_suffix('') / "report") / f"{n}.tex").open(mode='w') as fd:
-            print(int(x), file=fd, end="")
-
-
 def main():
     data = load_data()
 
@@ -237,8 +168,6 @@ def main():
 
     t = max(data.index)
     state = interp(data, t)
-
-    report(state)
 
     g = get_graph()
     show(g, state)
