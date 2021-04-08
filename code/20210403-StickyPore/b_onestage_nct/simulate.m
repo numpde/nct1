@@ -1,6 +1,6 @@
 % RA, 2021-04-06
 
-% function run_all	
+function run_all	
 	[~, ~, ~] = mkdir("results");
 	delete("results/diary.txt");
 	diary("results/diary.txt");
@@ -62,7 +62,7 @@
 	end
 
 	diary off;
-% end
+end
 	
 function [m] = load_model()
 	m = sbioloadproject("onestage_conveyor.sbproj").m1;
