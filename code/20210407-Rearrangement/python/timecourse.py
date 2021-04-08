@@ -1,6 +1,7 @@
 # RA, 2021-04-07
 
 from bugs import *
+from twig import log, LOG_FILE
 from plox import rcParam
 
 path = Path(__file__).parent.parent / "results"
@@ -21,17 +22,19 @@ X = pd.DataFrame(
     dtype=float,
 )
 
-X = X[["Cargo", "Cargo'", "ImpB", "ImpB'", "Cargo·ImpB", "Cargo·ImpB*", "Cargo·ImpB*'"]]
 X = X[(1e-1 <= X.index) & (X.index <= 1e3)]
+log.info(f"Effective k_d: {X['k_d_eff'].median()}")
+
+X = X[["IBB", "IBB'", "ImpB", "ImpB'", "IBB·ImpB", "IBB*·ImpB", "IBB·ImpB'"]]
 
 kw = {
-    "Cargo": dict(color='C3', ls='-', lw=3),
-    "Cargo'": dict(color='C3', ls='--', lw=3),
+    "IBB": dict(color='C3', ls='-', lw=3),
+    "IBB'": dict(color='C3', ls='--', lw=3),
     "ImpB": dict(color='C0', ls='-', lw=3),
     "ImpB'": dict(color='C0', ls='--', lw=3),
-    "Cargo·ImpB": dict(color='C1', ls='-', lw=2),
-    "Cargo·ImpB*": dict(color='C4', ls='-', lw=3),
-    "Cargo·ImpB*'": dict(color='C4', ls='--', lw=3),
+    "IBB·ImpB": dict(color='C1', ls='-', lw=2),
+    "IBB*·ImpB": dict(color='C4', ls='-', lw=3),
+    "IBB·ImpB'": dict(color='C4', ls='--', lw=3),
 }
 
 style = {
@@ -51,3 +54,6 @@ with Plox(style) as px:
     for ex in ["png", "pdf"]:
         px.f.savefig(Path(__file__).with_suffix(f".{ex}"))
 
+
+import shutil
+shutil.copyfile(LOG_FILE, Path(__file__).with_suffix('.log'))

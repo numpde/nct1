@@ -38,14 +38,14 @@
       <compartment id="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" name="sandbox" spatialDimensions="3" size="1" units="MWBUILTINPREFIX_pico_MWBUILTINUNIT_liter" constant="true"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species id="mw10213eea_8e82_428f_80d4_af438866762f" name="Cargo·ImpB" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw10213eea_8e82_428f_80d4_af438866762f" name="IBB·ImpB" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw58bfd3dd_0a33_46f3_bb2d_bd91d282f83a" name="Cargo" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="3e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw58bfd3dd_0a33_46f3_bb2d_bd91d282f83a" name="IBB" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="2e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
@@ -59,14 +59,14 @@
           </SimBiology>
         </annotation>
       </species>
-      <species id="mwa6c4cc85_e706_47f8_8907_0fe198cdcbbe" name="Cargo·ImpB*" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mwa6c4cc85_e706_47f8_8907_0fe198cdcbbe" name="IBB*·ImpB" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw58bfd3dd_0a33_46f3_bb2d_bd91d282f83a" name="Cargo&apos;" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="3e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw58bfd3dd_0a33_46f3_bb2d_bd91d282f83a" name="IBB&apos;" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="2e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
@@ -80,7 +80,7 @@
           </SimBiology>
         </annotation>
       </species>
-      <species id="mwa6c4cc85_e706_47f8_8907_0fe198cdcbbe" name="Cargo·ImpB*&apos;" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mwa6c4cc85_e706_47f8_8907_0fe198cdcbbe" name="IBB·ImpB&apos;" compartment="mwd9a386da_f5e0_4ee9_ab12_c7fb3b449080" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
@@ -109,7 +109,27 @@
           <body xmlns="http://www.w3.org/1999/xhtml">Catimel et al 2001, Table I</body>
         </notes>
       </parameter>
+      <parameter id="mwec0da51c_5d76_4967_bdc9_f8f43c9c1d27" name="k_d_eff" value="NaN" units="MWDERIVEDUNIT_1__second" constant="false"/>
     </listOfParameters>
+    <listOfRules>
+      <assignmentRule variable="mwec0da51c_5d76_4967_bdc9_f8f43c9c1d27">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> mwb1bd1469_23f7_4deb_b89c_c01b9a46b2c5 </ci>
+            <apply>
+              <divide/>
+              <ci> mw23cb3119_b38d_487a_a46f_8017037f668c </ci>
+              <apply>
+                <plus/>
+                <ci> mw6057076e_5af0_48d9_b2bd_a791912dfa79 </ci>
+                <ci> mw23cb3119_b38d_487a_a46f_8017037f668c </ci>
+              </apply>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+    </listOfRules>
     <listOfReactions>
       <reaction id="mw502da51e_5730_4e4a_a6ac_b7f3b66cd122" name="Loading" reversible="true">
         <listOfReactants>
@@ -193,7 +213,7 @@
                 </apply>
                 <apply>
                   <times/>
-                  <ci> mw23cb3119_b38d_487a_a46f_8017037f668c </ci>
+                  <ci> mwec0da51c_5d76_4967_bdc9_f8f43c9c1d27 </ci>
                   <ci> mwa6c4cc85_e706_47f8_8907_0fe198cdcbbe </ci>
                 </apply>
               </apply>
