@@ -4,4 +4,4 @@ In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sbml
 In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run_model', '/home/ra/repos/nct1/code/20210225-GSR/v2/run_model.m', 17)" style="font-weight:bold">run_model</a> (<a href="matlab: opentoline('/home/ra/repos/nct1/code/20210225-GSR/v2/run_model.m',17,0)">line 17</a>)] 
 Baseline conditions
 Nuclear RanGTP     (uM): 3.6345
-Cytoplasmic RanGTP (nM): 6.5764
+Cytoplasmic RanGTP (nM): 6.5765

@@ -565,7 +565,7 @@ Table II
 </body>
         </notes>
       </parameter>
-      <parameter id="mw0aeee9e8_5ef7_41ed_bc4c_29456a78b890" name="k_C1_off" value="0.00074" units="MWDERIVEDUNIT_1__second" constant="true">
+      <parameter id="mw0aeee9e8_5ef7_41ed_bc4c_29456a78b890" name="k_C1_off" value="0.00072" units="MWDERIVEDUNIT_1__second" constant="true">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">RM 2005
 Table II
