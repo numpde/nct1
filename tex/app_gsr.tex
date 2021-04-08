@@ -1,0 +1,733 @@
+
+
+Here we recapitulate
+the minimal Ran gradient system
+from \cite[Fig.~2]{GoerlichSeewaldRibbeck2003},
+cf.~\S\ref{s:GSR03}.
+%
+%
+The following account for the cytoplasmic species.
+%
+Here,
+$\ce{[\ldots]}$ abbreviates 
+the (cytoplasmic) concentration of 
+the complex \ce{{RanBP1} . Ran.GTP}.
+%(in presence of \ce{RanGAP}, this term can be omitted).
+%
+\ce{Ex} is an additional potentially useful flux of 
+nuclear \ce{Ran.GTP} to cytoplasmic \ce{Ran.GDP},
+set by default to zero.
+%
+%
+\begin{subequations}
+\small
+\[
+	\label{e:Eq1}
+	%
+	\ddt
+	[\ce{Ran.GDP}]_\text{cyt}
+	& =
+	\ce{F_{\ce{Ran.GDP}}} \frac{V_\text{nuc}}{V_\text{cyt}} 
+	+
+	\ce{GAP}
+	+
+	\ce{GAP_{RanBP1}}
+	+
+	\ce{Ex} \frac{V_\text{nuc}}{V_\text{cyt}} 
+	%
+	%
+	\\
+	\label{e:Eq2}
+	%
+	\ddt
+	[\ce{Ran.GTP}]_\text{cyt}
+	& = 
+	\ce{F_{\ce{Ran.GTP}}} \frac{V_\text{nuc}}{V_\text{cyt}}
+	-
+	\ce{GAP}
+	-
+	k_\text{on}^\text{rbp}
+	[\ce{{RanBP1}}] [\ce{Ran.GTP}]_\text{cyt}
+	+
+	k_\text{off}^\text{rbp}
+	[\ce{\ldots}]
+	%
+	%
+	\\
+	\label{e:Eq3}
+	%
+	\ddt
+	[\ce{{RanBP1} . Ran.GTP}]
+	& =
+	-
+	\ce{GAP_{RanBP1}}
+	\quad\quad\quad
+	+
+	k_\text{on}^\text{rbp}
+	[\ce{{RanBP1}}] [\ce{Ran.GTP}]_\text{cyt}
+	-
+	k_\text{off}^\text{rbp}
+	[\ce{\ldots}]
+\]
+\end{subequations}
+%
+%
+The following account for the nuclear species.
+%
+As in \cite{GoerlichSeewaldRibbeck2003},
+\ce{E} denotes free \ce{{RCC1}}.
+%
+%
+\begin{subequations}
+\[
+	\label{e:Eq4}
+	%
+	\ddt
+	[\ce{Ran.GDP}]_\text{nuc}
+	& =
+	-
+	\ce{F_{\ce{Ran.GDP}}}
+	+
+	r_8
+	[\ce{IntC}]
+	-
+	r_1
+	[\ce{E}]
+	[\ce{Ran.GDP}]_\text{nuc}
+	%
+	%
+	\\
+	\label{e:Eq5}
+	%
+	\ddt
+	[\ce{Ran.GTP}]_\text{nuc}
+	& =
+	-
+	\ce{F_{\ce{Ran.GTP}}}
+	+
+	r_4
+	[\ce{IntA}]
+	-
+	r_5
+	[\ce{E}]
+	[\ce{Ran.GTP}]_\text{nuc}
+	-
+	\ce{Ex}
+\]
+\end{subequations}
+%
+%
+The nucleotide-exchange reaction
+\ce{Ran.GDP + GTP <=> Ran.GTP + GDP}
+is catalyzed by \ce{{RCC1}}.
+%
+It is modeled as in 
+\cite[Fig.~6]{KlebePrinzWittinghoferGoody1995}
+/
+\cite[Fig.~1]{GoerlichSeewaldRibbeck2003}
+with three intermediates.
+%
+Note that it depends on
+the availability of \ce{GDP} and \ce{GTP}.
+%
+%
+\begin{subequations}
+\[
+	\label{e:Eq6}
+	%
+	\ddt
+	[\ce{IntA}]
+	& =
+	-(r_4 + r_6)
+	[\ce{IntA}]
+	+
+	r_5
+	[\ce{E}] [\ce{Ran.GTP}]_\text{nuc}
+	+
+	r_3
+	[\ce{GTP}] [\ce{IntB}]
+	%
+	%
+	\\
+	\label{e:Eq7}
+	%
+	%
+	\ddt
+	[\ce{IntB}]
+	& =
+	r_6 [\ce{IntA}]
+	+
+	r_2 [\ce{IntC}]
+	-
+	(r_3 [\ce{GTP}] + r_7 [\ce{GDP}])
+	[\ce{IntB}]
+	%
+	\\
+	\label{e:Eq8}
+	%
+	\ddt
+	[\ce{IntC}]
+	& =
+	-
+	(r_2 + r_8) [\ce{IntC}]
+	+
+	r_1 [\ce{E}] [\ce{Ran.GDP}]_\text{nuc}
+	+
+	r_7 [\ce{GDP}] [\ce{IntB}]
+\]
+\end{subequations}
+%
+%
+Constraints on the total concentration:
+%
+%
+\begin{subequations}
+\[
+	\label{e:Eq9}
+	%
+	\text{Free \ce{{RCC1}}}:
+	& &
+	\ce{[E]}
+	& =
+	\ce{{RCC1}_{total}} - (\ce{[IntA]} + \ce{[IntB]} + \ce{[IntC]})
+	%
+	\\
+	\label{e:Eq10}
+	%
+	\text{Free \ce{{RanBP1}}}:
+	& &
+	\ce{[{RanBP1}]}
+	& =
+	\ce{{RanBP1}_{total}} - \ce{[{RanBP1} . Ran.GTP]}
+\]
+\end{subequations}
+%
+%
+Gradient-driven fluxes from 
+the nucleus to the cytoplasm:
+%
+%
+\begin{subequations}
+\[
+	\label{e:Eq11}
+	%
+	\ce{F_{Ran.GTP}}
+	& =
+	D_{\ce{Ran.GTP}}
+	\;
+	([\ce{Ran.GTP}]_\text{nuc} - [\ce{Ran.GTP}]_\text{cyt})
+	%
+	\\
+	\label{e:Eq12}
+	%
+	\ce{F_{Ran.GDP}}
+	& =
+	D_{\ce{Ran.GDP}}
+	\;
+	([\ce{Ran.GDP}]_\text{nuc} - [\ce{Ran.GDP}]_\text{cyt})
+\]
+\end{subequations}
+%
+%
+\ce{RanGAP} hydrolyzes the $\gamma$-phosphate of \ce{Ran.GTP}.
+%
+This is more efficient
+when \ce{Ran.GTP} is bound to \ce{{RanBP1}}
+\cite{BischoffKrebberSmirnovaDongPonstingl1995},
+reducing the IC50 seven-fold
+\cite[Table~I, p.~1091]{GoerlichSeewaldRibbeck2003}.
+%
+%
+%
+\begin{subequations}
+\[
+	\label{e:Eq13}
+	%
+	\ce{GAP} 
+	& = 
+	k_{\ce{GAP}} [\ce{RanGAP}]
+	/
+	(
+		1 + K_{\ce{GAP}} / [\ce{Ran.GTP}]_\text{cyt}
+	)
+	%
+	\\
+	\label{e:Eq14}
+	%
+	\ce{GAP_{RanBP1}} 
+	& = 
+	k_{\ce{GAP}}' [\ce{RanGAP}]
+	/
+	(
+		1 + K_{\ce{GAP}}' / [\ce{{RanBP1} . Ran.GTP}]
+	)
+\]
+\end{subequations}
+%
+To determine the dynamic capacity \ce{Ex}
+at steady-state
+we introduce
+the additional equation:
+\[
+	\label{e:Ex}
+	%
+	\ddt \ce{Ex}
+	=
+	k_{\ce{Ex}} \, [\ce{Ran . {GTP}}]_\text{nuc},
+	\quad
+	k_{\ce{Ex}} := \SI{10}{s^{-2}},
+	\TEXT{initial}
+	\ce{Ex} := \SI{0}{\micro M . s^{-1}}
+	.
+\]
+
+
+
+
+
+\begin{table}
+\centering
+\small
+\begin{tabular}{c|c|c}
+%	Eqn & Constants & References
+%	\\
+	\hline
+	%
+	%
+	\eqref{e:Eq1}
+	&
+	$V_\text{nuc} = \SI{1.2}{pl}$,
+	\quad
+	$V_\text{cyt} = \SI{1.8}{pl}$
+	& 
+	\cite[Table II]{GoerlichSeewaldRibbeck2003}
+	\\
+	\hline
+	%
+	%
+	\eqref{e:Eq1}
+	&
+	initial condition
+	$[\ce{Ran . GDP}]_\text{cyt} = \SI{5}{\micro M}$
+	&
+	\cite[Table II]{GoerlichSeewaldRibbeck2003}
+	\\
+	\hline
+	%
+	%
+	\eqref{e:Eq2}--\eqref{e:Eq3}
+	&
+	$k_\text{on}^\text{rbp} = \SI{0.3}{\micro M^{-1}.s^{-1}}$,
+	\quad
+	$k_\text{off}^\text{rbp} = \SI{4e-4}{s^{-1}}$
+	&
+	\cite[Supp.~Table~A]{GoerlichSeewaldRibbeck2003}
+	\\
+	\hline
+	%
+	%
+	\eqref{e:Eq4}--\eqref{e:Eq8}
+	&
+	\makecell{
+		$r_1 = \SI{74}{\micro M^{-1} . s^{-1}}$,
+		\quad
+		$r_8 = \SI{55}{s^{-1}}$
+		\\
+		$r_7 = \SI{11}{\micro M^{-1} . s^{-1}}$,
+		\quad
+		$r_2 = \SI{21}{s^{-1}}$
+		\\
+		$r_3 = \SI{0.6}{\micro M^{-1} . s^{-1}}$,
+		\quad
+		$r_6 = \SI{19}{s^{-1}}$
+		\\
+		$r_5 = \SI{100}{\micro M^{-1} . s^{-1}}$,
+		\quad
+		$r_4 = \SI{55}{s^{-1}}$
+	}
+	&
+	\makecell{
+		\cite[Supp.~Table~A]{GoerlichSeewaldRibbeck2003}
+		\\
+		\cite[Fig.~6]{KlebePrinzWittinghoferGoody1995}
+	}
+	\\
+	\hline
+	%
+	%
+	\eqref{e:Eq6}--\eqref{e:Eq8}
+	&
+	$[\ce{GTP}] = \SI{500}{\micro M}$,
+	\quad
+	$[\ce{GDP}] = \SI{1.6}{\micro M}$
+	&
+	\cite[Table II]{GoerlichSeewaldRibbeck2003}
+	\\
+	\hline
+	%
+	%
+	\makecell{
+		\eqref{e:Eq9} \\ \eqref{e:Eq10}
+	}
+	&
+	\makecell{
+		$\ce{{RCC1}_{total}} = \SI{0.7}{\micro M}$
+		\\
+		$\ce{{RanBP1}_{total}} = \SI{2}{\micro M}$
+	}
+	&
+	\makecell{
+		\cite[Supp.~Table~B]{GoerlichSeewaldRibbeck2003}
+		\\
+		\cite[Fig.~4]{GoerlichSeewaldRibbeck2003}
+	}
+	\\
+	\hline
+	%
+	%
+	\makecell{
+		\eqref{e:Eq11} \\ \eqref{e:Eq12}
+	}
+	&
+	\makecell{
+		$D_{\ce{Ran . GTP}} = \SI{0.03}{s^{-1}}$
+		\\
+		$D_{\ce{Ran . GDP}} = \SI{0.12}{s^{-1}}$
+	}
+	&
+	\cite[Table II]{GoerlichSeewaldRibbeck2003}
+	\\
+	\hline
+	%
+	%
+	\makecell{
+		\eqref{e:Eq13} \\ \eqref{e:Eq14}
+	}
+	&
+	\makecell{
+		$k_{\ce{GAP}} = \SI{10.6}{s^{-1}}$,
+		\quad
+		$K_{\ce{GAP}} = \SI{0.7}{\micro M}$
+		\\
+		$k_{\ce{GAP}}' = \SI{10.8}{s^{-1}}$,
+		\quad
+		$K_{\ce{GAP}}' = \SI{0.1}{\micro M}$
+	}
+	&
+	\makecell{
+		\cite[Supp.~Table~A]{GoerlichSeewaldRibbeck2003}
+		\\
+		\cite[Table~I]{GoerlichSeewaldRibbeck2003}
+	}
+	\\
+	\hline
+	%
+	%
+	\eqref{e:Eq13}--\eqref{e:Eq14}
+	&
+	cytoplasmic
+	$[\ce{RanGAP}] = \SI{0.7}{\micro M}$
+	&
+	\cite[Table~II / ST~B]{GoerlichSeewaldRibbeck2003}
+	% / \cite[Fig.~4]{GoerlichSeewaldRibbeck2003}
+	\\
+	\hline
+%	%
+%	%
+%	\TODO{Eq}
+%	&
+%	$K_R = \SI{5e-4}{\micro M}$
+%	&
+%	\cite[Supp.~Table~A]{GoerlichSeewaldRibbeck2003}
+%	\\
+%	\hline
+\end{tabular}
+%
+\caption{%
+	Constants
+	for the ``standard simulation condition''
+	of \S\ref{s:GSR03}
+	at $\SI{25}{\celsius}$.
+	%
+	Except for \eqref{e:Eq1},
+	all species are initialized to zero at $t = 0$.
+}
+%
+\label{t:GSR-const}
+\end{table}
+
+
+
+
+\begin{table}
+\centering
+\footnotesize
+\begin{tabular}{c|c|c|c|c}
+	\hline
+	%
+	Condition
+	& 
+	\makecell{Affected \\ parameters}
+	&
+	\makecell{Nuclear \\ RanGTP, \si{\micro M}}
+	&
+	\makecell{Cytoplasmic \\ RanGTP, \si{\nano M}}
+	&
+	\makecell{Dynamic \\ capacity, \si{\micro M \per s}}
+	%
+	\\
+	\hline\hline
+	%
+	``Standard''
+	& 
+	See Table~\ref{t:GSR-const} 
+	&
+	4.26
+	(4.3)
+	&
+	7.75
+	(7.7)
+	&
+	0.59 (0.60)
+	%
+	\\
+	\hline
+	%
+	Omission of RanBP1
+	&
+	$\ce{{RanBP1}_{total}} := 0$
+	&
+	4.27
+	(4.3)
+	& 
+	8.13
+	(8.1)
+	&
+	0.59 (0.60)
+	%
+	\\
+	\hline
+	%
+	200\% RCC1
+	&
+	\ce{{RCC1}_{total}}
+	&
+	3.95
+	(4.0)
+	& 
+	7.17
+	(7.1)
+	&
+	0.59 (0.60)
+	%
+	\\
+	\hline
+	%
+	50\% RCC1
+	&
+	\ce{{RCC1}_{total}}
+	&
+	4.31
+	(4.3)
+	& 
+	7.82
+	(7.7)
+	&
+	0.58 (0.60)
+	%
+	\\
+	\hline
+	%
+	10\% RCC1
+	&
+	\ce{{RCC1}_{total}}
+	&
+	3.59
+	(3.6)
+	& 
+	6.50
+	(6.4)
+	&
+	0.46 (0.48)
+	%
+	\\
+	\hline
+	%
+	1\% RCC1
+	&
+	\ce{{RCC1}_{total}}
+	&
+	1.40
+	(1.4)
+	& 
+	2.52
+	(2.5)
+	&
+	0.075 (0.08)
+	%
+	\\
+	\hline
+	%
+	GTP:GDP = 500:0
+	&
+	$[\ce{GDP}] := \SI{0}{\micro M}$
+	&
+	4.80
+	(4.8)
+	& 
+	8.72
+	(8.6)
+	&
+	0.59 (0.60)
+	%
+	\\
+	\hline
+	%
+	GTP:GDP = 500:50
+	&
+	$[\ce{GDP}] := \frac{1}{10} [\ce{GTP}]$
+	&
+	0.98
+	(0.8)
+	& 
+	1.76
+	(1.5)
+	&
+	0.57 (0.58)
+	%
+	\\
+	\hline
+	%
+	GTP:GDP = 500:500
+	&
+	$[\ce{GDP}] := [\ce{GTP}]$
+	&
+	0.12
+	(0.12)
+	& 
+	0.22
+	(0.21)
+	&
+	0.34 (0.34)
+	%
+	\\
+	\hline
+	%
+	Saturating NTF2
+	% Fig.~3
+	&
+	$D_{\ce{Ran . GDP}} := \SI{0.48}{s^{-1}}$
+	&
+	5.12
+	(5.1)
+	& 
+	9.32
+	(9.2)
+	&
+	2.18 (2.2)
+	%
+	\\
+	\hline
+	%
+	No NTF2
+	&
+	$D_{\ce{Ran . GDP}} := D_{\ce{Ran . GTP}}$
+	&
+	2.55
+	(2.5)
+	& 
+	4.60
+	(4.5)
+	&
+	0.15 (0.16)
+	%
+	\\
+	\hline
+	%
+	200\% RanGAP
+	&
+	$[\ce{RanGAP}]$
+	&
+	4.27
+	(4.3)
+	& 
+	3.95
+	(3.9)
+	&
+	0.59 (0.60)
+	%
+	\\
+	\hline
+	%
+	50\% RanGAP
+	&
+	$[\ce{RanGAP}]$
+	&
+	4.26
+	(4.3)
+	& 
+	14.9
+	(14)
+	&
+	0.59 (0.60)
+	%
+	\\
+	\hline
+	%
+	50\% permeability
+	&
+	$D_{\ce{Ran . GTP}}$
+	&
+	4.91
+	(4.9)
+	& 
+	4.44
+	(4.4)
+	&
+	0.59 (--)
+	%
+	\\
+	\hline
+	%
+	200\% permeability
+	&
+	$D_{\ce{Ran . GTP}}$
+	&
+	3.41
+	(3.4)
+	& 
+	12.4
+	(12.3)
+	&
+	0.59 (--)
+	%
+	\\
+	\hline
+	%
+	400\% permeability
+	&
+	$D_{\ce{Ran . GTP}}$
+	&
+	2.46
+	(2.5)
+	& 
+	18.0
+	(17.8)
+	&
+	0.59 (--)
+	%
+	\\
+	\hline
+\end{tabular}
+\caption{%
+	Steady-state concentrations
+	for the simulation scenarios
+	from \cite[Table~II/III]{GoerlichSeewaldRibbeck2003},
+	with
+	their results shown in brackets.
+	%
+	Value for $D_{\ce{Ran . GDP}}$ is
+	from \cite[Fig.~3]{GoerlichSeewaldRibbeck2003}.
+}
+\label{t:GSR-Ran-Runs}
+\end{table}
