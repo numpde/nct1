@@ -478,7 +478,7 @@ is reported in Fig.~\ref{f:GSR-v2}.
 Nuclear
 accumulation of free cargo
 is
-\protect\input{../code/20210225-GSR/v2/python/b_graph1/report/free_cargo_ratio.tex}\unskip
+\protect\input{../code/20210225-GSR/v2/python/report/free_cargo_ratio.tex}\unskip
 -fold.
 %
 %
@@ -503,7 +503,7 @@ Code \CODE{main/code/20210225-GSR/v2}.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{20210225-GSR/v2/python/b_graph1/onion}
+\includegraphics[width=0.7\textwidth]{20210225-GSR/v2/python/graph/onion}
 \caption{%
 	Steady-state of 
 	the transport system from 
@@ -513,12 +513,12 @@ Code \CODE{main/code/20210225-GSR/v2}.
 	%
 	The free cargo
 	shows 
-	\protect\input{../code/20210225-GSR/v2/python/b_graph1/report/free_cargo_ratio.tex}\unskip%
+	\protect\input{../code/20210225-GSR/v2/python/report/free_cargo_ratio.tex}\unskip%
 	-fold accumulation
 	in the nucleus;
 	total nuclear to total cytoplasmic cargo
 	is
-	\protect\input{../code/20210225-GSR/v2/python/b_graph1/report/nuc_to_cyto_cargo_ratio.tex}\unskip%
+	\protect\input{../code/20210225-GSR/v2/python/report/nuc_to_cyto_cargo_ratio.tex}\unskip%
 	-fold.
 	%
 	Units are \si{\micro M} for species
@@ -724,7 +724,7 @@ the reaction rate
 $v_\text{GAP} / (1 + K_\text{GAP} / [\ce{{RanGTP}.{Imp\beta}.NPC}])$,
 similarly to \eqref{e:Eq13}.
 %
-We take $v_\text{GAP} = \SI{0.07}{\micro M s^{-1}}$
+We take $v_\text{GAP} = \SI{0.07}{\micro M . s^{-1}}$
 and $K_\text{GAP} = \SI{0.1}{\micro M}$.
 %
 This reaction rate about $100\times$ smaller than in \eqref{e:Eq13}
@@ -762,9 +762,66 @@ Code \CODE{main/code/20210403-StickyPore}.
 
 \subsection{Role of RanBP1}
 
-\cite{SeewaldETAL2003}
+According to 
+\cite[\href{https://i.ibb.co/6ghqPB7/image.jpg}{Fig.~4A}]{LounsburyMacara1997},
+\ce{Imp\beta} blocks hydrolysis of \ce{Ran.GTP} by \ce{RanGAP}
+but 
+\ce{{RanBP1}} rescues it for most part.
+%
+Similarly,
+\cite{BischoffGoerlich1997}
+showed that
+\ce{{RanBP1}} transiently detaches \ce{Ran} 
+from the complex 
+\ce{Kap.Ran.GTP}
+(where \ce{Kap} can be importin $\beta$, transportin or CAS),
+whereupon hydrolysis by \ce{RanGAP} 
+disassembles the complex;
+and
+that efficient disassembly 
+of \ce{Imp\beta.Ran.GTP} required \ce{{RanBP1}} \emph{and} \ce{{Imp\alpha}}
+\cite[\S3.2, cf.~\href{https://i.ibb.co/PZKRSJ0/image.jpg}{Fig.~4}]{BischoffGoerlich1997},
+\cite{FloerBlobelRexach1997}.
+%
+%
+Importantly,
+Kaps and RanBP1
+bind Ran
+at distinct sites
+\cite[p.253]{BischoffGoerlich1997}.
+
+%
+
+Further,
+\cite[\href{https://i.ibb.co/jz37PW1/image.png}{Fig.~13}]{SeewaldETAL2003}
+characterizes
+the kinetics of the formation of the complex
+between
+\ce{Ran.GTP}, \ce{{RanBP1}} and \ce{RanGAP}
+and its hydrolysis.
+%
+%
+In particular, 
+the release of the $\gamma$-phosphate,
+which is the rate-limiting step of 
+hydrolysis by RanGAP,
+is barely influenced by RanPB1,
+which instead stimulates
+the association of Ran with RanGAP.
+
+%
+
+In \cite[p.1033]{RiddickMacara2005},
+the initial rate of cargo import
+increased with co-addition of \ce{{RanBP1}},
+disagreeing with their simulation
+(in which \ce{{RanBP1}} acts catalytically \cite[\href{https://i.ibb.co/B3sgJ1P/image.png}{Fig.~S1}]{RiddickMacara2005}).
+%
+%
 
 
+
+Crystal structure: \cite{SaricETAL2007}
 
 
 
