@@ -40,13 +40,16 @@ def process(runs):
         px.a.set_xlabel("Time")
         px.a.set_ylabel("Total GTP, µM")
 
-        h = px.a.legend(loc='upper right')
+        px.a.legend(loc='upper right')
 
         yield px
 
 
 def main():
     from data_source import runs
+
+    runs = runs['results_fig4a']
+
     for (RanGAP, runs) in runs.groupby('RanGAP'):
         if RanGAP:
             for px in process(runs):

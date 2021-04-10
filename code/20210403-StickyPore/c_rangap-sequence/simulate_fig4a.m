@@ -1,12 +1,15 @@
 % RA, 2021-04-10
 
 function simulate_fig4a
-	initiate()
-	main()
-	finalize()
+	out_dir = "results_fig4a";
+	[~, ~, ~] = mkdir(out_dir);
+	
+	initiate(out_dir)
+	main(out_dir)
+	finalize(out_dir)
 end
 
-function main()
+function main(out_dir)
 	for ImpB = [0, 0.34]
 	for RanBP1 = [0, 0.2]
 	for RanGAP = [0.01]
@@ -21,7 +24,7 @@ function main()
 		name = strcat("ImpB=", num2str(ImpB), "_", "RanBP1=", num2str(RanBP1), "_", "RanGAP=", num2str(RanGAP));
 
 		equations = m.getequations;
-		save(strcat("results", "/", name, ".mat"), 't', 'x', 'names', 'equations', 'ImpB', 'RanBP1', 'RanGAP', 't_react', '-nocompression');
+		save(strcat(out_dir, "/", name, ".mat"), 't', 'x', 'names', 'equations', 'ImpB', 'RanBP1', 'RanGAP', 't_react', '-nocompression');
 
 		%plot(t, x(:, names == "Ran·GTP"));
 		
@@ -68,10 +71,9 @@ function [mm, names] = load_models()
 	names = fieldnames(mm);
 end
 
-function initiate()
-	[~, ~, ~] = mkdir("results");
-	delete("results/diary.txt");
-	diary("results/diary.txt");
+function initiate(out_dir)
+	delete(strcat(out_dir, "/diary.txt"));
+	diary(strcat(out_dir, "/diary.txt"));
 	diary on;
 	
 	close all;
@@ -83,6 +85,6 @@ function initiate()
 end
 
 
-function finalize()
+function finalize(out_dir)
 	diary off;
 end

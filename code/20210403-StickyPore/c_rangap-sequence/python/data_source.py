@@ -6,7 +6,7 @@ from scipy.io import loadmat
 import typing
 
 
-def load_runs() -> pd.DataFrame:
+def load_runs(folder) -> pd.DataFrame:
     load_tx = First(str).then(loadmat).then(pd.Series).then(
         lambda data: pd.DataFrame(
             index=pd.Series(data.t.squeeze(), name='t', dtype=float),
@@ -25,13 +25,17 @@ def load_runs() -> pd.DataFrame:
             'tx': load_tx(file),
             **load_params(file).to_dict()
         })
-        for file in (Path(__file__).parent.parent / "results").glob("*.mat")
+        for file in folder.glob("*.mat")
     })
 
     return data.T
 
 
-runs = load_runs()
+runs = {
+    folder.name: load_runs(folder)
+    for folder in Path(__file__).parent.parent.glob("results*")
+    if folder.is_dir()
+}
 
 if __name__ == '__main__':
     print(runs)
