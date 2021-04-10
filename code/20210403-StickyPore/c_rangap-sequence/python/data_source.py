@@ -1,6 +1,7 @@
 # RA, 2021-04-10
 
 from bugs import *
+from twig import log
 from tcga.utils import First
 from scipy.io import loadmat
 import typing
@@ -36,6 +37,8 @@ runs = {
     for folder in Path(__file__).parent.parent.glob("results*")
     if folder.is_dir()
 }
+
+log.info(f"Loaded runs from folders: {', '.join(runs)} .")
 
 if __name__ == '__main__':
     print(runs)

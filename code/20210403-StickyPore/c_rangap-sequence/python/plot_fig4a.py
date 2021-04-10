@@ -53,7 +53,9 @@ def main():
     for (RanGAP, runs) in runs.groupby('RanGAP'):
         if RanGAP:
             for px in process(runs):
-                px.f.savefig(out_dir / f"RanGAP={RanGAP}.png")
+                filepath = out_dir / f"RanGAP={RanGAP}.png"
+                log.info(f"Writing {relpath(filepath)} .")
+                px.f.savefig(filepath)
 
 
 if __name__ == '__main__':
