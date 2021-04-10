@@ -5,7 +5,6 @@ from tcga.utils import First
 from scipy.io import loadmat
 import typing
 
-
 species = {
     # Display name -- Matlab name
 
@@ -38,7 +37,6 @@ species = {
     'Cargo·Impβ (c)': "ImpB--Cargo cyto",
     'Cargo·Impβ (n)': "ImpB--Cargo nuc",
 }
-
 
 
 def load_data() -> typing.Dict[str, pd.DataFrame]:
