@@ -1,6 +1,6 @@
 % RA, 2021-04-06
 
-function run_all	
+function simulate
 	[~, ~, ~] = mkdir("results");
 	delete("results/diary.txt");
 	diary("results/diary.txt");
