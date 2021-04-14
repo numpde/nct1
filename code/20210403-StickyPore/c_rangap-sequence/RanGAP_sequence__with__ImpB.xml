@@ -95,6 +95,9 @@
         </annotation>
       </species>
       <species id="mw96cb792b_2c71_46e1_a2cf_d334c5ea0f7d" name="ImpB·Ran·GTP·RanBP1·RanGAP" compartment="mwab6d6cf0_7a94_485d_8be9_6e1698c9a5d7" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">DECAY: ImpB + Rest</body>
+        </notes>
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
             <Unit Numerator="mole" Denominator="liter"/>
@@ -205,37 +208,29 @@
         </kineticLaw>
       </reaction>
       <reaction id="mw845bbaa1_1913_4843_84ae_0784ba6cda5a" name="R1" reversible="false">
+        <notes>
+          <body xmlns="http://www.w3.org/1999/xhtml">(assumption)</body>
+        </notes>
         <listOfReactants>
           <speciesReference species="mw23130e31_b8e6_42a8_bc10_2c4c15f145b6" stoichiometry="1"/>
           <speciesReference species="mwb63e16bc_62cb_4400_b88e_4bfde8a9f824" stoichiometry="1"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="mw2fd0528b_5e5d_4c93_9b85_48b207d65f13" stoichiometry="1"/>
+          <speciesReference species="mw9ef896c3_700f_41e3_a54d_504ab0780be3" stoichiometry="1"/>
+          <speciesReference species="mwc27dd1eb_9182_4d8a_8b59_f0921da03852" stoichiometry="1"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
-              <apply>
-                <minus/>
-                <apply>
-                  <times/>
-                  <ci> mw32b1c03f_19d7_4547_9468_0d5a97f845cb </ci>
-                  <ci> mw23130e31_b8e6_42a8_bc10_2c4c15f145b6 </ci>
-                  <ci> mwb63e16bc_62cb_4400_b88e_4bfde8a9f824 </ci>
-                </apply>
-                <apply>
-                  <times/>
-                  <ci> mw9545b356_e7bb_4fa3_858c_03b17b5e3d89 </ci>
-                  <ci> mw2fd0528b_5e5d_4c93_9b85_48b207d65f13 </ci>
-                </apply>
-              </apply>
+              <ci> mw32b1c03f_19d7_4547_9468_0d5a97f845cb </ci>
+              <ci> mw23130e31_b8e6_42a8_bc10_2c4c15f145b6 </ci>
+              <ci> mwb63e16bc_62cb_4400_b88e_4bfde8a9f824 </ci>
               <ci> mwab6d6cf0_7a94_485d_8be9_6e1698c9a5d7 </ci>
             </apply>
           </math>
           <listOfParameters>
             <parameter id="mw32b1c03f_19d7_4547_9468_0d5a97f845cb" name="kf" value="0.02" units="MWDERIVEDUNIT_1__uM__s" constant="true"/>
-            <parameter id="mw9545b356_e7bb_4fa3_858c_03b17b5e3d89" name="kr" value="0.00043" units="MWDERIVEDUNIT_1__s" constant="true"/>
           </listOfParameters>
         </kineticLaw>
       </reaction>
@@ -274,40 +269,12 @@
           </listOfParameters>
         </kineticLaw>
       </reaction>
-      <reaction id="mw8838ed23_6013_4837_ab4f_2300674abf55" name="Reaction_3" reversible="true">
-        <listOfReactants>
-          <speciesReference species="mw2fd0528b_5e5d_4c93_9b85_48b207d65f13" stoichiometry="1"/>
-          <speciesReference species="mw788395d4_65ca_4054_848f_1b361a01dfce" stoichiometry="1"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="mw96cb792b_2c71_46e1_a2cf_d334c5ea0f7d" stoichiometry="1"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <apply>
-                <minus/>
-                <apply>
-                  <times/>
-                  <ci> mwe5e94e3d_641d_47c0_a5ae_33dc9743f766 </ci>
-                  <ci> mw2fd0528b_5e5d_4c93_9b85_48b207d65f13 </ci>
-                  <ci> mw788395d4_65ca_4054_848f_1b361a01dfce </ci>
-                </apply>
-                <apply>
-                  <times/>
-                  <ci> mw402bf9ca_67bf_49fd_a30e_8f86ae67ab8b </ci>
-                  <ci> mw96cb792b_2c71_46e1_a2cf_d334c5ea0f7d </ci>
-                </apply>
-              </apply>
-              <ci> mwab6d6cf0_7a94_485d_8be9_6e1698c9a5d7 </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
       <reaction id="mw2cb5da65_1e86_4602_81f2_8b9165237972" name="Hydrolysis (ImpB, RanBP1)" reversible="false">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">WILD GUESS for the constant
+
+try ON--OFF this
+
 </body>
         </notes>
         <listOfReactants>
@@ -443,29 +410,6 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="mwa83136ef_f841_4360_9139_ebc360918bad" name="ImpB on 2" reversible="false">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">same as &quot;knockoff&quot;</body>
-        </notes>
-        <listOfReactants>
-          <speciesReference species="mwc27dd1eb_9182_4d8a_8b59_f0921da03852" stoichiometry="1"/>
-          <speciesReference species="mw9ef896c3_700f_41e3_a54d_504ab0780be3" stoichiometry="1"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="mw2fd0528b_5e5d_4c93_9b85_48b207d65f13" stoichiometry="1"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> mwd4d5dcfa_257a_44b7_8dfd_e1af3143f7d6 </ci>
-              <ci> mwc27dd1eb_9182_4d8a_8b59_f0921da03852 </ci>
-              <ci> mw9ef896c3_700f_41e3_a54d_504ab0780be3 </ci>
-              <ci> mwab6d6cf0_7a94_485d_8be9_6e1698c9a5d7 </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
       <reaction id="mwa83136ef_f841_4360_9139_ebc360918bad" name="ImpB on 3" reversible="false">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">same as &quot;knockoff&quot;</body>
@@ -532,79 +476,6 @@
             <apply>
               <times/>
               <ci> mw1b5347ed_1ee5_4022_afcc_198f04ae0de2 </ci>
-              <ci> mwaeb8edaa_b37b_4b73_aa02_7065ae92656b </ci>
-              <ci> mwab6d6cf0_7a94_485d_8be9_6e1698c9a5d7 </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="mwda4c0ea1_fba6_4b03_8b64_9b50b32cab14" name="Hydrolysis (ImpB)" reversible="false">
-        <notes>
-          <body xmlns="http://www.w3.org/1999/xhtml">WILD GUESS for the constant</body>
-        </notes>
-        <listOfReactants>
-          <speciesReference species="mwf6b97bed_7124_456a_a1a5_e10d2cb50784" stoichiometry="1"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="mwc27dd1eb_9182_4d8a_8b59_f0921da03852" stoichiometry="1"/>
-          <speciesReference species="mwbc509ae5_7ab6_47d5_b9ed_f90d5e4cb82e" stoichiometry="1"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> mw5d6f42e0_8544_4d2d_87fc_4481f2027c78 </ci>
-              <ci> mwf6b97bed_7124_456a_a1a5_e10d2cb50784 </ci>
-              <ci> mwab6d6cf0_7a94_485d_8be9_6e1698c9a5d7 </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="mwa5f80f50_28ed_4244_9149_ac8c454cb668" name="Reaction_2_1" reversible="true">
-        <listOfReactants>
-          <speciesReference species="mw23130e31_b8e6_42a8_bc10_2c4c15f145b6" stoichiometry="1"/>
-          <speciesReference species="mw788395d4_65ca_4054_848f_1b361a01dfce" stoichiometry="1"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="mwf6b97bed_7124_456a_a1a5_e10d2cb50784" stoichiometry="1"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <apply>
-                <minus/>
-                <apply>
-                  <times/>
-                  <ci> mwa62b97e5_9eee_4b12_af01_b0c08d1ec1f5 </ci>
-                  <ci> mw23130e31_b8e6_42a8_bc10_2c4c15f145b6 </ci>
-                  <ci> mw788395d4_65ca_4054_848f_1b361a01dfce </ci>
-                </apply>
-                <apply>
-                  <times/>
-                  <ci> mwe23dfa03_c4cd_44cd_8461_84a7f99c029a </ci>
-                  <ci> mwf6b97bed_7124_456a_a1a5_e10d2cb50784 </ci>
-                </apply>
-              </apply>
-              <ci> mwab6d6cf0_7a94_485d_8be9_6e1698c9a5d7 </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction id="mw80a1be81_dd2f_4ec5_884b_e03c80e6415e" name="Reaction_5" reversible="false">
-        <listOfReactants>
-          <speciesReference species="mwc27dd1eb_9182_4d8a_8b59_f0921da03852" stoichiometry="1"/>
-          <speciesReference species="mwaeb8edaa_b37b_4b73_aa02_7065ae92656b" stoichiometry="1"/>
-        </listOfReactants>
-        <listOfProducts>
-          <speciesReference species="mwf6b97bed_7124_456a_a1a5_e10d2cb50784" stoichiometry="1"/>
-        </listOfProducts>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> mwd4d5dcfa_257a_44b7_8dfd_e1af3143f7d6 </ci>
-              <ci> mwc27dd1eb_9182_4d8a_8b59_f0921da03852 </ci>
               <ci> mwaeb8edaa_b37b_4b73_aa02_7065ae92656b </ci>
               <ci> mwab6d6cf0_7a94_485d_8be9_6e1698c9a5d7 </ci>
             </apply>
