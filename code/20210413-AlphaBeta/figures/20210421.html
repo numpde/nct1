@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style type="text/css">
+
+        html, body{
+            font: 13px/1.231 sans-serif;
+        }
+
+        h1{
+            font-size     : 20px;
+            color         : #D95319;
+            margin-bottom : 2px;
+        }
+        
+        h2{
+            font-size     : 14px;
+            color         : #D95319;
+        }
+
+        h3{
+            margin     : 0px;
+            word-break : break-word;
+        }
+
+        table {
+            table-layout    : fixed; 
+            width           : 100%;
+            border-collapse : collapse;
+            border          : 1px solid #D8D8D8;
+            margin-bottom   : 20px; 
+        }
+        
+        table td{
+            border:1px solid #D8D8D8;
+        }
+
+        thead {
+            border        : 1px solid #D8D8D8;
+            background    : #EAEAEA;
+            font-size     : 12px;
+            font-weight   : bold;
+        }
+
+        td {
+            word-break : break-word;
+        }
+        
+        tbody tr td {
+            padding : 4px 12px 4px 6px;
+        }
+
+        thead tr td{
+            padding : 6px 12px 6px 6px;
+        }
+        
+        .horizontal_border{
+            width      : 100%;
+            height     : 1px;
+            background : #CCC;
+        }
+
+        /* Row number column*/
+        thead tr td:first-child{
+            width : 53px;
+        }
+
+        /* Initial Value column*/
+        thead tr td:last-child{
+            width : 25%;
+        }
+
+        /* Quantity Table */
+        .multipleQuantityTable thead tr td:nth-child(3){
+            width : 25%;
+        }
+
+        .reactions thead tr td:last-child,
+        .events thead tr td:last-child,
+        .assignment thead tr td:last-child,
+        .algebraic thead tr td:last-child,
+        .rate thead tr td:last-child,
+        .observables thead tr td:last-child,
+        .equations thead tr td:last-child{
+            width : auto;
+        }
+
+        tr.reaction td:nth-child(1){
+            border-bottom-style : hidden;
+        }
+        
+        tr.eventNotLast td:nth-child(1){
+            border-bottom-style : hidden;
+        }
+
+        .initialValueMsg{
+            font-style : italic;
+            color      : gray;
+        }
+        
+        .footnote{           
+           font-size  : 11px; 
+           padding    : 2px 0px 5px 5px;
+           text-align : right;
+        }
+    </style>
+
+    <title>alpha_beta</title>
+</head>
+
+<body>
+    <h1>SimBiology Model: alpha_beta</h1>
+    <div class="horizontal_border"></div>
+    
+    <p class="initialValueMsg"></p>
+
+    <div>
+        <h2>Quantities</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>Quantity Name</td>
+                    <td>Type</td>
+                    <td>Scope</td>
+                    <td>Value</td>
+                    <td>Units</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>NE</td>
+                    <td>compartment</td>
+                    <td>alpha_beta</td>
+                    <td>1</td>
+                    <td>picoliter</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>NPC</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>1</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ImpB(c)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>1</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>ImpB·NPC</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>ImpB(n)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>ImpA(c)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>1</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>ImpA·ImpB·NPC</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>ImpA·ImpB(c)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>NLS(c)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>1</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>NLS·ImpA·ImpB(c)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>NLS·ImpA·ImpB·NPC</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Ran·GTP(n)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>3</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>NLS(n)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Ran·GTP·ImpB·NPC</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>CAS(c)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>1</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>RanGAP</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>RanBP1</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>Ran·GDP(c)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>CAS·NPC</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>CAS(n)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>CAS·Ran·GTP(n)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>ImpA·CAS·Ran·GTP(n)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>ImpA·CAS·Ran·GTP·NPC</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td>ImpA(n)</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td>ImpA·ImpB(n) -- ?</td>
+                    <td>species</td>
+                    <td>NE</td>
+                    <td>0</td>
+                    <td>uM</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td>Ran flux</td>
+                    <td>parameter</td>
+                    <td>alpha_beta</td>
+                    <td>1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td>k_pump</td>
+                    <td>parameter</td>
+                    <td>alpha_beta</td>
+                    <td>1</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td>k_on</td>
+                    <td>parameter</td>
+                    <td>r1</td>
+                    <td>0.001</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td>k_off</td>
+                    <td>parameter</td>
+                    <td>r1</td>
+                    <td>0.0001</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r2</td>
+                    <td>0.001</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td>kr</td>
+                    <td>parameter</td>
+                    <td>r2</td>
+                    <td>0.0001</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td>k_on</td>
+                    <td>parameter</td>
+                    <td>r8</td>
+                    <td>0.001</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td>k_off</td>
+                    <td>parameter</td>
+                    <td>r8</td>
+                    <td>0.0001</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r7</td>
+                    <td>0.49</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td>kr</td>
+                    <td>parameter</td>
+                    <td>r7</td>
+                    <td>0.0025</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r9</td>
+                    <td>0.49</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td>kr</td>
+                    <td>parameter</td>
+                    <td>r9</td>
+                    <td>0.0025</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r10</td>
+                    <td>0.15</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>39</td>
+                    <td>kr</td>
+                    <td>parameter</td>
+                    <td>r10</td>
+                    <td>0.00044</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r11</td>
+                    <td>0.001</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>41</td>
+                    <td>kr</td>
+                    <td>parameter</td>
+                    <td>r11</td>
+                    <td>0.0001</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>42</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r12</td>
+                    <td>0.15</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>43</td>
+                    <td>kr</td>
+                    <td>parameter</td>
+                    <td>r12</td>
+                    <td>0.00044</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>knockoff</td>
+                    <td>0.02</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>hydrolysis1</td>
+                    <td>0.1</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>46</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r15</td>
+                    <td>0.001</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>47</td>
+                    <td>kr</td>
+                    <td>parameter</td>
+                    <td>r15</td>
+                    <td>0.001</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>48</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r16</td>
+                    <td>0.001</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>49</td>
+                    <td>kr</td>
+                    <td>parameter</td>
+                    <td>r16</td>
+                    <td>0.001</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r20</td>
+                    <td>0.01</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>51</td>
+                    <td>kr</td>
+                    <td>parameter</td>
+                    <td>r20</td>
+                    <td>0.0048</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>52</td>
+                    <td>kr</td>
+                    <td>parameter</td>
+                    <td>r18</td>
+                    <td>0.0001</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>53</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r18</td>
+                    <td>0.001</td>
+                    <td>1/uM/s</td>
+                </tr>
+                <tr>
+                    <td>54</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>hydrolysis2</td>
+                    <td>0.1</td>
+                    <td>1/s</td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td>kf</td>
+                    <td>parameter</td>
+                    <td>r17</td>
+                    <td>0.1</td>
+                    <td>1/uM/s</td>
+                </tr>
+            </tbody>
+        </table>
+    <h2>Fluxes</h2>
+        <table class="equations">
+            <thead>
+                <tr>
+                    <td> </td>
+                    <td>Fluxes</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>r1 = (r1.k_on*[ImpB(c)]*NPC-r1.k_off*[ImpB·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>r2 = (r2.kf*[ImpB(n)]*NPC-r2.kr*[ImpB·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>r8 = (r8.k_on*[ImpA·ImpB(c)]*NPC-r8.k_off*[ImpA·ImpB·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>r7 = (r7.kf*[ImpA(c)]*[ImpB(c)]-r7.kr*[ImpA·ImpB(c)])*NE</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>r9 = (r9.kf*[ImpA(c)]*[ImpB·NPC]-r9.kr*[ImpA·ImpB·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>r10 = (r10.kf*[NLS(c)]*[ImpA·ImpB(c)]-r10.kr*[NLS·ImpA·ImpB(c)])*NE</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>r11 = (r11.kf*[NLS·ImpA·ImpB(c)]*NPC-r11.kr*[NLS·ImpA·ImpB·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>r12 = (r12.kf*[NLS(c)]*[ImpA·ImpB·NPC]-r12.kr*[NLS·ImpA·ImpB·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>knockoff = (knockoff.kf*[Ran·GTP(n)]*[NLS·ImpA·ImpB·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>hydrolysis1 = (hydrolysis1.kf*[Ran·GTP·ImpB·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>r15 = (r15.kf*[CAS(c)]*NPC-r15.kr*[CAS·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>r16 = (r16.kf*[CAS(n)]*NPC-r16.kr*[CAS·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>r20 = (r20.kf*[Ran·GTP(n)]*[CAS(n)]-r20.kr*[CAS·Ran·GTP(n)])*NE</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>r18 = (r18.kf*[ImpA·CAS·Ran·GTP(n)]*NPC-r18.kr*[ImpA·CAS·Ran·GTP·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>hydrolysis2 = (hydrolysis2.kf*[ImpA·CAS·Ran·GTP·NPC])*NE</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>r17 = (r17.kf*[ImpA(n)]*[CAS·Ran·GTP(n)])*NE</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>[Ran gradient] = (k_pump*[Ran·GDP(c)])*NE</td>
+                </tr>
+            </tbody>
+        </table>
+    <h2>ODEs</h2>
+        <table class="equations">
+            <thead>
+                <tr>
+                    <td> </td>
+                    <td>ODEs</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>d(NPC)/dt = 1/NE*(-r1 - r2 - r8 - r11 - r15 - r16 - r18)</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>d([ImpB(c)])/dt = 1/NE*(-r1 - r7)</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>d([ImpB·NPC])/dt = 1/NE*(r1 + r2 - r9 + hydrolysis1)</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>d([ImpB(n)])/dt = 1/NE*(-r2)</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>d([ImpA(c)])/dt = 1/NE*(-r7 - r9 + hydrolysis2)</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>d([ImpA·ImpB·NPC])/dt = 1/NE*(r8 + r9 - r12)</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>d([ImpA·ImpB(c)])/dt = 1/NE*(-r8 + r7 - r10)</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>d([NLS(c)])/dt = 1/NE*(-r10 - r12)</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>d([NLS·ImpA·ImpB(c)])/dt = 1/NE*(r10 - r11)</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>d([NLS·ImpA·ImpB·NPC])/dt = 1/NE*(r11 + r12 - knockoff)</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>d([Ran·GTP(n)])/dt = 1/NE*(-knockoff - r20 + [Ran gradient])</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>d([NLS(n)])/dt = 1/NE*(knockoff)</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>d([Ran·GTP·ImpB·NPC])/dt = 1/NE*(knockoff - hydrolysis1)</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>d([CAS(c)])/dt = 1/NE*(-r15)</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>d([Ran·GDP(c)])/dt = 1/NE*(hydrolysis1 + hydrolysis2 - [Ran gradient])</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>d([CAS·NPC])/dt = 1/NE*(r15 + r16 + hydrolysis2)</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>d([CAS(n)])/dt = 1/NE*(-r16 - r20)</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>d([CAS·Ran·GTP(n)])/dt = 1/NE*(r20 - r17)</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>d([ImpA·CAS·Ran·GTP(n)])/dt = 1/NE*(-r18 + r17)</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>d([ImpA·CAS·Ran·GTP·NPC])/dt = 1/NE*(r18 - hydrolysis2)</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>d([ImpA(n)])/dt = 1/NE*(knockoff - r17)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+
+    <p class="footnote">
+    Reported generated by SimBiology v. 6.1 (R2021a) on 21-Apr-2021 10:35:42
+    </p>
+</body>
+</html>
