@@ -22,7 +22,7 @@ def process(runs):
         fmt = {
             '(c)': dict(ls="--", lw=1, alpha=0.5),
             '(n)': dict(ls="-.", lw=1, alpha=0.9),
-            'NPC': dict(ls="-", lw=1),
+            'NPC': dict(ls="-", lw=1, alpha=0.8),
         }
 
         for s in fmt:
@@ -35,7 +35,7 @@ def process(runs):
             hydro = np.squeeze(run.hydro)
 
             color = f"C{i}"
-            label = r"$k_{\mathrm{hydrolysis}}$" + rf" = $\num{{{hydro:.02e}}}$ " + r"$\mathrm{s^{-1}}$"
+            label = r"$k_{\mathrm{hydrolysis}}$" + rf" = $\num{{{hydro:.01e}}}$ " + r"$\mathrm{s^{-1}}$"
             px.a.plot(1, 0, "-", color=color, label=label)
 
             tx: pd.DataFrame = run.tx
