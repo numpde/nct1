@@ -2,8 +2,10 @@
 
 from bugs import *
 from twig import log
-from tcga.utils import First
+from tcga.utils import First, unlist1
 from scipy.io import loadmat
+
+base = unlist1(Path(__file__).parent.parent.glob("results*"))
 
 
 def load_runs(folder) -> pd.DataFrame:
@@ -31,11 +33,11 @@ def load_runs(folder) -> pd.DataFrame:
 
 runs = {
     folder.name: load_runs(folder)
-    for folder in Path(__file__).parent.parent.glob("results*")
+    for folder in base.glob("*")
     if folder.is_dir()
 }
 
 log.info(f"Loaded runs from folders: {', '.join(runs)} .")
 
 if __name__ == '__main__':
-    log.info(runs['results'].loc['default__hydro=0.001'].tx)
+    pass

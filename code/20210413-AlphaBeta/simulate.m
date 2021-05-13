@@ -18,38 +18,45 @@ function main()
 	T = 1e6; % seconds
 	set(getconfigset(m, 'active'), 'Stoptime', T);
 	
-	setup{1}.folder = "results1";
-	setup{1}.hydrolysis = ["hydrolysis1"];
+	out_dir = "results/";
 	
-	setup{2}.folder = "results2";
-	setup{2}.hydrolysis = ["hydrolysis2"];
+	for hydro_baseline = [1e-5, 1e-4, 1e-3, 0.01, 0.1]
+		for name = ["hydrolysis1", "hydrolysis2"]
+			k = m.Reactions({m.Reactions.Name} == name).KineticLaw;
+			p_hydro = k.Parameters({k.Parameters.Name} == "kf");
+			p_hydro.Value = hydro_baseline;
+		end
 	
-	setup{3}.folder = "results12";
-	setup{3}.hydrolysis = ["hydrolysis1", "hydrolysis2"];
-	
-	for i = 1:length(setup)
-		disp(setup{i}.folder)
-		
-		for hydro = [1e-5, 1e-4, 1e-3, 0.01, 0.1]
-			for name = setup{i}.hydrolysis
-				r = m.Reactions({m.Reactions.Name} == name);
-				k = r.KineticLaw;
-				p_hydro = k.Parameters({k.Parameters.Name} == "kf");
-				p_hydro.Value = hydro;
+		setup{1}.folder = strcat(out_dir, "hydro_baseline=", num2str(hydro_baseline), "__", "vary1");
+		setup{1}.hydrolysis_vary = ["hydrolysis1"];
+
+		setup{2}.folder = strcat(out_dir, "hydro_baseline=", num2str(hydro_baseline), "__", "vary2");
+		setup{2}.hydrolysis_vary = ["hydrolysis2"];
+
+		setup{3}.folder = strcat(out_dir, "hydro_baseline=", num2str(hydro_baseline), "__", "vary12");
+		setup{3}.hydrolysis_vary = ["hydrolysis1", "hydrolysis2"];
+
+		for i = 1:length(setup)
+			for hydro = [1e-5, 1e-4, 1e-3, 0.01, 0.1]
+				for name = setup{i}.hydrolysis_vary
+					k = m.Reactions({m.Reactions.Name} == name).KineticLaw;
+					p_hydro = k.Parameters({k.Parameters.Name} == "kf");
+					p_hydro.Value = hydro;
+				end
+
+				[t, x, names] = sbiosimulate(m);
+
+				equations = m.getequations;
+
+				condition = str2mat(strcat("k_{hydrolysis} = ", num2str(p_hydro.Value), ", ", p_hydro.Units));
+				disp(condition)
+
+				filename = strcat("default");
+				filename = strcat(filename, "__", "hydro=", num2str(p_hydro.Value));
+
+				[~, ~, ~] = mkdir(setup{i}.folder);
+				save(strcat(setup{i}.folder, "/", filename, ".mat"), 't', 'x', 'names', 'equations', 'condition', 'hydro', '-nocompression');
 			end
-
-			[t, x, names] = sbiosimulate(m);
-
-			equations = m.getequations;
-
-			condition = str2mat(strcat("k_{hydrolysis} = ", num2str(p_hydro.Value), ", ", p_hydro.Units));
-			disp(condition)
-
-			filename = strcat("default");
-			filename = strcat(filename, "__", "hydro=", num2str(p_hydro.Value));
-			
-			[~, ~, ~] = mkdir(setup{i}.folder);
-			save(strcat(setup{i}.folder, "/", filename, ".mat"), 't', 'x', 'names', 'equations', 'condition', 'hydro', '-nocompression');
 		end
 	end
 end

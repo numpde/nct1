@@ -15,9 +15,9 @@ style = {
     rcParam.Text.Latex.preamble: '\n'.join([r'\usepackage{siunitx}']),
 }
 
-def process(runs):
+def process(runs, species):
     with Plox(style) as px:
-        species = "CAS"
+        # species = "CAS"
 
         fmt = {
             '(c)': dict(ls="--", lw=1, alpha=0.5),
@@ -43,9 +43,9 @@ def process(runs):
                 s = [s for s in tx.columns if (species in s) and (s.endswith(suffix))]
                 log.info(f"Plotting: {s}.")
                 x = tx[s].sum(axis=1)
-                px.a.plot(tx.index, x, **fmt[suffix], color=color)
+                px.a.plot(tx.index / 3600, x, **fmt[suffix], color=color)
 
-        px.a.set_xlabel(f"Time, s")
+        px.a.set_xlabel(f"Time, h")
         px.a.set_ylabel(f"Total {species}, " + r"$\mu$M")
 
         px.a.set_xscale('log')
@@ -62,11 +62,12 @@ def main():
     from data_source import runs as all_runs
 
     for (folder, runs) in all_runs.items():
-        for px in process(runs):
-            if px:
-                img_file = out_dir / f"{folder}.png"
-                log.info(f"Writing {relpath(img_file)} .")
-                px.f.savefig(img_file)
+        for species in ["CAS", "ImpB"]:
+            for px in process(runs, species):
+                if px:
+                    img_file = mkdir(out_dir / folder) / f"{species}.png"
+                    log.info(f"Writing {relpath(img_file)} .")
+                    px.f.savefig(img_file)
 
 
 if __name__ == '__main__':
