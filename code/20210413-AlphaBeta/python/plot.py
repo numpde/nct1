@@ -31,7 +31,6 @@ def process(runs, species):
         runs = runs.sort_values(by='hydro')
 
         for (i, (datafile, run)) in enumerate(runs.iterrows()):
-            condition = np.squeeze(run.condition)
             hydro = np.squeeze(run.hydro)
 
             color = f"C{i}"
