@@ -8,6 +8,8 @@ from plox import rcParam
 from bugs import *
 from twig import log
 
+import matplotlib.colors as mcolors
+
 out_dir = mkdir(Path(__file__).with_suffix('').resolve())
 
 style = {
@@ -15,10 +17,9 @@ style = {
     rcParam.Text.Latex.preamble: '\n'.join([r'\usepackage{siunitx}']),
 }
 
+
 def process(runs, species):
     with Plox(style) as px:
-        # species = "CAS"
-
         fmt = {
             '(c)': dict(ls="--", lw=1, alpha=0.5),
             '(n)': dict(ls="-.", lw=1, alpha=0.9),
@@ -40,7 +41,6 @@ def process(runs, species):
             tx: pd.DataFrame = run.tx
             for suffix in ["(c)", "(n)", "NPC"]:
                 s = [s for s in tx.columns if (species in s) and (s.endswith(suffix))]
-                log.info(f"Plotting: {s}.")
                 x = tx[s].sum(axis=1)
                 px.a.plot(tx.index / 3600, x, **fmt[suffix], color=color)
 
@@ -53,15 +53,11 @@ def process(runs, species):
         yield px
 
 
-def process_(runs):
-    import matplotlib.colors as mcolors
-
-
 def main():
     from data_source import runs as all_runs
 
     for (folder, runs) in all_runs.items():
-        for species in ["CAS", "ImpB"]:
+        for species in ["CAS", "ImpB", "ImpA", "GTP"]:
             for px in process(runs, species):
                 if px:
                     img_file = mkdir(out_dir / folder) / f"{species}.png"
