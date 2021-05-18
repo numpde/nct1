@@ -20,7 +20,15 @@ function main()
 	
 	out_dir = "results/";
 	
-	
+% 	scenarios = dir("scenarios/*.m");
+% 
+% 	for n = 1:length(scenarios)
+% 		scenario = scenarios(n);
+% 
+% 		file = strcat(scenario.folder, "/", scenario.name);
+% 		run(file);
+% 	end
+
 	for hydro_baseline = [1e-5, 0.1]
 		setup{1}.folder = strcat(out_dir, "hydro_baseline=", num2str(hydro_baseline), "__", "vary2");
 		setup{1}.hydrolysis_vary = ["hydrolysis2"];
