@@ -31,13 +31,9 @@ def load_runs(folder) -> pd.DataFrame:
     return data.T
 
 
-runs = {
-    folder.name: load_runs(folder)
-    for folder in base.glob("*")
-    if folder.is_dir()
-}
+runs = load_runs(base)
 
-log.info(f"Loaded runs from folders: {', '.join(runs)} .")
+log.info(f"Loaded runs: {', '.join(runs.index)}")
 
 if __name__ == '__main__':
     pass

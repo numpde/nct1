@@ -10,7 +10,7 @@ from twig import log
 
 import matplotlib.colors as mcolors
 
-out_dir = mkdir(Path(__file__).with_suffix('').resolve())
+out_dir = mkdir(Path(__file__).resolve().with_suffix(''))
 
 style = {
     rcParam.Text.usetex: True,
@@ -18,7 +18,7 @@ style = {
 }
 
 
-def process(runs, species):
+def plot_total(run, species):
     with Plox(style) as px:
         fmt = {
             '(c)': dict(ls="--", lw=1, alpha=0.5),
@@ -29,20 +29,14 @@ def process(runs, species):
         for s in fmt:
             px.a.plot(1, 0, **fmt[s], color='k', label=f"...{s}")
 
-        runs = runs.sort_values(by='hydro')
+        color = f"C{0}"
+        # px.a.plot(1, 0, "-", color=color, label=label)
 
-        for (i, (datafile, run)) in enumerate(runs.iterrows()):
-            hydro = np.squeeze(run.hydro)
-
-            color = f"C{i}"
-            label = r"$k_{\mathrm{hydrolysis}}$" + rf" = $\num{{{hydro:.01e}}}$ " + r"$\mathrm{s^{-1}}$"
-            px.a.plot(1, 0, "-", color=color, label=label)
-
-            tx: pd.DataFrame = run.tx
-            for suffix in ["(c)", "(n)", "NPC"]:
-                s = [s for s in tx.columns if (species in s) and (s.endswith(suffix))]
-                x = tx[s].sum(axis=1)
-                px.a.plot(tx.index / 3600, x, **fmt[suffix], color=color)
+        tx: pd.DataFrame = run.tx
+        for suffix in ["(c)", "(n)", "NPC"]:
+            s = [s for s in tx.columns if (species in s) and (s.endswith(suffix))]
+            x = tx[s].sum(axis=1)
+            px.a.plot(tx.index / 3600, x, **fmt[suffix], color=color)
 
         px.a.set_xlabel(f"Time, h")
         px.a.set_ylabel(f"Total {species}, " + r"$\mu$M")
@@ -54,15 +48,14 @@ def process(runs, species):
 
 
 def main():
-    from data_source import runs as all_runs
+    from data_source import runs
 
-    for (folder, runs) in all_runs.items():
-        for species in ["CAS", "ImpB", "ImpA", "GTP"]:
-            for px in process(runs, species):
-                if px:
-                    img_file = mkdir(out_dir / folder) / f"{species}.png"
-                    log.info(f"Writing {relpath(img_file)} .")
-                    px.f.savefig(img_file)
+    for (i, run) in runs.iterrows():
+        for species in ["CAS", "ImpB", "ImpA", "GTP", "NLS"]:
+            for px in plot_total(run, species):
+                img_file = mkdir(out_dir / i) / f"total_{species}.png"
+                log.info(f"Writing {relpath(img_file)} .")
+                px.f.savefig(img_file)
 
 
 if __name__ == '__main__':

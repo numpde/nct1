@@ -1,0 +1,22 @@
+Item	Name	Parameter	Units	Comment	Scenarios:	Baseline	mCAS_1
+					Description:		Mutant CAS, scenario 1
+							
+							
+Species	CAS(c)	Value	uM	Initial values		1	1
+Species	Ran·GTP(n)	Value	uM			3	3
+Species	NPC	Value	uM			0.5	0.5
+							
+							
+							
+Reaction	hydrolysis1	kf	1/s	Disassembly of Ran·GTP·ImpB·NPC		0.1	0.1
+							
+Reaction	hydrolysis2	kf	1/s	Disassembly of ImpA·CAS·Ran·GTP·NPC or ImpA·CAS·Ran·GTP(c)		0.1	0.1
+							
+Reaction	CAS with Ran	kf	1/uM/s			0.01	0.01
+Reaction	CAS with Ran	kr	1/s			0.015	0.015
+							
+Reaction	Complex CAS with NPC	kf	1/uM/s			0.001	0.01
+Reaction	Complex CAS with NPC	kr	1/s			0.0001	0.01
+							
+Reaction	CAS with NPC	kf	1/uM/s			0.001	0.01
+Reaction	CAS with NPC	kr	1/s			0.001	0.01

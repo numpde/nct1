@@ -1,8 +1,11 @@
 default:
 	@cat makefile
 	
-all: simulate plot
+all: populate_scenarios simulate plot
 
+
+populate_scenarios:
+	. ../venv/*/activate && cd python && python populate_scenarios.py
 
 simulate:
 	~/Documents/*/*/*/matlab -nodisplay -nosplash -nojvm -r "simulate; exit;"
