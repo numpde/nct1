@@ -1,0 +1,43 @@
+Item	Name	Parameter	Units	Comment	Scenarios:	Baseline	dCAS_1
+					Description:		Mutant CAS, scenario 1
+							
+							
+				Initial values			
+Species	CAS(c)	Value	uM			1	1
+Species	ΔCAS(c)	Value	uM			0	1
+							
+Species	Ran·GTP(n)	Value	uM			3	3
+Species	NPC	Value	uM			0.5	0.5
+							
+							
+				Kinetic constants			
+Reaction	hydrolysis of Ran·GTP·ImpB·NPC	kf	1/s			0.1	0.1
+							
+							
+Reaction	hydrolysis of ImpA·CAS·Ran·GTP·NPC	kf	1/s			0.1	0.1
+Reaction	hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC	kf	1/s			0	0
+							
+Reaction	CAS with Ran	kf	1/uM/s			0.01	0.01
+Reaction	CAS with Ran	kr	1/s			0.015	0.015
+Reaction	ΔCAS with Ran	kf	1/uM/s			0	0
+Reaction	ΔCAS with Ran	kr	1/s			0	0
+							
+Reaction	CAS with NPC	kf	1/uM/s			0.001	0.01
+Reaction	CAS with NPC	kr	1/s			0.0001	0.001
+Reaction	ΔCAS with NPC	kf	1/uM/s			0.01	0.1
+Reaction	ΔCAS with NPC	kr	1/s			0.001	0.01
+							
+							
+Reaction	Complex CAS with NPC	kf	1/uM/s	i.e. ImpA·CAS·Ran·GTP		0.001	0.01
+Reaction	Complex CAS with NPC	kr	1/s			0.00001	0.0001
+Reaction	Complex ΔCAS with NPC	kf	1/uM/s	i.e. ImpA·ΔCAS·Ran·GTP		0.001	0.01
+Reaction	Complex ΔCAS with NPC	kr	1/s			0.00001	0.0001
+							
+							
+							
+							
+							
+	These could be out-of-date:						
+	Plots:	https://github.com/numpde/nct1/tree/main/code/20210413-AlphaBeta/python/plot					
+	Model diagram:	https://raw.githubusercontent.com/numpde/nct1/main/code/20210413-AlphaBeta/model.png					
+	Default constants:	https://numpde.github.io/nct1/code/20210413-AlphaBeta/model.html					
