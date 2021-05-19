@@ -13,26 +13,39 @@ from bugs import *
 from twig import log
 from tcga.utils import Now
 
+from tenacity import retry, retry_if_exception, stop_after_attempt, RetryCallState, Future
+from httplib2 import ServerNotFoundError
+
 from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
 
 out_dir = unlist1(Path(__file__).resolve().parent.parent.glob("scenarios"))
 
+SHEETS_ID = '1rr0lp6ByU1bENysPyk0qLXYwMEmwEN0BVQYw7H2Hp30'
 
+
+def if_sheets_fails(retry_state: RetryCallState):
+    assert isinstance(retry_state.outcome, Future)
+    log.warning(f"Fetching sheet failed with exception `{retry_state.outcome.exception()}`.")
+    log.warning(f"LOADING FROM DISK.")
+    df = pd.read_table(unlist1(out_dir.glob("*.tsv")), dtype=str, na_filter=None)
+    return df
+
+
+@retry(retry=retry_if_exception(Exception), stop=stop_after_attempt(3), retry_error_callback=if_sheets_fails)
 def load() -> pd.DataFrame:
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
     KEY_FILE_LOCATION = 'nct1-20210518-24b395f048ea.json'
 
     creds = ServiceAccountCredentials.from_json_keyfile_name(KEY_FILE_LOCATION, SCOPES)
 
-    SAMPLE_SPREADSHEET_ID = '1rr0lp6ByU1bENysPyk0qLXYwMEmwEN0BVQYw7H2Hp30'
-    SAMPLE_RANGE_NAME = 'Sheet1!A1:ZZ'
+    range = 'Sheet1!A1:ZZ'
 
     service = build('sheets', 'v4', credentials=creds)
 
     # Call the Sheets API
     sheet = service.spreadsheets()
-    result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID, range=SAMPLE_RANGE_NAME).execute()
+    result = sheet.values().get(spreadsheetId=SHEETS_ID, range=range).execute()
 
     df = pd.DataFrame(itertools.zip_longest(*result['values'], fillvalue='')).T
 
@@ -78,7 +91,7 @@ def print_scenario(df, c):
             log.warning(f"Unknown item: `{i}`.")
 
 
-def process(df: pd.DataFrame):
+def make_scenarios(df: pd.DataFrame):
     for c in df.columns[6:]:
         if c:
             with (out_dir / f"{c}.m").open(mode='w') as fd:
@@ -86,11 +99,21 @@ def process(df: pd.DataFrame):
                     print_scenario(df, c)
 
 
+def make_readme(df):
+    df.to_csv(out_dir / "scenarios.tsv", sep='\t', index=False)
+
+    with (out_dir / "readme.md").open(mode='w') as fd:
+        with contextlib.redirect_stdout(fd):
+            print(f"[Parameters](https://docs.google.com/spreadsheets/d/{SHEETS_ID}):")
+            print()
+            print()
+            print(df.to_markdown(index=False))
+
+
 def main():
     df = load()
-
-    df.to_csv(out_dir / "scenarios.tsv", sep='\t', index=False)
-    process(df)
+    make_scenarios(df)
+    make_readme(df)
 
 
 if __name__ == '__main__':
