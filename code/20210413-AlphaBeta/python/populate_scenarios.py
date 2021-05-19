@@ -25,7 +25,6 @@ def load() -> pd.DataFrame:
 
     creds = ServiceAccountCredentials.from_json_keyfile_name(KEY_FILE_LOCATION, SCOPES)
 
-    # The ID and range of a sample spreadsheet.
     SAMPLE_SPREADSHEET_ID = '1rr0lp6ByU1bENysPyk0qLXYwMEmwEN0BVQYw7H2Hp30'
     SAMPLE_RANGE_NAME = 'Sheet1!A1:ZZ'
 
@@ -90,7 +89,7 @@ def process(df: pd.DataFrame):
 def main():
     df = load()
 
-    df.to_csv(out_dir / "scenarios.csv", sep='\t', index=False)
+    df.to_csv(out_dir / "scenarios.tsv", sep='\t', index=False)
     process(df)
 
 

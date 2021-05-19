@@ -19,13 +19,16 @@ function main()
 
 	for n = 1:length(scenarios)
 		scenario = scenarios(n);
+		script = strcat(scenario.folder, "/", scenario.name);
+		
+		disp(strcat("Running scenario: ", scenario.name));
 
 		m = load_model();
 
 		T = 1e6; % seconds
 		set(getconfigset(m, 'active'), 'Stoptime', T);
 	
-		run(strcat(scenario.folder, "/", scenario.name));
+		run(script);
 
 		[t, x, names] = sbiosimulate(m);
 
