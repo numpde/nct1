@@ -2,11 +2,11 @@
 
 s = m.Species({m.Species.Name} == "CAS(c)");
 assert(s.Units == "uM");
-s.Value = 0;
+s.Value = 1;
 
 s = m.Species({m.Species.Name} == "ΔCAS(c)");
 assert(s.Units == "uM");
-s.Value = 1;
+s.Value = 0;
 
 s = m.Species({m.Species.Name} == "Ran·GTP(n)");
 assert(s.Units == "uM");

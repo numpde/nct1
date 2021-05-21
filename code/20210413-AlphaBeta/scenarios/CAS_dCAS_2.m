@@ -2,7 +2,7 @@
 
 s = m.Species({m.Species.Name} == "CAS(c)");
 assert(s.Units == "uM");
-s.Value = 0;
+s.Value = 1;
 
 s = m.Species({m.Species.Name} == "ΔCAS(c)");
 assert(s.Units == "uM");
@@ -62,13 +62,13 @@ r = m.Reactions({m.Reactions.Name} == "CAS with NPC");
 k = r.KineticLaw;
 p = k.Parameters({k.Parameters.Name} == "kf");
 assert(p.Units == "1/uM/s");
-p.Value = 0.001;
+p.Value = 0.01;
 
 r = m.Reactions({m.Reactions.Name} == "CAS with NPC");
 k = r.KineticLaw;
 p = k.Parameters({k.Parameters.Name} == "kr");
 assert(p.Units == "1/s");
-p.Value = 0.0001;
+p.Value = 0.001;
 
 r = m.Reactions({m.Reactions.Name} == "ΔCAS with NPC");
 k = r.KineticLaw;
