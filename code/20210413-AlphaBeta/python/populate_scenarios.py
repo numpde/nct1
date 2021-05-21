@@ -14,7 +14,6 @@ from twig import log
 from tcga.utils import Now
 
 from tenacity import retry, retry_if_exception, stop_after_attempt, RetryCallState, Future
-from httplib2 import ServerNotFoundError
 
 from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
@@ -62,6 +61,9 @@ def print_scenario(df, c):
     print(f'')
 
     for (i, n, p, u, v) in zip(df.Item, df.Name, df.Parameter, df.Units, df[c]):
+        if (v == ""):
+            v = 0
+
         if (i == ""):
             pass
         elif (i == "Reaction"):
