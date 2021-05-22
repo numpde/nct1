@@ -2,11 +2,11 @@
 
 s = m.Species({m.Species.Name} == "CAS(c)");
 assert(s.Units == "uM");
-s.Value = 1;
+s.Value = 0.5;
 
 s = m.Species({m.Species.Name} == "ΔCAS(c)");
 assert(s.Units == "uM");
-s.Value = 0;
+s.Value = 0.5;
 
 s = m.Species({m.Species.Name} == "Ran·GTP(n)");
 assert(s.Units == "uM");
@@ -14,7 +14,7 @@ s.Value = 3;
 
 s = m.Species({m.Species.Name} == "NPC");
 assert(s.Units == "uM");
-s.Value = 1;
+s.Value = 0.5;
 
 r = m.Reactions({m.Reactions.Name} == "hydrolysis of Ran·GTP·ImpB·NPC");
 k = r.KineticLaw;
@@ -23,6 +23,12 @@ assert(p.Units == "1/s");
 p.Value = 0.1;
 
 r = m.Reactions({m.Reactions.Name} == "hydrolysis of ImpA·CAS·Ran·GTP·NPC");
+k = r.KineticLaw;
+p = k.Parameters({k.Parameters.Name} == "kf");
+assert(p.Units == "1/s");
+p.Value = 0.1;
+
+r = m.Reactions({m.Reactions.Name} == "hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC");
 k = r.KineticLaw;
 p = k.Parameters({k.Parameters.Name} == "kf");
 assert(p.Units == "1/s");
@@ -38,13 +44,25 @@ r = m.Reactions({m.Reactions.Name} == "CAS with Ran");
 k = r.KineticLaw;
 p = k.Parameters({k.Parameters.Name} == "kr");
 assert(p.Units == "1/s");
-p.Value = 0.0048;
+p.Value = 0.015;
+
+r = m.Reactions({m.Reactions.Name} == "ΔCAS with Ran");
+k = r.KineticLaw;
+p = k.Parameters({k.Parameters.Name} == "kf");
+assert(p.Units == "1/uM/s");
+p.Value = 0.001;
+
+r = m.Reactions({m.Reactions.Name} == "ΔCAS with Ran");
+k = r.KineticLaw;
+p = k.Parameters({k.Parameters.Name} == "kr");
+assert(p.Units == "1/s");
+p.Value = 0.0015;
 
 r = m.Reactions({m.Reactions.Name} == "CAS with NPC");
 k = r.KineticLaw;
 p = k.Parameters({k.Parameters.Name} == "kf");
 assert(p.Units == "1/uM/s");
-p.Value = 1e-3;
+p.Value = 1e-2;
 
 r = m.Reactions({m.Reactions.Name} == "CAS with NPC");
 k = r.KineticLaw;
@@ -52,15 +70,39 @@ p = k.Parameters({k.Parameters.Name} == "kr");
 assert(p.Units == "1/s");
 p.Value = 1e-3;
 
+r = m.Reactions({m.Reactions.Name} == "ΔCAS with NPC");
+k = r.KineticLaw;
+p = k.Parameters({k.Parameters.Name} == "kf");
+assert(p.Units == "1/uM/s");
+p.Value = 1e-1;
+
+r = m.Reactions({m.Reactions.Name} == "ΔCAS with NPC");
+k = r.KineticLaw;
+p = k.Parameters({k.Parameters.Name} == "kr");
+assert(p.Units == "1/s");
+p.Value = 1e-2;
+
 r = m.Reactions({m.Reactions.Name} == "Complex CAS with NPC");
 k = r.KineticLaw;
 p = k.Parameters({k.Parameters.Name} == "kf");
 assert(p.Units == "1/uM/s");
-p.Value = 1e-3;
+p.Value = 1e-2;
 
 r = m.Reactions({m.Reactions.Name} == "Complex CAS with NPC");
 k = r.KineticLaw;
 p = k.Parameters({k.Parameters.Name} == "kr");
 assert(p.Units == "1/s");
 p.Value = 1e-4;
+
+r = m.Reactions({m.Reactions.Name} == "Complex ΔCAS with NPC");
+k = r.KineticLaw;
+p = k.Parameters({k.Parameters.Name} == "kf");
+assert(p.Units == "1/uM/s");
+p.Value = 1e-3;
+
+r = m.Reactions({m.Reactions.Name} == "Complex ΔCAS with NPC");
+k = r.KineticLaw;
+p = k.Parameters({k.Parameters.Name} == "kr");
+assert(p.Units == "1/s");
+p.Value = 1e-5;
 
