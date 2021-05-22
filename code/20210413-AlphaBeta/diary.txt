@@ -1,0 +1,9 @@
+Running scenario: Baseline1.m
+Running scenario: Baseline2.m
+Running scenario: Baseline2_reversed.m
+Running scenario: Both_0.m
+Running scenario: Both_1.m
+Running scenario: Both_2.m
+Running scenario: OldBaseline.m
+Running scenario: Only_dCAS_1.m
+Running scenario: Only_dCAS_2.m
