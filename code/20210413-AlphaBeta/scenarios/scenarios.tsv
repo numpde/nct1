@@ -17,18 +17,18 @@ Reaction	hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC	kf	1/s					0.1			0.1	0.1		0.1	
 																	
 Reaction	CAS with Ran	kf	1/uM/s			0.01	0.01		0.01					0.01	0.01	0.01	0.01
 Reaction	CAS with Ran	kr	1/s			0.015	0.015		0.0048					0.015	0.015	0.015	0.015
-Reaction	ΔCAS with Ran	kf	1/uM/s	(Unknown)				0.01			0.01	0.01		0.01	0.01	0.01	0.001
-Reaction	ΔCAS with Ran	kr	1/s					0.015			0.015	0.015		0.015	0.015	0.015	0.0015
+Reaction	ΔCAS with Ran	kf	1/uM/s	(Unknown)				0.01			0.01	0.01		0.01	0.01	0.01	1e-3
+Reaction	ΔCAS with Ran	kr	1/s					0.015			0.015	0.015		0.015	0.015	0.015	0.1
 																	
 Reaction	CAS with NPC	kf	1/uM/s			1e-3	1e-2		1e-3					1e-2	1e-3	1e-2	1e-2
 Reaction	CAS with NPC	kr	1/s			1e-4	1e-3		1e-3					1e-3	1e-4	1e-3	1e-3
-Reaction	ΔCAS with NPC	kf	1/uM/s					1e-2			1e-2	1e-1		1e-1	1e-2	1e-1	1e-1
-Reaction	ΔCAS with NPC	kr	1/s					1e-3			1e-3	1e-2		1e-2	1e-3	1e-2	1e-2
+Reaction	ΔCAS with NPC	kf	1/uM/s					1e-2			1e-2	1e-1		1e-1	1e-2	1e-1	1e-2
+Reaction	ΔCAS with NPC	kr	1/s					1e-3			1e-3	1e-2		1e-2	1e-3	1e-2	1e-3
 																	
 Reaction	Complex CAS with NPC	kf	1/uM/s	i.e. ImpA·CAS·Ran·GTP		1e-3	1e-2		1e-3					1e-2	1e-3	1e-2	1e-2
 Reaction	Complex CAS with NPC	kr	1/s			1e-5	1e-4		1e-4					1e-4	1e-5	1e-4	1e-4
-Reaction	Complex ΔCAS with NPC	kf	1/uM/s	i.e. ImpA·ΔCAS·Ran·GTP				1e-2			1e-3	1e-3		1e-2	1e-3	1e-3	1e-3
-Reaction	Complex ΔCAS with NPC	kr	1/s					1e-4			1e-5	1e-5		1e-4	1e-5	1e-5	1e-5
+Reaction	Complex ΔCAS with NPC	kf	1/uM/s	i.e. ImpA·ΔCAS·Ran·GTP				1e-2			1e-3	1e-3		1e-2	1e-3	1e-3	1e-2
+Reaction	Complex ΔCAS with NPC	kr	1/s					1e-4			1e-5	1e-5		1e-4	1e-5	1e-5	1e-4
 																	
 																	
 																	
