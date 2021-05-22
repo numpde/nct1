@@ -19,6 +19,7 @@ out_dir = mkdir(Path(__file__).resolve().with_suffix(''))
 style = {
     rcParam.Text.usetex: True,
     rcParam.Text.Latex.preamble: '\n'.join([r'\usepackage{siunitx}']),
+    rcParam.Font.size: 14,
 }
 
 
@@ -55,7 +56,7 @@ def plot_total(run, spp):
         px.a.set_xlabel(f"Time, h")
 
         px.a.set_xscale('log')
-        px.a.legend(fontsize=7)
+        px.a.legend(fontsize=10)
 
         yield px
 
@@ -96,7 +97,7 @@ def main():
                 log.info(f"Writing: {relpath(img_file)}")
                 px.f.savefig(img_file)
 
-    log.info(f"\n{df.to_markdown()}")
+    # Write a summary
 
     df = df.applymap(
         lambda p: os.path.relpath(p, out_dir)
