@@ -6,7 +6,15 @@ function simulate
 	diary on;
 	
 	close all;
-	main();
+	
+	try
+		main()
+	catch ex
+		disp(" ")
+		disp("main() failed:")
+		disp(ex.identifier)
+		disp(ex.message)
+	end
 
 	diary off;
 end
