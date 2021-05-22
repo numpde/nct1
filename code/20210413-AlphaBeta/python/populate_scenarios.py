@@ -106,10 +106,10 @@ def make_readme(df):
 
     with (out_dir / "readme.html").open(mode='w') as fd:
         with contextlib.redirect_stdout(fd):
-            print(f"[Parameters](https://docs.google.com/spreadsheets/d/{SHEETS_ID}):")
+            print(f'<a href="https://docs.google.com/spreadsheets/d/{SHEETS_ID}">Parameters</a>:')
             print()
             print()
-            print(df.to_markdown(index=False))
+            print(df[(df != '').any(axis=1)].to_html(index=False, escape=False))
 
 
 def main():
