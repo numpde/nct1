@@ -105,7 +105,7 @@ def main():
         lambda p: f'<a href="{p}"><img style="width:196px" src="{p}"/></a>'
     )
 
-    with (out_dir / "readme.html").open(mode='w') as fd:
+    with (out_dir / "index.html").open(mode='w') as fd:
         with contextlib.redirect_stdout(fd):
             print(df.to_html(escape=False))
 

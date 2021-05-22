@@ -104,7 +104,7 @@ def make_scenarios(df: pd.DataFrame):
 def make_readme(df):
     df.to_csv(out_dir / "scenarios.tsv", sep='\t', index=False)
 
-    with (out_dir / "readme.html").open(mode='w') as fd:
+    with (out_dir / "index.html").open(mode='w') as fd:
         with contextlib.redirect_stdout(fd):
             print(f'<a href="https://docs.google.com/spreadsheets/d/{SHEETS_ID}">Parameters</a>:')
             print()
