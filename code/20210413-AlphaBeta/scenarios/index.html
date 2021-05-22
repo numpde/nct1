@@ -36,7 +36,7 @@
       <td>Description:</td>
       <td></td>
       <td></td>
-      <td>Replace CAS by dCAS</td>
+      <td>Sanity check CAS<->dCAS</td>
       <td>May 13</td>
       <td></td>
       <td></td>
@@ -213,7 +213,7 @@
       <td>0.1</td>
       <td>0.1</td>
       <td>0.1</td>
-      <td>0.1</td>
+      <td>1e-3</td>
     </tr>
     <tr>
       <th></th>
@@ -234,7 +234,7 @@
       <td>0.1</td>
       <td>0.1</td>
       <td>0.1</td>
-      <td>0.1</td>
+      <td>1e-2</td>
     </tr>
     <tr>
       <th></th>
@@ -297,7 +297,7 @@
       <td>0.01</td>
       <td>0.01</td>
       <td>0.01</td>
-      <td>1e-3</td>
+      <td>0.01</td>
     </tr>
     <tr>
       <th></th>
@@ -318,91 +318,133 @@
       <td>0.015</td>
       <td>0.015</td>
       <td>0.015</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Reaction</td>
+      <td>CAS with NPC</td>
+      <td>kf</td>
+      <td>1/uM/s</td>
+      <td></td>
+      <td></td>
+      <td>1e-3</td>
+      <td>1e-2</td>
+      <td></td>
+      <td>1e-3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1e-2</td>
+      <td>1e-3</td>
+      <td>1e-2</td>
+      <td>1e-2</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Reaction</td>
+      <td>CAS with NPC</td>
+      <td>kr</td>
+      <td>1/s</td>
+      <td></td>
+      <td></td>
+      <td>1e-4</td>
+      <td>1e-3</td>
+      <td></td>
+      <td>1e-3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1e-3</td>
+      <td>1e-4</td>
+      <td>1e-3</td>
+      <td>1e-3</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Reaction</td>
+      <td>ΔCAS with NPC</td>
+      <td>kf</td>
+      <td>1/uM/s</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1e-2</td>
+      <td></td>
+      <td></td>
+      <td>1e-2</td>
+      <td>1e-1</td>
+      <td></td>
+      <td>1e-1</td>
+      <td>1e-2</td>
+      <td>1e-1</td>
+      <td>1e-2</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Reaction</td>
+      <td>ΔCAS with NPC</td>
+      <td>kr</td>
+      <td>1/s</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1e-3</td>
+      <td></td>
+      <td></td>
+      <td>1e-3</td>
+      <td>1e-2</td>
+      <td></td>
+      <td>1e-2</td>
+      <td>1e-3</td>
+      <td>1e-2</td>
+      <td>1e-3</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Reaction</td>
+      <td>CAS·Ran with ImpA</td>
+      <td>kf</td>
+      <td>1/uM/s</td>
+      <td></td>
+      <td></td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td></td>
+      <td>0.1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.1</td>
       <td>0.1</td>
     </tr>
     <tr>
       <th></th>
       <td>Reaction</td>
-      <td>CAS with NPC</td>
-      <td>kf</td>
-      <td>1/uM/s</td>
-      <td></td>
-      <td></td>
-      <td>1e-3</td>
-      <td>1e-2</td>
-      <td></td>
-      <td>1e-3</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>1e-2</td>
-      <td>1e-3</td>
-      <td>1e-2</td>
-      <td>1e-2</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>Reaction</td>
-      <td>CAS with NPC</td>
-      <td>kr</td>
-      <td>1/s</td>
-      <td></td>
-      <td></td>
-      <td>1e-4</td>
-      <td>1e-3</td>
-      <td></td>
-      <td>1e-3</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>1e-3</td>
-      <td>1e-4</td>
-      <td>1e-3</td>
-      <td>1e-3</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>Reaction</td>
-      <td>ΔCAS with NPC</td>
+      <td>ΔCAS·Ran with ImpA</td>
       <td>kf</td>
       <td>1/uM/s</td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
-      <td>1e-2</td>
+      <td>0.1</td>
       <td></td>
       <td></td>
-      <td>1e-2</td>
-      <td>1e-1</td>
+      <td>0.1</td>
+      <td>0.1</td>
       <td></td>
-      <td>1e-1</td>
-      <td>1e-2</td>
-      <td>1e-1</td>
-      <td>1e-2</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>Reaction</td>
-      <td>ΔCAS with NPC</td>
-      <td>kr</td>
-      <td>1/s</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>1e-3</td>
-      <td></td>
-      <td></td>
-      <td>1e-3</td>
-      <td>1e-2</td>
-      <td></td>
-      <td>1e-2</td>
-      <td>1e-3</td>
-      <td>1e-2</td>
-      <td>1e-3</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.1</td>
     </tr>
     <tr>
       <th></th>
