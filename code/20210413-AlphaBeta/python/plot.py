@@ -1,12 +1,15 @@
 # -- coding: utf-8 --
 # RA, 2021-04-10
+import os.path
 
 import numpy as np
 import pandas as pd
 
+import contextlib
 from plox import rcParam
 
 from bugs import *
+from tcga.utils import from_iterable
 from twig import log
 
 import matplotlib.colors as mcolors
@@ -19,12 +22,12 @@ style = {
 }
 
 
-def plot_total(run, include):
+def plot_total(run, spp):
     with Plox(style) as px:
         fmt = {
-            '(c)': dict(ls="--", lw=1, alpha=0.5),
-            '(n)': dict(ls="-.", lw=1, alpha=0.9),
-            'NPC': dict(ls="-", lw=1, alpha=0.8),
+            '(c)': dict(ls="--", lw=2, alpha=0.5),
+            '(n)': dict(ls="-.", lw=2, alpha=0.9),
+            'NPC': dict(ls="-", lw=2, alpha=0.8),
         }
 
         for s in fmt:
@@ -33,9 +36,19 @@ def plot_total(run, include):
         color = f"C{0}"
         # px.a.plot(1, 0, "-", color=color, label=label)
 
+        # Aggregate by suffix
+        spp_by_suffix = {
+            suffix: [sp for sp in spp if sp.endswith(suffix)]
+            for suffix in {"(c)", "(n)", "NPC"}
+        }
+
+        if (sum(map(len, spp_by_suffix.values())) != len(spp)):
+            log.warning(f"Unknown suffix for species: {set(spp) - set(from_iterable(spp_by_suffix.values()))}")
+
+        # time x species table of concentrations
         tx: pd.DataFrame = run.tx
-        for suffix in ["(c)", "(n)", "NPC"]:
-            spp = [sp for sp in include if sp.endswith(suffix)]
+
+        for (suffix, spp) in spp_by_suffix.items():
             x = tx[spp].sum(axis=1)
             px.a.plot(tx.index / 3600, x, **fmt[suffix], color=color)
 
@@ -50,7 +63,7 @@ def plot_total(run, include):
 def main():
     from data_source import runs
 
-    spp = [
+    sp_specs = [
         {'+': "CAS", '-': "ΔCAS"},
         {'+': "ΔCAS"},
         {'+': "ImpB"},
@@ -59,22 +72,41 @@ def main():
         {'+': "NLS"},
     ]
 
-    # `Not a species` string
+    # `Not a species` placeholder
     nas = ("?" * 100)
 
-    for (i, run) in runs.iterrows():
-        for sp_spec in spp:
-            include = [c for c in run.tx.columns if (sp_spec['+'] in c) and not (sp_spec.get('-', nas) in c)]
-            name = sp_spec['+'] + (f" (excl. {sp_spec['-'] })" if ('-' in sp_spec) else "")
-            for px in plot_total(run, include):
+    df = pd.DataFrame()
+
+    for (i, run) in sorted(runs.iterrows()):
+        for sp_spec in sp_specs:
+            # Species to include in the plot
+            spp = [c for c in run.tx.columns if (sp_spec['+'] in c) and not (sp_spec.get('-', nas) in c)]
+
+            # File name and proto-ylabel
+            name = sp_spec['+'] + (f" (excl. {sp_spec['-']})" if ('-' in sp_spec) else "")
+
+            for px in plot_total(run, spp):
+                img_file = mkdir(out_dir / i) / f"{name}.png"
+                df.loc[name, i] = img_file
 
                 ylabel = fr"{name}, $\mu$M"
-                ylabel = ylabel.replace("Δ", r"$\Delta$")
+                ylabel = ylabel.replace("Δ", r"$\Delta$")  # pdflatex issue with UTF
                 px.a.set_ylabel(ylabel)
 
-                img_file = mkdir(out_dir / i) / f"{name}.png"
-                log.info(f"Writing {relpath(img_file)} .")
+                log.info(f"Writing: {relpath(img_file)}")
                 px.f.savefig(img_file)
+
+    log.info(f"\n{df.to_markdown()}")
+
+    df = df.applymap(
+        lambda p: os.path.relpath(p, out_dir)
+    ).applymap(
+        lambda p: f'<a href="{p}"><img style="width:196px" src="{p}"/></a>'
+    )
+
+    with (out_dir / "readme.html").open(mode='w') as fd:
+        with contextlib.redirect_stdout(fd):
+            print(df.to_html(escape=False))
 
 
 if __name__ == '__main__':
