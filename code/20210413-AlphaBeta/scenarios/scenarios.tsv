@@ -1,5 +1,5 @@
 Item	Name	Parameter	Units	Comment	Scenarios:	Baseline1	Baseline2	Baseline2_reversed	OldBaseline		Only_dCAS_1	Only_dCAS_2		Both_0	Both_1	Both_2	Both_3	Both_4		Both_5	Both_6
-					Description:			Sanity check CAS<->dCAS	May 13					Strong effect	Reasonable values 1	Reasonable values 2	"Reasonable values, change ""CAS with Ran"""	Replenish NLS		Draft	Lower NPC
+					Description:			Sanity check CAS<->dCAS	May 13					Strong effect	Reasonable values 1	Reasonable values 2	"Reasonable values, change ""CAS with Ran"""	Replenish NLS		Draft	Draft
 																					
 																					
 				Initial values																	
@@ -7,7 +7,7 @@ Species	CAS(c)	Value	uM			1	1	0	1		0	0		0.5	0.5	0.5	0.5	0.5		1	1
 Species	ΔCAS(c)	Value	uM			0	0	1	0		1	1		0.5	0.5	0.5	0.5	0.5		2	2
 																					
 Species	Ran·GTP(n)	Value	uM			3	3	3	3		3	3		3	3	3	3	3		3	3
-Species	NPC	Value	uM			0.5	0.5	0.5	1		0.5	0.5		0.5	0.5	0.5	0.5	0.5		0.5	0.05
+Species	NPC	Value	uM			0.5	0.5	0.5	1		0.5	0.5		0.5	0.5	0.5	0.5	0.5		0.5	2
 																					
 Species	ImpB(c)	Value	uM																	2	2
 																					
@@ -15,7 +15,7 @@ Species	ImpB(c)	Value	uM																	2	2
 Reaction	hydrolysis of Ran·GTP·ImpB·NPC	kf	1/s			0.1	0.1	0.1	0.1		0.1	0.1		0.1	0.1	0.1	0.1	0.1		0.1	0.1
 																					
 Reaction	hydrolysis of ImpA·CAS·Ran·GTP·NPC	kf	1/s			0.1	0.1		0.1					0.1	0.1	0.1	1e-3	1e-3		1e-3	1e-3
-Reaction	hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC	kf	1/s					0.1			0.1	0.1		0.1	0.1	0.1	1e-2	1e-2		1e-2	1e-2
+Reaction	hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC	kf	1/s					0.1			0.1	0.1		0.1	0.1	0.1	1e-2	1e-2		1e-3	1e-3
 																					
 Reaction	CAS with Ran	kf	1/uM/s			0.01	0.01		0.01					0.01	0.01	0.01	0.01	0.01		0.01	0.01
 Reaction	CAS with Ran	kr	1/s			0.015	0.015		0.0048					0.015	0.015	0.015	0.015	0.015		0.015	0.015
