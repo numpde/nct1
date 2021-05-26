@@ -61,8 +61,8 @@ def print_scenario(df, c):
     print(f'')
 
     for (i, n, p, u, v) in zip(df.Item, df.Name, df.Parameter, df.Units, df[c]):
-        if (v == ""):
-            v = 0
+        if (v.lower() in ["", "default"]):
+            continue
 
         if (i == ""):
             pass

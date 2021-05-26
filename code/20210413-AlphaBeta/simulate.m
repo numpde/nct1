@@ -8,6 +8,10 @@ function simulate
 	close all;
 	
 	try
+		fid = fopen('model.html', 'wt');
+		fprintf(fid, evalc("model_to_html(load_model())"));
+		fclose(fid);
+		
 		main()
 	catch ex
 		disp(" ")

@@ -67,6 +67,8 @@ def main():
     sp_specs = [
         {'+': "CAS", '-': "ΔCAS"},
         {'+': "ΔCAS"},
+        {'+': "CAS·Ran·GTP", '-': "ΔCAS·Ran·GTP"},
+        {'+': "ΔCAS·Ran·GTP"},
         {'+': "ImpB"},
         {'+': "ImpA"},
         {'+': "Ran·GTP"},
@@ -76,7 +78,7 @@ def main():
     # `Not a species` placeholder
     nas = ("?" * 100)
 
-    df = pd.DataFrame()
+    summary = pd.DataFrame()
 
     for (i, run) in sorted(runs.iterrows()):
         for sp_spec in sp_specs:
@@ -88,7 +90,7 @@ def main():
 
             for px in plot_total(run, spp):
                 img_file = mkdir(out_dir / i) / f"{name}.png"
-                df.loc[name, i] = img_file
+                summary.loc[name, i] = img_file
 
                 ylabel = fr"{name}, $\mu$M"
                 ylabel = ylabel.replace("Δ", r"$\Delta$")  # pdflatex issue with UTF
@@ -99,15 +101,17 @@ def main():
 
     # Write a summary
 
-    df = df.applymap(
-        lambda p: os.path.relpath(p, out_dir)
-    ).applymap(
-        lambda p: f'<a href="{p}"><img style="width:196px" src="{p}"/></a>'
-    )
-
     with (out_dir / "index.html").open(mode='w') as fd:
         with contextlib.redirect_stdout(fd):
-            print(df.to_html(escape=False))
+            print(
+                summary.applymap(
+                    lambda p: os.path.relpath(p, out_dir)
+                ).applymap(
+                    lambda p: f'<a href="{p}"><img style="width:196px" src="{p}"/></a>'
+                ).to_html(
+                    escape=False
+                )
+            )
 
 
 if __name__ == '__main__':
