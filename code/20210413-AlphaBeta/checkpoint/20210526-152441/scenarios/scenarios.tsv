@@ -1,0 +1,43 @@
+Item	Name	Parameter	Units	Comment	Scenarios:	Baseline1	Baseline2	Baseline2_reversed	OldBaseline		Only_dCAS_1	Only_dCAS_2		Both_0	Both_1	Both_2	Both_3	Both_4		Both_5
+					Description:			Sanity check CAS<->dCAS	May 13					Strong effect	Reasonable values 1	Reasonable values 2	"Reasonable values, change ""CAS with Ran"""	Replenish NLS		Draft
+																				
+																				
+				Initial values																
+Species	CAS(c)	Value	uM			1	1	0	1		0	0		0.5	0.5	0.5	0.5	0.5		1
+Species	ΔCAS(c)	Value	uM			0	0	1	0		1	1		0.5	0.5	0.5	0.5	0.5		2
+																				
+Species	Ran·GTP(n)	Value	uM			3	3	3	3		3	3		3	3	3	3	3		3
+Species	NPC	Value	uM			0.5	0.5	0.5	1		0.5	0.5		0.5	0.5	0.5	0.5	0.5		0.5
+																				
+Species	ImpB(c)	Value	uM																	2
+																				
+				Kinetic constants																
+Reaction	hydrolysis of Ran·GTP·ImpB·NPC	kf	1/s			0.1	0.1	0.1	0.1		0.1	0.1		0.1	0.1	0.1	0.1	0.1		0.1
+																				
+Reaction	hydrolysis of ImpA·CAS·Ran·GTP·NPC	kf	1/s			0.1	0.1		0.1					0.1	0.1	0.1	1e-3	1e-3		1e-3
+Reaction	hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC	kf	1/s					0.1			0.1	0.1		0.1	0.1	0.1	1e-2	1e-2		1e-2
+																				
+Reaction	CAS with Ran	kf	1/uM/s			0.01	0.01		0.01					0.01	0.01	0.01	0.01	0.01		0.01
+Reaction	CAS with Ran	kr	1/s			0.015	0.015		0.0048					0.015	0.015	0.015	0.015	0.015		0.015
+Reaction	ΔCAS with Ran	kf	1/uM/s	(Unknown)				0.01			0.01	0.01		0.01	0.01	0.01	0.01	0.01		0.01
+Reaction	ΔCAS with Ran	kr	1/s					0.015			0.015	0.015		0.015	0.015	0.015	1	1		0.015
+																				
+Reaction	CAS with NPC	kf	1/uM/s			1e-3	1e-2		1e-3					1e-2	1e-3	1e-2	1e-2	1e-2		1e-3
+Reaction	CAS with NPC	kr	1/s			1e-4	1e-3		1e-3					1e-3	1e-4	1e-3	1e-3	1e-3		1e-4
+Reaction	ΔCAS with NPC	kf	1/uM/s					1e-2			1e-2	1e-1		1e-1	1e-2	1e-1	1e-2	1e-2		1e-2
+Reaction	ΔCAS with NPC	kr	1/s					1e-3			1e-3	1e-2		1e-2	1e-3	1e-2	1e-3	1e-3		1e-3
+																				
+Reaction	CAS·Ran with ImpA	kf	1/uM/s			0.1	0.1		0.1					0.1	0.1	0.1	0.1	0.1		0.1
+Reaction	ΔCAS·Ran with ImpA	kf	1/uM/s					0.1			0.1	0.1		0.1	0.1	0.1	0.1	0.1		0.1
+																				
+Reaction	Complex CAS with NPC	kf	1/uM/s	i.e. ImpA·CAS·Ran·GTP		1e-3	1e-2		1e-3					1e-2	1e-3	1e-2	1e-2	1e-2		1e-3
+Reaction	Complex CAS with NPC	kr	1/s			1e-5	1e-4		1e-4					1e-4	1e-5	1e-4	1e-4	1e-4		1e-5
+Reaction	Complex ΔCAS with NPC	kf	1/uM/s	i.e. ImpA·ΔCAS·Ran·GTP				1e-2			1e-3	1e-3		1e-2	1e-3	1e-3	1e-2	1e-2		1e-2
+Reaction	Complex ΔCAS with NPC	kr	1/s					1e-4			1e-5	1e-5		1e-4	1e-5	1e-5	1e-4	1e-4		1e-4
+																				
+Reaction	Replenish NLS	kf	1/s															1e-2		1e-4
+																				
+																				
+																				
+	For uploaded results, see:																			
+	https://numpde.github.io/nct1/code/20210413-AlphaBeta/checkpoint/																			
