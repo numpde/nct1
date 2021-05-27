@@ -12,7 +12,7 @@ Species	Ran·GTP(n)	Value	uM			3	3	3	3		3	3		3	3	3	3	3		3	3		3
 Species	NPC	Value	uM			0.5	0.5	0.5	1		0.5	0.5		0.5	0.5	0.5	0.5	0.5		0.5	2		2
 																							
 Species	ImpB(c)	Value	uM																	2	2		1
-Species	ImpB(n)	Value	uM																	2	2		1
+Species	ImpB(n)	Value	uM																				1
 Species	ImpA(c)	Value	uM																				0.5
 Species	ImpA(n)	Value	uM																				0.5
 																							
