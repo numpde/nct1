@@ -9,6 +9,7 @@ Running scenario: Both_4.m
 Running scenario: Both_5.m
 Running scenario: Both_6.m
 Running scenario: Both_7.m
+Running scenario: Both_8.m
 Running scenario: OldBaseline.m
 Running scenario: Only_dCAS_1.m
 Running scenario: Only_dCAS_2.m
