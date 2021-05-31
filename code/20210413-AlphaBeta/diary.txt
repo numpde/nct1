@@ -3,6 +3,7 @@ Running scenario: Baseline2.m
 Running scenario: Baseline2_reversed.m
 Running scenario: Both_0.m
 Running scenario: Both_1.m
+Running scenario: Both_10.m
 Running scenario: Both_2.m
 Running scenario: Both_3.m
 Running scenario: Both_4.m
@@ -10,6 +11,7 @@ Running scenario: Both_5.m
 Running scenario: Both_6.m
 Running scenario: Both_7.m
 Running scenario: Both_8.m
+Running scenario: Both_9.m
 Running scenario: OldBaseline.m
 Running scenario: Only_dCAS_1.m
 Running scenario: Only_dCAS_2.m
