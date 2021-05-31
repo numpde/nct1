@@ -3,7 +3,6 @@ Running scenario: Baseline2.m
 Running scenario: Baseline2_reversed.m
 Running scenario: Both_0.m
 Running scenario: Both_1.m
-Running scenario: Both_10.m
 Running scenario: Both_2.m
 Running scenario: Both_3.m
 Running scenario: Both_4.m
