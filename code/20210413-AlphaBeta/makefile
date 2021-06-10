@@ -1,9 +1,14 @@
 default:
 	@cat makefile
 
-all: populate_scenarios simulate plot chkp_new chkp_index upload
+all: clear_scenarios populate_scenarios simulate plot chkp_new chkp_index upload
+
+clear_scenarios:
+	mv scenarios results python/plot cleared || exit 0
+	
 
 populate_scenarios:
+	mkdir -p scenarios
 	. ../venv/*/activate && cd python && python populate_scenarios.py
 	git add scenarios/*.m
 
