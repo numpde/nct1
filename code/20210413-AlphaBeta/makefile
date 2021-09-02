@@ -4,6 +4,7 @@ default:
 all: clear_scenarios populate_scenarios simulate plot chkp_new chkp_index upload
 
 clear_scenarios:
+	mkdir -p cleared
 	mv scenarios results python/plot cleared || exit 0
 	
 
