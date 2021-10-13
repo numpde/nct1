@@ -1,21 +1,5 @@
-Running scenario: Actually.m
-Running scenario: Actually2.m
-Running scenario: Actually3.m
-Running scenario: Baseline1.m
-Running scenario: Baseline2.m
-Running scenario: Baseline2_reversed.m
-Running scenario: Both_0.m
-Running scenario: Both_1.m
-Running scenario: Both_2.m
-Running scenario: Both_3.m
-Running scenario: Both_4.m
-Running scenario: Both_5.m
-Running scenario: Both_6.m
-Running scenario: Both_7.m
-Running scenario: Both_8.m
-Running scenario: OldBaseline.m
-Running scenario: Only_dCAS_1.m
-Running scenario: Only_dCAS_2.m
-Running scenario: VaryB_9a.m
-Running scenario: VaryB_9b.m
-Running scenario: VaryB_9c.m
+Running scenario: 01a_LowImpB.m
+ 
+main() failed:
+MATLAB:m_missing_operator
+Invalid expression. Check for missing multiplication operator, missing or unbalanced delimiters, or other syntax error. To construct matrices, use brackets instead of parentheses.
