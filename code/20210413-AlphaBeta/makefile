@@ -1,7 +1,7 @@
 default:
 	@cat makefile
 
-all: clear_scenarios populate_scenarios simulate plot chkp_new chkp_index upload
+all: clear_scenarios populate_scenarios simulate plot plot_ss chkp_new chkp_index upload
 
 clear_scenarios:
 	mkdir -p cleared
@@ -20,6 +20,10 @@ simulate:
 plot:
 	. ../venv/*/activate && cd python && python plot.py
 	git add python/plot/*
+
+plot_ss:
+	. ../venv/*/activate && cd python && python plot_ss.py
+	git add python/plot_ss/*
 
 chkp_new:
 	d=checkpoint/$$(date +"%Y%m%d-%H%M%S"); mkdir $$d && cp -r *.sbproj model.html *.m scenarios results python/plot python/plot_ss $$d/; echo "$$d<br><a href='model.html'>base model</a>, <a href='scenarios/index.html'>scenarios</a>, <a href='plot/index.html'>time-course</a>, <a href='plot_ss/index.html'>steady-state</a><br>" > $$d/index.html; git add $$d && git commit $$d -m "$$d" && git commit . -m "checkpoint" && git log -n 1 --pretty=format:"<a href='https://github.com/numpde/nct1/tree/%H/$$(dirname $$(git ls-files --full-name | head -n 1))'>permalink</a><br>" >> $$d/index.html;
