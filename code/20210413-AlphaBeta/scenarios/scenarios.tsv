@@ -42,7 +42,7 @@ Reaction	Complex ΔCAS with NPC	kr	1/s					1e-4			1e-5	1e-5		1e-4	1e-5	1e-5	1e-4
 																														
 Reaction	Replenish NLS	kf	1/s															1e-2		1e-4	1e-4		1e-3	1e-3	1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
 																														
-																														
+Reaction	Ran gradient	k_pump	1/s																											
 																														
 	For uploaded results, see:																													
 	https://numpde.github.io/nct1/code/20210413-AlphaBeta/checkpoint/																													

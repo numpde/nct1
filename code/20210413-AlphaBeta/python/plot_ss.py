@@ -101,6 +101,7 @@ def main():
         {'+': "ImpB"},
         {'+': "ImpA"},
         {'+': "Ran·GTP"},
+        {'+': "Ran·GDP"},
         {'+': "NLS"},
     ]
 
