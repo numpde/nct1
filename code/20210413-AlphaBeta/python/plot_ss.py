@@ -1,5 +1,6 @@
 # -- coding: utf-8 --
-# RA, 2021-04-10
+# RA, 2021-10-01
+
 import os.path
 
 import numpy as np
@@ -14,16 +15,19 @@ from twig import log
 
 import matplotlib.colors as mcolors
 
+from sigfig import round
+
 out_dir = mkdir(Path(__file__).resolve().with_suffix(''))
 
 style = {
     rcParam.Text.usetex: True,
     rcParam.Text.Latex.preamble: '\n'.join([r'\usepackage{siunitx}']),
     rcParam.Font.size: 14,
+    rcParam.Figure.figsize: (10, 1),
 }
 
 
-def plot_total_timecourse(run, spp):
+def plot_total_steadystate(run, spp):
     with Plox(style) as px:
         fmt = {
             '(c)': dict(ls="--", lw=2, alpha=0.5),
@@ -31,8 +35,8 @@ def plot_total_timecourse(run, spp):
             'NPC': dict(ls="-", lw=2, alpha=0.8),
         }
 
-        for s in fmt:
-            px.a.plot(1, 0, **fmt[s], color='k', label=f"...{s}")
+        # for s in fmt:
+        #     px.a.plot(1, 0, **fmt[s], color='k', label=f"...{s}")
 
         color = f"C{0}"
         # px.a.plot(1, 0, "-", color=color, label=label)
@@ -46,17 +50,41 @@ def plot_total_timecourse(run, spp):
         if (sum(map(len, spp_by_suffix.values())) != len(spp)):
             log.warning(f"Unknown suffix for species: {set(spp) - set(from_iterable(spp_by_suffix.values()))}")
 
-        # time x species table of concentrations
+        # `time` x `species` table of concentrations
         tx: pd.DataFrame = run.tx
 
-        for (suffix, spp) in spp_by_suffix.items():
-            x = tx[spp].sum(axis=1)
-            px.a.plot(tx.index / 3600, x, **fmt[suffix], color=color)
+        agg_by_suffix = pd.DataFrame(data={
+            suffix: tx[spp].sum(axis=1)
+            for (suffix, spp) in sorted(spp_by_suffix.items())
+        })
 
-        px.a.set_xlabel(f"Time, h")
+        x01: pd.DataFrame = agg_by_suffix.iloc[[0, -1]]
 
-        px.a.set_xscale('log')
-        px.a.legend(fontsize=10)
+        # Make heatmap
+
+        cmap = mcolors.LinearSegmentedColormap.from_list('concentration', ["white", "darkblue"])
+
+        # vmax = 10 ** np.ceil(np.log10(x01.max().max()))
+        vmax = x01.values.sum().sum()
+
+        # sanity fix
+        vmax = (vmax if not np.isclose(vmax, 0) else 1)
+
+        im = px.a.imshow(x01, cmap=cmap, vmin=0, vmax=vmax, origin="upper", aspect="auto")
+
+        assert (2 == len(x01.index)), "Expect initial and final state in rows."
+        px.a.set_yticks(np.arange(0, len(x01.index)))
+        px.a.set_yticklabels(["Initial", "Final"])
+
+        px.a.set_xticks(np.arange(0, len(x01.columns)))
+        px.a.set_xticklabels(x01.columns)
+
+        for i in range(x01.shape[0]):
+            for j in range(x01.shape[1]):
+                alignment = dict(ha="center", va="center")
+                im.axes.text(j, i, "{:.3g}".format(x01.iloc[i, j]), fontsize=17, color="darkred", **alignment)
+
+        # (xlim, ylim) = (px.a.get_xlim(), px.a.get_ylim())
 
         yield px
 
@@ -88,13 +116,13 @@ def main():
             # File name and proto-ylabel
             name = sp_spec['+'] + (f" (excl. {sp_spec['-']})" if ('-' in sp_spec) else "")
 
-            for px in plot_total_timecourse(run, spp):
+            for px in plot_total_steadystate(run, spp):
                 img_file = mkdir(out_dir / i) / f"{name}.png"
                 summary.loc[name, i] = img_file
 
-                ylabel = fr"{name}, $\mu$M"
-                ylabel = ylabel.replace("Δ", r"$\Delta$")  # pdflatex issue with UTF
-                px.a.set_ylabel(ylabel)
+                label = fr"{name}, $\mu$M"
+                label = label.replace("Δ", r"$\Delta$")  # pdflatex issue with UTF
+                px.a.set_title(label)
 
                 log.info(f"Writing: {relpath(img_file)}")
                 px.f.savefig(img_file)

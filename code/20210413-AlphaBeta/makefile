@@ -22,7 +22,7 @@ plot:
 	git add python/plot/*
 
 chkp_new:
-	d=checkpoint/$$(date +"%Y%m%d-%H%M%S"); mkdir $$d && cp -r *.sbproj model.html *.m scenarios results python/plot $$d/; echo "$$d<br><a href='model.html'>base model</a>, <a href='scenarios/index.html'>scenarios</a>, <a href='plot/index.html'>figures</a><br>" > $$d/index.html; git add $$d && git commit $$d -m "$$d" && git commit . -m "checkpoint" && git log -n 1 --pretty=format:"<a href='https://github.com/numpde/nct1/tree/%H/$$(dirname $$(git ls-files --full-name | head -n 1))'>permalink</a><br>" >> $$d/index.html;
+	d=checkpoint/$$(date +"%Y%m%d-%H%M%S"); mkdir $$d && cp -r *.sbproj model.html *.m scenarios results python/plot python/plot_ss $$d/; echo "$$d<br><a href='model.html'>base model</a>, <a href='scenarios/index.html'>scenarios</a>, <a href='plot/index.html'>time-course</a>, <a href='plot_ss/index.html'>steady-state</a><br>" > $$d/index.html; git add $$d && git commit $$d -m "$$d" && git commit . -m "checkpoint" && git log -n 1 --pretty=format:"<a href='https://github.com/numpde/nct1/tree/%H/$$(dirname $$(git ls-files --full-name | head -n 1))'>permalink</a><br>" >> $$d/index.html;
 
 chkp_index:
 	cd checkpoint; echo > index.html; for i in 2021*; do echo "<a href='$$i'>$$i</a><br>" >> index.html; done; git add index.html; git commit index.html -m "checkpoint index";
