@@ -99,7 +99,7 @@ def main():
                 log.info(f"Writing: {relpath(img_file)}")
                 px.f.savefig(img_file)
 
-    # Write a summary
+    # Write an HTML overview
 
     with (out_dir / "index.html").open(mode='w') as fd:
         with contextlib.redirect_stdout(fd):

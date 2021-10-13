@@ -15,7 +15,7 @@ from twig import log
 
 import matplotlib.colors as mcolors
 
-from sigfig import round
+# from sigfig import round
 
 out_dir = mkdir(Path(__file__).resolve().with_suffix(''))
 
@@ -65,7 +65,8 @@ def plot_total_steadystate(run, spp):
         cmap = mcolors.LinearSegmentedColormap.from_list('concentration', ["white", "darkblue"])
 
         # vmax = 10 ** np.ceil(np.log10(x01.max().max()))
-        vmax = x01.values.sum().sum()
+        # vmax = x01.values.sum().sum()
+        vmax = x01.loc[:, spp_by_suffix].sum(axis=1).max()
 
         # sanity fix
         vmax = (vmax if not np.isclose(vmax, 0) else 1)
@@ -82,7 +83,7 @@ def plot_total_steadystate(run, spp):
         for i in range(x01.shape[0]):
             for j in range(x01.shape[1]):
                 alignment = dict(ha="center", va="center")
-                im.axes.text(j, i, "{:.3g}".format(x01.iloc[i, j]), fontsize=17, color="darkred", **alignment)
+                im.axes.text(j, i, "{:.3g}".format(x01.iloc[i, j]), fontsize=17, color="red", **alignment)
 
         # (xlim, ylim) = (px.a.get_xlim(), px.a.get_ylim())
 
@@ -127,7 +128,7 @@ def main():
                 log.info(f"Writing: {relpath(img_file)}")
                 px.f.savefig(img_file)
 
-    # Write a summary
+    # Write an HTML overview
 
     with (out_dir / "index.html").open(mode='w') as fd:
         with contextlib.redirect_stdout(fd):
