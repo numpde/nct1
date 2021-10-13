@@ -44,7 +44,7 @@ def plot_total_steadystate(run, spp):
         # Aggregate by suffix
         spp_by_suffix = {
             suffix: [sp for sp in spp if sp.endswith(suffix)]
-            for suffix in {"(c)", "(n)", "NPC"}
+            for suffix in ["(c)", "NPC", "(n)"]  # order for display
         }
 
         if (sum(map(len, spp_by_suffix.values())) != len(spp)):
@@ -55,7 +55,7 @@ def plot_total_steadystate(run, spp):
 
         agg_by_suffix = pd.DataFrame(data={
             suffix: tx[spp].sum(axis=1)
-            for (suffix, spp) in sorted(spp_by_suffix.items())
+            for (suffix, spp) in spp_by_suffix.items()
         })
 
         x01: pd.DataFrame = agg_by_suffix.iloc[[0, -1]]
