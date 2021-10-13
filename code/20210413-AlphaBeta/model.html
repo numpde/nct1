@@ -1,6 +1,6 @@
 Model name: alpha_beta
 <br>
-13-Oct-2021 16:30:23
+13-Oct-2021 16:49:59
 <br>
 <br>
 Model parameters
@@ -23,26 +23,6 @@ Units
 </td>
 <td>
 Notes
-</td>
-</tr>
-<tr>
-<td>
-k_pump
-</td>
-<td>
-false
-</td>
-<td>
-true
-</td>
-<td>
-    0.0100
-
-</td>
-<td>
-1/s
-</td>
-<td>
 </td>
 </tr>
 <tr>
@@ -1235,6 +1215,29 @@ true
 </tr>
 <tr>
 <td>
+Ran gradient
+</td>
+<td>
+[Ran·GDP(c)] -> [Ran·GTP(n)]
+</td>
+<td>
+k_pump
+</td>
+<td>
+true
+</td>
+<td>
+    0.0100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
 Complex CAS with NPC
 </td>
 <td>
@@ -2226,7 +2229,6 @@ r9_1 = (r9.kf*[ImpA(n)]*[ImpB·NPC]-r9.kr*[ImpA·ImpB·NPC])*NE
 [Replenish NLS] = ([Replenish NLS].kf*[NLS(n)])*NE
 
 Parameter Values:
-k_pump = 0.01
 k_ImpB_on = 0.001
 k_ImpB_off = 0.0001
 r7.kf = 0.49
@@ -2247,6 +2249,7 @@ knockoff.kf = 0.02
 [CAS with Ran].kr = 0.015
 [hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf = 0.1
 [CAS·Ran with ImpA].kf = 0.1
+k_pump = 0.01
 [Complex CAS with NPC].kf = 0.001
 [Complex CAS with NPC].kr = 0.0001
 [ΔCAS with NPC].kf = 0.001

@@ -1,4 +1,4 @@
-Item	Name	Parameter	Units	Comment	Scenarios:		01a_LowImpB	02a_HighImpB	03a_MoreNPC	01b_LowImpB	02b_HighImpB	03b_MoreNPC
+Item	Name	Parameter	Units	Comment	Scenarios:		a_01_LowImpB	a_02_HighImpB	a_03_MoreNPC	b_01_LowImpB	b_02_HighImpB	b_03_MoreNPC
 					Description:			Increase ImpB	Increase NPC	No RanGTP reg.	Increase ImpB	Increase NPC
 							*	*	*	*	*	*
 												

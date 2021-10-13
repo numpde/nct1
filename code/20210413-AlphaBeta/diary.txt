@@ -1,5 +1,6 @@
-Running scenario: 01a_LowImpB.m
- 
-main() failed:
-MATLAB:m_missing_operator
-Invalid expression. Check for missing multiplication operator, missing or unbalanced delimiters, or other syntax error. To construct matrices, use brackets instead of parentheses.
+Running scenario: a_01_LowImpB.m
+Running scenario: a_02_HighImpB.m
+Running scenario: a_03_MoreNPC.m
+Running scenario: b_01_LowImpB.m
+Running scenario: b_02_HighImpB.m
+Running scenario: b_03_MoreNPC.m

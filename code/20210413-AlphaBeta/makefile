@@ -5,7 +5,7 @@ all: clear_scenarios populate_scenarios simulate plot plot_ss chkp_new chkp_inde
 
 clear_scenarios:
 	mkdir -p cleared
-	mv scenarios results python/plot cleared || exit 0
+	mv scenarios results python/plot python/plot_ss cleared || exit 0
 	
 
 populate_scenarios:
