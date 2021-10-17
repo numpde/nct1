@@ -95,13 +95,15 @@ def main():
 
     sp_specs = [
         {'+': "CAS", '-': "ΔCAS"},
-        {'+': "ΔCAS"},
         {'+': "CAS·Ran·GTP", '-': "ΔCAS·Ran·GTP"},
+        {'+': "ImpA·CAS·Ran·GTP"},
         {'+': "ΔCAS·Ran·GTP"},
+        {'+': "ImpA·ΔCAS·Ran·GTP"},
+        {'+': "ΔCAS"},
         {'+': "ImpB"},
         {'+': "ImpA"},
+        {'+': "ImpA·ImpB"},
         {'+': "Ran·GTP"},
-        {'+': "Ran·GDP"},
         {'+': "NLS"},
     ]
 
