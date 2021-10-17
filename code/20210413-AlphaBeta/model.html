@@ -1,6 +1,6 @@
 Model name: alpha_beta
 <br>
-17-Oct-2021 09:04:44
+17-Oct-2021 09:32:55
 <br>
 <br>
 Model parameters
@@ -100,22 +100,6 @@ true
 </td>
 <td>
 picoliter
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-C
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
 </td>
 <td>
 </td>
@@ -840,7 +824,7 @@ Notes
 r7
 </td>
 <td>
-NE.[ImpA(c)] + NE.[ImpB(c)] <-> NE.[ImpA·ImpB(c)]
+[ImpA(c)] + [ImpB(c)] <-> [ImpA·ImpB(c)]
 </td>
 <td>
 kf
@@ -863,7 +847,7 @@ true
 r7
 </td>
 <td>
-NE.[ImpA(c)] + NE.[ImpB(c)] <-> NE.[ImpA·ImpB(c)]
+[ImpA(c)] + [ImpB(c)] <-> [ImpA·ImpB(c)]
 </td>
 <td>
 kr
@@ -886,7 +870,7 @@ true
 r9
 </td>
 <td>
-NE.[ImpA(c)] + NE.[ImpB·NPC] -> NE.[ImpA·ImpB·NPC]
+[ImpA(c)] + [ImpB·NPC] -> [ImpA·ImpB·NPC]
 </td>
 <td>
 kf
@@ -909,7 +893,7 @@ true
 r9
 </td>
 <td>
-NE.[ImpA(c)] + NE.[ImpB·NPC] -> NE.[ImpA·ImpB·NPC]
+[ImpA(c)] + [ImpB·NPC] -> [ImpA·ImpB·NPC]
 </td>
 <td>
 kr
@@ -932,7 +916,7 @@ true
 r10
 </td>
 <td>
-NE.[NLS(c)] + NE.[ImpA·ImpB(c)] <-> NE.[NLS·ImpA·ImpB(c)]
+[NLS(c)] + [ImpA·ImpB(c)] <-> [NLS·ImpA·ImpB(c)]
 </td>
 <td>
 kf
@@ -955,7 +939,7 @@ true
 r10
 </td>
 <td>
-NE.[NLS(c)] + NE.[ImpA·ImpB(c)] <-> NE.[NLS·ImpA·ImpB(c)]
+[NLS(c)] + [ImpA·ImpB(c)] <-> [NLS·ImpA·ImpB(c)]
 </td>
 <td>
 kr
@@ -978,7 +962,7 @@ true
 r11
 </td>
 <td>
-NE.[NLS·ImpA·ImpB(c)] + NE.NPC <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS·ImpA·ImpB(c)] + NPC <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kf
@@ -1001,7 +985,7 @@ true
 r11
 </td>
 <td>
-NE.[NLS·ImpA·ImpB(c)] + NE.NPC <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS·ImpA·ImpB(c)] + NPC <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kr
@@ -1024,7 +1008,7 @@ true
 r12
 </td>
 <td>
-NE.[NLS(c)] + NE.[ImpA·ImpB·NPC] <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS(c)] + [ImpA·ImpB·NPC] <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kf
@@ -1047,7 +1031,7 @@ true
 r12
 </td>
 <td>
-NE.[NLS(c)] + NE.[ImpA·ImpB·NPC] <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS(c)] + [ImpA·ImpB·NPC] <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kr
@@ -1070,7 +1054,7 @@ true
 knockoff
 </td>
 <td>
-NE.[Ran·GTP(n)] + NE.[NLS·ImpA·ImpB·NPC] -> NE.[Ran·GTP·ImpB·NPC] + NE.[ImpA(n)] + NE.[NLS(n)]
+[Ran·GTP(n)] + [NLS·ImpA·ImpB·NPC] -> [Ran·GTP·ImpB·NPC] + [ImpA(n)] + [NLS(n)]
 </td>
 <td>
 kf
@@ -1093,7 +1077,7 @@ true
 hydrolysis of Ran·GTP·ImpB·NPC
 </td>
 <td>
-NE.[Ran·GTP·ImpB·NPC] + NE.RanGAP + NE.RanBP1 -> NE.[Ran·GDP(c)] + NE.[ImpB·NPC] + NE.RanGAP + NE.RanBP1
+[Ran·GTP·ImpB·NPC] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpB·NPC] + RanGAP + RanBP1
 </td>
 <td>
 kf
@@ -1116,7 +1100,7 @@ true
 CAS with NPC
 </td>
 <td>
-NE.[CAS(c)] + NE.NPC <-> NE.[CAS·NPC]
+[CAS(c)] + NPC <-> [CAS·NPC]
 </td>
 <td>
 kf
@@ -1139,7 +1123,7 @@ true
 CAS with NPC
 </td>
 <td>
-NE.[CAS(c)] + NE.NPC <-> NE.[CAS·NPC]
+[CAS(c)] + NPC <-> [CAS·NPC]
 </td>
 <td>
 kr
@@ -1162,7 +1146,7 @@ true
 CAS with Ran
 </td>
 <td>
-NE.[Ran·GTP(n)] + NE.[CAS(n)] <-> NE.[CAS·Ran·GTP(n)]
+[Ran·GTP(n)] + [CAS(n)] <-> [CAS·Ran·GTP(n)]
 </td>
 <td>
 kf
@@ -1185,7 +1169,7 @@ true
 CAS with Ran
 </td>
 <td>
-NE.[Ran·GTP(n)] + NE.[CAS(n)] <-> NE.[CAS·Ran·GTP(n)]
+[Ran·GTP(n)] + [CAS(n)] <-> [CAS·Ran·GTP(n)]
 </td>
 <td>
 kr
@@ -1208,7 +1192,7 @@ true
 hydrolysis of ImpA·CAS·Ran·GTP·NPC
 </td>
 <td>
-NE.[ImpA·CAS·Ran·GTP·NPC] + NE.RanGAP + NE.RanBP1 -> NE.[Ran·GDP(c)] + NE.[ImpA(c)] + NE.[CAS·NPC] + NE.RanGAP + NE.RanBP1
+[ImpA·CAS·Ran·GTP·NPC] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [CAS·NPC] + RanGAP + RanBP1
 </td>
 <td>
 kf
@@ -1231,7 +1215,7 @@ true
 CAS·Ran with ImpA
 </td>
 <td>
-NE.[ImpA(n)] + NE.[CAS·Ran·GTP(n)] -> NE.[ImpA·CAS·Ran·GTP(n)]
+[ImpA(n)] + [CAS·Ran·GTP(n)] -> [ImpA·CAS·Ran·GTP(n)]
 </td>
 <td>
 kf
@@ -1254,7 +1238,7 @@ true
 Ran gradient
 </td>
 <td>
-NE.[Ran·GDP(c)] -> NE.[Ran·GTP(n)]
+[Ran·GDP(c)] -> [Ran·GTP(n)]
 </td>
 <td>
 k_pump
@@ -1277,7 +1261,7 @@ true
 Complex CAS with NPC
 </td>
 <td>
-NE.[ImpA·CAS·Ran·GTP(c)] + NE.NPC <-> NE.[ImpA·CAS·Ran·GTP·NPC]
+[ImpA·CAS·Ran·GTP(c)] + NPC <-> [ImpA·CAS·Ran·GTP·NPC]
 </td>
 <td>
 kf
@@ -1300,7 +1284,7 @@ true
 Complex CAS with NPC
 </td>
 <td>
-NE.[ImpA·CAS·Ran·GTP(c)] + NE.NPC <-> NE.[ImpA·CAS·Ran·GTP·NPC]
+[ImpA·CAS·Ran·GTP(c)] + NPC <-> [ImpA·CAS·Ran·GTP·NPC]
 </td>
 <td>
 kr
@@ -1323,7 +1307,7 @@ true
 ΔCAS with NPC
 </td>
 <td>
-NE.[ΔCAS(c)] + NE.NPC <-> NE.[ΔCAS·NPC]
+[ΔCAS(c)] + NPC <-> [ΔCAS·NPC]
 </td>
 <td>
 kf
@@ -1346,7 +1330,7 @@ true
 ΔCAS with NPC
 </td>
 <td>
-NE.[ΔCAS(c)] + NE.NPC <-> NE.[ΔCAS·NPC]
+[ΔCAS(c)] + NPC <-> [ΔCAS·NPC]
 </td>
 <td>
 kr
@@ -1369,7 +1353,7 @@ true
 ΔCAS with Ran
 </td>
 <td>
-NE.[Ran·GTP(n)] + NE.[ΔCAS(n)] <-> NE.[ΔCAS·Ran·GTP(n)]
+[Ran·GTP(n)] + [ΔCAS(n)] <-> [ΔCAS·Ran·GTP(n)]
 </td>
 <td>
 kf
@@ -1392,7 +1376,7 @@ true
 ΔCAS with Ran
 </td>
 <td>
-NE.[Ran·GTP(n)] + NE.[ΔCAS(n)] <-> NE.[ΔCAS·Ran·GTP(n)]
+[Ran·GTP(n)] + [ΔCAS(n)] <-> [ΔCAS·Ran·GTP(n)]
 </td>
 <td>
 kr
@@ -1415,7 +1399,7 @@ true
 ΔCAS·Ran with ImpA
 </td>
 <td>
-NE.[ImpA(n)] + NE.[ΔCAS·Ran·GTP(n)] -> NE.[ImpA·ΔCAS·Ran·GTP(n)]
+[ImpA(n)] + [ΔCAS·Ran·GTP(n)] -> [ImpA·ΔCAS·Ran·GTP(n)]
 </td>
 <td>
 kf
@@ -1438,7 +1422,7 @@ true
 Complex ΔCAS with NPC
 </td>
 <td>
-NE.[ImpA·ΔCAS·Ran·GTP(c)] + NE.NPC <-> NE.[ImpA·ΔCAS·Ran·GTP·NPC]
+[ImpA·ΔCAS·Ran·GTP(c)] + NPC <-> [ImpA·ΔCAS·Ran·GTP·NPC]
 </td>
 <td>
 kf
@@ -1461,7 +1445,7 @@ true
 Complex ΔCAS with NPC
 </td>
 <td>
-NE.[ImpA·ΔCAS·Ran·GTP(c)] + NE.NPC <-> NE.[ImpA·ΔCAS·Ran·GTP·NPC]
+[ImpA·ΔCAS·Ran·GTP(c)] + NPC <-> [ImpA·ΔCAS·Ran·GTP·NPC]
 </td>
 <td>
 kr
@@ -1484,7 +1468,7 @@ true
 hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC
 </td>
 <td>
-NE.[ImpA·ΔCAS·Ran·GTP·NPC] + NE.RanGAP + NE.RanBP1 -> NE.[Ran·GDP(c)] + NE.[ImpA(c)] + NE.[ΔCAS·NPC] + NE.RanGAP + NE.RanBP1
+[ImpA·ΔCAS·Ran·GTP·NPC] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [ΔCAS·NPC] + RanGAP + RanBP1
 </td>
 <td>
 kf
@@ -1507,7 +1491,7 @@ true
 Replenish NLS
 </td>
 <td>
-null -> NE.[NLS(c)]
+null -> [NLS(c)]
 </td>
 <td>
 kf
@@ -1530,7 +1514,7 @@ true
 r12_1
 </td>
 <td>
-NE.[NLS(n)] + NE.[ImpA·ImpB·NPC] <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS(n)] + [ImpA·ImpB·NPC] <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kf
@@ -1553,7 +1537,7 @@ true
 r12_1
 </td>
 <td>
-NE.[NLS(n)] + NE.[ImpA·ImpB·NPC] <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS(n)] + [ImpA·ImpB·NPC] <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kr
@@ -1576,7 +1560,7 @@ true
 r10_1
 </td>
 <td>
-NE.[NLS(n)] + NE.[ImpA·ImpB(n)] <-> NE.[NLS·ImpA·ImpB(n)]
+[NLS(n)] + [ImpA·ImpB(n)] <-> [NLS·ImpA·ImpB(n)]
 </td>
 <td>
 kf
@@ -1599,7 +1583,7 @@ true
 r10_1
 </td>
 <td>
-NE.[NLS(n)] + NE.[ImpA·ImpB(n)] <-> NE.[NLS·ImpA·ImpB(n)]
+[NLS(n)] + [ImpA·ImpB(n)] <-> [NLS·ImpA·ImpB(n)]
 </td>
 <td>
 kr
@@ -1622,7 +1606,7 @@ true
 r11_1
 </td>
 <td>
-NE.[NLS·ImpA·ImpB(n)] + NE.NPC <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS·ImpA·ImpB(n)] + NPC <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kf
@@ -1645,7 +1629,7 @@ true
 r11_1
 </td>
 <td>
-NE.[NLS·ImpA·ImpB(n)] + NE.NPC <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS·ImpA·ImpB(n)] + NPC <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kr
@@ -1668,7 +1652,7 @@ true
 Passive diffusion
 </td>
 <td>
-NE.[NLS(n)] <-> NE.[NLS(c)]
+[NLS(n)] <-> [NLS(c)]
 </td>
 <td>
 k_diff
@@ -1722,7 +1706,7 @@ true
 true
 </td>
 <td>
-NE.[ImpB(c)] + NE.NPC <-> NE.[ImpB·NPC]
+[ImpB(c)] + NPC <-> [ImpB·NPC]
 </td>
 <td>
 k_ImpB_on*NE.[ImpB(c)]*NE.NPC-k_ImpB_off*NE.[ImpB·NPC]
@@ -1742,7 +1726,7 @@ true
 true
 </td>
 <td>
-NE.[ImpB(n)] + NE.NPC <-> NE.[ImpB·NPC]
+[ImpB(n)] + NPC <-> [ImpB·NPC]
 </td>
 <td>
 k_ImpB_on*NE.[ImpB(n)]*NE.NPC-k_ImpB_off*NE.[ImpB·NPC]
@@ -1762,7 +1746,7 @@ true
 true
 </td>
 <td>
-NE.[ImpA·ImpB(c)] + NE.NPC <-> NE.[ImpA·ImpB·NPC]
+[ImpA·ImpB(c)] + NPC <-> [ImpA·ImpB·NPC]
 </td>
 <td>
 k_ImpB_on*[ImpA·ImpB(c)]*NPC-k_ImpB_off*[ImpA·ImpB·NPC]
@@ -1783,7 +1767,7 @@ true
 true
 </td>
 <td>
-NE.[ImpA(c)] + NE.[ImpB(c)] <-> NE.[ImpA·ImpB(c)]
+[ImpA(c)] + [ImpB(c)] <-> [ImpA·ImpB(c)]
 </td>
 <td>
 r7.kf*[ImpA(c)]*[ImpB(c)]-r7.kr*[ImpA·ImpB(c)]
@@ -1803,7 +1787,7 @@ true
 false
 </td>
 <td>
-NE.[ImpA(c)] + NE.[ImpB·NPC] -> NE.[ImpA·ImpB·NPC]
+[ImpA(c)] + [ImpB·NPC] -> [ImpA·ImpB·NPC]
 </td>
 <td>
 r9.kf*[ImpA(c)]*[ImpB·NPC]-r9.kr*[ImpA·ImpB·NPC]
@@ -1824,7 +1808,7 @@ true
 true
 </td>
 <td>
-NE.[NLS(c)] + NE.[ImpA·ImpB(c)] <-> NE.[NLS·ImpA·ImpB(c)]
+[NLS(c)] + [ImpA·ImpB(c)] <-> [NLS·ImpA·ImpB(c)]
 </td>
 <td>
 kf*[NLS(c)]*[ImpA·ImpB(c)]-kr*[NLS·ImpA·ImpB(c)]
@@ -1844,7 +1828,7 @@ true
 true
 </td>
 <td>
-NE.[NLS·ImpA·ImpB(c)] + NE.NPC <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS·ImpA·ImpB(c)] + NPC <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kf*[NLS·ImpA·ImpB(c)]*NPC-kr*[NLS·ImpA·ImpB·NPC]
@@ -1865,7 +1849,7 @@ true
 true
 </td>
 <td>
-NE.[NLS(c)] + NE.[ImpA·ImpB·NPC] <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS(c)] + [ImpA·ImpB·NPC] <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kf*[NLS(c)]*[ImpA·ImpB·NPC]-kr*[NLS·ImpA·ImpB·NPC]
@@ -1886,7 +1870,7 @@ true
 false
 </td>
 <td>
-NE.[Ran·GTP(n)] + NE.[NLS·ImpA·ImpB·NPC] -> NE.[Ran·GTP·ImpB·NPC] + NE.[ImpA(n)] + NE.[NLS(n)]
+[Ran·GTP(n)] + [NLS·ImpA·ImpB·NPC] -> [Ran·GTP·ImpB·NPC] + [ImpA(n)] + [NLS(n)]
 </td>
 <td>
 knockoff.kf*[Ran·GTP(n)]*[NLS·ImpA·ImpB·NPC]
@@ -1906,7 +1890,7 @@ true
 false
 </td>
 <td>
-NE.[Ran·GTP·ImpB·NPC] + NE.RanGAP + NE.RanBP1 -> NE.[Ran·GDP(c)] + NE.[ImpB·NPC] + NE.RanGAP + NE.RanBP1
+[Ran·GTP·ImpB·NPC] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpB·NPC] + RanGAP + RanBP1
 </td>
 <td>
 kf*[Ran·GTP·ImpB·NPC]
@@ -1926,7 +1910,7 @@ true
 true
 </td>
 <td>
-NE.[CAS(c)] + NE.NPC <-> NE.[CAS·NPC]
+[CAS(c)] + NPC <-> [CAS·NPC]
 </td>
 <td>
 kf*[CAS(c)]*NPC-kr*[CAS·NPC]
@@ -1947,7 +1931,7 @@ true
 true
 </td>
 <td>
-NE.[CAS(n)] + NE.NPC <-> NE.[CAS·NPC]
+[CAS(n)] + NPC <-> [CAS·NPC]
 </td>
 <td>
 [CAS with NPC].kf*[CAS(n)]*NPC-[CAS with NPC].kr*[CAS·NPC]
@@ -1967,7 +1951,7 @@ true
 true
 </td>
 <td>
-NE.[Ran·GTP(n)] + NE.[CAS(n)] <-> NE.[CAS·Ran·GTP(n)]
+[Ran·GTP(n)] + [CAS(n)] <-> [CAS·Ran·GTP(n)]
 </td>
 <td>
 kf*[Ran·GTP(n)]*[CAS(n)]-kr*[CAS·Ran·GTP(n)]
@@ -1990,7 +1974,7 @@ true
 true
 </td>
 <td>
-NE.[ImpA·CAS·Ran·GTP(n)] + NE.NPC <-> NE.[ImpA·CAS·Ran·GTP·NPC]
+[ImpA·CAS·Ran·GTP(n)] + NPC <-> [ImpA·CAS·Ran·GTP·NPC]
 </td>
 <td>
 [Complex CAS with NPC].kf*[ImpA·CAS·Ran·GTP(n)]*NPC - [Complex CAS with NPC].kr*[ImpA·CAS·Ran·GTP·NPC]
@@ -2010,7 +1994,7 @@ true
 false
 </td>
 <td>
-NE.[ImpA·CAS·Ran·GTP·NPC] + NE.RanGAP + NE.RanBP1 -> NE.[Ran·GDP(c)] + NE.[ImpA(c)] + NE.[CAS·NPC] + NE.RanGAP + NE.RanBP1
+[ImpA·CAS·Ran·GTP·NPC] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [CAS·NPC] + RanGAP + RanBP1
 </td>
 <td>
 kf*[ImpA·CAS·Ran·GTP·NPC]
@@ -2030,7 +2014,7 @@ true
 false
 </td>
 <td>
-NE.[ImpA(n)] + NE.[CAS·Ran·GTP(n)] -> NE.[ImpA·CAS·Ran·GTP(n)]
+[ImpA(n)] + [CAS·Ran·GTP(n)] -> [ImpA·CAS·Ran·GTP(n)]
 </td>
 <td>
 kf*[ImpA(n)]*[CAS·Ran·GTP(n)]
@@ -2050,7 +2034,7 @@ true
 false
 </td>
 <td>
-NE.[Ran·GDP(c)] -> NE.[Ran·GTP(n)]
+[Ran·GDP(c)] -> [Ran·GTP(n)]
 </td>
 <td>
 k_pump*[Ran·GDP(c)]
@@ -2070,7 +2054,7 @@ true
 true
 </td>
 <td>
-NE.[ImpA·ImpB(n)] + NE.NPC <-> NE.[ImpA·ImpB·NPC]
+[ImpA·ImpB(n)] + NPC <-> [ImpA·ImpB·NPC]
 </td>
 <td>
 k_ImpB_on*NE.[ImpA·ImpB(n)]*NE.NPC-k_ImpB_off*NE.[ImpA·ImpB·NPC]
@@ -2091,7 +2075,7 @@ true
 false
 </td>
 <td>
-NE.[ImpA(n)] + NE.[ImpB·NPC] -> NE.[ImpA·ImpB·NPC]
+[ImpA(n)] + [ImpB·NPC] -> [ImpA·ImpB·NPC]
 </td>
 <td>
 r9.kf*NE.[ImpA(n)]*NE.[ImpB·NPC]-r9.kr*NE.[ImpA·ImpB·NPC]
@@ -2112,7 +2096,7 @@ true
 true
 </td>
 <td>
-NE.[ImpA(n)] + NE.[ImpB(n)] <-> NE.[ImpA·ImpB(n)]
+[ImpA(n)] + [ImpB(n)] <-> [ImpA·ImpB(n)]
 </td>
 <td>
 r7.kf*NE.[ImpA(n)]*NE.[ImpB(n)]-r7.kr*NE.[ImpA·ImpB(n)]
@@ -2132,7 +2116,7 @@ true
 true
 </td>
 <td>
-NE.[ImpA·CAS·Ran·GTP(c)] + NE.NPC <-> NE.[ImpA·CAS·Ran·GTP·NPC]
+[ImpA·CAS·Ran·GTP(c)] + NPC <-> [ImpA·CAS·Ran·GTP·NPC]
 </td>
 <td>
 kf*NE.[ImpA·CAS·Ran·GTP(c)]*NE.NPC-kr*NE.[ImpA·CAS·Ran·GTP·NPC]
@@ -2158,7 +2142,7 @@ true
 false
 </td>
 <td>
-NE.[ImpA·CAS·Ran·GTP(c)] + NE.RanGAP + NE.RanBP1 -> NE.[Ran·GDP(c)] + NE.[ImpA(c)] + NE.[CAS(c)] + NE.RanGAP + NE.RanBP1
+[ImpA·CAS·Ran·GTP(c)] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [CAS(c)] + RanGAP + RanBP1
 </td>
 <td>
 [hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf*NE.[ImpA·CAS·Ran·GTP(c)]
@@ -2178,7 +2162,7 @@ true
 true
 </td>
 <td>
-NE.[ΔCAS(c)] + NE.NPC <-> NE.[ΔCAS·NPC]
+[ΔCAS(c)] + NPC <-> [ΔCAS·NPC]
 </td>
 <td>
 kf*NE.[ΔCAS(c)]*NE.NPC-kr*NE.[ΔCAS·NPC]
@@ -2199,7 +2183,7 @@ true
 true
 </td>
 <td>
-NE.[ΔCAS(n)] + NE.NPC <-> NE.[ΔCAS·NPC]
+[ΔCAS(n)] + NPC <-> [ΔCAS·NPC]
 </td>
 <td>
 [ΔCAS with NPC].kf*NE.[ΔCAS(n)]*NE.NPC-[ΔCAS with NPC].kr*NE.[ΔCAS·NPC]
@@ -2219,7 +2203,7 @@ true
 true
 </td>
 <td>
-NE.[Ran·GTP(n)] + NE.[ΔCAS(n)] <-> NE.[ΔCAS·Ran·GTP(n)]
+[Ran·GTP(n)] + [ΔCAS(n)] <-> [ΔCAS·Ran·GTP(n)]
 </td>
 <td>
 kf*NE.[Ran·GTP(n)]*NE.[ΔCAS(n)]-kr*NE.[ΔCAS·Ran·GTP(n)]
@@ -2242,7 +2226,7 @@ true
 false
 </td>
 <td>
-NE.[ImpA(n)] + NE.[ΔCAS·Ran·GTP(n)] -> NE.[ImpA·ΔCAS·Ran·GTP(n)]
+[ImpA(n)] + [ΔCAS·Ran·GTP(n)] -> [ImpA·ΔCAS·Ran·GTP(n)]
 </td>
 <td>
 kf*NE.[ImpA(n)]*NE.[ΔCAS·Ran·GTP(n)]
@@ -2262,7 +2246,7 @@ true
 true
 </td>
 <td>
-NE.[ImpA·ΔCAS·Ran·GTP(c)] + NE.NPC <-> NE.[ImpA·ΔCAS·Ran·GTP·NPC]
+[ImpA·ΔCAS·Ran·GTP(c)] + NPC <-> [ImpA·ΔCAS·Ran·GTP·NPC]
 </td>
 <td>
 kf*NE.[ImpA·ΔCAS·Ran·GTP(c)]*NE.NPC-kr*NE.[ImpA·ΔCAS·Ran·GTP·NPC]
@@ -2288,7 +2272,7 @@ true
 true
 </td>
 <td>
-NE.[ImpA·ΔCAS·Ran·GTP(n)] + NE.NPC <-> NE.[ImpA·ΔCAS·Ran·GTP·NPC]
+[ImpA·ΔCAS·Ran·GTP(n)] + NPC <-> [ImpA·ΔCAS·Ran·GTP·NPC]
 </td>
 <td>
 [Complex ΔCAS with NPC].kf*NE.[ImpA·ΔCAS·Ran·GTP(n)]*NE.NPC-[Complex ΔCAS with NPC].kr*NE.[ImpA·ΔCAS·Ran·GTP·NPC]
@@ -2308,7 +2292,7 @@ true
 false
 </td>
 <td>
-NE.[ImpA·ΔCAS·Ran·GTP·NPC] + NE.RanGAP + NE.RanBP1 -> NE.[Ran·GDP(c)] + NE.[ImpA(c)] + NE.[ΔCAS·NPC] + NE.RanGAP + NE.RanBP1
+[ImpA·ΔCAS·Ran·GTP·NPC] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [ΔCAS·NPC] + RanGAP + RanBP1
 </td>
 <td>
 kf*NE.[ImpA·ΔCAS·Ran·GTP·NPC]
@@ -2328,7 +2312,7 @@ true
 false
 </td>
 <td>
-NE.[ImpA·ΔCAS·Ran·GTP(c)] + NE.RanGAP + NE.RanBP1 -> NE.[Ran·GDP(c)] + NE.[ImpA(c)] + NE.[ΔCAS(c)] + NE.RanGAP + NE.RanBP1
+[ImpA·ΔCAS·Ran·GTP(c)] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [ΔCAS(c)] + RanGAP + RanBP1
 </td>
 <td>
 [hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC].kf*NE.[ImpA·ΔCAS·Ran·GTP(c)]
@@ -2348,7 +2332,7 @@ true
 false
 </td>
 <td>
-null -> NE.[NLS(c)]
+null -> [NLS(c)]
 </td>
 <td>
 kf*[NLS(n)]
@@ -2367,7 +2351,7 @@ true
 true
 </td>
 <td>
-NE.[NLS(n)] + NE.[ImpA·ImpB·NPC] <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS(n)] + [ImpA·ImpB·NPC] <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kf*NE.[NLS(n)]*NE.[ImpA·ImpB·NPC]-kr*NE.[NLS·ImpA·ImpB·NPC]
@@ -2387,7 +2371,7 @@ true
 true
 </td>
 <td>
-NE.[NLS(n)] + NE.[ImpA·ImpB(n)] <-> NE.[NLS·ImpA·ImpB(n)]
+[NLS(n)] + [ImpA·ImpB(n)] <-> [NLS·ImpA·ImpB(n)]
 </td>
 <td>
 kf*NE.[NLS(n)]*NE.[ImpA·ImpB(n)]-kr*NE.[NLS·ImpA·ImpB(n)]
@@ -2407,7 +2391,7 @@ true
 true
 </td>
 <td>
-NE.[NLS·ImpA·ImpB(n)] + NE.NPC <-> NE.[NLS·ImpA·ImpB·NPC]
+[NLS·ImpA·ImpB(n)] + NPC <-> [NLS·ImpA·ImpB·NPC]
 </td>
 <td>
 kf*NE.[NLS·ImpA·ImpB(n)]*NE.NPC-kr*NE.[NLS·ImpA·ImpB·NPC]
@@ -2427,7 +2411,7 @@ true
 true
 </td>
 <td>
-NE.[NLS(n)] <-> NE.[NLS(c)]
+[NLS(n)] <-> [NLS(c)]
 </td>
 <td>
 k_diff * ([NLS(n)] - [NLS(c)])
@@ -2551,7 +2535,6 @@ r11_1.kf = 0.001
 r11_1.kr = 0.0001
 k_diff = 0
 NE = 1
-C = 1
 
 Initial Conditions:
 NPC = 0.5
