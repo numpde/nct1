@@ -1,5 +1,6 @@
 # -- coding: utf-8 --
 # RA, 2021-04-10
+
 import os.path
 
 import numpy as np
@@ -66,11 +67,14 @@ def main():
 
     sp_specs = [
         {'+': "CAS", '-': "ΔCAS"},
-        {'+': "ΔCAS"},
         {'+': "CAS·Ran·GTP", '-': "ΔCAS·Ran·GTP"},
+        {'+': "ImpA·CAS·Ran·GTP"},
         {'+': "ΔCAS·Ran·GTP"},
+        {'+': "ImpA·ΔCAS·Ran·GTP"},
+        {'+': "ΔCAS"},
         {'+': "ImpB"},
         {'+': "ImpA"},
+        {'+': "ImpA·ImpB"},
         {'+': "Ran·GTP"},
         {'+': "NLS"},
     ]
