@@ -4,15 +4,15 @@ Item	Name	Parameter	Units	Comment	Scenarios:		a_01_LowImpB	a_02_HighImpB	a_03_Mo
 												
 				Initial values								
 Species	CAS(c)	Value	uM				1	1	1	1	1	1
-Species	CAS(n)	Value	uM									
-Species	ΔCAS(c)	Value	uM									
-Species	ΔCAS(n)	Value	uM									
+Species	CAS(n)	Value	uM				0	0	0	0	0	0
+Species	ΔCAS(c)	Value	uM				0	0	0	0	0	0
+Species	ΔCAS(n)	Value	uM				0	0	0	0	0	0
 												
 Species	Ran·GTP(n)	Value	uM				3	3	3	3	3	3
 Species	NPC	Value	uM				2	2	4	2	2	4
 												
 Species	ImpB(c)	Value	uM				0.05	10	10	0.05	10	10
-Species	ImpB(n)	Value	uM									
+Species	ImpB(n)	Value	uM				0	0	0	0	0	0
 Species	ImpA(c)	Value	uM				0.5	0.5	0.5	0.5	0.5	0.5
 Species	ImpA(n)	Value	uM				0.5	0.5	0.5	0.5	0.5	0.5
 												
@@ -41,7 +41,7 @@ Reaction	Complex ΔCAS with NPC	kf	1/uM/s	i.e. ImpA·ΔCAS·Ran·GTP
 Reaction	Complex ΔCAS with NPC	kr	1/s									
 												
 Reaction	Replenish NLS	kf	1/s				0	0	0	0	0	0
-												
+Reaction	Passive diffusion	k_diff	1/s				0	0	0	0	0	0
 Reaction	Ran gradient	k_pump	1/s				1e-2	1e-2	1e-2	0	0	0
 												
 	For uploaded results, see:											
