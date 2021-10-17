@@ -1,6 +1,6 @@
 Model name: alpha_beta
 <br>
-17-Oct-2021 09:58:26
+17-Oct-2021 10:10:56
 <br>
 <br>
 Model parameters
@@ -2090,7 +2090,7 @@ Same as ImpA+ImpB
 r7_1
 </td>
 <td>
-true
+false
 </td>
 <td>
 true
@@ -2365,7 +2365,7 @@ See r12
 r10_1
 </td>
 <td>
-true
+false
 </td>
 <td>
 true
@@ -2428,7 +2428,7 @@ ODEs:
 d(NPC)/dt = 1/NE*(-r1 - r2 - r8 - r11 - [CAS with NPC] - [CAS with NPC, nuclear] - [Complex CAS with NPC, nuclear] - r8_1 - [Complex CAS with NPC] - [ΔCAS with NPC] - [CAS with NPC, nuclear_1] - [Complex ΔCAS with NPC] - [Complex ΔCAS with NPC, nuclear] - r11_1)
 d([ImpB(c)])/dt = 1/NE*(-r1 - r7)
 d([ImpB·NPC])/dt = 1/NE*(r1 + r2 - r9 + [hydrolysis of Ran·GTP·ImpB·NPC] - r9_1)
-d([ImpB(n)])/dt = 1/NE*(-r2 - r7_1)
+d([ImpB(n)])/dt = 1/NE*(-r2)
 d([ImpA(c)])/dt = 1/NE*(-r7 - r9 + [hydrolysis of ImpA·CAS·Ran·GTP·NPC] + [hydrolysis of ImpA·CAS·Ran·GTP(c)] + [hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC] + [hydrolysis of ImpA·ΔCAS·Ran·GTP(c)])
 d([ImpA·ImpB·NPC])/dt = 1/NE*(r8 + r9 - r12 + r8_1 + r9_1 - r12_1)
 d([ImpA·ImpB(c)])/dt = 1/NE*(-r8 + r7 - r10)
@@ -2436,7 +2436,7 @@ d([NLS(c)])/dt = 1/NE*(-r10 - r12 + [Replenish NLS] + [Passive diffusion])
 d([NLS·ImpA·ImpB(c)])/dt = 1/NE*(r10 - r11)
 d([NLS·ImpA·ImpB·NPC])/dt = 1/NE*(r11 + r12 - knockoff + r12_1 + r11_1)
 d([Ran·GTP(n)])/dt = 1/NE*(-knockoff - [CAS with Ran] + [Ran gradient] - [ΔCAS with Ran])
-d([NLS(n)])/dt = 1/NE*(knockoff - r12_1 - r10_1 - [Passive diffusion])
+d([NLS(n)])/dt = 1/NE*(knockoff - r12_1 - [Passive diffusion])
 d([Ran·GTP·ImpB·NPC])/dt = 1/NE*(knockoff - [hydrolysis of Ran·GTP·ImpB·NPC])
 d([CAS(c)])/dt = 1/NE*(-[CAS with NPC] + [hydrolysis of ImpA·CAS·Ran·GTP(c)])
 d([Ran·GDP(c)])/dt = 1/NE*([hydrolysis of Ran·GTP·ImpB·NPC] + [hydrolysis of ImpA·CAS·Ran·GTP·NPC] - [Ran gradient] + [hydrolysis of ImpA·CAS·Ran·GTP(c)] + [hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC] + [hydrolysis of ImpA·ΔCAS·Ran·GTP(c)])
@@ -2445,8 +2445,8 @@ d([CAS(n)])/dt = 1/NE*(-[CAS with NPC, nuclear] - [CAS with Ran])
 d([CAS·Ran·GTP(n)])/dt = 1/NE*([CAS with Ran] - [CAS·Ran with ImpA])
 d([ImpA·CAS·Ran·GTP(n)])/dt = 1/NE*(-[Complex CAS with NPC, nuclear] + [CAS·Ran with ImpA])
 d([ImpA·CAS·Ran·GTP·NPC])/dt = 1/NE*([Complex CAS with NPC, nuclear] - [hydrolysis of ImpA·CAS·Ran·GTP·NPC] + [Complex CAS with NPC])
-d([ImpA(n)])/dt = 1/NE*(knockoff - [CAS·Ran with ImpA] - r9_1 - r7_1 - [ΔCAS·Ran with ImpA])
-d([ImpA·ImpB(n)])/dt = 1/NE*(-r8_1 + r7_1 - r10_1)
+d([ImpA(n)])/dt = 1/NE*(knockoff - [CAS·Ran with ImpA] - r9_1 - [ΔCAS·Ran with ImpA])
+d([ImpA·ImpB(n)])/dt = 1/NE*(-r8_1)
 d([ImpA·CAS·Ran·GTP(c)])/dt = 1/NE*(-[Complex CAS with NPC] - [hydrolysis of ImpA·CAS·Ran·GTP(c)])
 d([ΔCAS(c)])/dt = 1/NE*(-[ΔCAS with NPC] + [hydrolysis of ImpA·ΔCAS·Ran·GTP(c)])
 d([ΔCAS·NPC])/dt = 1/NE*([ΔCAS with NPC] + [CAS with NPC, nuclear_1] + [hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC])
@@ -2455,7 +2455,7 @@ d([ΔCAS·Ran·GTP(n)])/dt = 1/NE*([ΔCAS with Ran] - [ΔCAS·Ran with ImpA])
 d([ImpA·ΔCAS·Ran·GTP(n)])/dt = 1/NE*([ΔCAS·Ran with ImpA] - [Complex ΔCAS with NPC, nuclear])
 d([ImpA·ΔCAS·Ran·GTP·NPC])/dt = 1/NE*([Complex ΔCAS with NPC] + [Complex ΔCAS with NPC, nuclear] - [hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC])
 d([ImpA·ΔCAS·Ran·GTP(c)])/dt = 1/NE*(-[Complex ΔCAS with NPC] - [hydrolysis of ImpA·ΔCAS·Ran·GTP(c)])
-d([NLS·ImpA·ImpB(n)])/dt = 1/NE*(r10_1 - r11_1)
+d([NLS·ImpA·ImpB(n)])/dt = 1/NE*(-r11_1)
 
 Fluxes:
 r1 = (k_ImpB_on*[ImpB(c)]*NPC-k_ImpB_off*[ImpB·NPC])*NE
@@ -2477,7 +2477,6 @@ knockoff = (knockoff.kf*[Ran·GTP(n)]*[NLS·ImpA·ImpB·NPC])*NE
 [Ran gradient] = (k_pump*[Ran·GDP(c)])*NE
 r8_1 = (k_ImpB_on*[ImpA·ImpB(n)]*NPC-k_ImpB_off*[ImpA·ImpB·NPC])*NE
 r9_1 = (r9.kf*[ImpA(n)]*[ImpB·NPC]-r9.kr*[ImpA·ImpB·NPC])*NE
-r7_1 = (r7.kf*[ImpA(n)]*[ImpB(n)]-r7.kr*[ImpA·ImpB(n)])*NE
 [Complex CAS with NPC] = ([Complex CAS with NPC].kf*[ImpA·CAS·Ran·GTP(c)]*NPC-[Complex CAS with NPC].kr*[ImpA·CAS·Ran·GTP·NPC])*NE
 [hydrolysis of ImpA·CAS·Ran·GTP(c)] = ([hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf*[ImpA·CAS·Ran·GTP(c)])*NE
 [ΔCAS with NPC] = ([ΔCAS with NPC].kf*[ΔCAS(c)]*NPC-[ΔCAS with NPC].kr*[ΔCAS·NPC])*NE
@@ -2490,7 +2489,6 @@ r7_1 = (r7.kf*[ImpA(n)]*[ImpB(n)]-r7.kr*[ImpA·ImpB(n)])*NE
 [hydrolysis of ImpA·ΔCAS·Ran·GTP(c)] = ([hydrolysis of ImpA·ΔCAS·Ran·GTP·NPC].kf*[ImpA·ΔCAS·Ran·GTP(c)])*NE
 [Replenish NLS] = ([Replenish NLS].kf*[NLS(n)])*NE
 r12_1 = (r12_1.kf*[NLS(n)]*[ImpA·ImpB·NPC]-r12_1.kr*[NLS·ImpA·ImpB·NPC])*NE
-r10_1 = (r10_1.kf*[NLS(n)]*[ImpA·ImpB(n)]-r10_1.kr*[NLS·ImpA·ImpB(n)])*NE
 r11_1 = (r11_1.kf*[NLS·ImpA·ImpB(n)]*NPC-r11_1.kr*[NLS·ImpA·ImpB·NPC])*NE
 [Passive diffusion] = (k_diff*([NLS(n)]-[NLS(c)]))*NE
 
