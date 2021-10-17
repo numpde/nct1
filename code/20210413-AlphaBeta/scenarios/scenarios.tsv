@@ -1,6 +1,6 @@
 Item	Name	Parameter	Units	Comment	Scenarios:		a_01_LowImpB	a_02_HighImpB	a_03_MoreNPC	b_01_LowImpB	b_02_HighImpB	b_03_MoreNPC
-					Description:			Increase ImpB	Increase NPC	No RanGTP reg.	Increase ImpB	Increase NPC
-							*	*	*	*	*	*
+					Description:		With RanGTP regeneration			Without RanGTP regeneration		
+							Low ImpB	Increase ImpB	Increase NPC	Low ImpB	Increase ImpB	Increase NPC
 												
 				Initial values								
 Species	CAS(c)	Value	uM				1	1	1	1	1	1
