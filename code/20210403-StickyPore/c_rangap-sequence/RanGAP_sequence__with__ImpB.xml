@@ -207,7 +207,7 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="mw845bbaa1_1913_4843_84ae_0784ba6cda5a" name="R1" reversible="false">
+      <reaction id="mw845bbaa1_1913_4843_84ae_0784ba6cda5c" name="R1" reversible="false">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">(assumption)</body>
         </notes>
@@ -295,7 +295,7 @@ try ON--OFF this
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="mw8838ed23_6013_4837_ab4f_2300674abf55" name="RanGAP interaction 1" reversible="true">
+      <reaction id="mw8838ed23_6013_4837_ab4f_2300674abf57" name="RanGAP interaction 1" reversible="true">
         <listOfReactants>
           <speciesReference species="mwccba7e0c_0664_4d45_bced_5619980b1946" stoichiometry="1"/>
           <speciesReference species="mw788395d4_65ca_4054_848f_1b361a01dfce" stoichiometry="1"/>
@@ -326,7 +326,7 @@ try ON--OFF this
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="mw845bbaa1_1913_4843_84ae_0784ba6cda5a" name="R2" reversible="false">
+      <reaction id="mw845bbaa1_1913_4843_84ae_0784ba6cda5b" name="R2" reversible="false">
         <listOfReactants>
           <speciesReference species="mwc3529c0b_73cf_4040_ae96_33c99a5c1bd7" stoichiometry="1"/>
           <speciesReference species="mwb63e16bc_62cb_4400_b88e_4bfde8a9f824" stoichiometry="1"/>
@@ -392,7 +392,7 @@ try ON--OFF this
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="mw2cb5da65_1e86_4602_81f2_8b9165237972" name="Hydrolysis (RanBP1)" reversible="false">
+      <reaction id="mw2cb5da65_1e86_4602_81f2_8b9165237973" name="Hydrolysis (RanBP1)" reversible="false">
         <listOfReactants>
           <speciesReference species="mw83f5f39e_78af_4ae8_99d2_03549c9e16d0" stoichiometry="1"/>
         </listOfReactants>
@@ -410,7 +410,7 @@ try ON--OFF this
           </math>
         </kineticLaw>
       </reaction>
-      <reaction id="mwa83136ef_f841_4360_9139_ebc360918bad" name="ImpB on 3" reversible="false">
+      <reaction id="mwa83136ef_f841_4360_9139_ebc360918bax" name="ImpB on 3" reversible="false">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">same as &quot;knockoff&quot;</body>
         </notes>

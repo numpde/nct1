@@ -11,25 +11,25 @@ end
 
 function main(out_dir)
 	for ImpB = [0, 0.34]
-	for RanBP1 = [0, 0.2]
-	for RanGAP = [0.01]
-	
-		[m, t_react] = config_model(ImpB, RanBP1, RanGAP);
+		for RanBP1 = [0, 0.2]
+			for RanGAP = [0.01]
 
-		obj = sbiosimulate(m);
-		t = obj.Time;
-		x = obj.Data;
-		names = obj.DataNames;
+				[m, t_react] = config_model(ImpB, RanBP1, RanGAP);
 
-		name = strcat("ImpB=", num2str(ImpB), "_", "RanBP1=", num2str(RanBP1), "_", "RanGAP=", num2str(RanGAP));
+				obj = sbiosimulate(m);
+				t = obj.Time;
+				x = obj.Data;
+				names = obj.DataNames;
 
-		equations = m.getequations;
-		save(strcat(out_dir, "/", name, ".mat"), 't', 'x', 'names', 'equations', 'ImpB', 'RanBP1', 'RanGAP', 't_react', '-nocompression');
+				name = strcat("ImpB=", num2str(ImpB), "_", "RanBP1=", num2str(RanBP1), "_", "RanGAP=", num2str(RanGAP));
 
-		%plot(t, x(:, names == "Ran·GTP"));
-		
-	end
-	end
+				equations = m.getequations;
+				save(strcat(out_dir, "/", name, ".mat"), 't', 'x', 'names', 'equations', 'ImpB', 'RanBP1', 'RanGAP', 't_react', '-nocompression');
+
+				%plot(t, x(:, names == "Ran·GTP"));
+
+			end
+		end
 	end
 end
 
