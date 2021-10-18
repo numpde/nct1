@@ -13,7 +13,7 @@ populate_scenarios:
 	git add scenarios/*.m
 
 simulate:
-	~/Documents/*/*/*/matlab -nodisplay -nosplash -nojvm -r "simulate; exit;"
+	~/Documents/*/*2021b/*/matlab -nodisplay -nosplash -nojvm -r "simulate; exit;"
 	git add results/*.mat
 
 plot:
