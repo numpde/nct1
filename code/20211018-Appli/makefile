@@ -32,7 +32,7 @@ chkp_index:
 	cd checkpoint; echo > index.html; for i in 2021*; do echo "<a href='$$i'>$$i</a><br>" >> index.html; done; git add index.html; git commit index.html -m "checkpoint index";
 
 upload:
-	git commit appli.sbproj *.m python/*.py -m "iteration" || true
+	git commit *.sbproj *.m python/*.py -m "iteration" || true
 	git commit scenarios results python/plot -m "scenarios" || true
 	git add checkpoint/* || true
 	git commit checkpoint -m "checkpoint" || true

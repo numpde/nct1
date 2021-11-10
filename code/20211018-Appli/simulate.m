@@ -50,5 +50,6 @@ function main()
 end
 	
 function [m] = load_model()
-	m = sbioloadproject("appli.sbproj").m1;
+	m = sbioloadproject("threestage.sbproj").m1;
 end
+
