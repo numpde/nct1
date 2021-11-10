@@ -1,6 +1,6 @@
 Model name: threestage
 <br>
-10-Nov-2021 14:24:02
+10-Nov-2021 14:28:33
 <br>
 <br>
 Model parameters
@@ -844,14 +844,13 @@ NPC
 false
 </td>
 <td>
-     0
+     1
 
 </td>
 <td>
 uM
 </td>
 <td>
-Value set by an event
 </td>
 </tr>
 <tr>
@@ -3168,7 +3167,7 @@ Initial Conditions:
 [CAS·NPC(n)] = 0
 [ImpA·ImpB·NPC] = 0
 [ImpB·NPC] = 0
-NPC = 0
+NPC = 1
 [NLS·ImpA·ImpB·NPC] = 0
 [Ran·GTP·ImpB·NPC] = 0
 [ImpA·CAS·Ran·GTP·NPC] = 0
@@ -3176,8 +3175,5 @@ NPC = 0
 RanGAP = 0
 RanBP1 = 0
 
-Events:
-Name                          	Trigger                       	Function                      
-Set capacity                  	time==0                       	NPC = ([NPC(c)] + [NPC(n)]...
 
 </pre>
