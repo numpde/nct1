@@ -44,7 +44,7 @@ def plot_total_timecourse(run, spp):
             for suffix in {"(c)", "(n)", "NPC"}
         }
 
-        if (sum(map(len, spp_by_suffix.values())) != len(spp)):
+        if len(spp) != sum(map(len, spp_by_suffix.values())):
             log.warning(f"Unknown suffix for species: {set(spp) - set(from_iterable(spp_by_suffix.values()))}")
 
         # time x species table of concentrations
@@ -85,6 +85,9 @@ def main():
         for sp_spec in sp_specs:
             # Species to include in the plot
             spp = [c for c in run.tx.columns if (sp_spec['+'] in c) and not (sp_spec.get('-', nas) in c)]
+
+            if not spp:
+                log.warning(f"No species selected for spec `{sp_spec}`.")
 
             # File name and proto-ylabel
             name = sp_spec['+'] + (f" (excl. {sp_spec['-']})" if ('-' in sp_spec) else "")
