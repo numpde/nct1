@@ -34,9 +34,9 @@ Reaction		CAS with NPC(n)	kr	1/s				1e-4	1e-4	1e-4	1e-4	1e-4	1e-4
 													
 Reaction		CAS·Ran with ImpA	kf	1/uM/s				0.1	0.1	0.1	0.1	0.1	0.1
 													
-Reaction		Complex CAS with NPC(c)	kf	1/uM/s	i.e. ImpA·CAS·Ran·GTP			1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
+Reaction		Complex CAS with NPC(c)	kf	1/uM/s	"""Complex CAS"" = ImpA·CAS·Ran·GTP"			1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
 Reaction		Complex CAS with NPC(c)	kr	1/s				1e-5	1e-5	1e-5	1e-5	1e-5	1e-5
-Reaction		Complex CAS with NPC(n)	kf	1/uM/s	i.e. ImpA·CAS·Ran·GTP			1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
+Reaction		Complex CAS with NPC(n)	kf	1/uM/s				1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
 Reaction		Complex CAS with NPC(n)	kr	1/s				1e-5	1e-5	1e-5	1e-5	1e-5	1e-5
 													
 Reaction		Replenish NLS	kf	1/s				0	0	0	0	0	0
