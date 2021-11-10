@@ -11,6 +11,7 @@ Species	NE	CAS(n)	Value	uM				0	0	0	0	0	0
 Species	NE	Ran·GTP(n)	Value	uM				3	3	3	3	3	3
 													
 Species	NE	NPC(c)	Value	uM				0.01	0.01	1	0.01	0.01	1
+Species	NE	NPC	Value	uM				1	1	1	1	1	1
 Species	NE	NPC(n)	Value	uM				0.01	0.01	1	0.01	0.01	1
 													
 Species	NE	ImpB(c)	Value	uM				0.05	10	10	0.05	10	10
