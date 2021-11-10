@@ -2,22 +2,22 @@ Item	Compartment	Name	Parameter	Units	Comment	Scenarios:		a_01_LowImpB	a_02_High
 						Description:		With RanGTP regeneration			Without RanGTP regeneration		
 								Low ImpB	Increase ImpB	Increase #NPC	Low ImpB	Increase ImpB	Increase #NPC
 													
-Compartment		NE	Value	picoliter				1	1	1	1	1	1
+Compartment		C	Value	picoliter	C = Vol of cytoplasm = Vol of nucleus			1	1	1	1	1	1
 													
 					Initial values								
-Species	NE	CAS(c)	Value	uM				1	1	1	1	1	1
-Species	NE	CAS(n)	Value	uM				0	0	0	0	0	0
+Species	C	CAS(c)	Value	uM				1	1	1	1	1	1
+Species	C	CAS(n)	Value	uM				0	0	0	0	0	0
 													
-Species	NE	Ran·GTP(n)	Value	uM				3	3	3	3	3	3
+Species	C	Ran·GTP(n)	Value	uM				3	3	3	3	3	3
 													
-Species	NE	NPC(c)	Value	uM				0.01	0.01	0.1	0.01	0.01	0.1
-Species	NE	NPC	Value	uM				1	1	10	1	1	10
-Species	NE	NPC(n)	Value	uM				0.01	0.01	0.1	0.01	0.01	0.1
+Species	C	NPC(c)	Value	uM				0.01	0.01	0.1	0.01	0.01	0.1
+Species	C	NPC	Value	uM				1	1	10	1	1	10
+Species	C	NPC(n)	Value	uM				0.01	0.01	0.1	0.01	0.01	0.1
 													
-Species	NE	ImpB(c)	Value	uM				0.05	10	10	0.05	10	10
-Species	NE	ImpB(n)	Value	uM				0	0	0	0	0	0
-Species	NE	ImpA(c)	Value	uM				0.5	0.5	0.5	0.5	0.5	0.5
-Species	NE	ImpA(n)	Value	uM				0.5	0.5	0.5	0.5	0.5	0.5
+Species	C	ImpB(c)	Value	uM				0.05	10	10	0.05	10	10
+Species	C	ImpB(n)	Value	uM				0	0	0	0	0	0
+Species	C	ImpA(c)	Value	uM				0.5	0.5	0.5	0.5	0.5	0.5
+Species	C	ImpA(n)	Value	uM				0.5	0.5	0.5	0.5	0.5	0.5
 													
 					Kinetic constants								
 Reaction		hydrolysis of Ran·GTP·ImpB·NPC	kf	1/s				0.1	0.1	0.1	0.1	0.1	0.1
