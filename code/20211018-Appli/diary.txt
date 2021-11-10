@@ -1,5 +1,6 @@
 Running scenario: a_01_LowImpB.m
- 
-main() failed:
-DESuite:ODE15S:IntegrationToleranceNotMet
-Integration Tolerance Not Met.
+Running scenario: a_02_HighImpB.m
+Running scenario: a_03_MoreNPC.m
+Running scenario: b_01_LowImpB.m
+Running scenario: b_02_HighImpB.m
+Running scenario: b_03_MoreNPC.m
