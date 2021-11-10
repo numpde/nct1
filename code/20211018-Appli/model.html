@@ -1,6 +1,6 @@
 Model name: threestage
 <br>
-10-Nov-2021 11:40:21
+10-Nov-2021 13:09:02
 <br>
 <br>
 Model parameters
@@ -140,7 +140,7 @@ NPC(c)
 false
 </td>
 <td>
-    0.0025
+    0.5000
 
 </td>
 <td>
@@ -702,7 +702,7 @@ NPC(n)
 false
 </td>
 <td>
-    0.0025
+    0.5000
 
 </td>
 <td>
@@ -1633,7 +1633,7 @@ true
 Entry ImpA·ImpB·NPC from (c)
 </td>
 <td>
-[ImpA·ImpB·NPC(c)] <-> [ImpA·ImpB·NPC]
+[ImpA·ImpB·NPC(c)] <-> [ImpA·ImpB·NPC] + [NPC(c)]
 </td>
 <td>
 kf
@@ -1642,7 +1642,7 @@ kf
 true
 </td>
 <td>
-     1
+   100
 
 </td>
 <td>
@@ -1656,7 +1656,7 @@ true
 Entry ImpA·ImpB·NPC from (c)
 </td>
 <td>
-[ImpA·ImpB·NPC(c)] <-> [ImpA·ImpB·NPC]
+[ImpA·ImpB·NPC(c)] <-> [ImpA·ImpB·NPC] + [NPC(c)]
 </td>
 <td>
 kr
@@ -1665,21 +1665,21 @@ kr
 true
 </td>
 <td>
-     1
+   100
 
 </td>
 <td>
-1/s
+1/s/uM
 </td>
 <td>
 </td>
 </tr>
 <tr>
 <td>
-ImpA·ImpB·NPC from (n
+ImpA·ImpB·NPC from (n)
 </td>
 <td>
-[ImpA·ImpB·NPC(n)] <-> [ImpA·ImpB·NPC]
+[ImpA·ImpB·NPC(n)] <-> [ImpA·ImpB·NPC] + [NPC(n)]
 </td>
 <td>
 kf
@@ -1688,7 +1688,7 @@ kf
 true
 </td>
 <td>
-     1
+   100
 
 </td>
 <td>
@@ -1699,10 +1699,10 @@ true
 </tr>
 <tr>
 <td>
-ImpA·ImpB·NPC from (n
+ImpA·ImpB·NPC from (n)
 </td>
 <td>
-[ImpA·ImpB·NPC(n)] <-> [ImpA·ImpB·NPC]
+[ImpA·ImpB·NPC(n)] <-> [ImpA·ImpB·NPC] + [NPC(n)]
 </td>
 <td>
 kr
@@ -1711,7 +1711,30 @@ kr
 true
 </td>
 <td>
-     1
+   100
+
+</td>
+<td>
+1/s/uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpB·NPC from (c)
+</td>
+<td>
+[ImpB·NPC(c)] <-> [ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
 
 </td>
 <td>
@@ -1725,30 +1748,7 @@ true
 Entry ImpB·NPC from (c)
 </td>
 <td>
-[ImpB·NPC(c)] <-> [ImpB·NPC]
-</td>
-<td>
-kf
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
-1/s
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Entry ImpB·NPC from (c)
-</td>
-<td>
-[ImpB·NPC(c)] <-> [ImpB·NPC]
+[ImpB·NPC(c)] <-> [ImpB·NPC] + [NPC(c)]
 </td>
 <td>
 kr
@@ -1757,7 +1757,30 @@ kr
 true
 </td>
 <td>
-     1
+   100
+
+</td>
+<td>
+1/s/uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpB·NPC from (n)
+</td>
+<td>
+[ImpB·NPC(n)] <-> [ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
 
 </td>
 <td>
@@ -1771,30 +1794,7 @@ true
 Entry ImpB·NPC from (n)
 </td>
 <td>
-[ImpB·NPC(n)] <-> [ImpB·NPC]
-</td>
-<td>
-kf
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
-1/s
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Entry ImpB·NPC from (n)
-</td>
-<td>
-[ImpB·NPC(n)] <-> [ImpB·NPC]
+[ImpB·NPC(n)] <-> [ImpB·NPC] + [NPC(n)]
 </td>
 <td>
 kr
@@ -1803,11 +1803,11 @@ kr
 true
 </td>
 <td>
-     1
+   100
 
 </td>
 <td>
-1/s
+1/s/uM
 </td>
 <td>
 </td>
@@ -1826,7 +1826,7 @@ kf
 true
 </td>
 <td>
-     1
+   100
 
 </td>
 <td>
@@ -1849,11 +1849,11 @@ kr
 true
 </td>
 <td>
-     1
+   100
 
 </td>
 <td>
-1/s
+1/s/uM
 </td>
 <td>
 </td>
@@ -1872,7 +1872,7 @@ kf
 true
 </td>
 <td>
-     1
+   100
 
 </td>
 <td>
@@ -1895,7 +1895,30 @@ kr
 true
 </td>
 <td>
-     1
+   100
+
+</td>
+<td>
+1/s/uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry NLS·ImpA·ImpB·NPC from (c)
+</td>
+<td>
+[NLS·ImpA·ImpB·NPC(c)] <-> [NLS·ImpA·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
 
 </td>
 <td>
@@ -1909,30 +1932,7 @@ true
 Entry NLS·ImpA·ImpB·NPC from (c)
 </td>
 <td>
-[NLS·ImpA·ImpB·NPC(c)] <-> [NLS·ImpA·ImpB·NPC]
-</td>
-<td>
-kf
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
-1/s
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Entry NLS·ImpA·ImpB·NPC from (c)
-</td>
-<td>
-[NLS·ImpA·ImpB·NPC(c)] <-> [NLS·ImpA·ImpB·NPC]
+[NLS·ImpA·ImpB·NPC(c)] <-> [NLS·ImpA·ImpB·NPC] + [NPC(c)]
 </td>
 <td>
 kr
@@ -1941,7 +1941,30 @@ kr
 true
 </td>
 <td>
-     1
+   100
+
+</td>
+<td>
+1/s/uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry NLS·ImpA·ImpB·NPC from (n)
+</td>
+<td>
+[NLS·ImpA·ImpB·NPC(n)] <-> [NLS·ImpA·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
 
 </td>
 <td>
@@ -1955,30 +1978,7 @@ true
 Entry NLS·ImpA·ImpB·NPC from (n)
 </td>
 <td>
-[NLS·ImpA·ImpB·NPC(n)] <-> [NLS·ImpA·ImpB·NPC]
-</td>
-<td>
-kf
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
-1/s
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Entry NLS·ImpA·ImpB·NPC from (n)
-</td>
-<td>
-[NLS·ImpA·ImpB·NPC(n)] <-> [NLS·ImpA·ImpB·NPC]
+[NLS·ImpA·ImpB·NPC(n)] <-> [NLS·ImpA·ImpB·NPC] + [NPC(n)]
 </td>
 <td>
 kr
@@ -1987,7 +1987,30 @@ kr
 true
 </td>
 <td>
-     1
+   100
+
+</td>
+<td>
+1/s/uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry Ran·GTP·ImpB·NPC from (c)
+</td>
+<td>
+[Ran·GTP·ImpB·NPC(c)] <-> [Ran·GTP·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
 
 </td>
 <td>
@@ -2001,30 +2024,7 @@ true
 Entry Ran·GTP·ImpB·NPC from (c)
 </td>
 <td>
-[Ran·GTP·ImpB·NPC(c)] <-> [Ran·GTP·ImpB·NPC]
-</td>
-<td>
-kf
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
-1/s
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Entry Ran·GTP·ImpB·NPC from (c)
-</td>
-<td>
-[Ran·GTP·ImpB·NPC(c)] <-> [Ran·GTP·ImpB·NPC]
+[Ran·GTP·ImpB·NPC(c)] <-> [Ran·GTP·ImpB·NPC] + [NPC(c)]
 </td>
 <td>
 kr
@@ -2033,7 +2033,30 @@ kr
 true
 </td>
 <td>
-     1
+   100
+
+</td>
+<td>
+1/s/uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry Ran·GTP·ImpB·NPC from (n)
+</td>
+<td>
+[Ran·GTP·ImpB·NPC(n)] <-> [Ran·GTP·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
 
 </td>
 <td>
@@ -2047,30 +2070,7 @@ true
 Entry Ran·GTP·ImpB·NPC from (n)
 </td>
 <td>
-[Ran·GTP·ImpB·NPC(n)] <-> [Ran·GTP·ImpB·NPC]
-</td>
-<td>
-kf
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
-1/s
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Entry Ran·GTP·ImpB·NPC from (n)
-</td>
-<td>
-[Ran·GTP·ImpB·NPC(n)] <-> [Ran·GTP·ImpB·NPC]
+[Ran·GTP·ImpB·NPC(n)] <-> [Ran·GTP·ImpB·NPC] + [NPC(n)]
 </td>
 <td>
 kr
@@ -2079,7 +2079,30 @@ kr
 true
 </td>
 <td>
-     1
+   100
+
+</td>
+<td>
+1/s/uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·CAS·Ran·GTP·NPC from (c)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP·NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
 
 </td>
 <td>
@@ -2093,30 +2116,7 @@ true
 Entry ImpA·CAS·Ran·GTP·NPC from (c)
 </td>
 <td>
-[ImpA·CAS·Ran·GTP·NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC]
-</td>
-<td>
-kf
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
-1/s
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Entry ImpA·CAS·Ran·GTP·NPC from (c)
-</td>
-<td>
-[ImpA·CAS·Ran·GTP·NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC]
+[ImpA·CAS·Ran·GTP·NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(c)]
 </td>
 <td>
 kr
@@ -2125,7 +2125,30 @@ kr
 true
 </td>
 <td>
-     1
+   100
+
+</td>
+<td>
+1/s/uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·CAS·Ran·GTP·NPC from (n)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP·NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
 
 </td>
 <td>
@@ -2139,30 +2162,7 @@ true
 Entry ImpA·CAS·Ran·GTP·NPC from (n)
 </td>
 <td>
-[ImpA·CAS·Ran·GTP·NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC]
-</td>
-<td>
-kf
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
-1/s
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Entry ImpA·CAS·Ran·GTP·NPC from (n)
-</td>
-<td>
-[ImpA·CAS·Ran·GTP·NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC]
+[ImpA·CAS·Ran·GTP·NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(n)]
 </td>
 <td>
 kr
@@ -2171,7 +2171,30 @@ kr
 true
 </td>
 <td>
-     1
+   100
+
+</td>
+<td>
+1/s/uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry CAS·NPC from (c)
+</td>
+<td>
+[CAS·NPC(c)] <-> [CAS·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
 
 </td>
 <td>
@@ -2185,30 +2208,7 @@ true
 Entry CAS·NPC from (c)
 </td>
 <td>
-[CAS·NPC(c)] <-> [CAS·NPC]
-</td>
-<td>
-kf
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
-1/s
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Entry CAS·NPC from (c)
-</td>
-<td>
-[CAS·NPC(c)] <-> [CAS·NPC]
+[CAS·NPC(c)] <-> [CAS·NPC] + [NPC(c)]
 </td>
 <td>
 kr
@@ -2217,7 +2217,30 @@ kr
 true
 </td>
 <td>
-     1
+   100
+
+</td>
+<td>
+1/s/uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry CAS·NPC from (n)
+</td>
+<td>
+[CAS·NPC(n)] <-> [CAS·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
 
 </td>
 <td>
@@ -2231,30 +2254,7 @@ true
 Entry CAS·NPC from (n)
 </td>
 <td>
-[CAS·NPC(n)] <-> [CAS·NPC]
-</td>
-<td>
-kf
-</td>
-<td>
-true
-</td>
-<td>
-     1
-
-</td>
-<td>
-1/s
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-Entry CAS·NPC from (n)
-</td>
-<td>
-[CAS·NPC(n)] <-> [CAS·NPC]
+[CAS·NPC(n)] <-> [CAS·NPC] + [NPC(n)]
 </td>
 <td>
 kr
@@ -2263,11 +2263,11 @@ kr
 true
 </td>
 <td>
-     1
+   100
 
 </td>
 <td>
-1/s
+1/s/uM
 </td>
 <td>
 </td>
@@ -2866,17 +2866,17 @@ true
 true
 </td>
 <td>
-[ImpA·ImpB·NPC(c)] <-> [ImpA·ImpB·NPC]
+[ImpA·ImpB·NPC(c)] <-> [ImpA·ImpB·NPC] + [NPC(c)]
 </td>
 <td>
-kf*[ImpA·ImpB·NPC(c)] - kr*[ImpA·ImpB·NPC]
+kf*[ImpA·ImpB·NPC(c)] - kr*[ImpA·ImpB·NPC]*[NPC(c)]
 </td>
 <td>
 </td>
 </tr>
 <tr>
 <td>
-ImpA·ImpB·NPC from (n
+ImpA·ImpB·NPC from (n)
 </td>
 <td>
 true
@@ -2885,10 +2885,10 @@ true
 true
 </td>
 <td>
-[ImpA·ImpB·NPC(n)] <-> [ImpA·ImpB·NPC]
+[ImpA·ImpB·NPC(n)] <-> [ImpA·ImpB·NPC] + [NPC(n)]
 </td>
 <td>
-kf*[ImpA·ImpB·NPC(n)] - kr*[ImpA·ImpB·NPC]
+kf*[ImpA·ImpB·NPC(n)] - kr*[ImpA·ImpB·NPC]*[NPC(n)]
 </td>
 <td>
 </td>
@@ -2904,10 +2904,10 @@ true
 true
 </td>
 <td>
-[ImpB·NPC(c)] <-> [ImpB·NPC]
+[ImpB·NPC(c)] <-> [ImpB·NPC] + [NPC(c)]
 </td>
 <td>
-kf*[ImpB·NPC(c)] - kr*[ImpB·NPC]
+kf*[ImpB·NPC(c)] - kr*[ImpB·NPC]*[NPC(c)]
 </td>
 <td>
 </td>
@@ -2923,10 +2923,10 @@ true
 true
 </td>
 <td>
-[ImpB·NPC(n)] <-> [ImpB·NPC]
+[ImpB·NPC(n)] <-> [ImpB·NPC] + [NPC(n)]
 </td>
 <td>
-kf*[ImpB·NPC(n)] - kr*[ImpB·NPC]
+kf*[ImpB·NPC(n)] - kr*[ImpB·NPC]*[NPC(n)]
 </td>
 <td>
 </td>
@@ -2980,10 +2980,10 @@ true
 true
 </td>
 <td>
-[NLS·ImpA·ImpB·NPC(c)] <-> [NLS·ImpA·ImpB·NPC]
+[NLS·ImpA·ImpB·NPC(c)] <-> [NLS·ImpA·ImpB·NPC] + [NPC(c)]
 </td>
 <td>
-kf*[NLS·ImpA·ImpB·NPC(c)] - kr*[NLS·ImpA·ImpB·NPC]
+kf*[NLS·ImpA·ImpB·NPC(c)] - kr*[NLS·ImpA·ImpB·NPC]*[NPC(c)]
 </td>
 <td>
 </td>
@@ -2999,10 +2999,10 @@ true
 true
 </td>
 <td>
-[NLS·ImpA·ImpB·NPC(n)] <-> [NLS·ImpA·ImpB·NPC]
+[NLS·ImpA·ImpB·NPC(n)] <-> [NLS·ImpA·ImpB·NPC] + [NPC(n)]
 </td>
 <td>
-kf*[NLS·ImpA·ImpB·NPC(n)] - kr*[NLS·ImpA·ImpB·NPC]
+kf*[NLS·ImpA·ImpB·NPC(n)] - kr*[NLS·ImpA·ImpB·NPC]*[NPC(n)]
 </td>
 <td>
 </td>
@@ -3018,10 +3018,10 @@ true
 true
 </td>
 <td>
-[Ran·GTP·ImpB·NPC(c)] <-> [Ran·GTP·ImpB·NPC]
+[Ran·GTP·ImpB·NPC(c)] <-> [Ran·GTP·ImpB·NPC] + [NPC(c)]
 </td>
 <td>
-kf*[Ran·GTP·ImpB·NPC(c)] - kr*[Ran·GTP·ImpB·NPC]
+kf*[Ran·GTP·ImpB·NPC(c)] - kr*[Ran·GTP·ImpB·NPC]*[NPC(c)]
 </td>
 <td>
 </td>
@@ -3037,10 +3037,10 @@ true
 true
 </td>
 <td>
-[Ran·GTP·ImpB·NPC(n)] <-> [Ran·GTP·ImpB·NPC]
+[Ran·GTP·ImpB·NPC(n)] <-> [Ran·GTP·ImpB·NPC] + [NPC(n)]
 </td>
 <td>
-kf*[Ran·GTP·ImpB·NPC(n)] - kr*[Ran·GTP·ImpB·NPC]
+kf*[Ran·GTP·ImpB·NPC(n)] - kr*[Ran·GTP·ImpB·NPC]*[NPC(n)]
 </td>
 <td>
 </td>
@@ -3056,10 +3056,10 @@ true
 true
 </td>
 <td>
-[ImpA·CAS·Ran·GTP·NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC]
+[ImpA·CAS·Ran·GTP·NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(c)]
 </td>
 <td>
-kf*[ImpA·CAS·Ran·GTP·NPC(c)] - kr*[ImpA·CAS·Ran·GTP·NPC]
+kf*[ImpA·CAS·Ran·GTP·NPC(c)] - kr*[ImpA·CAS·Ran·GTP·NPC]*[NPC(c)]
 </td>
 <td>
 </td>
@@ -3075,10 +3075,10 @@ true
 true
 </td>
 <td>
-[ImpA·CAS·Ran·GTP·NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC]
+[ImpA·CAS·Ran·GTP·NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(n)]
 </td>
 <td>
-kf*[ImpA·CAS·Ran·GTP·NPC(n)] - kr*[ImpA·CAS·Ran·GTP·NPC]
+kf*[ImpA·CAS·Ran·GTP·NPC(n)] - kr*[ImpA·CAS·Ran·GTP·NPC]*[NPC(n)]
 </td>
 <td>
 </td>
@@ -3094,10 +3094,10 @@ true
 true
 </td>
 <td>
-[CAS·NPC(c)] <-> [CAS·NPC]
+[CAS·NPC(c)] <-> [CAS·NPC] + [NPC(c)]
 </td>
 <td>
-kf*[CAS·NPC(c)] - kr*[CAS·NPC]
+kf*[CAS·NPC(c)] - kr*[CAS·NPC]*[NPC(c)]
 </td>
 <td>
 </td>
@@ -3113,10 +3113,10 @@ true
 true
 </td>
 <td>
-[CAS·NPC(n)] <-> [CAS·NPC]
+[CAS·NPC(n)] <-> [CAS·NPC] + [NPC(n)]
 </td>
 <td>
-kf*[CAS·NPC(n)] - kr*[CAS·NPC]
+kf*[CAS·NPC(n)] - kr*[CAS·NPC]*[NPC(n)]
 </td>
 <td>
 </td>
@@ -3127,7 +3127,7 @@ kf*[CAS·NPC(n)] - kr*[CAS·NPC]
 Equations dump
 <pre>
 ODEs:
-d([NPC(c)])/dt = 1/NE*(-r1 - r8 - r11 - [CAS with NPC] - [Complex CAS with NPC])
+d([NPC(c)])/dt = 1/NE*(-r1 - r8 - r11 - [CAS with NPC] - [Complex CAS with NPC] + [Entry ImpA·ImpB·NPC from (c)] + [Entry ImpB·NPC from (c)] + [Entry NLS·ImpA·ImpB·NPC from (c)] + [Entry Ran·GTP·ImpB·NPC from (c)] + [Entry ImpA·CAS·Ran·GTP·NPC from (c)] + [Entry CAS·NPC from (c)])
 d([ImpB(c)])/dt = 1/NE*(-r1 - r7)
 d([ImpB·NPC(c)])/dt = 1/NE*(r1 - r9 + [hydrolysis of Ran·GTP·ImpB·NPC] - [Entry ImpB·NPC from (c)])
 d([ImpB(n)])/dt = 1/NE*(-r2)
@@ -3151,14 +3151,14 @@ d([ImpA(n)])/dt = 1/NE*(knockoff - [CAS·Ran with ImpA] - r9_1)
 d([ImpA·ImpB(n)])/dt = 1/NE*(-r8_1)
 d([ImpA·CAS·Ran·GTP(c)])/dt = 1/NE*(-[Complex CAS with NPC] - [hydrolysis of ImpA·CAS·Ran·GTP(c)])
 d([NLS·ImpA·ImpB(n)])/dt = 1/NE*(-r11_1)
-d([ImpA·ImpB·NPC(n)])/dt = 1/NE*(r8_1 + r9_1 - r12_1 - [ImpA·ImpB·NPC from (n])
+d([ImpA·ImpB·NPC(n)])/dt = 1/NE*(r8_1 + r9_1 - r12_1 - [ImpA·ImpB·NPC from (n)])
 d([ImpB·NPC(n)])/dt = 1/NE*(r2 - r9_1 - [Entry ImpB·NPC from (n)])
-d([NPC(n)])/dt = 1/NE*(-r2 - [CAS with NPC, nuclear] - [Complex CAS with NPC, nuclear] - r8_1 - r11_1)
+d([NPC(n)])/dt = 1/NE*(-r2 - [CAS with NPC, nuclear] - [Complex CAS with NPC, nuclear] - r8_1 - r11_1 + [ImpA·ImpB·NPC from (n)] + [Entry ImpB·NPC from (n)] + [Entry NLS·ImpA·ImpB·NPC from (n)] + [Entry Ran·GTP·ImpB·NPC from (n)] + [Entry ImpA·CAS·Ran·GTP·NPC from (n)] + [Entry CAS·NPC from (n)])
 d([NLS·ImpA·ImpB·NPC(n)])/dt = 1/NE*(-knockoff + r12_1 + r11_1 - [Entry NLS·ImpA·ImpB·NPC from (n)])
 d([Ran·GTP·ImpB·NPC(n)])/dt = 1/NE*(knockoff - [Entry Ran·GTP·ImpB·NPC from (n)])
 d([ImpA·CAS·Ran·GTP·NPC(n)])/dt = 1/NE*([Complex CAS with NPC, nuclear] - [Entry ImpA·CAS·Ran·GTP·NPC from (n)])
 d([CAS·NPC(n)])/dt = 1/NE*([CAS with NPC, nuclear] - [Entry CAS·NPC from (n)])
-d([ImpA·ImpB·NPC])/dt = 1/NE*([Entry ImpA·ImpB·NPC from (c)] + [ImpA·ImpB·NPC from (n])
+d([ImpA·ImpB·NPC])/dt = 1/NE*([Entry ImpA·ImpB·NPC from (c)] + [ImpA·ImpB·NPC from (n)])
 d([ImpB·NPC])/dt = 1/NE*([Entry ImpB·NPC from (c)] + [Entry ImpB·NPC from (n)])
 d([NLS·ImpA·ImpB·NPC])/dt = 1/NE*([Entry NLS·ImpA·ImpB·NPC from (c)] + [Entry NLS·ImpA·ImpB·NPC from (n)])
 d([Ran·GTP·ImpB·NPC])/dt = 1/NE*([Entry Ran·GTP·ImpB·NPC from (c)] + [Entry Ran·GTP·ImpB·NPC from (n)])
@@ -3191,18 +3191,18 @@ r9_1 = (r9.kf*[ImpA(n)]*[ImpB·NPC(n)]-r9.kr*[ImpA·ImpB·NPC(n)])*NE
 r12_1 = (r12_1.kf*[NLS(n)]*[ImpA·ImpB·NPC(n)]-r12_1.kr*[NLS·ImpA·ImpB·NPC(n)])*NE
 r11_1 = (r11_1.kf*[NLS·ImpA·ImpB(n)]*[NPC(n)]-r11_1.kr*[NLS·ImpA·ImpB·NPC(n)])*NE
 [Passive diffusion] = (k_diff*([NLS(n)]-[NLS(c)]))*NE
-[Entry ImpA·ImpB·NPC from (c)] = ([Entry ImpA·ImpB·NPC from (c)].kf*[ImpA·ImpB·NPC(c)])*NE-([Entry ImpA·ImpB·NPC from (c)].kr*[ImpA·ImpB·NPC])*NE
-[ImpA·ImpB·NPC from (n] = ([ImpA·ImpB·NPC from (n].kf*[ImpA·ImpB·NPC(n)])*NE-([ImpA·ImpB·NPC from (n].kr*[ImpA·ImpB·NPC])*NE
-[Entry ImpB·NPC from (c)] = ([Entry ImpB·NPC from (c)].kf*[ImpB·NPC(c)])*NE-([Entry ImpB·NPC from (c)].kr*[ImpB·NPC])*NE
-[Entry ImpB·NPC from (n)] = ([Entry ImpB·NPC from (n)].kf*[ImpB·NPC(n)])*NE-([Entry ImpB·NPC from (n)].kr*[ImpB·NPC])*NE
-[Entry NLS·ImpA·ImpB·NPC from (c)] = ([Entry NLS·ImpA·ImpB·NPC from (c)].kf*[NLS·ImpA·ImpB·NPC(c)])*NE-([Entry NLS·ImpA·ImpB·NPC from (c)].kr*[NLS·ImpA·ImpB·NPC])*NE
-[Entry NLS·ImpA·ImpB·NPC from (n)] = ([Entry NLS·ImpA·ImpB·NPC from (n)].kf*[NLS·ImpA·ImpB·NPC(n)])*NE-([Entry NLS·ImpA·ImpB·NPC from (n)].kr*[NLS·ImpA·ImpB·NPC])*NE
-[Entry Ran·GTP·ImpB·NPC from (c)] = ([Entry Ran·GTP·ImpB·NPC from (c)].kf*[Ran·GTP·ImpB·NPC(c)])*NE-([Entry Ran·GTP·ImpB·NPC from (c)].kr*[Ran·GTP·ImpB·NPC])*NE
-[Entry Ran·GTP·ImpB·NPC from (n)] = ([Entry Ran·GTP·ImpB·NPC from (n)].kf*[Ran·GTP·ImpB·NPC(n)])*NE-([Entry Ran·GTP·ImpB·NPC from (n)].kr*[Ran·GTP·ImpB·NPC])*NE
-[Entry ImpA·CAS·Ran·GTP·NPC from (c)] = ([Entry ImpA·CAS·Ran·GTP·NPC from (c)].kf*[ImpA·CAS·Ran·GTP·NPC(c)])*NE-([Entry ImpA·CAS·Ran·GTP·NPC from (c)].kr*[ImpA·CAS·Ran·GTP·NPC])*NE
-[Entry ImpA·CAS·Ran·GTP·NPC from (n)] = ([Entry ImpA·CAS·Ran·GTP·NPC from (n)].kf*[ImpA·CAS·Ran·GTP·NPC(n)])*NE-([Entry ImpA·CAS·Ran·GTP·NPC from (n)].kr*[ImpA·CAS·Ran·GTP·NPC])*NE
-[Entry CAS·NPC from (c)] = ([Entry CAS·NPC from (c)].kf*[CAS·NPC(c)])*NE-([Entry CAS·NPC from (c)].kr*[CAS·NPC])*NE
-[Entry CAS·NPC from (n)] = ([Entry CAS·NPC from (n)].kf*[CAS·NPC(n)])*NE-([Entry CAS·NPC from (n)].kr*[CAS·NPC])*NE
+[Entry ImpA·ImpB·NPC from (c)] = ([Entry ImpA·ImpB·NPC from (c)].kf*[ImpA·ImpB·NPC(c)])*NE-([Entry ImpA·ImpB·NPC from (c)].kr*[ImpA·ImpB·NPC]*[NPC(c)])*NE
+[ImpA·ImpB·NPC from (n)] = ([ImpA·ImpB·NPC from (n)].kf*[ImpA·ImpB·NPC(n)])*NE-([ImpA·ImpB·NPC from (n)].kr*[ImpA·ImpB·NPC]*[NPC(n)])*NE
+[Entry ImpB·NPC from (c)] = ([Entry ImpB·NPC from (c)].kf*[ImpB·NPC(c)])*NE-([Entry ImpB·NPC from (c)].kr*[ImpB·NPC]*[NPC(c)])*NE
+[Entry ImpB·NPC from (n)] = ([Entry ImpB·NPC from (n)].kf*[ImpB·NPC(n)])*NE-([Entry ImpB·NPC from (n)].kr*[ImpB·NPC]*[NPC(n)])*NE
+[Entry NLS·ImpA·ImpB·NPC from (c)] = ([Entry NLS·ImpA·ImpB·NPC from (c)].kf*[NLS·ImpA·ImpB·NPC(c)])*NE-([Entry NLS·ImpA·ImpB·NPC from (c)].kr*[NLS·ImpA·ImpB·NPC]*[NPC(c)])*NE
+[Entry NLS·ImpA·ImpB·NPC from (n)] = ([Entry NLS·ImpA·ImpB·NPC from (n)].kf*[NLS·ImpA·ImpB·NPC(n)])*NE-([Entry NLS·ImpA·ImpB·NPC from (n)].kr*[NLS·ImpA·ImpB·NPC]*[NPC(n)])*NE
+[Entry Ran·GTP·ImpB·NPC from (c)] = ([Entry Ran·GTP·ImpB·NPC from (c)].kf*[Ran·GTP·ImpB·NPC(c)])*NE-([Entry Ran·GTP·ImpB·NPC from (c)].kr*[Ran·GTP·ImpB·NPC]*[NPC(c)])*NE
+[Entry Ran·GTP·ImpB·NPC from (n)] = ([Entry Ran·GTP·ImpB·NPC from (n)].kf*[Ran·GTP·ImpB·NPC(n)])*NE-([Entry Ran·GTP·ImpB·NPC from (n)].kr*[Ran·GTP·ImpB·NPC]*[NPC(n)])*NE
+[Entry ImpA·CAS·Ran·GTP·NPC from (c)] = ([Entry ImpA·CAS·Ran·GTP·NPC from (c)].kf*[ImpA·CAS·Ran·GTP·NPC(c)])*NE-([Entry ImpA·CAS·Ran·GTP·NPC from (c)].kr*[ImpA·CAS·Ran·GTP·NPC]*[NPC(c)])*NE
+[Entry ImpA·CAS·Ran·GTP·NPC from (n)] = ([Entry ImpA·CAS·Ran·GTP·NPC from (n)].kf*[ImpA·CAS·Ran·GTP·NPC(n)])*NE-([Entry ImpA·CAS·Ran·GTP·NPC from (n)].kr*[ImpA·CAS·Ran·GTP·NPC]*[NPC(n)])*NE
+[Entry CAS·NPC from (c)] = ([Entry CAS·NPC from (c)].kf*[CAS·NPC(c)])*NE-([Entry CAS·NPC from (c)].kr*[CAS·NPC]*[NPC(c)])*NE
+[Entry CAS·NPC from (n)] = ([Entry CAS·NPC from (n)].kf*[CAS·NPC(n)])*NE-([Entry CAS·NPC from (n)].kr*[CAS·NPC]*[NPC(n)])*NE
 
 Parameter Values:
 k_ImpB_on = 0.001
@@ -3236,38 +3236,38 @@ r10_1.kr = 0.00044
 r11_1.kf = 0.001
 r11_1.kr = 0.0001
 k_diff = 0
-[Entry ImpA·ImpB·NPC from (c)].kf = 1
-[Entry ImpA·ImpB·NPC from (c)].kr = 1
-[ImpA·ImpB·NPC from (n].kf = 1
-[ImpA·ImpB·NPC from (n].kr = 1
-[Entry ImpB·NPC from (c)].kf = 1
-[Entry ImpB·NPC from (c)].kr = 1
-[Entry ImpB·NPC from (n)].kf = 1
-[Entry ImpB·NPC from (n)].kr = 1
-[Entry NPC from (c)].kf = 1
-[Entry NPC from (c)].kr = 1
-[Entry NPC from (n)].kf = 1
-[Entry NPC from (n)].kr = 1
-[Entry NLS·ImpA·ImpB·NPC from (c)].kf = 1
-[Entry NLS·ImpA·ImpB·NPC from (c)].kr = 1
-[Entry NLS·ImpA·ImpB·NPC from (n)].kf = 1
-[Entry NLS·ImpA·ImpB·NPC from (n)].kr = 1
-[Entry Ran·GTP·ImpB·NPC from (c)].kf = 1
-[Entry Ran·GTP·ImpB·NPC from (c)].kr = 1
-[Entry Ran·GTP·ImpB·NPC from (n)].kf = 1
-[Entry Ran·GTP·ImpB·NPC from (n)].kr = 1
-[Entry ImpA·CAS·Ran·GTP·NPC from (c)].kf = 1
-[Entry ImpA·CAS·Ran·GTP·NPC from (c)].kr = 1
-[Entry ImpA·CAS·Ran·GTP·NPC from (n)].kf = 1
-[Entry ImpA·CAS·Ran·GTP·NPC from (n)].kr = 1
-[Entry CAS·NPC from (c)].kf = 1
-[Entry CAS·NPC from (c)].kr = 1
-[Entry CAS·NPC from (n)].kf = 1
-[Entry CAS·NPC from (n)].kr = 1
+[Entry ImpA·ImpB·NPC from (c)].kf = 100
+[Entry ImpA·ImpB·NPC from (c)].kr = 100
+[ImpA·ImpB·NPC from (n)].kf = 100
+[ImpA·ImpB·NPC from (n)].kr = 100
+[Entry ImpB·NPC from (c)].kf = 100
+[Entry ImpB·NPC from (c)].kr = 100
+[Entry ImpB·NPC from (n)].kf = 100
+[Entry ImpB·NPC from (n)].kr = 100
+[Entry NPC from (c)].kf = 100
+[Entry NPC from (c)].kr = 100
+[Entry NPC from (n)].kf = 100
+[Entry NPC from (n)].kr = 100
+[Entry NLS·ImpA·ImpB·NPC from (c)].kf = 100
+[Entry NLS·ImpA·ImpB·NPC from (c)].kr = 100
+[Entry NLS·ImpA·ImpB·NPC from (n)].kf = 100
+[Entry NLS·ImpA·ImpB·NPC from (n)].kr = 100
+[Entry Ran·GTP·ImpB·NPC from (c)].kf = 100
+[Entry Ran·GTP·ImpB·NPC from (c)].kr = 100
+[Entry Ran·GTP·ImpB·NPC from (n)].kf = 100
+[Entry Ran·GTP·ImpB·NPC from (n)].kr = 100
+[Entry ImpA·CAS·Ran·GTP·NPC from (c)].kf = 100
+[Entry ImpA·CAS·Ran·GTP·NPC from (c)].kr = 100
+[Entry ImpA·CAS·Ran·GTP·NPC from (n)].kf = 100
+[Entry ImpA·CAS·Ran·GTP·NPC from (n)].kr = 100
+[Entry CAS·NPC from (c)].kf = 100
+[Entry CAS·NPC from (c)].kr = 100
+[Entry CAS·NPC from (n)].kf = 100
+[Entry CAS·NPC from (n)].kr = 100
 NE = 1
 
 Initial Conditions:
-[NPC(c)] = 0.0025
+[NPC(c)] = 0.5
 [ImpB(c)] = 1
 [ImpB·NPC(c)] = 0
 [ImpB(n)] = 0
@@ -3293,7 +3293,7 @@ Initial Conditions:
 [NLS·ImpA·ImpB(n)] = 0
 [ImpA·ImpB·NPC(n)] = 0
 [ImpB·NPC(n)] = 0
-[NPC(n)] = 0.0025
+[NPC(n)] = 0.5
 [NLS·ImpA·ImpB·NPC(n)] = 0
 [Ran·GTP·ImpB·NPC(n)] = 0
 [ImpA·CAS·Ran·GTP·NPC(n)] = 0
