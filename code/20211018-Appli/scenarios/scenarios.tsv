@@ -27,13 +27,17 @@ Reaction		hydrolysis of ImpA·CAS·Ran·GTP·NPC	kf	1/s				1e-2	1e-2	1e-2	1e-2	1
 Reaction		CAS with Ran	kf	1/uM/s				0.01	0.01	0.01	0.01	0.01	0.01
 Reaction		CAS with Ran	kr	1/s				0.015	0.015	0.015	0.015	0.015	0.015
 													
-Reaction		CAS with NPC	kf	1/uM/s				1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
-Reaction		CAS with NPC	kr	1/s				1e-4	1e-4	1e-4	1e-4	1e-4	1e-4
+Reaction		CAS with NPC(c)	kf	1/uM/s				1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
+Reaction		CAS with NPC(c)	kr	1/s				1e-4	1e-4	1e-4	1e-4	1e-4	1e-4
+Reaction		CAS with NPC(n)	kf	1/uM/s				1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
+Reaction		CAS with NPC(n)	kr	1/s				1e-4	1e-4	1e-4	1e-4	1e-4	1e-4
 													
 Reaction		CAS·Ran with ImpA	kf	1/uM/s				0.1	0.1	0.1	0.1	0.1	0.1
 													
-Reaction		Complex CAS with NPC	kf	1/uM/s	i.e. ImpA·CAS·Ran·GTP			1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
-Reaction		Complex CAS with NPC	kr	1/s				1e-5	1e-5	1e-5	1e-5	1e-5	1e-5
+Reaction		Complex CAS with NPC(c)	kf	1/uM/s	"""Complex CAS"" = ImpA·CAS·Ran·GTP"			1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
+Reaction		Complex CAS with NPC(c)	kr	1/s				1e-5	1e-5	1e-5	1e-5	1e-5	1e-5
+Reaction		Complex CAS with NPC(n)	kf	1/uM/s				1e-3	1e-3	1e-3	1e-3	1e-3	1e-3
+Reaction		Complex CAS with NPC(n)	kr	1/s				1e-5	1e-5	1e-5	1e-5	1e-5	1e-5
 													
 Reaction		Replenish NLS	kf	1/s				0	0	0	0	0	0
 Reaction		Passive diffusion	k_diff	1/s				0	0	0	0	0	0

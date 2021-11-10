@@ -1,6 +1,6 @@
 Model name: threestage
 <br>
-10-Nov-2021 16:35:05
+10-Nov-2021 17:06:45
 <br>
 <br>
 Model parameters
@@ -851,6 +851,7 @@ false
 uM
 </td>
 <td>
+Value set by an event
 </td>
 </tr>
 <tr>
@@ -1239,7 +1240,7 @@ true
 </tr>
 <tr>
 <td>
-CAS with NPC
+CAS with NPC(c)
 </td>
 <td>
 [CAS(c)] + [NPC(c)] <-> [CAS·NPC(c)]
@@ -1262,10 +1263,56 @@ true
 </tr>
 <tr>
 <td>
-CAS with NPC
+CAS with NPC(c)
 </td>
 <td>
 [CAS(c)] + [NPC(c)] <-> [CAS·NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+CAS with NPC(n)
+</td>
+<td>
+[CAS(n)] + [NPC(n)] <-> [CAS·NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+CAS with NPC(n)
+</td>
+<td>
+[CAS(n)] + [NPC(n)] <-> [CAS·NPC(n)]
 </td>
 <td>
 kr
@@ -1321,6 +1368,52 @@ true
 </td>
 <td>
     0.0150
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Complex CAS with NPC(n)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP(n)] + [NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Complex CAS with NPC(n)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP(n)] + [NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-04
 
 </td>
 <td>
@@ -1400,7 +1493,7 @@ true
 </tr>
 <tr>
 <td>
-Complex CAS with NPC
+Complex CAS with NPC(c)
 </td>
 <td>
 [ImpA·CAS·Ran·GTP(c)] + [NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC(c)]
@@ -1423,7 +1516,7 @@ true
 </tr>
 <tr>
 <td>
-Complex CAS with NPC
+Complex CAS with NPC(c)
 </td>
 <td>
 [ImpA·CAS·Ran·GTP(c)] + [NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC(c)]
@@ -2411,7 +2504,7 @@ guesstimate
 </tr>
 <tr>
 <td>
-CAS with NPC
+CAS with NPC(c)
 </td>
 <td>
 true
@@ -2432,7 +2525,7 @@ guesstimate
 </tr>
 <tr>
 <td>
-CAS with NPC, nuclear
+CAS with NPC(n)
 </td>
 <td>
 true
@@ -2444,7 +2537,7 @@ true
 [CAS(n)] + [NPC(n)] <-> [CAS·NPC(n)]
 </td>
 <td>
-[CAS with NPC].kf*[CAS(n)]*[NPC(n)]-[CAS with NPC].kr*[CAS·NPC(n)]
+kf*[CAS(n)]*[NPC(n)]-kr*[CAS·NPC(n)]
 </td>
 <td>
 (copy)
@@ -2475,7 +2568,7 @@ kD = 1.44 uM (LK)
 </tr>
 <tr>
 <td>
-Complex CAS with NPC, nuclear
+Complex CAS with NPC(n)
 </td>
 <td>
 true
@@ -2487,7 +2580,7 @@ true
 [ImpA·CAS·Ran·GTP(n)] + [NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC(n)]
 </td>
 <td>
-[Complex CAS with NPC].kf*[ImpA·CAS·Ran·GTP(n)]*[NPC(n)]-[Complex CAS with NPC].kr*[ImpA·CAS·Ran·GTP·NPC(n)]
+kf*[ImpA·CAS·Ran·GTP(n)]*[NPC(n)]-kr*[ImpA·CAS·Ran·GTP·NPC(n)]
 </td>
 <td>
 (copy)
@@ -2619,7 +2712,7 @@ Off, because no corresponding "knockoff" reaction.
 </tr>
 <tr>
 <td>
-Complex CAS with NPC
+Complex CAS with NPC(c)
 </td>
 <td>
 true
@@ -2997,7 +3090,7 @@ kf*[CAS·NPC(n)] - kr*[CAS·NPC]
 Equations dump
 <pre>
 ODEs:
-d([NPC(c)])/dt = 1/NE*(-r1 - r8 - r11 - [CAS with NPC] - [Complex CAS with NPC] + [Entry ImpA·ImpB·NPC from (c)] + [Entry ImpB·NPC from (c)] + [Entry NLS·ImpA·ImpB·NPC from (c)] + [Entry Ran·GTP·ImpB·NPC from (c)] + [Entry ImpA·CAS·Ran·GTP·NPC from (c)] + [Entry CAS·NPC from (c)])
+d([NPC(c)])/dt = 1/NE*(-r1 - r8 - r11 - [CAS with NPC(c)] - [Complex CAS with NPC(c)] + [Entry ImpA·ImpB·NPC from (c)] + [Entry ImpB·NPC from (c)] + [Entry NLS·ImpA·ImpB·NPC from (c)] + [Entry Ran·GTP·ImpB·NPC from (c)] + [Entry ImpA·CAS·Ran·GTP·NPC from (c)] + [Entry CAS·NPC from (c)])
 d([ImpB(c)])/dt = 1/NE*(-r1 - r7)
 d([ImpB·NPC(c)])/dt = 1/NE*(r1 - r9 + [hydrolysis of Ran·GTP·ImpB·NPC] - [Entry ImpB·NPC from (c)])
 d([ImpB(n)])/dt = 1/NE*(-r2)
@@ -3010,24 +3103,24 @@ d([NLS·ImpA·ImpB·NPC(c)])/dt = 1/NE*(r11 + r12 - [Entry NLS·ImpA·ImpB·NPC 
 d([Ran·GTP(n)])/dt = 1/NE*(-knockoff - [CAS with Ran] + [Ran gradient])
 d([NLS(n)])/dt = 1/NE*(knockoff - r12_1 - [Passive diffusion])
 d([Ran·GTP·ImpB·NPC(c)])/dt = 1/NE*(-[hydrolysis of Ran·GTP·ImpB·NPC] - [Entry Ran·GTP·ImpB·NPC from (c)])
-d([CAS(c)])/dt = 1/NE*(-[CAS with NPC] + [hydrolysis of ImpA·CAS·Ran·GTP(c)])
+d([CAS(c)])/dt = 1/NE*(-[CAS with NPC(c)] + [hydrolysis of ImpA·CAS·Ran·GTP(c)])
 d([Ran·GDP(c)])/dt = 1/NE*([hydrolysis of Ran·GTP·ImpB·NPC] + [hydrolysis of ImpA·CAS·Ran·GTP·NPC] - [Ran gradient] + [hydrolysis of ImpA·CAS·Ran·GTP(c)])
-d([CAS·NPC(c)])/dt = 1/NE*([CAS with NPC] + [hydrolysis of ImpA·CAS·Ran·GTP·NPC] - [Entry CAS·NPC from (c)])
-d([CAS(n)])/dt = 1/NE*(-[CAS with NPC, nuclear] - [CAS with Ran])
+d([CAS·NPC(c)])/dt = 1/NE*([CAS with NPC(c)] + [hydrolysis of ImpA·CAS·Ran·GTP·NPC] - [Entry CAS·NPC from (c)])
+d([CAS(n)])/dt = 1/NE*(-[CAS with NPC(n)] - [CAS with Ran])
 d([CAS·Ran·GTP(n)])/dt = 1/NE*([CAS with Ran] - [CAS·Ran with ImpA])
-d([ImpA·CAS·Ran·GTP(n)])/dt = 1/NE*(-[Complex CAS with NPC, nuclear] + [CAS·Ran with ImpA])
-d([ImpA·CAS·Ran·GTP·NPC(c)])/dt = 1/NE*(-[hydrolysis of ImpA·CAS·Ran·GTP·NPC] + [Complex CAS with NPC] - [Entry ImpA·CAS·Ran·GTP·NPC from (c)])
+d([ImpA·CAS·Ran·GTP(n)])/dt = 1/NE*(-[Complex CAS with NPC(n)] + [CAS·Ran with ImpA])
+d([ImpA·CAS·Ran·GTP·NPC(c)])/dt = 1/NE*(-[hydrolysis of ImpA·CAS·Ran·GTP·NPC] + [Complex CAS with NPC(c)] - [Entry ImpA·CAS·Ran·GTP·NPC from (c)])
 d([ImpA(n)])/dt = 1/NE*(knockoff - [CAS·Ran with ImpA] - r9_1)
 d([ImpA·ImpB(n)])/dt = 1/NE*(-r8_1)
-d([ImpA·CAS·Ran·GTP(c)])/dt = 1/NE*(-[Complex CAS with NPC] - [hydrolysis of ImpA·CAS·Ran·GTP(c)])
+d([ImpA·CAS·Ran·GTP(c)])/dt = 1/NE*(-[Complex CAS with NPC(c)] - [hydrolysis of ImpA·CAS·Ran·GTP(c)])
 d([NLS·ImpA·ImpB(n)])/dt = 1/NE*(-r11_1)
 d([ImpA·ImpB·NPC(n)])/dt = 1/NE*(r8_1 + r9_1 - r12_1 - [ImpA·ImpB·NPC from (n)])
 d([ImpB·NPC(n)])/dt = 1/NE*(r2 - r9_1 - [Entry ImpB·NPC from (n)])
-d([NPC(n)])/dt = 1/NE*(-r2 - [CAS with NPC, nuclear] - [Complex CAS with NPC, nuclear] - r8_1 - r11_1 + [ImpA·ImpB·NPC from (n)] + [Entry ImpB·NPC from (n)] + [Entry NLS·ImpA·ImpB·NPC from (n)] + [Entry Ran·GTP·ImpB·NPC from (n)] + [Entry ImpA·CAS·Ran·GTP·NPC from (n)] + [Entry CAS·NPC from (n)])
+d([NPC(n)])/dt = 1/NE*(-r2 - [CAS with NPC(n)] - [Complex CAS with NPC(n)] - r8_1 - r11_1 + [ImpA·ImpB·NPC from (n)] + [Entry ImpB·NPC from (n)] + [Entry NLS·ImpA·ImpB·NPC from (n)] + [Entry Ran·GTP·ImpB·NPC from (n)] + [Entry ImpA·CAS·Ran·GTP·NPC from (n)] + [Entry CAS·NPC from (n)])
 d([NLS·ImpA·ImpB·NPC(n)])/dt = 1/NE*(-knockoff + r12_1 + r11_1 - [Entry NLS·ImpA·ImpB·NPC from (n)])
 d([Ran·GTP·ImpB·NPC(n)])/dt = 1/NE*(knockoff - [Entry Ran·GTP·ImpB·NPC from (n)])
-d([ImpA·CAS·Ran·GTP·NPC(n)])/dt = 1/NE*([Complex CAS with NPC, nuclear] - [Entry ImpA·CAS·Ran·GTP·NPC from (n)])
-d([CAS·NPC(n)])/dt = 1/NE*([CAS with NPC, nuclear] - [Entry CAS·NPC from (n)])
+d([ImpA·CAS·Ran·GTP·NPC(n)])/dt = 1/NE*([Complex CAS with NPC(n)] - [Entry ImpA·CAS·Ran·GTP·NPC from (n)])
+d([CAS·NPC(n)])/dt = 1/NE*([CAS with NPC(n)] - [Entry CAS·NPC from (n)])
 d([ImpA·ImpB·NPC])/dt = 1/NE*([Entry ImpA·ImpB·NPC from (c)] + [ImpA·ImpB·NPC from (n)])
 d([ImpB·NPC])/dt = 1/NE*([Entry ImpB·NPC from (c)] + [Entry ImpB·NPC from (n)])
 d(NPC)/dt = 1/NE*(-[Entry ImpA·ImpB·NPC from (c)] - [ImpA·ImpB·NPC from (n)] - [Entry ImpB·NPC from (c)] - [Entry ImpB·NPC from (n)] - [Entry NLS·ImpA·ImpB·NPC from (c)] - [Entry NLS·ImpA·ImpB·NPC from (n)] - [Entry Ran·GTP·ImpB·NPC from (c)] - [Entry Ran·GTP·ImpB·NPC from (n)] - [Entry ImpA·CAS·Ran·GTP·NPC from (c)] - [Entry ImpA·CAS·Ran·GTP·NPC from (n)] - [Entry CAS·NPC from (c)] - [Entry CAS·NPC from (n)])
@@ -3047,16 +3140,16 @@ r11 = (r11.kf*[NLS·ImpA·ImpB(c)]*[NPC(c)]-r11.kr*[NLS·ImpA·ImpB·NPC(c)])*NE
 r12 = (r12.kf*[NLS(c)]*[ImpA·ImpB·NPC(c)]-r12.kr*[NLS·ImpA·ImpB·NPC(c)])*NE
 knockoff = (knockoff.kf*[Ran·GTP(n)]*[NLS·ImpA·ImpB·NPC(n)])*NE
 [hydrolysis of Ran·GTP·ImpB·NPC] = ([hydrolysis of Ran·GTP·ImpB·NPC].kf*[Ran·GTP·ImpB·NPC(c)])*NE
-[CAS with NPC] = ([CAS with NPC].kf*[CAS(c)]*[NPC(c)]-[CAS with NPC].kr*[CAS·NPC(c)])*NE
-[CAS with NPC, nuclear] = ([CAS with NPC].kf*[CAS(n)]*[NPC(n)]-[CAS with NPC].kr*[CAS·NPC(n)])*NE
+[CAS with NPC(c)] = ([CAS with NPC(c)].kf*[CAS(c)]*[NPC(c)]-[CAS with NPC(c)].kr*[CAS·NPC(c)])*NE
+[CAS with NPC(n)] = ([CAS with NPC(n)].kf*[CAS(n)]*[NPC(n)]-[CAS with NPC(n)].kr*[CAS·NPC(n)])*NE
 [CAS with Ran] = ([CAS with Ran].kf*[Ran·GTP(n)]*[CAS(n)]-[CAS with Ran].kr*[CAS·Ran·GTP(n)])*NE
-[Complex CAS with NPC, nuclear] = ([Complex CAS with NPC].kf*[ImpA·CAS·Ran·GTP(n)]*[NPC(n)]-[Complex CAS with NPC].kr*[ImpA·CAS·Ran·GTP·NPC(n)])*NE
+[Complex CAS with NPC(n)] = ([Complex CAS with NPC(n)].kf*[ImpA·CAS·Ran·GTP(n)]*[NPC(n)]-[Complex CAS with NPC(n)].kr*[ImpA·CAS·Ran·GTP·NPC(n)])*NE
 [hydrolysis of ImpA·CAS·Ran·GTP·NPC] = ([hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf*[ImpA·CAS·Ran·GTP·NPC(c)])*NE
 [CAS·Ran with ImpA] = ([CAS·Ran with ImpA].kf*[ImpA(n)]*[CAS·Ran·GTP(n)])*NE
 [Ran gradient] = (k_pump*[Ran·GDP(c)])*NE
 r8_1 = (k_ImpB_on*[ImpA·ImpB(n)]*[NPC(n)]-k_ImpB_off*[ImpA·ImpB·NPC(n)])*NE
 r9_1 = (r9.kf*[ImpA(n)]*[ImpB·NPC(n)]-r9.kr*[ImpA·ImpB·NPC(n)])*NE
-[Complex CAS with NPC] = ([Complex CAS with NPC].kf*[ImpA·CAS·Ran·GTP(c)]*[NPC(c)]-[Complex CAS with NPC].kr*[ImpA·CAS·Ran·GTP·NPC(c)])*NE
+[Complex CAS with NPC(c)] = ([Complex CAS with NPC(c)].kf*[ImpA·CAS·Ran·GTP(c)]*[NPC(c)]-[Complex CAS with NPC(c)].kr*[ImpA·CAS·Ran·GTP·NPC(c)])*NE
 [hydrolysis of ImpA·CAS·Ran·GTP(c)] = ([hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf*[ImpA·CAS·Ran·GTP(c)])*NE
 [Replenish NLS] = ([Replenish NLS].kf*[NLS(n)])*NE
 r12_1 = (r12_1.kf*[NLS(n)]*[ImpA·ImpB·NPC(n)]-r12_1.kr*[NLS·ImpA·ImpB·NPC(n)])*NE
@@ -3090,15 +3183,19 @@ r12.kf = 0.15
 r12.kr = 0.00044
 knockoff.kf = 0.02
 [hydrolysis of Ran·GTP·ImpB·NPC].kf = 0.1
-[CAS with NPC].kf = 0.001
-[CAS with NPC].kr = 0.001
+[CAS with NPC(c)].kf = 0.001
+[CAS with NPC(c)].kr = 0.001
+[CAS with NPC(n)].kf = 0.001
+[CAS with NPC(n)].kr = 0.001
 [CAS with Ran].kf = 0.01
 [CAS with Ran].kr = 0.015
+[Complex CAS with NPC(n)].kf = 0.001
+[Complex CAS with NPC(n)].kr = 0.0001
 [hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf = 0.1
 [CAS·Ran with ImpA].kf = 0.1
 k_pump = 0.01
-[Complex CAS with NPC].kf = 0.001
-[Complex CAS with NPC].kr = 0.0001
+[Complex CAS with NPC(c)].kf = 0.001
+[Complex CAS with NPC(c)].kr = 0.0001
 [Replenish NLS].kf = 0
 r12_1.kf = 0.15
 r12_1.kr = 0.00044
