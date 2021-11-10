@@ -7,21 +7,18 @@ import numpy as np
 import pandas as pd
 
 import contextlib
-from plox import rcParam
 
 from bugs import *
 from tcga.utils import from_iterable
 from twig import log
-
-import matplotlib.colors as mcolors
+from plox import rcParam
 
 out_dir = mkdir(Path(__file__).resolve().with_suffix(''))
 
-style = {
-    rcParam.Text.usetex: True,
-    rcParam.Text.Latex.preamble: '\n'.join([r'\usepackage{siunitx}']),
-    rcParam.Font.size: 14,
-}
+from data_source import style, sp_specs, NPC_CONCENTRATION_FACTOR
+
+# Squarish figure
+style.update({rcParam.Figure.figsize: (5, 3)})
 
 
 def plot_total_timecourse(run, spp):
@@ -51,7 +48,12 @@ def plot_total_timecourse(run, spp):
         tx: pd.DataFrame = run.tx
 
         for (suffix, spp) in spp_by_suffix.items():
-            x = tx[spp].sum(axis=1)
+            if suffix == 'NPC':
+                f = NPC_CONCENTRATION_FACTOR
+            else:
+                f = 1
+
+            x = tx[spp].sum(axis=1) * f
             px.a.plot(tx.index / 3600, x, **fmt[suffix], color=color)
 
         px.a.set_xlabel(f"Time, h")
@@ -64,17 +66,6 @@ def plot_total_timecourse(run, spp):
 
 def main():
     from data_source import runs
-
-    sp_specs = [
-        {'+': "CAS"},
-        {'+': "CAS·Ran·GTP"},
-        {'+': "ImpA·CAS·Ran·GTP"},
-        {'+': "ImpB"},
-        {'+': "ImpA"},
-        {'+': "ImpA·ImpB"},
-        {'+': "Ran·GTP"},
-        {'+': "NLS"},
-    ]
 
     # `Not a species` placeholder
     nas = ("?" * 100)

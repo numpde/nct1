@@ -5,6 +5,8 @@ from twig import log
 from tcga.utils import First, unlist1
 from scipy.io import loadmat
 
+from plox import rcParam
+
 base = unlist1(Path(__file__).parent.parent.glob("results*"))
 
 
@@ -34,6 +36,29 @@ def load_runs(folder) -> pd.DataFrame:
 runs = load_runs(base)
 
 log.info(f"Loaded runs: {', '.join(runs.index)}")
+
+#
+
+style = {
+    rcParam.Text.usetex: True,
+    rcParam.Text.Latex.preamble: '\n'.join([r'\usepackage{siunitx}']),
+    rcParam.Font.size: 14,
+}
+
+sp_specs = [
+    {'+': "CAS"},
+    {'+': "CAS·Ran·GTP"},
+    {'+': "ImpA·CAS·Ran·GTP"},
+    {'+': "ImpB"},
+    {'+': "ImpA"},
+    {'+': "ImpA·ImpB"},
+    {'+': "Ran·GTP"},
+    {'+': "NLS"},
+]
+
+NPC_CONCENTRATION_FACTOR = 100
+
+#
 
 if __name__ == '__main__':
     pass

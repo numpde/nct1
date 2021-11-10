@@ -37,7 +37,7 @@ function main()
 
 		m = load_model();
 
-		T = 1e6; % seconds
+		T = 1e7; % seconds
 		set(getconfigset(m, 'active'), 'Stoptime', T);
 	
 		run(script);

@@ -7,11 +7,11 @@ import numpy as np
 import pandas as pd
 
 import contextlib
-from plox import rcParam
 
 from bugs import *
 from tcga.utils import from_iterable
 from twig import log
+from plox import rcParam
 
 import matplotlib.colors as mcolors
 
@@ -19,12 +19,10 @@ import matplotlib.colors as mcolors
 
 out_dir = mkdir(Path(__file__).resolve().with_suffix(''))
 
-style = {
-    rcParam.Text.usetex: True,
-    rcParam.Text.Latex.preamble: '\n'.join([r'\usepackage{siunitx}']),
-    rcParam.Font.size: 14,
-    rcParam.Figure.figsize: (10, 1),
-}
+from data_source import style, sp_specs, NPC_CONCENTRATION_FACTOR
+
+# Wide figure
+style.update({rcParam.Figure.figsize: (9, 1)})
 
 
 def plot_total_steadystate(run, spp):
@@ -47,14 +45,16 @@ def plot_total_steadystate(run, spp):
             for suffix in ["(c)", "NPC", "(n)"]  # order for display
         }
 
-        if (sum(map(len, spp_by_suffix.values())) != len(spp)):
+        if len(spp) != sum(map(len, spp_by_suffix.values())):
             log.warning(f"Unknown suffix for species: {set(spp) - set(from_iterable(spp_by_suffix.values()))}")
 
         # `time` x `species` table of concentrations
         tx: pd.DataFrame = run.tx
 
         agg_by_suffix = pd.DataFrame(data={
-            suffix: tx[spp].sum(axis=1)
+            suffix: tx[spp].sum(axis=1) * (
+                NPC_CONCENTRATION_FACTOR if (suffix == 'NPC') else 1
+            )
             for (suffix, spp) in spp_by_suffix.items()
         })
 
@@ -92,18 +92,6 @@ def plot_total_steadystate(run, spp):
 
 def main():
     from data_source import runs
-
-    sp_specs = [
-        {'+': "CAS"},
-        {'+': "CAS·Ran·GTP"},
-        {'+': "ImpA·CAS·Ran·GTP"},
-        {'+': "ImpB"},
-        {'+': "ImpA"},
-        {'+': "ImpA·ImpB"},
-        {'+': "Ran·GTP"},
-        {'+': "NLS"},
-    ]
-
 
     # `Not a species` placeholder
     nas = ("?" * 100)
