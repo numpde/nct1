@@ -1,0 +1,3276 @@
+Model name: threestage
+<br>
+10-Nov-2021 17:16:13
+<br>
+<br>
+Model parameters
+<table border='1px'>
+<tr>
+<td>
+Parameter
+</td>
+<td>
+BoundaryCondition
+</td>
+<td>
+ConstantValue
+</td>
+<td>
+Value
+</td>
+<td>
+Units
+</td>
+<td>
+Notes
+</td>
+</tr>
+<tr>
+<td>
+k_ImpB_on
+</td>
+<td>
+false
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+k_ImpB_off
+</td>
+<td>
+false
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-04
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+</table>
+<br>
+<br>
+Compartments
+<table border='1px'>
+<tr>
+<td>
+Name
+</td>
+<td>
+ConstantCapacity
+</td>
+<td>
+Capacity
+</td>
+<td>
+CapacityUnits
+</td>
+<td>
+Notes
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+true
+</td>
+<td>
+     1
+
+</td>
+<td>
+picoliter
+</td>
+<td>
+</td>
+</tr>
+</table>
+<br>
+<br>
+Species
+<table border='1px'>
+<tr>
+<td>
+Compartment
+</td>
+<td>
+Name
+</td>
+<td>
+ConstantAmount
+</td>
+<td>
+InitialAmount
+</td>
+<td>
+InitialAmountUnits
+</td>
+<td>
+Notes
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+NPC(c)
+</td>
+<td>
+false
+</td>
+<td>
+    0.0100
+
+</td>
+<td>
+uM
+</td>
+<td>
+100 Kaps per NPC
+
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpB(c)
+</td>
+<td>
+false
+</td>
+<td>
+     1
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpB·NPC(c)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpB(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA(c)
+</td>
+<td>
+false
+</td>
+<td>
+     1
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA·ImpB·NPC(c)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA·ImpB(c)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+NLS(c)
+</td>
+<td>
+false
+</td>
+<td>
+     1
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+NLS·ImpA·ImpB(c)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+NLS·ImpA·ImpB·NPC(c)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+Ran·GTP(n)
+</td>
+<td>
+false
+</td>
+<td>
+     3
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+NLS(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+Ran·GTP·ImpB·NPC(c)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+CAS(c)
+</td>
+<td>
+false
+</td>
+<td>
+     1
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+RanGAP
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+RanBP1
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+Ran·GDP(c)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+CAS·NPC(c)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+CAS(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+CAS·Ran·GTP(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA·CAS·Ran·GTP(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA·CAS·Ran·GTP·NPC(c)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA·ImpB(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA·CAS·Ran·GTP(c)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+NLS·ImpA·ImpB(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA·ImpB·NPC(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpB·NPC(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+NPC(n)
+</td>
+<td>
+false
+</td>
+<td>
+    0.0100
+
+</td>
+<td>
+uM
+</td>
+<td>
+100 Kaps per NPC
+
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+NLS·ImpA·ImpB·NPC(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+Ran·GTP·ImpB·NPC(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA·CAS·Ran·GTP·NPC(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+CAS·NPC(n)
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA·ImpB·NPC
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpB·NPC
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+NPC
+</td>
+<td>
+false
+</td>
+<td>
+     1
+
+</td>
+<td>
+uM
+</td>
+<td>
+Value set by an event
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+NLS·ImpA·ImpB·NPC
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+Ran·GTP·ImpB·NPC
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+ImpA·CAS·Ran·GTP·NPC
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+NE
+</td>
+<td>
+CAS·NPC
+</td>
+<td>
+false
+</td>
+<td>
+     0
+
+</td>
+<td>
+uM
+</td>
+<td>
+</td>
+</tr>
+</table>
+<br>
+<br>
+Reaction parameters
+<table border='1px'>
+<tr>
+<td>
+ReactionName
+</td>
+<td>
+Reaction
+</td>
+<td>
+Parameter
+</td>
+<td>
+ConstantValue
+</td>
+<td>
+Value
+</td>
+<td>
+Units
+</td>
+<td>
+Notes
+</td>
+</tr>
+<tr>
+<td>
+r7
+</td>
+<td>
+[ImpA(c)] + [ImpB(c)] <-> [ImpA·ImpB(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.4900
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r7
+</td>
+<td>
+[ImpA(c)] + [ImpB(c)] <-> [ImpA·ImpB(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+    0.0025
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r9
+</td>
+<td>
+[ImpA(c)] + [ImpB·NPC(c)] -> [ImpA·ImpB·NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.4900
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r9
+</td>
+<td>
+[ImpA(c)] + [ImpB·NPC(c)] -> [ImpA·ImpB·NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+    0.0025
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r10
+</td>
+<td>
+[NLS(c)] + [ImpA·ImpB(c)] <-> [NLS·ImpA·ImpB(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.1500
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r10
+</td>
+<td>
+[NLS(c)] + [ImpA·ImpB(c)] <-> [NLS·ImpA·ImpB(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   4.4000e-04
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r11
+</td>
+<td>
+[NLS·ImpA·ImpB(c)] + [NPC(c)] <-> [NLS·ImpA·ImpB·NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r11
+</td>
+<td>
+[NLS·ImpA·ImpB(c)] + [NPC(c)] <-> [NLS·ImpA·ImpB·NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-04
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r12
+</td>
+<td>
+[NLS(c)] + [ImpA·ImpB·NPC(c)] <-> [NLS·ImpA·ImpB·NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.1500
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r12
+</td>
+<td>
+[NLS(c)] + [ImpA·ImpB·NPC(c)] <-> [NLS·ImpA·ImpB·NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   4.4000e-04
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+knockoff
+</td>
+<td>
+[Ran·GTP(n)] + [NLS·ImpA·ImpB·NPC(n)] -> [Ran·GTP·ImpB·NPC(n)] + [ImpA(n)] + [NLS(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.0200
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+hydrolysis of Ran·GTP·ImpB·NPC
+</td>
+<td>
+[Ran·GTP·ImpB·NPC(c)] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpB·NPC(c)] + RanGAP + RanBP1
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.1000
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+CAS with NPC(c)
+</td>
+<td>
+[CAS(c)] + [NPC(c)] <-> [CAS·NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+CAS with NPC(c)
+</td>
+<td>
+[CAS(c)] + [NPC(c)] <-> [CAS·NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+CAS with NPC(n)
+</td>
+<td>
+[CAS(n)] + [NPC(n)] <-> [CAS·NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+CAS with NPC(n)
+</td>
+<td>
+[CAS(n)] + [NPC(n)] <-> [CAS·NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+CAS with Ran
+</td>
+<td>
+[Ran·GTP(n)] + [CAS(n)] <-> [CAS·Ran·GTP(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.0100
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+CAS with Ran
+</td>
+<td>
+[Ran·GTP(n)] + [CAS(n)] <-> [CAS·Ran·GTP(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+    0.0150
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Complex CAS with NPC(n)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP(n)] + [NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Complex CAS with NPC(n)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP(n)] + [NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-04
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+hydrolysis of ImpA·CAS·Ran·GTP·NPC
+</td>
+<td>
+[ImpA·CAS·Ran·GTP·NPC(c)] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [CAS·NPC(c)] + RanGAP + RanBP1
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.1000
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+CAS·Ran with ImpA
+</td>
+<td>
+[ImpA(n)] + [CAS·Ran·GTP(n)] -> [ImpA·CAS·Ran·GTP(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.1000
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Ran gradient
+</td>
+<td>
+[Ran·GDP(c)] -> [Ran·GTP(n)]
+</td>
+<td>
+k_pump
+</td>
+<td>
+true
+</td>
+<td>
+    0.0100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Complex CAS with NPC(c)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP(c)] + [NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Complex CAS with NPC(c)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP(c)] + [NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-04
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Replenish NLS
+</td>
+<td>
+null -> [NLS(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+     0
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r12_1
+</td>
+<td>
+[NLS(n)] + [ImpA·ImpB·NPC(n)] <-> [NLS·ImpA·ImpB·NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.1500
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r12_1
+</td>
+<td>
+[NLS(n)] + [ImpA·ImpB·NPC(n)] <-> [NLS·ImpA·ImpB·NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   4.4000e-04
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r10_1
+</td>
+<td>
+[NLS(n)] + [ImpA·ImpB(n)] <-> [NLS·ImpA·ImpB(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.1500
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r10_1
+</td>
+<td>
+[NLS(n)] + [ImpA·ImpB(n)] <-> [NLS·ImpA·ImpB(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   4.4000e-04
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r11_1
+</td>
+<td>
+[NLS·ImpA·ImpB(n)] + [NPC(n)] <-> [NLS·ImpA·ImpB·NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-03
+
+</td>
+<td>
+1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r11_1
+</td>
+<td>
+[NLS·ImpA·ImpB(n)] + [NPC(n)] <-> [NLS·ImpA·ImpB·NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-04
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Passive diffusion
+</td>
+<td>
+[NLS(n)] <-> [NLS(c)]
+</td>
+<td>
+k_diff
+</td>
+<td>
+true
+</td>
+<td>
+     0
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·ImpB·NPC from (c)
+</td>
+<td>
+[ImpA·ImpB·NPC(c)] + NPC <-> [ImpA·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·ImpB·NPC from (c)
+</td>
+<td>
+[ImpA·ImpB·NPC(c)] + NPC <-> [ImpA·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+ImpA·ImpB·NPC from (n)
+</td>
+<td>
+[ImpA·ImpB·NPC(n)] + NPC <-> [ImpA·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+ImpA·ImpB·NPC from (n)
+</td>
+<td>
+[ImpA·ImpB·NPC(n)] + NPC <-> [ImpA·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpB·NPC from (c)
+</td>
+<td>
+[ImpB·NPC(c)] + NPC <-> [ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpB·NPC from (c)
+</td>
+<td>
+[ImpB·NPC(c)] + NPC <-> [ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpB·NPC from (n)
+</td>
+<td>
+[ImpB·NPC(n)] + NPC <-> [ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpB·NPC from (n)
+</td>
+<td>
+[ImpB·NPC(n)] + NPC <-> [ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry NLS·ImpA·ImpB·NPC from (c)
+</td>
+<td>
+[NLS·ImpA·ImpB·NPC(c)] + NPC <-> [NLS·ImpA·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry NLS·ImpA·ImpB·NPC from (c)
+</td>
+<td>
+[NLS·ImpA·ImpB·NPC(c)] + NPC <-> [NLS·ImpA·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry NLS·ImpA·ImpB·NPC from (n)
+</td>
+<td>
+[NLS·ImpA·ImpB·NPC(n)] + NPC <-> [NLS·ImpA·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry NLS·ImpA·ImpB·NPC from (n)
+</td>
+<td>
+[NLS·ImpA·ImpB·NPC(n)] + NPC <-> [NLS·ImpA·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry Ran·GTP·ImpB·NPC from (c)
+</td>
+<td>
+[Ran·GTP·ImpB·NPC(c)] + NPC <-> [Ran·GTP·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry Ran·GTP·ImpB·NPC from (c)
+</td>
+<td>
+[Ran·GTP·ImpB·NPC(c)] + NPC <-> [Ran·GTP·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry Ran·GTP·ImpB·NPC from (n)
+</td>
+<td>
+[Ran·GTP·ImpB·NPC(n)] + NPC <-> [Ran·GTP·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry Ran·GTP·ImpB·NPC from (n)
+</td>
+<td>
+[Ran·GTP·ImpB·NPC(n)] + NPC <-> [Ran·GTP·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·CAS·Ran·GTP·NPC from (c)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP·NPC(c)] + NPC <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·CAS·Ran·GTP·NPC from (c)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP·NPC(c)] + NPC <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·CAS·Ran·GTP·NPC from (n)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP·NPC(n)] + NPC <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·CAS·Ran·GTP·NPC from (n)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP·NPC(n)] + NPC <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry CAS·NPC from (c)
+</td>
+<td>
+[CAS·NPC(c)] + NPC <-> [CAS·NPC] + [NPC(c)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry CAS·NPC from (c)
+</td>
+<td>
+[CAS·NPC(c)] + NPC <-> [CAS·NPC] + [NPC(c)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry CAS·NPC from (n)
+</td>
+<td>
+[CAS·NPC(n)] + NPC <-> [CAS·NPC] + [NPC(n)]
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry CAS·NPC from (n)
+</td>
+<td>
+[CAS·NPC(n)] + NPC <-> [CAS·NPC] + [NPC(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   100
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+</table>
+<br>
+<br>
+Reactions
+<table border='1px'>
+<tr>
+<td>
+Name
+</td>
+<td>
+Active
+</td>
+<td>
+Reversible
+</td>
+<td>
+Reaction
+</td>
+<td>
+ReactionRate
+</td>
+<td>
+Notes
+</td>
+</tr>
+<tr>
+<td>
+r1
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpB(c)] + [NPC(c)] <-> [ImpB·NPC(c)]
+</td>
+<td>
+k_ImpB_on*NE.[ImpB(c)]*NE.[NPC(c)]-k_ImpB_off*NE.[ImpB·NPC(c)]
+</td>
+<td>
+Constants: LK, email of Apr 2
+</td>
+</tr>
+<tr>
+<td>
+r2
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpB(n)] + [NPC(n)] <-> [ImpB·NPC(n)]
+</td>
+<td>
+k_ImpB_on*NE.[ImpB(n)]*NE.[NPC(n)]-k_ImpB_off*NE.[ImpB·NPC(n)]
+</td>
+<td>
+Constants: LK, email of Apr 2
+</td>
+</tr>
+<tr>
+<td>
+r8
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpA·ImpB(c)] + [NPC(c)] <-> [ImpA·ImpB·NPC(c)]
+</td>
+<td>
+k_ImpB_on*[ImpA·ImpB(c)]*[NPC(c)]-k_ImpB_off*[ImpA·ImpB·NPC(c)]
+</td>
+<td>
+Same as ImpB+NPC
+
+</td>
+</tr>
+<tr>
+<td>
+r7
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpA(c)] + [ImpB(c)] <-> [ImpA·ImpB(c)]
+</td>
+<td>
+r7.kf*[ImpA(c)]*[ImpB(c)]-r7.kr*[ImpA·ImpB(c)]
+</td>
+<td>
+Catimel et al, 2001, Table I
+</td>
+</tr>
+<tr>
+<td>
+r9
+</td>
+<td>
+true
+</td>
+<td>
+false
+</td>
+<td>
+[ImpA(c)] + [ImpB·NPC(c)] -> [ImpA·ImpB·NPC(c)]
+</td>
+<td>
+r9.kf*[ImpA(c)]*[ImpB·NPC(c)]-r9.kr*[ImpA·ImpB·NPC(c)]
+</td>
+<td>
+Same as ImpA+ImpB
+
+</td>
+</tr>
+<tr>
+<td>
+r10
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[NLS(c)] + [ImpA·ImpB(c)] <-> [NLS·ImpA·ImpB(c)]
+</td>
+<td>
+kf*[NLS(c)]*[ImpA·ImpB(c)]-kr*[NLS·ImpA·ImpB(c)]
+</td>
+<td>
+Catimel et al, 2001, Table I
+</td>
+</tr>
+<tr>
+<td>
+r11
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[NLS·ImpA·ImpB(c)] + [NPC(c)] <-> [NLS·ImpA·ImpB·NPC(c)]
+</td>
+<td>
+kf*[NLS·ImpA·ImpB(c)]*[NPC(c)]-kr*[NLS·ImpA·ImpB·NPC(c)]
+</td>
+<td>
+Same as ImpB+NPC
+
+</td>
+</tr>
+<tr>
+<td>
+r12
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[NLS(c)] + [ImpA·ImpB·NPC(c)] <-> [NLS·ImpA·ImpB·NPC(c)]
+</td>
+<td>
+kf*[NLS(c)]*[ImpA·ImpB·NPC(c)]-kr*[NLS·ImpA·ImpB·NPC(c)]
+</td>
+<td>
+Same as r10
+
+</td>
+</tr>
+<tr>
+<td>
+knockoff
+</td>
+<td>
+true
+</td>
+<td>
+false
+</td>
+<td>
+[Ran·GTP(n)] + [NLS·ImpA·ImpB·NPC(n)] -> [Ran·GTP·ImpB·NPC(n)] + [ImpA(n)] + [NLS(n)]
+</td>
+<td>
+knockoff.kf*[Ran·GTP(n)]*[NLS·ImpA·ImpB·NPC(n)]
+</td>
+<td>
+"knockoff"
+</td>
+</tr>
+<tr>
+<td>
+hydrolysis of Ran·GTP·ImpB·NPC
+</td>
+<td>
+true
+</td>
+<td>
+false
+</td>
+<td>
+[Ran·GTP·ImpB·NPC(c)] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpB·NPC(c)] + RanGAP + RanBP1
+</td>
+<td>
+kf*[Ran·GTP·ImpB·NPC(c)]
+</td>
+<td>
+guesstimate
+</td>
+</tr>
+<tr>
+<td>
+CAS with NPC(c)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[CAS(c)] + [NPC(c)] <-> [CAS·NPC(c)]
+</td>
+<td>
+kf*[CAS(c)]*[NPC(c)]-kr*[CAS·NPC(c)]
+</td>
+<td>
+guesstimate
+
+</td>
+</tr>
+<tr>
+<td>
+CAS with NPC(n)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[CAS(n)] + [NPC(n)] <-> [CAS·NPC(n)]
+</td>
+<td>
+kf*[CAS(n)]*[NPC(n)]-kr*[CAS·NPC(n)]
+</td>
+<td>
+(copy)
+</td>
+</tr>
+<tr>
+<td>
+CAS with Ran
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[Ran·GTP(n)] + [CAS(n)] <-> [CAS·Ran·GTP(n)]
+</td>
+<td>
+kf*[Ran·GTP(n)]*[CAS(n)]-kr*[CAS·Ran·GTP(n)]
+</td>
+<td>
+"Estimate" from RM 2005, Table II
+
+kD = 1.44 uM (LK)
+
+</td>
+</tr>
+<tr>
+<td>
+Complex CAS with NPC(n)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpA·CAS·Ran·GTP(n)] + [NPC(n)] <-> [ImpA·CAS·Ran·GTP·NPC(n)]
+</td>
+<td>
+kf*[ImpA·CAS·Ran·GTP(n)]*[NPC(n)]-kr*[ImpA·CAS·Ran·GTP·NPC(n)]
+</td>
+<td>
+(copy)
+</td>
+</tr>
+<tr>
+<td>
+hydrolysis of ImpA·CAS·Ran·GTP·NPC
+</td>
+<td>
+true
+</td>
+<td>
+false
+</td>
+<td>
+[ImpA·CAS·Ran·GTP·NPC(c)] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [CAS·NPC(c)] + RanGAP + RanBP1
+</td>
+<td>
+kf*[ImpA·CAS·Ran·GTP·NPC(c)]
+</td>
+<td>
+guesstimate
+</td>
+</tr>
+<tr>
+<td>
+CAS·Ran with ImpA
+</td>
+<td>
+true
+</td>
+<td>
+false
+</td>
+<td>
+[ImpA(n)] + [CAS·Ran·GTP(n)] -> [ImpA·CAS·Ran·GTP(n)]
+</td>
+<td>
+kf*[ImpA(n)]*[CAS·Ran·GTP(n)]
+</td>
+<td>
+Est. based on RM 2005, Table II
+</td>
+</tr>
+<tr>
+<td>
+Ran gradient
+</td>
+<td>
+true
+</td>
+<td>
+false
+</td>
+<td>
+[Ran·GDP(c)] -> [Ran·GTP(n)]
+</td>
+<td>
+k_pump*[Ran·GDP(c)]
+</td>
+<td>
+guesstimate
+</td>
+</tr>
+<tr>
+<td>
+r8_1
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpA·ImpB(n)] + [NPC(n)] <-> [ImpA·ImpB·NPC(n)]
+</td>
+<td>
+k_ImpB_on*NE.[ImpA·ImpB(n)]*NE.[NPC(n)]-k_ImpB_off*NE.[ImpA·ImpB·NPC(n)]
+</td>
+<td>
+Same as ImpB+NPC
+
+</td>
+</tr>
+<tr>
+<td>
+r9_1
+</td>
+<td>
+true
+</td>
+<td>
+false
+</td>
+<td>
+[ImpA(n)] + [ImpB·NPC(n)] -> [ImpA·ImpB·NPC(n)]
+</td>
+<td>
+r9.kf*NE.[ImpA(n)]*NE.[ImpB·NPC(n)]-r9.kr*NE.[ImpA·ImpB·NPC(n)]
+</td>
+<td>
+Same as ImpA+ImpB
+
+</td>
+</tr>
+<tr>
+<td>
+r7_1
+</td>
+<td>
+false
+</td>
+<td>
+true
+</td>
+<td>
+[ImpA(n)] + [ImpB(n)] <-> [ImpA·ImpB(n)]
+</td>
+<td>
+r7.kf*NE.[ImpA(n)]*NE.[ImpB(n)]-r7.kr*NE.[ImpA·ImpB(n)]
+</td>
+<td>
+see r7
+
+Off, because no corresponding "knockoff" reaction.
+</td>
+</tr>
+<tr>
+<td>
+Complex CAS with NPC(c)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpA·CAS·Ran·GTP(c)] + [NPC(c)] <-> [ImpA·CAS·Ran·GTP·NPC(c)]
+</td>
+<td>
+kf*NE.[ImpA·CAS·Ran·GTP(c)]*NE.[NPC(c)]-kr*NE.[ImpA·CAS·Ran·GTP·NPC(c)]
+</td>
+<td>
+guesstimate
+10^3 -- 10^4  1/M/s
+
+koff:
+1e-4 (wt)
+1e-2 (mutant)
+
+</td>
+</tr>
+<tr>
+<td>
+hydrolysis of ImpA·CAS·Ran·GTP(c)
+</td>
+<td>
+true
+</td>
+<td>
+false
+</td>
+<td>
+[ImpA·CAS·Ran·GTP(c)] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [CAS(c)] + RanGAP + RanBP1
+</td>
+<td>
+[hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf*NE.[ImpA·CAS·Ran·GTP(c)]
+</td>
+<td>
+guesstimate
+</td>
+</tr>
+<tr>
+<td>
+Replenish NLS
+</td>
+<td>
+true
+</td>
+<td>
+false
+</td>
+<td>
+null -> [NLS(c)]
+</td>
+<td>
+kf*[NLS(n)]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+r12_1
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[NLS(n)] + [ImpA·ImpB·NPC(n)] <-> [NLS·ImpA·ImpB·NPC(n)]
+</td>
+<td>
+kf*NE.[NLS(n)]*NE.[ImpA·ImpB·NPC(n)]-kr*NE.[NLS·ImpA·ImpB·NPC(n)]
+</td>
+<td>
+See r12
+</td>
+</tr>
+<tr>
+<td>
+r10_1
+</td>
+<td>
+false
+</td>
+<td>
+true
+</td>
+<td>
+[NLS(n)] + [ImpA·ImpB(n)] <-> [NLS·ImpA·ImpB(n)]
+</td>
+<td>
+kf*NE.[NLS(n)]*NE.[ImpA·ImpB(n)]-kr*NE.[NLS·ImpA·ImpB(n)]
+</td>
+<td>
+See r10
+
+Off, because no corresponding "knockoff" reaction.
+</td>
+</tr>
+<tr>
+<td>
+r11_1
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[NLS·ImpA·ImpB(n)] + [NPC(n)] <-> [NLS·ImpA·ImpB·NPC(n)]
+</td>
+<td>
+kf*NE.[NLS·ImpA·ImpB(n)]*NE.[NPC(n)]-kr*NE.[NLS·ImpA·ImpB·NPC(n)]
+</td>
+<td>
+See r11
+</td>
+</tr>
+<tr>
+<td>
+Passive diffusion
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[NLS(n)] <-> [NLS(c)]
+</td>
+<td>
+k_diff * ([NLS(n)] - [NLS(c)])
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·ImpB·NPC from (c)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpA·ImpB·NPC(c)] + NPC <-> [ImpA·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf*[ImpA·ImpB·NPC(c)] - kr*[ImpA·ImpB·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+ImpA·ImpB·NPC from (n)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpA·ImpB·NPC(n)] + NPC <-> [ImpA·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf*[ImpA·ImpB·NPC(n)] - kr*[ImpA·ImpB·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpB·NPC from (c)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpB·NPC(c)] + NPC <-> [ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf*[ImpB·NPC(c)] - kr*[ImpB·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpB·NPC from (n)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpB·NPC(n)] + NPC <-> [ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf*[ImpB·NPC(n)] - kr*[ImpB·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry NLS·ImpA·ImpB·NPC from (c)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[NLS·ImpA·ImpB·NPC(c)] + NPC <-> [NLS·ImpA·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf*[NLS·ImpA·ImpB·NPC(c)] - kr*[NLS·ImpA·ImpB·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry NLS·ImpA·ImpB·NPC from (n)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[NLS·ImpA·ImpB·NPC(n)] + NPC <-> [NLS·ImpA·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf*[NLS·ImpA·ImpB·NPC(n)] - kr*[NLS·ImpA·ImpB·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry Ran·GTP·ImpB·NPC from (c)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[Ran·GTP·ImpB·NPC(c)] + NPC <-> [Ran·GTP·ImpB·NPC] + [NPC(c)]
+</td>
+<td>
+kf*[Ran·GTP·ImpB·NPC(c)] - kr*[Ran·GTP·ImpB·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry Ran·GTP·ImpB·NPC from (n)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[Ran·GTP·ImpB·NPC(n)] + NPC <-> [Ran·GTP·ImpB·NPC] + [NPC(n)]
+</td>
+<td>
+kf*[Ran·GTP·ImpB·NPC(n)] - kr*[Ran·GTP·ImpB·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·CAS·Ran·GTP·NPC from (c)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpA·CAS·Ran·GTP·NPC(c)] + NPC <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(c)]
+</td>
+<td>
+kf*[ImpA·CAS·Ran·GTP·NPC(c)] - kr*[ImpA·CAS·Ran·GTP·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry ImpA·CAS·Ran·GTP·NPC from (n)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[ImpA·CAS·Ran·GTP·NPC(n)] + NPC <-> [ImpA·CAS·Ran·GTP·NPC] + [NPC(n)]
+</td>
+<td>
+kf*[ImpA·CAS·Ran·GTP·NPC(n)] - kr*[ImpA·CAS·Ran·GTP·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry CAS·NPC from (c)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[CAS·NPC(c)] + NPC <-> [CAS·NPC] + [NPC(c)]
+</td>
+<td>
+kf*[CAS·NPC(c)] - kr*[CAS·NPC]
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Entry CAS·NPC from (n)
+</td>
+<td>
+true
+</td>
+<td>
+true
+</td>
+<td>
+[CAS·NPC(n)] + NPC <-> [CAS·NPC] + [NPC(n)]
+</td>
+<td>
+kf*[CAS·NPC(n)] - kr*[CAS·NPC]
+</td>
+<td>
+</td>
+</tr>
+</table>
+<br>
+<br>
+Equations dump
+<pre>
+ODEs:
+d([NPC(c)])/dt = 1/NE*(-r1 - r8 - r11 - [CAS with NPC(c)] - [Complex CAS with NPC(c)] + [Entry ImpA·ImpB·NPC from (c)] + [Entry ImpB·NPC from (c)] + [Entry NLS·ImpA·ImpB·NPC from (c)] + [Entry Ran·GTP·ImpB·NPC from (c)] + [Entry ImpA·CAS·Ran·GTP·NPC from (c)] + [Entry CAS·NPC from (c)])
+d([ImpB(c)])/dt = 1/NE*(-r1 - r7)
+d([ImpB·NPC(c)])/dt = 1/NE*(r1 - r9 + [hydrolysis of Ran·GTP·ImpB·NPC] - [Entry ImpB·NPC from (c)])
+d([ImpB(n)])/dt = 1/NE*(-r2)
+d([ImpA(c)])/dt = 1/NE*(-r7 - r9 + [hydrolysis of ImpA·CAS·Ran·GTP·NPC] + [hydrolysis of ImpA·CAS·Ran·GTP(c)])
+d([ImpA·ImpB·NPC(c)])/dt = 1/NE*(r8 + r9 - r12 - [Entry ImpA·ImpB·NPC from (c)])
+d([ImpA·ImpB(c)])/dt = 1/NE*(-r8 + r7 - r10)
+d([NLS(c)])/dt = 1/NE*(-r10 - r12 + [Replenish NLS] + [Passive diffusion])
+d([NLS·ImpA·ImpB(c)])/dt = 1/NE*(r10 - r11)
+d([NLS·ImpA·ImpB·NPC(c)])/dt = 1/NE*(r11 + r12 - [Entry NLS·ImpA·ImpB·NPC from (c)])
+d([Ran·GTP(n)])/dt = 1/NE*(-knockoff - [CAS with Ran] + [Ran gradient])
+d([NLS(n)])/dt = 1/NE*(knockoff - r12_1 - [Passive diffusion])
+d([Ran·GTP·ImpB·NPC(c)])/dt = 1/NE*(-[hydrolysis of Ran·GTP·ImpB·NPC] - [Entry Ran·GTP·ImpB·NPC from (c)])
+d([CAS(c)])/dt = 1/NE*(-[CAS with NPC(c)] + [hydrolysis of ImpA·CAS·Ran·GTP(c)])
+d([Ran·GDP(c)])/dt = 1/NE*([hydrolysis of Ran·GTP·ImpB·NPC] + [hydrolysis of ImpA·CAS·Ran·GTP·NPC] - [Ran gradient] + [hydrolysis of ImpA·CAS·Ran·GTP(c)])
+d([CAS·NPC(c)])/dt = 1/NE*([CAS with NPC(c)] + [hydrolysis of ImpA·CAS·Ran·GTP·NPC] - [Entry CAS·NPC from (c)])
+d([CAS(n)])/dt = 1/NE*(-[CAS with NPC(n)] - [CAS with Ran])
+d([CAS·Ran·GTP(n)])/dt = 1/NE*([CAS with Ran] - [CAS·Ran with ImpA])
+d([ImpA·CAS·Ran·GTP(n)])/dt = 1/NE*(-[Complex CAS with NPC(n)] + [CAS·Ran with ImpA])
+d([ImpA·CAS·Ran·GTP·NPC(c)])/dt = 1/NE*(-[hydrolysis of ImpA·CAS·Ran·GTP·NPC] + [Complex CAS with NPC(c)] - [Entry ImpA·CAS·Ran·GTP·NPC from (c)])
+d([ImpA(n)])/dt = 1/NE*(knockoff - [CAS·Ran with ImpA] - r9_1)
+d([ImpA·ImpB(n)])/dt = 1/NE*(-r8_1)
+d([ImpA·CAS·Ran·GTP(c)])/dt = 1/NE*(-[Complex CAS with NPC(c)] - [hydrolysis of ImpA·CAS·Ran·GTP(c)])
+d([NLS·ImpA·ImpB(n)])/dt = 1/NE*(-r11_1)
+d([ImpA·ImpB·NPC(n)])/dt = 1/NE*(r8_1 + r9_1 - r12_1 - [ImpA·ImpB·NPC from (n)])
+d([ImpB·NPC(n)])/dt = 1/NE*(r2 - r9_1 - [Entry ImpB·NPC from (n)])
+d([NPC(n)])/dt = 1/NE*(-r2 - [CAS with NPC(n)] - [Complex CAS with NPC(n)] - r8_1 - r11_1 + [ImpA·ImpB·NPC from (n)] + [Entry ImpB·NPC from (n)] + [Entry NLS·ImpA·ImpB·NPC from (n)] + [Entry Ran·GTP·ImpB·NPC from (n)] + [Entry ImpA·CAS·Ran·GTP·NPC from (n)] + [Entry CAS·NPC from (n)])
+d([NLS·ImpA·ImpB·NPC(n)])/dt = 1/NE*(-knockoff + r12_1 + r11_1 - [Entry NLS·ImpA·ImpB·NPC from (n)])
+d([Ran·GTP·ImpB·NPC(n)])/dt = 1/NE*(knockoff - [Entry Ran·GTP·ImpB·NPC from (n)])
+d([ImpA·CAS·Ran·GTP·NPC(n)])/dt = 1/NE*([Complex CAS with NPC(n)] - [Entry ImpA·CAS·Ran·GTP·NPC from (n)])
+d([CAS·NPC(n)])/dt = 1/NE*([CAS with NPC(n)] - [Entry CAS·NPC from (n)])
+d([ImpA·ImpB·NPC])/dt = 1/NE*([Entry ImpA·ImpB·NPC from (c)] + [ImpA·ImpB·NPC from (n)])
+d([ImpB·NPC])/dt = 1/NE*([Entry ImpB·NPC from (c)] + [Entry ImpB·NPC from (n)])
+d(NPC)/dt = 1/NE*(-[Entry ImpA·ImpB·NPC from (c)] - [ImpA·ImpB·NPC from (n)] - [Entry ImpB·NPC from (c)] - [Entry ImpB·NPC from (n)] - [Entry NLS·ImpA·ImpB·NPC from (c)] - [Entry NLS·ImpA·ImpB·NPC from (n)] - [Entry Ran·GTP·ImpB·NPC from (c)] - [Entry Ran·GTP·ImpB·NPC from (n)] - [Entry ImpA·CAS·Ran·GTP·NPC from (c)] - [Entry ImpA·CAS·Ran·GTP·NPC from (n)] - [Entry CAS·NPC from (c)] - [Entry CAS·NPC from (n)])
+d([NLS·ImpA·ImpB·NPC])/dt = 1/NE*([Entry NLS·ImpA·ImpB·NPC from (c)] + [Entry NLS·ImpA·ImpB·NPC from (n)])
+d([Ran·GTP·ImpB·NPC])/dt = 1/NE*([Entry Ran·GTP·ImpB·NPC from (c)] + [Entry Ran·GTP·ImpB·NPC from (n)])
+d([ImpA·CAS·Ran·GTP·NPC])/dt = 1/NE*([Entry ImpA·CAS·Ran·GTP·NPC from (c)] + [Entry ImpA·CAS·Ran·GTP·NPC from (n)])
+d([CAS·NPC])/dt = 1/NE*([Entry CAS·NPC from (c)] + [Entry CAS·NPC from (n)])
+
+Fluxes:
+r1 = (k_ImpB_on*[ImpB(c)]*[NPC(c)]-k_ImpB_off*[ImpB·NPC(c)])*NE
+r2 = (k_ImpB_on*[ImpB(n)]*[NPC(n)]-k_ImpB_off*[ImpB·NPC(n)])*NE
+r8 = (k_ImpB_on*[ImpA·ImpB(c)]*[NPC(c)]-k_ImpB_off*[ImpA·ImpB·NPC(c)])*NE
+r7 = (r7.kf*[ImpA(c)]*[ImpB(c)]-r7.kr*[ImpA·ImpB(c)])*NE
+r9 = (r9.kf*[ImpA(c)]*[ImpB·NPC(c)]-r9.kr*[ImpA·ImpB·NPC(c)])*NE
+r10 = (r10.kf*[NLS(c)]*[ImpA·ImpB(c)]-r10.kr*[NLS·ImpA·ImpB(c)])*NE
+r11 = (r11.kf*[NLS·ImpA·ImpB(c)]*[NPC(c)]-r11.kr*[NLS·ImpA·ImpB·NPC(c)])*NE
+r12 = (r12.kf*[NLS(c)]*[ImpA·ImpB·NPC(c)]-r12.kr*[NLS·ImpA·ImpB·NPC(c)])*NE
+knockoff = (knockoff.kf*[Ran·GTP(n)]*[NLS·ImpA·ImpB·NPC(n)])*NE
+[hydrolysis of Ran·GTP·ImpB·NPC] = ([hydrolysis of Ran·GTP·ImpB·NPC].kf*[Ran·GTP·ImpB·NPC(c)])*NE
+[CAS with NPC(c)] = ([CAS with NPC(c)].kf*[CAS(c)]*[NPC(c)]-[CAS with NPC(c)].kr*[CAS·NPC(c)])*NE
+[CAS with NPC(n)] = ([CAS with NPC(n)].kf*[CAS(n)]*[NPC(n)]-[CAS with NPC(n)].kr*[CAS·NPC(n)])*NE
+[CAS with Ran] = ([CAS with Ran].kf*[Ran·GTP(n)]*[CAS(n)]-[CAS with Ran].kr*[CAS·Ran·GTP(n)])*NE
+[Complex CAS with NPC(n)] = ([Complex CAS with NPC(n)].kf*[ImpA·CAS·Ran·GTP(n)]*[NPC(n)]-[Complex CAS with NPC(n)].kr*[ImpA·CAS·Ran·GTP·NPC(n)])*NE
+[hydrolysis of ImpA·CAS·Ran·GTP·NPC] = ([hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf*[ImpA·CAS·Ran·GTP·NPC(c)])*NE
+[CAS·Ran with ImpA] = ([CAS·Ran with ImpA].kf*[ImpA(n)]*[CAS·Ran·GTP(n)])*NE
+[Ran gradient] = (k_pump*[Ran·GDP(c)])*NE
+r8_1 = (k_ImpB_on*[ImpA·ImpB(n)]*[NPC(n)]-k_ImpB_off*[ImpA·ImpB·NPC(n)])*NE
+r9_1 = (r9.kf*[ImpA(n)]*[ImpB·NPC(n)]-r9.kr*[ImpA·ImpB·NPC(n)])*NE
+[Complex CAS with NPC(c)] = ([Complex CAS with NPC(c)].kf*[ImpA·CAS·Ran·GTP(c)]*[NPC(c)]-[Complex CAS with NPC(c)].kr*[ImpA·CAS·Ran·GTP·NPC(c)])*NE
+[hydrolysis of ImpA·CAS·Ran·GTP(c)] = ([hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf*[ImpA·CAS·Ran·GTP(c)])*NE
+[Replenish NLS] = ([Replenish NLS].kf*[NLS(n)])*NE
+r12_1 = (r12_1.kf*[NLS(n)]*[ImpA·ImpB·NPC(n)]-r12_1.kr*[NLS·ImpA·ImpB·NPC(n)])*NE
+r11_1 = (r11_1.kf*[NLS·ImpA·ImpB(n)]*[NPC(n)]-r11_1.kr*[NLS·ImpA·ImpB·NPC(n)])*NE
+[Passive diffusion] = (k_diff*([NLS(n)]-[NLS(c)]))*NE
+[Entry ImpA·ImpB·NPC from (c)] = ([Entry ImpA·ImpB·NPC from (c)].kf*[ImpA·ImpB·NPC(c)]-[Entry ImpA·ImpB·NPC from (c)].kr*[ImpA·ImpB·NPC])*NE
+[ImpA·ImpB·NPC from (n)] = ([ImpA·ImpB·NPC from (n)].kf*[ImpA·ImpB·NPC(n)]-[ImpA·ImpB·NPC from (n)].kr*[ImpA·ImpB·NPC])*NE
+[Entry ImpB·NPC from (c)] = ([Entry ImpB·NPC from (c)].kf*[ImpB·NPC(c)]-[Entry ImpB·NPC from (c)].kr*[ImpB·NPC])*NE
+[Entry ImpB·NPC from (n)] = ([Entry ImpB·NPC from (n)].kf*[ImpB·NPC(n)]-[Entry ImpB·NPC from (n)].kr*[ImpB·NPC])*NE
+[Entry NLS·ImpA·ImpB·NPC from (c)] = ([Entry NLS·ImpA·ImpB·NPC from (c)].kf*[NLS·ImpA·ImpB·NPC(c)]-[Entry NLS·ImpA·ImpB·NPC from (c)].kr*[NLS·ImpA·ImpB·NPC])*NE
+[Entry NLS·ImpA·ImpB·NPC from (n)] = ([Entry NLS·ImpA·ImpB·NPC from (n)].kf*[NLS·ImpA·ImpB·NPC(n)]-[Entry NLS·ImpA·ImpB·NPC from (n)].kr*[NLS·ImpA·ImpB·NPC])*NE
+[Entry Ran·GTP·ImpB·NPC from (c)] = ([Entry Ran·GTP·ImpB·NPC from (c)].kf*[Ran·GTP·ImpB·NPC(c)]-[Entry Ran·GTP·ImpB·NPC from (c)].kr*[Ran·GTP·ImpB·NPC])*NE
+[Entry Ran·GTP·ImpB·NPC from (n)] = ([Entry Ran·GTP·ImpB·NPC from (n)].kf*[Ran·GTP·ImpB·NPC(n)]-[Entry Ran·GTP·ImpB·NPC from (n)].kr*[Ran·GTP·ImpB·NPC])*NE
+[Entry ImpA·CAS·Ran·GTP·NPC from (c)] = ([Entry ImpA·CAS·Ran·GTP·NPC from (c)].kf*[ImpA·CAS·Ran·GTP·NPC(c)]-[Entry ImpA·CAS·Ran·GTP·NPC from (c)].kr*[ImpA·CAS·Ran·GTP·NPC])*NE
+[Entry ImpA·CAS·Ran·GTP·NPC from (n)] = ([Entry ImpA·CAS·Ran·GTP·NPC from (n)].kf*[ImpA·CAS·Ran·GTP·NPC(n)]-[Entry ImpA·CAS·Ran·GTP·NPC from (n)].kr*[ImpA·CAS·Ran·GTP·NPC])*NE
+[Entry CAS·NPC from (c)] = ([Entry CAS·NPC from (c)].kf*[CAS·NPC(c)]-[Entry CAS·NPC from (c)].kr*[CAS·NPC])*NE
+[Entry CAS·NPC from (n)] = ([Entry CAS·NPC from (n)].kf*[CAS·NPC(n)]-[Entry CAS·NPC from (n)].kr*[CAS·NPC])*NE
+
+Parameter Values:
+k_ImpB_on = 0.001
+k_ImpB_off = 0.0001
+r7.kf = 0.49
+r7.kr = 0.0025
+r9.kf = 0.49
+r9.kr = 0.0025
+r10.kf = 0.15
+r10.kr = 0.00044
+r11.kf = 0.001
+r11.kr = 0.0001
+r12.kf = 0.15
+r12.kr = 0.00044
+knockoff.kf = 0.02
+[hydrolysis of Ran·GTP·ImpB·NPC].kf = 0.1
+[CAS with NPC(c)].kf = 0.001
+[CAS with NPC(c)].kr = 0.001
+[CAS with NPC(n)].kf = 0.001
+[CAS with NPC(n)].kr = 0.001
+[CAS with Ran].kf = 0.01
+[CAS with Ran].kr = 0.015
+[Complex CAS with NPC(n)].kf = 0.001
+[Complex CAS with NPC(n)].kr = 0.0001
+[hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf = 0.1
+[CAS·Ran with ImpA].kf = 0.1
+k_pump = 0.01
+[Complex CAS with NPC(c)].kf = 0.001
+[Complex CAS with NPC(c)].kr = 0.0001
+[Replenish NLS].kf = 0
+r12_1.kf = 0.15
+r12_1.kr = 0.00044
+r10_1.kf = 0.15
+r10_1.kr = 0.00044
+r11_1.kf = 0.001
+r11_1.kr = 0.0001
+k_diff = 0
+[Entry ImpA·ImpB·NPC from (c)].kf = 100
+[Entry ImpA·ImpB·NPC from (c)].kr = 100
+[ImpA·ImpB·NPC from (n)].kf = 100
+[ImpA·ImpB·NPC from (n)].kr = 100
+[Entry ImpB·NPC from (c)].kf = 100
+[Entry ImpB·NPC from (c)].kr = 100
+[Entry ImpB·NPC from (n)].kf = 100
+[Entry ImpB·NPC from (n)].kr = 100
+[Entry NLS·ImpA·ImpB·NPC from (c)].kf = 100
+[Entry NLS·ImpA·ImpB·NPC from (c)].kr = 100
+[Entry NLS·ImpA·ImpB·NPC from (n)].kf = 100
+[Entry NLS·ImpA·ImpB·NPC from (n)].kr = 100
+[Entry Ran·GTP·ImpB·NPC from (c)].kf = 100
+[Entry Ran·GTP·ImpB·NPC from (c)].kr = 100
+[Entry Ran·GTP·ImpB·NPC from (n)].kf = 100
+[Entry Ran·GTP·ImpB·NPC from (n)].kr = 100
+[Entry ImpA·CAS·Ran·GTP·NPC from (c)].kf = 100
+[Entry ImpA·CAS·Ran·GTP·NPC from (c)].kr = 100
+[Entry ImpA·CAS·Ran·GTP·NPC from (n)].kf = 100
+[Entry ImpA·CAS·Ran·GTP·NPC from (n)].kr = 100
+[Entry CAS·NPC from (c)].kf = 100
+[Entry CAS·NPC from (c)].kr = 100
+[Entry CAS·NPC from (n)].kf = 100
+[Entry CAS·NPC from (n)].kr = 100
+NE = 1
+
+Initial Conditions:
+[NPC(c)] = 0.01
+[ImpB(c)] = 1
+[ImpB·NPC(c)] = 0
+[ImpB(n)] = 0
+[ImpA(c)] = 1
+[ImpA·ImpB·NPC(c)] = 0
+[ImpA·ImpB(c)] = 0
+[NLS(c)] = 1
+[NLS·ImpA·ImpB(c)] = 0
+[NLS·ImpA·ImpB·NPC(c)] = 0
+[Ran·GTP(n)] = 3
+[NLS(n)] = 0
+[Ran·GTP·ImpB·NPC(c)] = 0
+[CAS(c)] = 1
+[Ran·GDP(c)] = 0
+[CAS·NPC(c)] = 0
+[CAS(n)] = 0
+[CAS·Ran·GTP(n)] = 0
+[ImpA·CAS·Ran·GTP(n)] = 0
+[ImpA·CAS·Ran·GTP·NPC(c)] = 0
+[ImpA(n)] = 0
+[ImpA·ImpB(n)] = 0
+[ImpA·CAS·Ran·GTP(c)] = 0
+[NLS·ImpA·ImpB(n)] = 0
+[ImpA·ImpB·NPC(n)] = 0
+[ImpB·NPC(n)] = 0
+[NPC(n)] = 0.01
+[NLS·ImpA·ImpB·NPC(n)] = 0
+[Ran·GTP·ImpB·NPC(n)] = 0
+[ImpA·CAS·Ran·GTP·NPC(n)] = 0
+[CAS·NPC(n)] = 0
+[ImpA·ImpB·NPC] = 0
+[ImpB·NPC] = 0
+NPC = 1
+[NLS·ImpA·ImpB·NPC] = 0
+[Ran·GTP·ImpB·NPC] = 0
+[ImpA·CAS·Ran·GTP·NPC] = 0
+[CAS·NPC] = 0
+RanGAP = 0
+RanBP1 = 0
+
+
+</pre>
