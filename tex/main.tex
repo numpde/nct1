@@ -3,6 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
+\usepackage{upgreek}
+
 % https://tex.stackexchange.com/questions/11778/modifying-everydisplay-causes-the-align-environment-to-stop-working
 \let\displaystyle\textstyle
 
@@ -158,7 +160,12 @@ ODE = ordinary differential equations.
 
 \subsubsection*{Ran gradient} \label{s:GSR03:Ran}
 
-First we implement
+The Ran gradient,
+i.e.~the nuclear accumulation of \ce{Ran.GTP},
+is the base layer of nucleocytoplasmic transport.
+%
+%
+Thus we first implement
 the ``minimal Ran gradient system'' from 
 \cite{GoerlichSeewaldRibbeck2003}.
 %
@@ -492,12 +499,16 @@ $k_\text{knockoff}$.
 %
 Doubling $k_\text{knockoff}$ almost doubles 
 the nuclear concentration.
+%
+%
+%
+Code \CODE{main/code/20210225-GSR/v2}.
 
 %
 
-Code \CODE{main/code/20210225-GSR/v2}.
-
-
+This model predicts a slight accumulation
+of \ce{Img$\beta$} in the nucleus,
+with \ce{Imp$\upbeta$.Ran.GTP} contributing most of the excess.
 
 
 
@@ -526,7 +537,7 @@ Code \CODE{main/code/20210225-GSR/v2}.
 	%
 	Initial conditions:
 	$[\ce{Ran . GDP}]_\text{cyt} = \SI{5}{\micro M}$,
-	$[\ce{Imp$\beta$}]_\text{cyt} = \SI{1}{\micro M}$,
+	$[\ce{Imp\beta}]_\text{cyt} = \SI{1}{\micro M}$,
 	$[\ce{Cargo}]_\text{cyt} = \SI{3}{\micro M}$,
 	all else zero.
 }
@@ -631,12 +642,25 @@ Cytoplasmic and nuclear volume is as in Table~\ref{t:GSR-const}.
 %
 For the envelope volume 
 (potentially including some perimembrane space)
-we take $10^{-3} \si{. pL}$.
+we take $10^{-3} \si{. pL}$
+\TODO{do we?}.
 %
 %
 The unoccupied NPC space 
 is called \ce{NPC_{vacant}},
-of which we take $\SI{1}{\pico L} \times \SI{1}{\micro M}$.
+of which we take 
+\[
+	\SI{1}{\pico L} \times \SI{1}{\micro M}
+	\approx
+	300 \times \SI{2000}{units}
+	,
+\]
+motivated by 
+the estimated count of 2000 NPCs in the nuclear envelope
+\TODO{ref}
+and
+the capacity of about 300 Kaps each
+\TODO{ref}.
 %
 %
 The crux is now that the nuclear envelope, 
@@ -647,9 +671,9 @@ has a high concentration of NPCs.
 At the nuclear envelope we posit the reactions
 \begin{subequations}
 	\[
-		\ce{Imp$\beta$_i + NPC_{vacant} & <=> Imp$\beta$.NPC}
+		\ce{Imp\beta_i + NPC_{vacant} & <=> Imp\beta.NPC}
 		\\
-		\ce{Cargo.Imp$\beta$_i + NPC_{vacant} & <=> Cargo.Imp$\beta$.NPC}
+		\ce{Cargo.Imp\beta_i + NPC_{vacant} & <=> Cargo.Imp\beta.NPC}
 	\]
 	\TODO{ref}
 	with 
@@ -660,7 +684,7 @@ At the nuclear envelope we posit the reactions
 %
 as well as
 \[
-	\ce{Cargo_i + Imp$\beta$.NPC & <=> Cargo.Imp$\beta$.NPC}
+	\ce{Cargo_i + Imp\beta.NPC & <=> Cargo.Imp\beta.NPC}
 \]
 with
 $k_\text{on}^\text{C} = \SI{0.11}{\micro M^{-1} . s^{-1}}$
@@ -681,7 +705,7 @@ the permeability constant $D = \SI{1}{s^{-1}}$.
 %
 In both, we also allow 
 \[
-	\ce{Cargo + Imp$\beta$ & <=> Cargo.Imp$\beta$}
+	\ce{Cargo + Imp\beta & <=> Cargo.Imp\beta}
 \]
 with the same $k_\text{on}^\text{C}$/$k_\text{off}^\text{C}$.
 %
@@ -698,9 +722,9 @@ where we have
 	\text{cargo knockoff:}
 	&
 	\ce{
-		RanGTP_{nuc} + Cargo.Imp$\beta$.NPC
+		RanGTP_{nuc} + Cargo.Imp\beta.NPC
 		& ->
-		Cargo + RanGTP.Imp$\beta$.NPC
+		Cargo + RanGTP.Imp\beta.NPC
 	}
 	%
 	\\
@@ -709,9 +733,9 @@ where we have
 	\text{GTP hydrolysis: \hspace{-1cm}}
 	&
 	\ce{
-		RanGTP.Imp$\beta$.NPC 
+		RanGTP.Imp\beta.NPC 
 		& ->
-		RanGDP_{cyt} + P + Imp$\beta$.NPC 
+		RanGDP_{cyt} + P + Imp\beta.NPC 
 	}
 	.
 \]
@@ -826,7 +850,7 @@ Crystal structure: \cite{SaricETAL2007}
 
 
 
-
+Compartments: \cite{Hofmeyr2020}
 
 
 Identification of \ce{CAS}:
