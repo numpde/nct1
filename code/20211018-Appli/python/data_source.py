@@ -57,6 +57,7 @@ sp_specs = [
 ]
 
 NPC_CONCENTRATION_FACTOR = 100
+IMG_WIDTH = 256  # on website
 
 #
 

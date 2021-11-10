@@ -15,7 +15,7 @@ from plox import rcParam
 
 out_dir = mkdir(Path(__file__).resolve().with_suffix(''))
 
-from data_source import style, sp_specs, NPC_CONCENTRATION_FACTOR
+from data_source import style, sp_specs, NPC_CONCENTRATION_FACTOR, IMG_WIDTH
 
 # Squarish figure
 style.update({rcParam.Figure.figsize: (5, 3)})
@@ -102,7 +102,7 @@ def main():
                 summary.applymap(
                     lambda p: os.path.relpath(p, out_dir)
                 ).applymap(
-                    lambda p: f'<a href="{p}"><img style="width:196px" src="{p}"/></a>'
+                    lambda p: f'<a href="{p}"><img style="width:{IMG_WIDTH}px" src="{p}"/></a>'
                 ).to_html(
                     escape=False
                 )
