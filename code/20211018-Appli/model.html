@@ -1,6 +1,6 @@
 Model name: threestage
 <br>
-10-Nov-2021 18:28:10
+17-Nov-2021 16:36:33
 <br>
 <br>
 Model parameters
@@ -1447,7 +1447,7 @@ true
 CAS·Ran with ImpA
 </td>
 <td>
-[ImpA(n)] + [CAS·Ran·GTP(n)] -> [ImpA·CAS·Ran·GTP(n)]
+[ImpA(n)] + [CAS·Ran·GTP(n)] <-> [ImpA·CAS·Ran·GTP(n)]
 </td>
 <td>
 kf
@@ -1461,6 +1461,29 @@ true
 </td>
 <td>
 1/uM/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+CAS·Ran with ImpA
+</td>
+<td>
+[ImpA(n)] + [CAS·Ran·GTP(n)] <-> [ImpA·CAS·Ran·GTP(n)]
+</td>
+<td>
+kr
+</td>
+<td>
+true
+</td>
+<td>
+   1.0000e-04
+
+</td>
+<td>
+1/s
 </td>
 <td>
 </td>
@@ -2611,13 +2634,13 @@ CAS·Ran with ImpA
 true
 </td>
 <td>
-false
+true
 </td>
 <td>
-[ImpA(n)] + [CAS·Ran·GTP(n)] -> [ImpA·CAS·Ran·GTP(n)]
+[ImpA(n)] + [CAS·Ran·GTP(n)] <-> [ImpA·CAS·Ran·GTP(n)]
 </td>
 <td>
-kf*[ImpA(n)]*[CAS·Ran·GTP(n)]
+kf*[ImpA(n)]*[CAS·Ran·GTP(n)] - kr * [ImpA·CAS·Ran·GTP(n)]
 </td>
 <td>
 Est. based on RM 2005, Table II
@@ -3142,7 +3165,7 @@ knockoff = (knockoff.kf*[Ran·GTP(n)]*[NLS·ImpA·ImpB·NPC(n)])*C
 [CAS with Ran] = ([CAS with Ran].kf*[Ran·GTP(n)]*[CAS(n)]-[CAS with Ran].kr*[CAS·Ran·GTP(n)])*C
 [Complex CAS with NPC(n)] = ([Complex CAS with NPC(n)].kf*[ImpA·CAS·Ran·GTP(n)]*[NPC(n)]-[Complex CAS with NPC(n)].kr*[ImpA·CAS·Ran·GTP·NPC(n)])*C
 [hydrolysis of ImpA·CAS·Ran·GTP·NPC] = ([hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf*[ImpA·CAS·Ran·GTP·NPC(c)])*C
-[CAS·Ran with ImpA] = ([CAS·Ran with ImpA].kf*[ImpA(n)]*[CAS·Ran·GTP(n)])*C
+[CAS·Ran with ImpA] = ([CAS·Ran with ImpA].kf*[ImpA(n)]*[CAS·Ran·GTP(n)]-[CAS·Ran with ImpA].kr*[ImpA·CAS·Ran·GTP(n)])*C
 [Ran gradient] = (k_pump*[Ran·GDP(c)])*C
 r8_1 = (k_ImpB_on*[ImpA·ImpB(n)]*[NPC(n)]-k_ImpB_off*[ImpA·ImpB·NPC(n)])*C
 r9_1 = (r9.kf*[ImpA(n)]*[ImpB·NPC(n)]-r9.kr*[ImpA·ImpB·NPC(n)])*C
@@ -3190,6 +3213,7 @@ knockoff.kf = 0.02
 [Complex CAS with NPC(n)].kr = 0.0001
 [hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf = 0.1
 [CAS·Ran with ImpA].kf = 0.1
+[CAS·Ran with ImpA].kr = 0.0001
 k_pump = 0.01
 [Complex CAS with NPC(c)].kf = 0.001
 [Complex CAS with NPC(c)].kr = 0.0001
