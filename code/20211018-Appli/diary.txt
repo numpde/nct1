@@ -1,6 +1,7 @@
-Running scenario: a_01_LowImpB.m
-Running scenario: a_02_HighImpB.m
-Running scenario: a_03_MoreNPC.m
-Running scenario: b_01_LowImpB.m
-Running scenario: b_02_HighImpB.m
-Running scenario: b_03_MoreNPC.m
+Running scenario: a_00_Baseline.m
+Running scenario: b_10_HighImpB.m
+Running scenario: b_11_MoreNPC.m
+Running scenario: c_20_NoImpA.m
+Running scenario: d_00_NoEnergy.m
+Running scenario: d_10_HighImpB.m
+Running scenario: d_11_MoreNPC.m

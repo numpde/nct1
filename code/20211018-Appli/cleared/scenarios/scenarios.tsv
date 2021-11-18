@@ -16,8 +16,8 @@ Species	C	NPC(n)	Value	uM			6000	0.01	0.01	0.1	0.01	0.01	0.1
 													
 Species	C	ImpB(c)	Value	uM				0.05	10	10	0.05	10	10
 Species	C	ImpB(n)	Value	uM				0	0	0	0	0	0
-Species	C	ImpA(c)	Value	uM				0.1	0.1	0.1	0.1	0.1	0.1
-Species	C	ImpA(n)	Value	uM				0.1	0.1	0.1	0.1	0.1	0.1
+Species	C	ImpA(c)	Value	uM				0.5	0.5	0.5	0.5	0.5	0.5
+Species	C	ImpA(n)	Value	uM				0.5	0.5	0.5	0.5	0.5	0.5
 													
 					Kinetic constants								
 Reaction		hydrolysis of Ran·GTP·ImpB·NPC	kf	1/s				0.1	0.1	0.1	0.1	0.1	0.1
