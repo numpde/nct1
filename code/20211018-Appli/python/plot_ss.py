@@ -1,6 +1,7 @@
 # -- coding: utf-8 --
 # RA, 2021-10-01
 
+import re
 import os.path
 
 import numpy as np
@@ -93,20 +94,22 @@ def plot_total_steadystate(run, spp):
 def main():
     from data_source import runs
 
-    # `Not a species` placeholder
-    nas = ("?" * 100)
-
     summary = pd.DataFrame()
 
     for (i, run) in sorted(runs.iterrows()):
-        for sp_spec in sp_specs:
+        for (sp_display, sp_pattern) in sp_specs.items():
             # Species to include in the plot
-            spp = [c for c in run.tx.columns if (sp_spec['+'] in c) and not (sp_spec.get('-', nas) in c)]
+            collect_spp = [candidate for candidate in run.tx.columns if re.match(sp_pattern, candidate)]
+
+            if collect_spp:
+                log.info(f"Species for spec `{sp_display}`: {collect_spp}.")
+            else:
+                log.warning(f"No species selected for spec `{sp_display}`.")
 
             # File name and proto-ylabel
-            name = sp_spec['+'] + (f" (excl. {sp_spec['-']})" if ('-' in sp_spec) else "")
+            name = sp_display
 
-            for px in plot_total_steadystate(run, spp):
+            for px in plot_total_steadystate(run, collect_spp):
                 img_file = mkdir(out_dir / i) / f"{name}.png"
                 summary.loc[name, i] = img_file
 

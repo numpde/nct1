@@ -14,7 +14,11 @@ def load_runs(folder) -> pd.DataFrame:
     load_tx = First(str).then(loadmat).then(pd.Series).then(
         lambda data: pd.DataFrame(
             index=pd.Series(data.t.squeeze(), name='t', dtype=float),
-            columns=pd.Series(data.names.squeeze(), name='species').transform(unlist1),
+            columns=(
+                pd.Series(data.names.squeeze(), name='species')
+                    .transform(unlist1)
+                # .transform(lambda sp: f"[{sp}]")
+            ),
             data=data.x,
             dtype=float,
         )
@@ -45,16 +49,40 @@ style = {
     rcParam.Font.size: 14,
 }
 
-sp_specs = [
-    {'+': "CAS"},
-    {'+': "CAS·Ran·GTP"},
-    {'+': "ImpA·CAS·Ran·GTP"},
-    {'+': "ImpB"},
-    {'+': "ImpA"},
-    {'+': "ImpA·ImpB"},
-    {'+': "Ran·GTP"},
-    {'+': "NLS"},
-]
+# sp_specs = [
+#     {'+': "CAS"},
+#     # {'+': "CAS", '-': "ImpA"},
+#     {'+': "CAS·Ran·GTP"},
+#     {'+': "ImpA·CAS·Ran·GTP"},
+#     {'+': "ImpB"},
+#     {'+': "ImpA"},
+#     {'+': "ImpA·ImpB"},
+#     {'+': "Ran·GTP"},
+#     {'+': "NLS"},
+# ]
+
+suffixes = r"(\(n\))|(\(c\))|(·NPC)"
+
+sp_specs = {
+    "All CAS": r"(.*)(CAS)(.*)",
+    "Free CAS": rf"^(CAS)({suffixes})$",
+
+    "CAS·Ran·GTP": rf"^(CAS·Ran·GTP)({suffixes})$",
+    "ImpA·CAS·Ran·GTP": rf"^(ImpA·CAS·Ran·GTP)({suffixes})$",
+
+    "All ImpA": r"(.*)(ImpA)(.*)",
+    "Free ImpA": rf"^(ImpA)({suffixes})$",
+
+    "All ImpB": r"(.*)(ImpB)(.*)",
+    "Free ImpB": rf"^(ImpB)({suffixes})$",
+
+    "ImpA·ImpB": rf"^(ImpA·ImpB)({suffixes})$",
+
+    "Free Ran·GTP": rf"^(Ran·GTP)({suffixes})$",
+
+    "All NLS": r"(.*)(NLS)(.*)",
+    "Free NLS": rf"^(NLS)({suffixes})$",
+}
 
 NPC_CONCENTRATION_FACTOR = 100
 IMG_WIDTH = 256  # on website
