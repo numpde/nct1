@@ -2,7 +2,7 @@
 <sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
   <annotation>
     <SimBiology xmlns="http://www.mathworks.com">
-      <Version Major="6" Minor="1" Point="0"/>
+      <Version Major="6" Minor="2" Point="0"/>
     </SimBiology>
   </annotation>
   <model id="mwe258b9c8_c8c2_4f3c_a1dd_320bc865524d" name="RanGAP_sequence__with__ImpB_simplified">

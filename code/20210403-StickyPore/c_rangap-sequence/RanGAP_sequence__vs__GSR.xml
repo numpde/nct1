@@ -2,7 +2,7 @@
 <sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
   <annotation>
     <SimBiology xmlns="http://www.mathworks.com">
-      <Version Major="6" Minor="1" Point="0"/>
+      <Version Major="6" Minor="2" Point="0"/>
     </SimBiology>
   </annotation>
   <model id="mw8f0c0fd8_3b8a_4053_a2bf_5f789c340581" name="RanGAP_sequence__vs__GSR">
@@ -13,10 +13,16 @@
           <unit kind="dimensionless" multiplier="1e-15"/>
         </listOfUnits>
       </unitDefinition>
-      <unitDefinition id="MWBUILTINUNIT_liter" name="liter">
+      <unitDefinition id="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" name="micromolarity">
         <listOfUnits>
-          <unit kind="metre" exponent="3"/>
+          <unit kind="metre" exponent="-3"/>
+          <unit kind="mole" exponent="1"/>
           <unit kind="dimensionless" multiplier="0.001"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="MWDERIVEDUNIT_micromolarity_picoliter" name="(micromolarity)*(picoliter)">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" multiplier="1e-18"/>
         </listOfUnits>
       </unitDefinition>
       <unitDefinition id="MWDERIVEDUNIT_1__micromolarity__second" name="1/micromolarity/second">
@@ -47,13 +53,6 @@
           <unit kind="dimensionless" multiplier="1"/>
         </listOfUnits>
       </unitDefinition>
-      <unitDefinition id="MWBUILTINPREFIX_micro_MWBUILTINUNIT_molarity" name="micromolarity">
-        <listOfUnits>
-          <unit kind="metre" exponent="-3"/>
-          <unit kind="mole" exponent="1"/>
-          <unit kind="dimensionless" multiplier="0.001"/>
-        </listOfUnits>
-      </unitDefinition>
     </listOfUnitDefinitions>
     <listOfCompartments>
       <compartment id="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" name="Seewald et al" spatialDimensions="3" size="1" units="MWBUILTINPREFIX_pico_MWBUILTINUNIT_liter" constant="true">
@@ -70,98 +69,98 @@
       </compartment>
     </listOfCompartments>
     <listOfSpecies>
-      <species id="mw797e3735_0c79_4af2_8132_2ccb7e07a96b" name="Ran·GTP" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="1e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw797e3735_0c79_4af2_8132_2ccb7e07a96b" name="Ran·GTP" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="1" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw12829955_cbe7_47cb_8b81_41d9ee7869dd" name="RanBP1" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="2e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw12829955_cbe7_47cb_8b81_41d9ee7869dd" name="RanBP1" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="2" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <notes>
           <body xmlns="http://www.w3.org/1999/xhtml">GSR 2003: 
 2uM</body>
         </notes>
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mwb38579ec_3de9_4786_9464_548f3825b386" name="Ran·GTP·RanBP1" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mwb38579ec_3de9_4786_9464_548f3825b386" name="Ran·GTP·RanBP1" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="0" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw0aba768e_932d_4559_a945_95eb9ad1ffa6" name="RanGAP" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="7e-13" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw0aba768e_932d_4559_a945_95eb9ad1ffa6" name="RanGAP" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="0.7" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mwa348dfcb_e5ce_4460_8275_d43f5e2924f6" name="Ran·GTP·RanBP1·RanGAP" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mwa348dfcb_e5ce_4460_8275_d43f5e2924f6" name="Ran·GTP·RanBP1·RanGAP" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="0" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mwa348dfcb_e5ce_4460_8275_d43f5e2924f6" name="Ran·GDP·RanBP1·RanGAP" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mwa348dfcb_e5ce_4460_8275_d43f5e2924f6" name="Ran·GDP·RanBP1·RanGAP" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="0" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mwa348dfcb_e5ce_4460_8275_d43f5e2924f6" name="Ran·GDP·RanBP1" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mwa348dfcb_e5ce_4460_8275_d43f5e2924f6" name="Ran·GDP·RanBP1" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="0" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw321a34d6_6e59_43b6_958a_1578b9c80144" name="Ran·GDP" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="1e-13" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw321a34d6_6e59_43b6_958a_1578b9c80144" name="Ran·GDP" compartment="mw48c8348b_33cf_4585_84c5_9cc7fc3809d9" initialConcentration="0.1" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw27b8c486_30e8_4dc4_82a0_27d092a0f573" name="Ran·GTP" compartment="mwdfc26618_90b9_466f_b741_8b9a20962d2b" initialConcentration="1e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw27b8c486_30e8_4dc4_82a0_27d092a0f573" name="Ran·GTP" compartment="mwdfc26618_90b9_466f_b741_8b9a20962d2b" initialConcentration="1" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw71135e7f_9f33_40b5_81c2_2c9252f1442e" name="Ran·GTP·RanBP1" compartment="mwdfc26618_90b9_466f_b741_8b9a20962d2b" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw71135e7f_9f33_40b5_81c2_2c9252f1442e" name="Ran·GTP·RanBP1" compartment="mwdfc26618_90b9_466f_b741_8b9a20962d2b" initialConcentration="0" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw2c054c01_24f3_4c21_8ed9_3948c06f4ed4" name="RanBP1" compartment="mwdfc26618_90b9_466f_b741_8b9a20962d2b" initialConcentration="2e-12" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw2c054c01_24f3_4c21_8ed9_3948c06f4ed4" name="RanBP1" compartment="mwdfc26618_90b9_466f_b741_8b9a20962d2b" initialConcentration="2" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw5fb8145c_40dd_456e_a744_45a9c45c6771" name="RanGAP" compartment="mwdfc26618_90b9_466f_b741_8b9a20962d2b" initialConcentration="7e-13" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="true">
+      <species id="mw5fb8145c_40dd_456e_a744_45a9c45c6771" name="RanGAP" compartment="mwdfc26618_90b9_466f_b741_8b9a20962d2b" initialConcentration="0.7" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="true">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
-      <species id="mw3f99d5e3_892d_4bb0_91ea_8f5a2d855ad1" name="Ran·GDP" compartment="mwdfc26618_90b9_466f_b741_8b9a20962d2b" initialConcentration="1e-13" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
+      <species id="mw3f99d5e3_892d_4bb0_91ea_8f5a2d855ad1" name="Ran·GDP" compartment="mwdfc26618_90b9_466f_b741_8b9a20962d2b" initialConcentration="0.1" substanceUnits="MWDERIVEDUNIT_micromolarity_picoliter" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false">
         <annotation>
           <SimBiology xmlns="http://www.mathworks.com">
-            <Unit Numerator="mole" Denominator="liter"/>
+            <Unit Numerator="micromolarity"/>
           </SimBiology>
         </annotation>
       </species>
