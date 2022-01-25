@@ -87,6 +87,10 @@ maxbibnames=100,
 \makesavenoteenv{tabular}
 \makesavenoteenv{table}
 
+% https://tex.stackexchange.com/questions/66896/ref-chapter-name-in-latex
+\usepackage{nameref}
+
+
 % https://tex.stackexchange.com/questions/10130/use-the-values-of-title-author-and-date-on-a-custom-title-page
 \usepackage{authoraftertitle}
 
@@ -148,13 +152,37 @@ maxbibnames=100,
 
 \maketitle
 
-\section{NCT models}
 
-Abbreviations:
+\section{Introduction}
+
+\TODO{intro}
+
+We are particularly
+interested in 
+the nuclear-to-cytoplasmic contrast
+(henceforth, N:C contrast)
+of 
+certain molecular species
+at steady state:
+\ce{Ran.GTP},
+\ce{Imp$\upbeta$},
+\ce{CAS},
+and
+\ce{NLS}.
+
+
+\subsubsection*{Abbreviations}
+
 FG-nups = FG-nucleoporins;
 NCT = nucleocytoplasmic transport;
 NPC = nuclear pore complex;
-ODE = ordinary differential equations.
+NE = nuclear envelope;
+IBB = importin beta binding; 
+ODE = ordinary differential equations;
+SPR = surface plasmon resonance;
+
+
+\section{NCT models}
 
 \subsection{GSR'03 model of NCT} \label{s:GSR03}
 
@@ -165,13 +193,13 @@ i.e.~the nuclear accumulation of \ce{Ran.GTP},
 is the base layer of nucleocytoplasmic transport.
 %
 %
-Thus we first implement
+We implement it as
 the ``minimal Ran gradient system'' from 
 \cite{GoerlichSeewaldRibbeck2003}.
 %
 %
 The equations are recapitulated in
-\S\ref{ss:gsr-ran}
+\S\ref{ss:app:gsr-ran}
 and
 the constants are collected in 
 Table~\ref{t:GSR-const}.
@@ -209,7 +237,35 @@ see Table~\ref{t:GSR-Ran-Runs}.
 Importantly,
 an order of 1000-fold nuclear enrichment of \ce{Ran.GTP}
 is sustained in steady-state.
-	
+%
+Moreover, the dynamic capacity clocks in at around
+$
+	\SI{0.6}{\micro M / s}
+$
+in most cases,
+meaning the Ran gradient is established within seconds.
+%
+%
+Therefore,
+we will replace the whole Ran gradient layer
+by a virtual pump
+\[
+	\label{e:pump}
+	%
+	\text{cytoplasmic \ce{Ran . GDP}} 
+	\ce{->}
+	\text{nuclear \ce{Ran . GTP}} 
+	\TEXT{with kinetic rate \SI{0.1}{s^{-1}}.}
+\]
+%
+%
+This rate is chosen conservatively
+(a concentration of $\SI{1}{\micro M}$ of cytoplasmic \ce{Ran . GDP} generates
+a flux of $\SI{0.1}{\micro M / s}$)
+but 
+will be
+sufficient for our purposes.
+
 %
 
 Code \CODE{main/code/20210225-GSR/v1}.
@@ -507,9 +563,11 @@ Code \CODE{main/code/20210225-GSR/v2}.
 %
 
 This model predicts a slight accumulation
-of \ce{Img$\beta$} in the nucleus,
+of \ce{Img$\upbeta$} in the nucleus,
 with \ce{Imp$\upbeta$.Ran.GTP} contributing most of the excess.
-
+%
+%
+We improve on it in \S\ref{ss:3s}.
 
 
 \begin{figure}
@@ -612,57 +670,377 @@ with \ce{Imp$\upbeta$.Ran.GTP} contributing most of the excess.
 
 
 
+%%
 
 
 
 
+\subsection{Role of RanBP1} \label{ss:ranbp1}
+
+According to 
+\cite[\href{https://i.ibb.co/6ghqPB7/image.jpg}{Fig.~4A}]{LounsburyMacara1997},
+\ce{Imp\beta} blocks hydrolysis of \ce{Ran.GTP} by \ce{RanGAP}
+but 
+\ce{{RanBP1}} rescues it for most part.
+%
+Similarly,
+\cite{BischoffGoerlich1997}
+showed that
+\ce{{RanBP1}} transiently detaches \ce{Ran} 
+from the complex 
+\ce{Kap.Ran.GTP}
+(where \ce{Kap} can be importin $\beta$, transportin or CAS),
+whereupon hydrolysis by \ce{RanGAP} 
+disassembles the complex;
+and
+that efficient disassembly 
+of \ce{Imp\beta.Ran.GTP} required \ce{{RanBP1}} \emph{and} \ce{{Imp\alpha}}
+\cite[\S3.2, cf.~\href{https://i.ibb.co/PZKRSJ0/image.jpg}{Fig.~4}]{BischoffGoerlich1997},
+\cite{FloerBlobelRexach1997}.
+%
+%
+Importantly,
+Kaps and RanBP1
+bind \ce{Ran}
+at distinct sites
+\cite[p.253]{BischoffGoerlich1997}.
+
+%
+
+%	In \cite[p.1033]{RiddickMacara2005},
+%	the initial rate of cargo import
+%	increased with co-addition of \ce{{RanBP1}},
+%	disagreeing with their simulation
+%	(in which \ce{{RanBP1}} acts catalytically
+%	\cite[\href{https://i.ibb.co/B3sgJ1P/image.png}{Fig.~S1}]{RiddickMacara2005}).
+
+%
+
+Further,
+\cite[\href{https://i.ibb.co/jz37PW1/image.png}{Fig.~13}]{SeewaldETAL2003}
+characterizes
+the kinetics of the formation of the complex
+between
+\ce{Ran.GTP}, \ce{{RanBP1}} and \ce{RanGAP}
+and the hydrolysis.
+%
+%
+In particular, 
+the release rate of the $\gamma$-phosphate,
+on the order or \SI{10}{s^{-1}} in 
+\cite[\href{https://i.ibb.co/jz37PW1/image.png}{Fig.~13}]{SeewaldETAL2003},
+%(which is the rate-limiting step of hydrolysis by \ce{RanGAP}) % ?
+is barely influenced by \ce{{RanBP1}},
+which instead stimulates
+the association of \ce{Ran} with \ce{RanGAP}.
+%
+%
+%
+A computational model of hydrolysis
+with these parameters qualitatively reproduces
+the experimental data from
+\cite[\href{https://i.ibb.co/6ghqPB7/image.jpg}{Fig.~4A}]{LounsburyMacara1997}.
+%
+%
+We omit the details
+that can be found in Code \protect\CODE{main/code/20210403-StickyPore/c\_rangap-sequence}.
+
+%
+
+For simplicity,
+we will take the constant
+\[
+	\label{e:hydrolysis}
+	%
+	\text{
+		\ce{GTP} hydrolysis rate
+		of \SI{0.1}{s^{-1}}
+	}
+\]
+for all cytoplasmic-side species containing \ce{Ran. GTP},
+and
+no \ce{GTP} hydrolysis elsewhere.
+%
+%
+This should be compared with 
+the effective \ce{Ran} gradient rate \eqref{e:pump}.
 
 
 
-\subsection{NPC as compartment} \label{s:GSR03-redux}
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.7\textwidth]{20210403-StickyPore/c_rangap-sequence/python/plot_fig4a/RanGAP=0.01}
+%\caption{%
+%	TODO TODO
+%}
+%\label{f:4A}
+%\end{figure}
+
+
+
+%Notes:
+%%
+%Crystal structure: \cite{SaricETAL2007};
+%%
+%Compartments: \cite{Hofmeyr2020};
+%%
+%Identification of \ce{CAS}:
+%\cite{KutayETAL1997}
+
+
+
+
+\subsection{NPC as compartment} \label{ss:3s}
+
+\subsubsection*{Introduction}
 
 It has been observed \TODO{ref}
-that \ce{Imp\beta} accumulate 
+that \ce{Imp\beta} accumulates 
 inside the NPCs
 as they bind to the FG-nups,
+suggesting a regulatory role,
+and
 possibly shuttling
 the cargo across the pore
-without leaving themselves.
+repeatedly.
 %
 %
 To account for this
 we propose
-a three-compartment model
+a model
 with cytoplasm, nucleus
 and
-the nuclear envelope 
-as the three compartments.
-%
-Cytoplasmic and nuclear volume is as in Table~\ref{t:GSR-const}.
-%
-For the envelope volume 
-(potentially including some perimembrane space)
-we take $10^{-3} \si{. pL}$
-\TODO{do we?}.
+the NPCs 
+as three compartments.
 %
 %
-The unoccupied NPC space 
-is called \ce{NPC_{vacant}},
-of which we take 
+The following dual observation is essential (cf.~\cite{Hofmeyr2020}):
+%
+\begin{enumerate}
+\item 
+	cytoplasmic and nuclear species initially react 
+	with NPC components in proportion
+	to the number of NPCs,
+	and
+\item
+	the observed fluorescence signal
+	from Kaps accumulating inside the NPCs
+	correlates with
+	the total volume or the capacity of the NPC channel
+	(rather than their number).
+\end{enumerate}
+
+%
+%
+%
+
+The model includes the following main components:
+\begin{itemize}
+\item
+	Generic \ce{NLS} cargo.
+	%
+	\TODO{on NLS}
+\item 
+	\ce{Imp$\upalpha$}
+	%
+	\TODO{on ImpA}
+\item
+	\ce{Imp$\upbeta$}
+	%
+	\TODO{on ImpB}
+\item
+	\ce{CAS}
+	%
+	\TODO{on CAS}
+\item
+	The NPCs are described
+	as
+	vacant \ce{NPC} channel space,
+	the cytoplasm-facing opening \ce{NPC(c)}
+	and
+	the nucleus-facing opening \ce{NPC(n)}.
+	%
+	To transition the nuclear pore,
+	a species has to bind to the opening,
+	transition into the channel,
+	bind to the other opening,
+	and unbind on the other side.
+	%
+	This allows us to model the capacity of the NPC
+	and the dwelling time
+	(but we make no distinction between different transiting species).
+	%
+	There is no directionality,
+	i.e.~a species currently residing in the channel is equally
+	likely to bind to either opening next.
+\item
+	\ce{Ran . GTP} in the nucleus and \ce{Ran . GDP} in the cytoplasm.
+	%
+	The consumption of \ce{Ran . GTP}
+	that have transitioned to the cytoplasmic side
+	by hydrolysis
+	is compensated by an effective pump
+	as in \eqref{e:pump}.
+	%
+	The hydrolysis itself is described by one 
+	effective kinetic rate as in \eqref{e:hydrolysis}.
+\end{itemize}
+
+%
+
+An overview of the model is shown
+in Fig.~\ref{f:app:3s-simbio}.
+%
+The computational results 
+for this model 
+are summarized in Fig.~\ref{f:app:3s-plot-ss}.
+%
+%
+The code is found in Code~\CODE{main/code/20211018-Appli}.
+
+\TODO{Use a particular checkpoint throughout}
+
+
+\subsubsection*{Main reactions}
+
+Here we comment on the main reactions of the model.
+%
+%
+For the complete set we refer to
+Fig.~\ref{f:app:3s-simbio} 
+as well as
+\TODO{Link to checkpoint on github.io}.
+
+%%
+
+The cytoplasmic \ce{NLS} cargo
+associates with 
+free
+\ce{Imp$\upalpha$ . Imp$\upbeta$}
+before binding to the cytoplasmic side of the NPC,
+or
+with those already attached there.
+%
+%
+On the nuclear side,
+the ``knockoff'' reaction releases the cargo
+(the suffix \ce{(n)} is omitted):
 \[
+	% [Ran·GTP(n)] + [NLS·ImpA·ImpB·NPC(n)] -> [Ran·GTP·ImpB·NPC(n)] + [ImpA(n)] + [NLS(n)]
+	\ce{
+		Ran.GTP
+		+
+		NLS.Imp$\upalpha$.Imp$\upbeta$.NPC
+		->
+		Ran.GTP.Imp$\upbeta$.NPC
+		+
+		Imp$\upalpha$
+		+
+		NLS
+	}
+	.
+\]
+
+\TODO{More reactions}
+
+
+\subsubsection*{Baseline parameters} \label{ss:3s:baseline}
+
+We estimate the total NPC channel capacity
+as 
+2000 NPCs per nuclear envelope
+times
+300 Kaps per NPC
+\TODO{refs for those numbers}.
+%
+%
+Note that 
+\[
+	\label{e:NPC-volume}
+	%
 	\SI{1}{\pico L} \times \SI{1}{\micro M}
 	\approx
 	300 \times \SI{2000}{units}
-	,
+	,	
 \]
-motivated by 
-the estimated count of 2000 NPCs in the nuclear envelope
-\TODO{ref}
-and
-the capacity of about 300 Kaps each
-\TODO{ref}.
+which implies a concentration of \SI{1}{\micro M}
+in a computational volume of \SI{1}{\pico L}.
 %
 %
+%
+The computation itself is performed in amounts
+(rather than concentration),
+so to convert apparent concentration
+of Kaps at the NE
+we estimate  
+\TODO{automate insertion of this volume}
+\[
+	\text{
+		the volume of apparent NE fluorescence as
+		\SI{0.01}{\pico L}.
+	}
+\]
+
+\TODO{complete section}
+
+The definitive set of parameters
+is recorded 
+in [\TODO{Link to checkpoint base model}].
+
+%
+
+\subsubsection*{Variants}
+
+We have defined a handful of scenarios 
+to illustrate how 
+parameter choice affects 
+the steady-states.
+%
+%
+The results are summarized in Fig.~\ref{f:app:3s-plot-ss}.
+%
+%
+All parameter changes are
+reported in 
+[\TODO{Link to the checkpoint parameter table}].
+
+
+\begin{itemize}
+\item 
+	Increase \ce{Imp$\upbeta$}.
+	\TODO{Why}
+	
+\item
+	Increase also the number of NPC.
+	\TODO{Why}
+	
+\item
+	Starting from the baseline scenario,
+	we substantially decrease the initial concentration
+	of \ce{Imp$\upalpha$}.
+	%
+	In this scenario we obtain
+	a clear N:C contrast 
+	for total CAS
+	in the stead-state,
+	in line with 
+	experimental evidence 
+	from \cite{?} \TODO{CAS contrast ref}.
+
+\item
+	Turn off \ce{Ran.GTP} regeneration,
+	starting from the baseline scenario.
+	%
+	%
+	We obtain a breakdown of N:C contrast
+	for all species,
+	as expected.
+\end{itemize}
+
+
+
+\section{Old stuff dump -- ignore}
+
 The crux is now that the nuclear envelope, 
 having small volume, 
 has a high concentration of NPCs.
@@ -784,80 +1162,6 @@ Code \CODE{main/code/20210403-StickyPore}.
 
 
 
-\subsection{Role of RanBP1}
-
-According to 
-\cite[\href{https://i.ibb.co/6ghqPB7/image.jpg}{Fig.~4A}]{LounsburyMacara1997},
-\ce{Imp\beta} blocks hydrolysis of \ce{Ran.GTP} by \ce{RanGAP}
-but 
-\ce{{RanBP1}} rescues it for most part.
-%
-Similarly,
-\cite{BischoffGoerlich1997}
-showed that
-\ce{{RanBP1}} transiently detaches \ce{Ran} 
-from the complex 
-\ce{Kap.Ran.GTP}
-(where \ce{Kap} can be importin $\beta$, transportin or CAS),
-whereupon hydrolysis by \ce{RanGAP} 
-disassembles the complex;
-and
-that efficient disassembly 
-of \ce{Imp\beta.Ran.GTP} required \ce{{RanBP1}} \emph{and} \ce{{Imp\alpha}}
-\cite[\S3.2, cf.~\href{https://i.ibb.co/PZKRSJ0/image.jpg}{Fig.~4}]{BischoffGoerlich1997},
-\cite{FloerBlobelRexach1997}.
-%
-%
-Importantly,
-Kaps and RanBP1
-bind \ce{Ran}
-at distinct sites
-\cite[p.253]{BischoffGoerlich1997}.
-
-%
-
-Further,
-\cite[\href{https://i.ibb.co/jz37PW1/image.png}{Fig.~13}]{SeewaldETAL2003}
-characterizes
-the kinetics of the formation of the complex
-between
-\ce{Ran.GTP}, \ce{{RanBP1}} and \ce{RanGAP}
-and its hydrolysis.
-%
-%
-In particular, 
-the release of the $\gamma$-phosphate,
-which is the rate-limiting step of 
-hydrolysis by RanGAP,
-is barely influenced by RanPB1,
-which instead stimulates
-the association of Ran with RanGAP.
-
-%
-
-In \cite[p.1033]{RiddickMacara2005},
-the initial rate of cargo import
-increased with co-addition of \ce{{RanBP1}},
-disagreeing with their simulation
-(in which \ce{{RanBP1}} acts catalytically \cite[\href{https://i.ibb.co/B3sgJ1P/image.png}{Fig.~S1}]{RiddickMacara2005}).
-%
-%
-
-
-
-Crystal structure: \cite{SaricETAL2007}
-
-
-
-
-Compartments: \cite{Hofmeyr2020}
-
-
-Identification of \ce{CAS}:
-\cite{KutayETAL1997}
-
-
-
 %%% BIBLIOGRAPHY %%%
 
 \clearpage
@@ -871,15 +1175,103 @@ Identification of \ce{CAS}:
 
 \section{Appendix}
 
-\subsection{Minimal Ran gradient system} \label{ss:gsr-ran}
+
+\subsection{Minimal Ran gradient system} \label{ss:app:gsr-ran}
 
 \input{app_gsr.tex}
+
+
+\subsection{NPC as compartment} \label{ss:app:3s}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.95\textwidth]{20211018-Appli/threestage}
+	\caption{%
+		SimBiology diagram for the model 
+		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
+	}
+	\label{f:app:3s-simbio}
+\end{figure}
+
+
+
+\begin{figure}
+	\centering
+
+	\newcommand{\figpath}{20211018-Appli/checkpoint/20211121-124149/plot_ss}
+	
+	\begin{minipage}{0.32\textwidth}
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/a_00_Baseline/#1}}
+		%
+		\centering
+		%
+		Baseline condition (\S\ref{ss:3s:baseline})
+		\\
+		\fig{Free ImpA}
+		\\
+		\fig{Free ImpB}
+		\\
+		\fig{Free CAS}
+		\\
+		\fig{Free NLS}
+	\end{minipage}
+	%
+	\begin{minipage}{0.32\textwidth}
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/c_20_LowImpA/#1}}
+		%
+		\centering
+		%
+		Low \ce{Imp$\upalpha$}
+		\\
+		\fig{Free ImpA}
+		\\
+		\fig{Free ImpB}
+		\\
+		\fig{Free CAS}
+		\\
+		\fig{Free NLS}
+	\end{minipage}
+	%
+	\begin{minipage}{0.32\textwidth}
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_00_NoEnergy/#1}}
+		%
+		\centering
+		%
+		No \ce{Ran.GTP} regeneration
+		\\
+		\fig{Free ImpA}
+		\\
+		\fig{Free ImpB}
+		\\
+		\fig{Free CAS}
+		\\
+		\fig{Free NLS}
+	\end{minipage}
+	
+	\protect\TODO{More figures?}
+	
+	\protect\TODO{Consider displaying on a landscape page}
+		
+	\caption{%
+		Initial states and steady-states for the model 
+		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
+		%
+		%
+		For more full-size figures, see
+		\protect\TODO{Link to the full set}
+	}
+	%
+	\label{f:app:3s-plot-ss}
+\end{figure}
+
 
 \subsection{List of codes}
 
 \begin{center}
 \SHOWCODES
 \end{center}
+
 
 
 %\clearpage

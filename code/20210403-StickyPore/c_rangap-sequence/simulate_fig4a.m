@@ -42,6 +42,7 @@ function [m, t_react] = config_model(ImpB, RanBP1, RanGAP)
 	
 	m.Species({m.Species.Name} == "ImpB").InitialAmount = ImpB;
 	m.Species({m.Species.Name} == "RanBP1").InitialAmount = RanBP1;
+	m.Species({m.Species.Name} == "RanGAP").InitialAmount = 0;
 	
 	m.Events({m.Events.Name} == "Add ImpB").Active = false;
 	m.Events({m.Events.Name} == "Add RanBP1").Active = false;
