@@ -42,7 +42,7 @@ Reaction		Complex CAS with NPC(n)	kr	1/s				1e-5	1e-5	1e-5	1e-5		1e-5	1e-5		1e-5
 																
 Reaction		Replenish NLS	kf	1/s				0	0	0	0		0	0		0
 Reaction		Passive diffusion	k_diff	1/s				0	0	0	0		0	0		0
-Reaction		Ran gradient	k_pump	1/s				1e-2	1e-2	1e-2	1e-2		1e-2	1e-2		0
+Reaction		Ran gradient	k_pump	1/s				0.1	0.1	0.1	0.1		0.1	0.1		0
 																
 		For uploaded results, see:														
 		https://numpde.github.io/nct1/code/20211018-Appli/checkpoint/														
