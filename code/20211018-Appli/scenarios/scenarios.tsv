@@ -22,7 +22,7 @@ Species	C	ImpA(n)	Value	uM				4	4	4	4		0.4	1e-6		4
 					Kinetic constants											
 Reaction		hydrolysis of Ran·GTP·ImpB·NPC	kf	1/s				0.1	0.1	0.1	0.1		0.1	0.1		0.1
 																
-Reaction		hydrolysis of ImpA·CAS·Ran·GTP·NPC	kf	1/s				1e-2	1e-2	1e-2	1e-2		1e-2	1e-2		1e-2
+Reaction		hydrolysis of ImpA·CAS·Ran·GTP·NPC	kf	1/s				0.1	0.1	0.1	0.1		0.1	0.1		1e-2
 																
 Reaction		CAS with Ran	kf	1/uM/s				0.01	0.01	0.01	0.01		0.01	0.01		0.01
 Reaction		CAS with Ran	kr	1/s				0.015	0.015	0.015	0.015		0.015	0.015		0.015
