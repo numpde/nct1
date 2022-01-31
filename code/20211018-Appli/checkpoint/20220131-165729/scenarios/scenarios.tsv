@@ -1,0 +1,48 @@
+Item	Compartment	Name	Parameter	Units	Comment	Scenarios:		a_Baseline		b_LowImpB	c_MoreNPC		d_LowImpA	d_NoImpA		e_NoEnergy
+						Description:		With RanGTP regeneration								Without RanGTP regeneration
+								Physiological		Decrease ImpB	Increase #NPC		Decrease ImpA	Almost no ImpA		
+																
+Compartment		C	Value	picoliter	C = Vol of cytoplasm = Vol of nucleus			1		1	1		1	1		1
+																
+					Initial values											
+Species	C	CAS(c)	Value	uM				1		1	1		1	1		1
+Species	C	CAS(n)	Value	uM				1		1	1		1	1		1
+																
+Species	C	Ran·GTP(n)	Value	uM				3		3	3		3	3		3
+							For the first scenario, equals to count:									
+Species	C	NPC(c)	Value	uM			6000	0.01		0.01	0.1		0.01	0.01		0.01
+Species	C	NPC	Value	uM	Inner capacity		600000	1		1	10		1	1		1
+Species	C	NPC(n)	Value	uM			6000	0.01		0.01	0.1		0.01	0.01		0.01
+																
+Species	C	ImpB(c)	Value	uM				5		0.5	5		5	5		5
+Species	C	ImpB(n)	Value	uM				5		0.5	5		5	5		5
+Species	C	ImpA(c)	Value	uM				4		4	4		0.4	1e-6		4
+Species	C	ImpA(n)	Value	uM				4		4	4		0.4	1e-6		4
+																
+					Kinetic constants											
+Reaction		hydrolysis of Ran·GTP·ImpB·NPC	kf	1/s				0.1		0.1	0.1		0.1	0.1		0.1
+																
+Reaction		hydrolysis of ImpA·CAS·Ran·GTP·NPC	kf	1/s				0.1		0.1	0.1		0.1	0.1		1e-2
+																
+Reaction		CAS with Ran	kf	1/uM/s				0.01		0.01	0.01		0.01	0.01		0.01
+Reaction		CAS with Ran	kr	1/s				0.015		0.015	0.015		0.015	0.015		0.015
+																
+Reaction		CAS with NPC(c)	kf	1/uM/s				1e-3		1e-3	1e-3		1e-3	1e-3		1e-3
+Reaction		CAS with NPC(c)	kr	1/s				1e-4		1e-4	1e-4		1e-4	1e-4		1e-4
+Reaction		CAS with NPC(n)	kf	1/uM/s				1e-3		1e-3	1e-3		1e-3	1e-3		1e-3
+Reaction		CAS with NPC(n)	kr	1/s				1e-4		1e-4	1e-4		1e-4	1e-4		1e-4
+																
+Reaction		CAS·Ran with ImpA	kf	1/uM/s				0.1		0.1	0.1		0.1	0.1		0.1
+Reaction		CAS·Ran with ImpA	kr	1/s	kD = 1nM			1e-4		1e-4	1e-4		1e-4	1e-4		1e-4
+																
+Reaction		Complex CAS with NPC(c)	kf	1/uM/s	"""Complex CAS"" = ImpA·CAS·Ran·GTP"			1e-3		1e-3	1e-3		1e-3	1e-3		1e-3
+Reaction		Complex CAS with NPC(c)	kr	1/s				1e-5		1e-5	1e-5		1e-5	1e-5		1e-5
+Reaction		Complex CAS with NPC(n)	kf	1/uM/s				1e-3		1e-3	1e-3		1e-3	1e-3		1e-3
+Reaction		Complex CAS with NPC(n)	kr	1/s				1e-5		1e-5	1e-5		1e-5	1e-5		1e-5
+																
+Reaction		Replenish NLS	kf	1/s				0		0	0		0	0		0
+Reaction		Passive diffusion	k_diff	1/s				0		0	0		0	0		0
+Reaction		Ran gradient	k_pump	1/s				0.1		0.1	0.1		0.1	0.1		0
+																
+		For uploaded results, see:														
+		https://numpde.github.io/nct1/code/20211018-Appli/checkpoint/														
