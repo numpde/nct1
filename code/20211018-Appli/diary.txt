@@ -1,5 +1,4 @@
 Running scenario: a_Baseline.m
-Running scenario: a_Baseline2.m
 Running scenario: b_LowImpB.m
 Running scenario: c_MoreNPC.m
 Running scenario: d_LowImpA.m
