@@ -1,6 +1,6 @@
 Model name: threestage
 <br>
-09-Feb-2022 14:14:52
+09-Feb-2022 14:30:24
 <br>
 <br>
 Model parameters
@@ -1559,6 +1559,29 @@ true
 </tr>
 <tr>
 <td>
+hydrolysis of ImpA·CAS·Ran·GTP(c)
+</td>
+<td>
+[ImpA·CAS·Ran·GTP(c)] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [CAS(c)] + RanGAP + RanBP1
+</td>
+<td>
+kf
+</td>
+<td>
+true
+</td>
+<td>
+    0.1000
+
+</td>
+<td>
+1/s
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
 Replenish NLS
 </td>
 <td>
@@ -2770,7 +2793,7 @@ false
 [ImpA·CAS·Ran·GTP(c)] + RanGAP + RanBP1 -> [Ran·GDP(c)] + [ImpA(c)] + [CAS(c)] + RanGAP + RanBP1
 </td>
 <td>
-[hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf*C.[ImpA·CAS·Ran·GTP(c)]
+kf*C.[ImpA·CAS·Ran·GTP(c)]
 </td>
 <td>
 guesstimate
@@ -3170,7 +3193,7 @@ knockoff = (knockoff.kf*[Ran·GTP(n)]*[NLS·ImpA·ImpB·NPC(n)])*C
 r8_1 = (k_ImpB_on*[ImpA·ImpB(n)]*[NPC(n)]-k_ImpB_off*[ImpA·ImpB·NPC(n)])*C
 r9_1 = (r9.kf*[ImpA(n)]*[ImpB·NPC(n)]-r9.kr*[ImpA·ImpB·NPC(n)])*C
 [Complex CAS with NPC(c)] = ([Complex CAS with NPC(c)].kf*[ImpA·CAS·Ran·GTP(c)]*[NPC(c)]-[Complex CAS with NPC(c)].kr*[ImpA·CAS·Ran·GTP·NPC(c)])*C
-[hydrolysis of ImpA·CAS·Ran·GTP(c)] = ([hydrolysis of ImpA·CAS·Ran·GTP·NPC].kf*[ImpA·CAS·Ran·GTP(c)])*C
+[hydrolysis of ImpA·CAS·Ran·GTP(c)] = ([hydrolysis of ImpA·CAS·Ran·GTP(c)].kf*[ImpA·CAS·Ran·GTP(c)])*C
 [Replenish NLS] = ([Replenish NLS].kf*[NLS(n)])*C
 r12_1 = (r12_1.kf*[NLS(n)]*[ImpA·ImpB·NPC(n)]-r12_1.kr*[NLS·ImpA·ImpB·NPC(n)])*C
 r11_1 = (r11_1.kf*[NLS·ImpA·ImpB(n)]*[NPC(n)]-r11_1.kr*[NLS·ImpA·ImpB·NPC(n)])*C
@@ -3217,6 +3240,7 @@ knockoff.kf = 0.02
 k_pump = 0.1
 [Complex CAS with NPC(c)].kf = 0.001
 [Complex CAS with NPC(c)].kr = 0.0001
+[hydrolysis of ImpA·CAS·Ran·GTP(c)].kf = 0.1
 [Replenish NLS].kf = 0
 r12_1.kf = 0.15
 r12_1.kr = 0.00044

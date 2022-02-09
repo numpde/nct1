@@ -16,8 +16,9 @@ function simulate
 	catch ex
 		disp(" ")
 		disp("main() failed:")
-		disp(ex.identifier)
-		disp(ex.message)
+		disp(getReport(ex))
+
+		exit(1)
 	end
 
 	diary off;
