@@ -1,6 +1,5 @@
 Running scenario: a_Baseline.m
-Running scenario: b_LowImpB.m
-Running scenario: c_MoreNPC.m
-Running scenario: d_LowImpA.m
-Running scenario: d_NoImpA.m
-Running scenario: e_NoEnergy.m
+ 
+main() failed:
+MATLAB:assertion:failed
+Assertion failed.
