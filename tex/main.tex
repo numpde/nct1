@@ -765,7 +765,14 @@ no \ce{GTP} hydrolysis elsewhere.
 This should be compared with 
 the effective \ce{Ran} gradient rate \eqref{e:pump}.
 
-
+\TODO{
+cf
+\cite{KalitaKapinosLim2021}
+citing
+\cite{KlebeBischoffPonstinglWittinghofer1995}
+or
+\cite{KlebePrinzWittinghoferGoody1995}
+}
 
 %\begin{figure}
 %\centering
@@ -794,7 +801,8 @@ the effective \ce{Ran} gradient rate \eqref{e:pump}.
 
 \subsubsection*{Introduction}
 
-It has been observed \TODO{ref}
+It has been observed 
+\cite{KalitaKapinosLim2021}l
 that \ce{Imp\beta} accumulates 
 inside the NPCs
 as they bind to the FG-nups,
@@ -891,14 +899,24 @@ The model includes the following main components:
 An overview of the model is shown
 in Fig.~\ref{f:app:3s-simbio}.
 %
+The code is found in Code~\CODE{main/code/20211018-Appli}.
+%
 The computational results 
 for this model 
 are summarized in Fig.~\ref{f:app:3s-plot-ss}.
 %
-%
-The code is found in Code~\CODE{main/code/20211018-Appli}.
-
-\TODO{Use a particular checkpoint throughout}
+For details see the URL
+\newcommand{\checkpoint}{20220209-143110}
+\[
+	\label{e:checkpoint}
+	%
+	\small
+	\text{
+		\href%
+		{https://numpde.github.io/nct1/code/20211018-Appli/checkpoint/\checkpoint/}%
+		{numpde.github.io/nct1/code/20211018-Appli/checkpoint/\checkpoint/}
+	}
+\]
 
 
 \subsubsection*{Main reactions}
@@ -908,21 +926,37 @@ Here we comment on the main reactions of the model.
 %
 For the complete set we refer to
 Fig.~\ref{f:app:3s-simbio} 
-as well as
-\TODO{Link to checkpoint on github.io}.
+as well as the URL \eqref{e:checkpoint}.
+
+%%
+
+The nuclear \ce{Ran . GTP} is converted directly to 
+cytoplasmic \ce{Ran . GDP} 
+as in Eqn.~\eqref{e:pump}.
+
+%%
+
+The \ce{Imp$\upbeta$}
+can shuttle on its own through the NPC
+or in complex with \ce{Imp$\upalpha$}.
+%
+%
+We assume that the complex does not form
+on the nuclear side
+(due to nuclear \ce{Ran . GEF}, which is not modeled explicitly).
 
 %%
 
 The cytoplasmic \ce{NLS} cargo
 associates with 
-free
-\ce{Imp$\upalpha$ . Imp$\upbeta$}
+free cytoplasmic \ce{Imp$\upalpha$ . Imp$\upbeta$}
 before binding to the cytoplasmic side of the NPC,
 or
 with those already attached there.
 %
 %
-On the nuclear side,
+%
+Once the complex is shuttled to the nuclear side,
 the ``knockoff'' reaction releases the cargo
 (the suffix \ce{(n)} is omitted):
 \[
@@ -940,8 +974,29 @@ the ``knockoff'' reaction releases the cargo
 	}
 	.
 \]
+%
+%
+Thereupon, the complex \ce{Ran . GTP . Imp$\upbeta$}
+can transition from the nuclear to the cytoplasmic side
+to be hydrolized as in Eqn.~\eqref{e:hydrolysis}.
 
-\TODO{More reactions}
+%%
+
+Like \ce{Imp$\upbeta$},
+\ce{CAS} can shuttle through the NPC.
+%
+%
+On the nuclear side,
+it can first bind to \ce{Ran . GTP}
+then
+form 
+the \ce{Imp$\upalpha$ . CAS . Ran . GTP} complex.
+%
+%
+This complex can shuttle through the NPC
+but on the cytoplasmic side,
+the hydrolysis reaction \eqref{e:hydrolysis}
+disassembles it.
 
 
 \subsubsection*{Baseline parameters} \label{ss:3s:baseline}
@@ -952,15 +1007,15 @@ model parameters,
 such as concentrations and kinetic rates.
 %
 %
-The complete set of parameters
-is recorded 
-in [\TODO{Link to checkpoint base model}].
+For the complete set 
+see the URL \eqref{e:checkpoint}.
 
 %
 
 We estimate the total NPC channel capacity
 as 
 2000 NPCs per nuclear envelope
+(BioNumbers \href{https://bionumbers.hms.harvard.edu/bionumber.aspx?id=111130}{\#111130})
 times
 300 Kaps per NPC
 \TODO{refs for those numbers}.
@@ -982,7 +1037,7 @@ in a computational volume of \SI{1}{\pico L}.
 %
 The computation itself is performed in amounts
 (rather than concentration),
-so to convert apparent concentration
+so to convert to apparent concentration
 of Kaps at the NE
 we estimate  
 \TODO{automate insertion of this volume}
@@ -992,6 +1047,51 @@ we estimate
 		\SI{0.01}{\pico L}.
 	}
 \]
+
+% ImpB
+
+For the initial concentration of \ce{Imp$\upbeta$}
+we take
+\SI{5}{\micro M}
+in nucleus and cytoplasm
+based on
+\cite{?}
+\TODO{ref}.
+
+\cite[\href{https://i.ibb.co/0nLsTZv/Screenshot-from-2022-01-28-15-03-10.png}{Fig.~4a}]{NguyenPappireddiWuhr2019} -- probably from \cite{WuhrETAL2014}
+
+\cite{YangMusser2006}
+
+% ImpA
+
+For the initial concentration of \ce{Imp$\upalpha$}
+we considered taking
+\SI{4}{\micro M} throughout the cell,
+slightly below that of \ce{Imp$\upbeta$},
+based on
+%
+the immunoblots of
+\cite[\href{https://i.ibb.co/1z0YJ0T/Screenshot-from-2022-01-28-10-49-23.png}{Fig.~7}]{ZienkiewiczETAL2013}
+%
+and the mass spectrometry measurements for 
+\href{https://www.genecards.org/Search/Symbol?queryString=KPNA*}{KPNAs}
+from
+\cite[Table~S5]{WuhrETAL2014}.
+%
+%
+However,
+this seemed incompatible with other parameters
+in that the steady state showed unexpected results,
+e.g.~%
+the NLS remained tied to \ce{Imp$\upalpha$}
+and nearly equipartitioned between nuclear and cytoplasmic sides.
+%
+%
+We settled on the \ce{Imp$\upalpha$} concentration of \SI{0.4}{\micro M}
+for the baseline model.
+
+\cite{KalitaKapinosLim2021}
+\cite{KirliETAL2015}
 
 \TODO{complete section}
 
@@ -1010,32 +1110,26 @@ The results are summarized in Fig.~\ref{f:app:3s-plot-ss}.
 %
 %
 All parameter changes are
-reported in 
-[\TODO{Link to the checkpoint parameter table}].
+with respected 
+to the baseline scenario,
+and are reported at the URL \eqref{e:checkpoint}.
 
 
 \begin{itemize}
 \item 
-	Increase \ce{Imp$\upbeta$}.
+	Decrease \ce{Imp$\upbeta$} tenfold.
 	\TODO{Why}
 	
 \item
-	Increase also the number of NPC.
+	Increase the number of NPC tenfold.
 	\TODO{Why}
 	
 \item
-	Starting from the baseline scenario,
-	we substantially decrease the initial concentration
-	of \ce{Imp$\upalpha$}.
-	%
-	In this scenario we obtain
-	a clear N:C contrast 
-	for total CAS
-	in the stead-state,
-	in line with 
-	experimental evidence 
-	from \cite{?} \TODO{CAS contrast ref}.
+	Increase \ce{Imp$\upalpha$} tenfold.
 
+\item
+	Decrease \ce{Imp$\upalpha$} tenfold.
+	
 \item
 	Turn off \ce{Ran.GTP} regeneration,
 	starting from the baseline scenario.
