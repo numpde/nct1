@@ -486,8 +486,8 @@ for an IBB domain binding to \ce{Imp\beta}.
 %
 %
 The intermediate state in \eqref{e:A*B} is transient
-on a moderately relevant time-scale,
-see Fig.~\ref{f:A*B}
+on a moderately relevant time-scale
+%see Fig.~\ref{f:A*B}
 (code \protect\CODE{main/code/20210407-Rearrangement}).
 %
 Therefore,
@@ -506,28 +506,28 @@ for \eqref{e:v2-C}, cf.~Table~\ref{t:GSR-ImpB-const}.
 %
 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{20210407-Rearrangement/python/timecourse}
-\caption{%
-	Stand-alone
-	simulation of
-	\eqref{e:A*B}
-	starting with 
-	$\SI{2}{\micro M}$ \ce{IBB}
-	and
-	$\SI{1}{\micro M}$ \ce{Imp\beta}
-	with
-	the constants \eqref{e:k-A*B}.
-	%
-	The dashed counterpart
-	is the effective system 
-	of the form
-	$\ce{A} + \ce{B} \rightleftharpoons \ce{AB}$,
-	cf.~\S\ref{s:GSR03:Imp}.
-}
-\label{f:A*B}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.5\textwidth]{20210407-Rearrangement/python/timecourse}
+%\caption{%
+%	Stand-alone
+%	simulation of
+%	\eqref{e:A*B}
+%	starting with 
+%	$\SI{2}{\micro M}$ \ce{IBB}
+%	and
+%	$\SI{1}{\micro M}$ \ce{Imp\beta}
+%	with
+%	the constants \eqref{e:k-A*B}.
+%	%
+%	The dashed counterpart
+%	is the effective system 
+%	of the form
+%	$\ce{A} + \ce{B} \rightleftharpoons \ce{AB}$,
+%	cf.~\S\ref{s:GSR03:Imp}.
+%}
+%\label{f:A*B}
+%\end{figure}
 
 
 
@@ -618,6 +618,7 @@ We improve on it in \S\ref{ss:3s}.
 	\;
 	$k_\text{off}^\text{R} = \SI{4.8e-6}{s^{-1}}$
 	&
+	\footnotesize
 	\cite[Supp.~Table~A]{GoerlichSeewaldRibbeck2003},
 	\cite[Table II]{RiddickMacara2005}
 	\\
@@ -689,7 +690,7 @@ showed that
 \ce{{RanBP1}} transiently detaches \ce{Ran} 
 from the complex 
 \ce{Kap.Ran.GTP}
-(where \ce{Kap} can be importin $\beta$, transportin or CAS),
+(where \ce{Kap} is some karyopherin),
 whereupon hydrolysis by \ce{RanGAP} 
 disassembles the complex;
 and
@@ -801,8 +802,8 @@ or
 
 \subsubsection*{Introduction}
 
-It has been observed 
-\cite{KalitaKapinosLim2021}l
+It has been observed
+\cite{KalitaKapinosLim2021}
 that \ce{Imp\beta} accumulates 
 inside the NPCs
 as they bind to the FG-nups,
@@ -833,7 +834,7 @@ The following dual observation is essential (cf.~\cite{Hofmeyr2020}):
 \item
 	the observed fluorescence signal
 	from Kaps accumulating inside the NPCs
-	correlates with
+	scales with
 	the total volume or the capacity of the NPC channel
 	(rather than their number).
 \end{enumerate}
@@ -845,19 +846,24 @@ The following dual observation is essential (cf.~\cite{Hofmeyr2020}):
 The model includes the following main components:
 \begin{itemize}
 \item
-	Generic \ce{NLS} cargo.
-	%
-	\TODO{on NLS}
-\item 
-	\ce{Imp$\upalpha$}
-	%
-	\TODO{on ImpA}
-\item
 	\ce{Imp$\upbeta$}
+	(\ce{Kap$\upbeta${1}})
+	and the cargo adapter
+	\ce{Imp$\upalpha$}
+	(\ce{Kap$\upalpha$}).
 	%
-	\TODO{on ImpB}
+	For simplicity,
+	we do not model individual variants or isoforms,
+	cf.~\cite[p.~2]{KalitaKapinosLim2021}.
+\item
+	Generic \ce{NLS} cargo,
+	by itself unable to transition the nuclear envelope efficiently.
+	%
+	Requires the \ce{Imp$\upalpha$} to 
+	be captured by \ce{Imp$\upbeta$}.
 \item
 	\ce{CAS}
+	(\ce{Exp{2}}, \ce{Xpo{2}})
 	%
 	\TODO{on CAS}
 \item
@@ -905,7 +911,7 @@ The computational results
 for this model 
 are summarized in Fig.~\ref{f:app:3s-plot-ss}.
 %
-For details see the URL
+For details visit the URL
 \newcommand{\checkpoint}{20220209-143110}
 \[
 	\label{e:checkpoint}
@@ -914,9 +920,23 @@ For details see the URL
 	\text{
 		\href%
 		{https://numpde.github.io/nct1/code/20211018-Appli/checkpoint/\checkpoint/}%
-		{numpde.github.io/nct1/code/20211018-Appli/checkpoint/\checkpoint/}
+		{https://numpde.github.io/nct1/code/20211018-Appli/checkpoint/\checkpoint/}
 	}
 \]
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.95\textwidth]{20211018-Appli/threestage}
+	\caption{%
+		SimBiology diagram for the model 
+		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
+	}
+	\label{f:app:3s-simbio}
+\end{figure}
+
+
+
 
 
 \subsubsection*{Main reactions}
@@ -928,13 +948,14 @@ For the complete set we refer to
 Fig.~\ref{f:app:3s-simbio} 
 as well as the URL \eqref{e:checkpoint}.
 
-%%
+\begin{itemize}
+\item
 
 The nuclear \ce{Ran . GTP} is converted directly to 
 cytoplasmic \ce{Ran . GDP} 
 as in Eqn.~\eqref{e:pump}.
 
-%%
+\item
 
 The \ce{Imp$\upbeta$}
 can shuttle on its own through the NPC
@@ -945,7 +966,7 @@ We assume that the complex does not form
 on the nuclear side
 (due to nuclear \ce{Ran . GEF}, which is not modeled explicitly).
 
-%%
+\item
 
 The cytoplasmic \ce{NLS} cargo
 associates with 
@@ -960,6 +981,8 @@ Once the complex is shuttled to the nuclear side,
 the ``knockoff'' reaction releases the cargo
 (the suffix \ce{(n)} is omitted):
 \[
+	\nonumber
+	%
 	% [Ran·GTP(n)] + [NLS·ImpA·ImpB·NPC(n)] -> [Ran·GTP·ImpB·NPC(n)] + [ImpA(n)] + [NLS(n)]
 	\ce{
 		Ran.GTP
@@ -980,7 +1003,7 @@ Thereupon, the complex \ce{Ran . GTP . Imp$\upbeta$}
 can transition from the nuclear to the cytoplasmic side
 to be hydrolized as in Eqn.~\eqref{e:hydrolysis}.
 
-%%
+\item
 
 Like \ce{Imp$\upbeta$},
 \ce{CAS} can shuttle through the NPC.
@@ -993,10 +1016,12 @@ form
 the \ce{Imp$\upalpha$ . CAS . Ran . GTP} complex.
 %
 %
-This complex can shuttle through the NPC
-but on the cytoplasmic side,
-the hydrolysis reaction \eqref{e:hydrolysis}
-disassembles it.
+This complex can shuttle through the NPC,
+and it is disassembled
+on the cytoplasmic side
+by the hydrolysis reaction \eqref{e:hydrolysis}.
+
+\end{itemize}
 
 
 \subsubsection*{Baseline parameters} \label{ss:3s:baseline}
@@ -1055,10 +1080,10 @@ we take
 \SI{5}{\micro M}
 in nucleus and cytoplasm
 based on
-\cite{?}
-\TODO{ref}.
-
-\cite[\href{https://i.ibb.co/0nLsTZv/Screenshot-from-2022-01-28-15-03-10.png}{Fig.~4a}]{NguyenPappireddiWuhr2019} -- probably from \cite{WuhrETAL2014}
+\cite[\href{https://i.ibb.co/1mNP2XT/Kalita-Kapinos-Lim2021-Fig4.png}{Fig.~4}]{KalitaKapinosLim2021} / 
+\cite[\href{https://i.ibb.co/0nLsTZv/Screenshot-from-2022-01-28-15-03-10.png}{Fig.~4a}]{NguyenPappireddiWuhr2019}.
+%
+% -- probably from \cite{WuhrETAL2014}
 
 \cite{YangMusser2006}
 
@@ -1115,13 +1140,13 @@ to the baseline scenario,
 and are reported at the URL \eqref{e:checkpoint}.
 
 
-\begin{itemize}
+\begin{enumerate}
 \item 
 	Decrease \ce{Imp$\upbeta$} tenfold.
 	\TODO{Why}
 	
 \item
-	Increase the number of NPC tenfold.
+	Increase the number of NPCs tenfold.
 	\TODO{Why}
 	
 \item
@@ -1138,146 +1163,113 @@ and are reported at the URL \eqref{e:checkpoint}.
 	We obtain a breakdown of N:C contrast
 	for all species,
 	as expected.
-\end{itemize}
+\end{enumerate}
 
 
-\section{Conclusions}
-
-\TODO{conclude}
 
 
-\section{Old stuff dump -- ignore}
 
-The crux is now that the nuclear envelope, 
-having small volume, 
-has a high concentration of NPCs.
-%
-%
-At the nuclear envelope we posit the reactions
-\begin{subequations}
-	\[
-		\ce{Imp\beta_i + NPC_{vacant} & <=> Imp\beta.NPC}
+\begin{figure}
+	\centering
+
+	\newcommand{\figpath}{20211018-Appli/checkpoint/\checkpoint/plot_ss}
+	\newcommand{\figures}{\fig{Free ImpA}\\\fig{Free ImpB}\\\fig{Free CAS}\\\fig{Free NLS}}
+	
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Baseline 
 		\\
-		\ce{Cargo.Imp\beta_i + NPC_{vacant} & <=> Cargo.Imp\beta.NPC}
-	\]
-	\TODO{ref}
-	with 
-	$k_\text{on} = 10^{-3} \si{. \micro M^{-1} . s^{-1}}$
-	and
-	$k_\text{off} = 10^{-4} \si{. s^{-1}}$,
-\end{subequations}
-%
-as well as
-\[
-	\ce{Cargo_i + Imp\beta.NPC & <=> Cargo.Imp\beta.NPC}
-\]
-with
-$k_\text{on}^\text{C} = \SI{0.11}{\micro M^{-1} . s^{-1}}$
-and
-$k_\text{off}^\text{C} = \SI{7.2e-4}{s^{-1}}$,
-%
-where $i$ can be ``cytoplasmic'' or ``nuclear''.
-%
-%
-This envelope compartment
-is in diffusive exchange with 
-cytoplasm ($i = \text{cyt}$)
-and
-nucleus ($i = \text{nuc}$)
-with
-the permeability constant $D = \SI{1}{s^{-1}}$.
-%
-%
-In both, we also allow 
-\[
-	\ce{Cargo + Imp\beta & <=> Cargo.Imp\beta}
-\]
-with the same $k_\text{on}^\text{C}$/$k_\text{off}^\text{C}$.
-%
-%
-For simplicity,
-we assume 
-$[\ce{RanGTP}] = \SI{3}{\micro M}$ and $[\ce{RanGDP}] = \SI{2}{\micro M}$
-are maintained at fixed concentrations
-and are only relevant at the envelope,
-where we have
-%
-\[
-	&
-	\text{cargo knockoff:}
-	&
-	\ce{
-		RanGTP_{nuc} + Cargo.Imp\beta.NPC
-		& ->
-		Cargo + RanGTP.Imp\beta.NPC
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/a_Baseline/#1}}
+		\figures
+	\end{minipage}
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Decrease \ce{Imp$\upbeta$}
+		\\
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/b_LowImpB/#1}}
+		\figures
+	\end{minipage}
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		High \ce{Imp$\upalpha$}
+		\\
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_HighImpA/#1}}
+		\figures
+	\end{minipage}
+	
+	%%
+	
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Increase \ce{Imp$\upalpha$}
+		\\
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_HighImpA/#1}}
+		\figures
+	\end{minipage}
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Decrease \ce{Imp$\upalpha$}
+		\\
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_LowImpA/#1}}
+		\figures
+	\end{minipage}
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		No \ce{Ran.GTP} regeneration
+		\\
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/e_NoEnergy/#1}}
+		\figures
+	\end{minipage}
+	
+	%%
+		
+	\caption{%
+		Initial states and steady-states for the model 
+		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
+		%
+		%
+		For more full-size figures, see the URL \eqref{e:checkpoint}.
 	}
 	%
-	\\
-	%
-	&
-	\text{GTP hydrolysis: \hspace{-1cm}}
-	&
-	\ce{
-		RanGTP.Imp\beta.NPC 
-		& ->
-		RanGDP_{cyt} + P + Imp\beta.NPC 
-	}
-	.
-\]
-%
-%
-%
-For hydrolysis 
-we assume
-the reaction rate
-$v_\text{GAP} / (1 + K_\text{GAP} / [\ce{{RanGTP}.{Imp\beta}.NPC}])$,
-similarly to \eqref{e:Eq13}.
-%
-We take $v_\text{GAP} = \SI{0.07}{\micro M . s^{-1}}$
-and $K_\text{GAP} = \SI{0.1}{\micro M}$.
-%
-This reaction rate about $100\times$ smaller than in \eqref{e:Eq13}
-but in view of \TODO{ref}, 
-this seems
-more realistic
-and 
-has little effect on 
-the course of the simulation.
-
-%
-
-Starting from 
-$[\ce{Cargo}]_\text{cyt} = \SI{1}{\micro M}$
-and
-$[\ce{Imp\beta}]_\text{cyt} = [\ce{Imp\beta}]_\text{nuc} = \SI{0.5}{\micro M}$,
-this model
-predicts a 
-\protect\input{../code/20210403-StickyPore/b_onestage_nct/python/report/v=0.001_total_cargo_ratio.tex}\unskip%
--fold accumulation
-of total cargo in the nucleus
-in steady-state.
-%
-Meanwhile,
-the concentration of \ce{Imp\beta}
-at the envelope is approximately $10^3 \si{. \micro M}$.
-
-Code \CODE{main/code/20210403-StickyPore}.
+	\label{f:app:3s-plot-ss}
+\end{figure}
 
 
 
 
+%\section{Conclusions}
+%
+%\TODO{conclude}
 
 
 
 %%% BIBLIOGRAPHY %%%
 
-\clearpage
+%\clearpage
+
 \renewcommand*{\bibfont}{\normalfont\small}
 \printbibliography % biblatex
 
 
+\section*{List of codes}
 
-\clearpage
+\begin{center}
+\SHOWCODES
+\end{center}
+
+
+
+`\clearpage
 
 
 \section{Appendix}
@@ -1288,100 +1280,12 @@ Code \CODE{main/code/20210403-StickyPore}.
 \input{app_gsr.tex}
 
 
-\subsection{NPC as compartment} \label{ss:app:3s}
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.95\textwidth]{20211018-Appli/threestage}
-	\caption{%
-		SimBiology diagram for the model 
-		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
-	}
-	\label{f:app:3s-simbio}
-\end{figure}
 
 
 
-\begin{figure}
-	\centering
-
-	\newcommand{\figpath}{20211018-Appli/checkpoint/20211121-124149/plot_ss}
-	
-	\begin{minipage}{0.32\textwidth}
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/a_00_Baseline/#1}}
-		%
-		\centering
-		%
-		Baseline condition (\S\ref{ss:3s:baseline})
-		\\
-		\fig{Free ImpA}
-		\\
-		\fig{Free ImpB}
-		\\
-		\fig{Free CAS}
-		\\
-		\fig{Free NLS}
-	\end{minipage}
-	%
-	\begin{minipage}{0.32\textwidth}
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/c_20_LowImpA/#1}}
-		%
-		\centering
-		%
-		Low \ce{Imp$\upalpha$}
-		\\
-		\fig{Free ImpA}
-		\\
-		\fig{Free ImpB}
-		\\
-		\fig{Free CAS}
-		\\
-		\fig{Free NLS}
-	\end{minipage}
-	%
-	\begin{minipage}{0.32\textwidth}
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_00_NoEnergy/#1}}
-		%
-		\centering
-		%
-		No \ce{Ran.GTP} regeneration
-		\\
-		\fig{Free ImpA}
-		\\
-		\fig{Free ImpB}
-		\\
-		\fig{Free CAS}
-		\\
-		\fig{Free NLS}
-	\end{minipage}
-	
-	\protect\TODO{More figures?}
-	
-	\protect\TODO{Consider displaying on a landscape page}
-		
-	\caption{%
-		Initial states and steady-states for the model 
-		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
-		%
-		%
-		For more full-size figures, see
-		\protect\TODO{Link to the full set}
-	}
-	%
-	\label{f:app:3s-plot-ss}
-\end{figure}
 
 
-\subsection{List of codes}
-
-\begin{center}
-\SHOWCODES
-\end{center}
-
-
-
-%\clearpage
+\clearpage
 
 \section{TODO}
 \SHOWTODOS
