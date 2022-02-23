@@ -140,9 +140,10 @@ maxbibnames=100,
 \newcommand{\ra}[1]{{\color{Blue}#1}\marginnote{\TODO{review}}}
 
 
-\title{DRAFT: NCT}
-\author{RA}
-\date{\today}
+\title{Computational model of minimal NCT}
+\author{R.~Andreev, L.~Kapinos, R.~Y.~H.~Lim}
+
+%\date{\today}
 \newcommand{\linktodoc}{http://bit.ly/}
 
 
@@ -155,7 +156,25 @@ maxbibnames=100,
 
 \section{Introduction}
 
-\TODO{intro}
+COMPILATION: \today
+
+
+\TODO{hydrolysis rate!?}
+
+\TODO{what is NCT}
+
+
+\TODO{who is involved -- transport receptors}
+\TODO{why these transport recp}
+\TODO{models}
+
+\TODO{contsrut atrificial cells to reproduce a minimalistic NCT system, with the minimal reasonable number of players and to explain observations in vivo showing down or upregulation of certain species}
+\TODO{the computatino al model, in turn, closely resembles the design of the artificial cell}
+\TODO{here we want to prove that with those players of NCT, the essential observations from  are reproduced}
+
+\TODO{role}
+\TODO{sys with compartments}
+\TODO{visual distribution assuming simple system}
 
 We are particularly
 interested in 
@@ -170,6 +189,7 @@ at steady state:
 and
 \ce{NLS}.
 
+\TODO{ImpBeta = KapBeta1}
 
 \subsubsection*{Abbreviations}
 
@@ -205,6 +225,7 @@ the constants are collected in
 Table~\ref{t:GSR-const}.
 %
 %
+\TODO{simplify:}
 Following \cite{GoerlichSeewaldRibbeck2003},
 the ``dynamic capacity'' \ce{Ex}
 is an optional maximal steady-state (positive) flux
@@ -278,14 +299,19 @@ A coupling of the Ran gradient
 to 
 importin--cargo transport
 was proposed in 
-\cite[Fig.~6A]{GoerlichSeewaldRibbeck2003}.
+\cite[\href{https://i.ibb.co/yY816bj/Goerlich-Seewald-Ribbeck-2003-Fig6-A.png}{Fig.~6A}]{GoerlichSeewaldRibbeck2003}.
+%
+\TODO{do they have a steady-state result}	
+\TODO{kinetic behavior of Imp, in addition to cargo and ran}
+\TODO{no NE}
+\TODO{we look at steady-state}
 %
 We now formulate a version of it.
 %
 %
 The following equations
 comprise
-the handling of cargo by \ce{Imp$\beta$} in the cytoplasm,
+the handling of cargo by \ce{Imp$\upbeta$} in the cytoplasm,
 %
 %
 \begin{subequations}
@@ -569,6 +595,7 @@ with \ce{Imp$\upbeta$.Ran.GTP} contributing most of the excess.
 %
 We improve on it in \S\ref{ss:3s}.
 
+\TODO{fluxes in Fig 1}
 
 \begin{figure}
 \centering
@@ -802,6 +829,8 @@ or
 
 \subsubsection*{Introduction}
 
+\TODO{explain initial/final/steady-state}
+
 It has been observed
 \cite{KalitaKapinosLim2021}
 that \ce{Imp\beta} accumulates 
@@ -812,6 +841,7 @@ and
 possibly shuttling
 the cargo across the pore
 repeatedly.
+\TODO{picture}
 %
 %
 To account for this
@@ -1037,6 +1067,11 @@ see the URL \eqref{e:checkpoint}.
 
 %
 
+The nucleus and the cytoplasm each have a volume
+of \SI{1}{\pico L}.
+
+%
+
 We estimate the total NPC channel capacity
 as 
 2000 NPCs per nuclear envelope
@@ -1064,14 +1099,8 @@ The computation itself is performed in amounts
 (rather than concentration),
 so to convert to apparent concentration
 of Kaps at the NE
-we estimate  
-\TODO{automate insertion of this volume}
-\[
-	\text{
-		the volume of apparent NE fluorescence as
-		\SI{0.01}{\pico L}.
-	}
-\]
+we estimate
+the volume of the NE as \SI{0.01}{\pico L}.`
 
 % ImpB
 
@@ -1091,7 +1120,7 @@ based on
 
 For the initial concentration of \ce{Imp$\upalpha$}
 we considered taking
-\SI{4}{\micro M} throughout the cell,
+\SI{5}{\micro M} throughout the cell,
 slightly below that of \ce{Imp$\upbeta$},
 based on
 %
@@ -1103,6 +1132,9 @@ and the mass spectrometry measurements for
 from
 \cite[Table~S5]{WuhrETAL2014}.
 %
+This corresponds to all isoforms (\TODO{paralogs?}) of Kap$\upalpha$ (KPNA2,3,4,6)
+\TODO{[unpublished]}.
+%
 %
 However,
 this seemed incompatible with other parameters
@@ -1112,8 +1144,11 @@ the NLS remained tied to \ce{Imp$\upalpha$}
 and nearly equipartitioned between nuclear and cytoplasmic sides.
 %
 %
-We settled on the \ce{Imp$\upalpha$} concentration of \SI{0.4}{\micro M}
-for the baseline model.
+We settled on the \ce{Imp$\upalpha$} concentration of \SI{0.5}{\micro M}
+for the baseline model,
+which is close to isoform Kap$\upalpha$1 (KPNA2).
+\TODO{link gene}
+\TODO{rerun}
 
 \cite{KalitaKapinosLim2021}
 \cite{KirliETAL2015}
@@ -1138,22 +1173,41 @@ All parameter changes are
 with respected 
 to the baseline scenario,
 and are reported at the URL \eqref{e:checkpoint}.
+%
+%
+\TODO{:} To see the impact of the prameter on the transport
+and its robustness,
+possibly mimicking
+different cell types and disesase
 
+\TODO{:}
+Decrease can be validated by depletion 
+via siRNA
+and
+increase by transfection with a vector
+that overexpresses the protein.
 
 \begin{enumerate}
 \item 
 	Decrease \ce{Imp$\upbeta$} tenfold.
-	\TODO{Why}
+	
+	Slighit accumulation in the nucleus
 	
 \item
 	Increase the number of NPCs tenfold.
-	\TODO{Why}
+	
+	Observe incrase of Impb contrast at the NE
+	Kalita 2022
 	
 \item
 	Increase \ce{Imp$\upalpha$} tenfold.
+	
+	Breakdown of transprt..
 
 \item
 	Decrease \ce{Imp$\upalpha$} tenfold.
+	
+	Trnasport still works..
 	
 \item
 	Turn off \ce{Ran.GTP} regeneration,
@@ -1166,7 +1220,7 @@ and are reported at the URL \eqref{e:checkpoint}.
 \end{enumerate}
 
 
-
+\TODO{artificial cell should reproduce these}
 
 
 \begin{figure}
@@ -1196,9 +1250,9 @@ and are reported at the URL \eqref{e:checkpoint}.
 	\begin{minipage}{0.32\textwidth}
 		\centering
 		%
-		High \ce{Imp$\upalpha$}
+		\protect\TODO{HIGH NPC} High \ce{Imp$\upalpha$}
 		\\
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_HighImpA/#1}}
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/c_MoreNPC/#1}}
 		\figures
 	\end{minipage}
 	
