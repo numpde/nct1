@@ -4,4 +4,4 @@ Running scenario: c_MoreNPC.m
 Running scenario: d_HighImpA.m
 Running scenario: d_LowImpA.m
 Running scenario: e_NoEnergy.m
-Running scenario: f_Slower.m
+Running scenario: f_Faster.m
