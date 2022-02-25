@@ -794,29 +794,30 @@ with \ce{Imp$\upbeta$.Ran.GTP} contributing most of the excess.
 
 According to 
 \cite[\href{https://i.ibb.co/6ghqPB7/image.jpg}{Fig.~4A}]{LounsburyMacara1997},
-\ce{Imp\beta} blocks hydrolysis of \ce{Ran.GTP} by \ce{RanGAP}
+{Imp$\upbeta$} blocks hydrolysis of {RanGTP} by {RanGAP}
 but 
-\ce{{RanBP1}} rescues it for most part.
+{RanBP1} rescues it for most part.
+%
 %
 Similarly,
 \cite{BischoffGoerlich1997}
 showed that
-\ce{{RanBP1}} transiently detaches \ce{Ran} 
+{RanBP1} transiently detaches {Ran} 
 from the complex 
-\ce{Kap.Ran.GTP}
-(where \ce{Kap} is some karyopherin),
-whereupon hydrolysis by \ce{RanGAP} 
+Kap\ce{.}RanGTP
+(where {Kap} is some karyopherin),
+whereupon hydrolysis by {RanGAP} 
 disassembles the complex;
 and
 that efficient disassembly 
-of \ce{Imp\beta.Ran.GTP} required \ce{{RanBP1}} \emph{and} \ce{{Imp\alpha}}
+of {Imp$\upbeta$}\ce{.}RanGTP required {{RanBP1}} \emph{and} {{Imp$\upalpha$}}
 \cite[\S3.2, cf.~\href{https://i.ibb.co/PZKRSJ0/image.jpg}{Fig.~4}]{BischoffGoerlich1997},
 \cite{FloerBlobelRexach1997}.
 %
 %
 Importantly,
 Kaps and RanBP1
-bind \ce{Ran}
+bind {Ran}
 at distinct sites
 \cite[p.253]{BischoffGoerlich1997}.
 
@@ -836,7 +837,7 @@ Further,
 characterizes
 the kinetics of the formation of the complex
 between
-\ce{Ran.GTP}, \ce{{RanBP1}} and \ce{RanGAP}
+{RanGTP}, {{RanBP1}} and {RanGAP}
 and the hydrolysis.
 %
 %
@@ -845,9 +846,9 @@ the release rate of the $\gamma$-phosphate,
 on the order or \SI{10}{s^{-1}} in 
 \cite[\href{https://i.ibb.co/jz37PW1/image.png}{Fig.~13}]{SeewaldETAL2003},
 %(which is the rate-limiting step of hydrolysis by \ce{RanGAP}) % ?
-is barely influenced by \ce{{RanBP1}},
+is barely influenced by {{RanBP1}},
 which instead stimulates
-the association of \ce{Ran} with \ce{RanGAP}.
+the association of {Ran} with {RanGAP}.
 %
 %
 %
@@ -868,17 +869,17 @@ we will take the constant
 	\label{e:hydrolysis}
 	%
 	\text{
-		\ce{GTP} hydrolysis rate
+		{GTP} hydrolysis rate
 		of \SI{0.1}{s^{-1}}
 	}
 \]
-for all cytoplasmic-side species containing \ce{Ran. GTP},
+for all cytoplasmic-side species containing {RanGTP},
 and
-no \ce{GTP} hydrolysis elsewhere.
+no {GTP} hydrolysis elsewhere.
 %
 %
 This should be compared with 
-the effective \ce{Ran} gradient rate \eqref{e:pump}.
+the effective {Ran} gradient rate \eqref{e:pump}.
 %
 %
 Reducing this rate even 1000-fold
@@ -1047,17 +1048,6 @@ For details visit the URL
 \]
 
 
-\begin{figure}[!p]
-	\centering
-	\includegraphics[width=0.95\textwidth]{20211018-Appli/threestage}
-	\caption{%
-		SimBiology diagram for the model 
-		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
-	}
-	\label{f:app:3s-simbio}
-\end{figure}
-
-
 
 
 
@@ -1132,14 +1122,13 @@ Like \ce{Imp$\upbeta$},
 %
 %
 On the nuclear side,
-it can first bind to \ce{Ran . GTP}
+it first binds to \ce{Ran . GTP}
 then
-form 
-the \ce{Imp$\upalpha$ . CAS . Ran . GTP} complex.
+forms
+the \ce{Imp$\upalpha$ . CAS . Ran . GTP} complex,
 %
-%
-This complex can shuttle through the NPC,
-and it is disassembled
+which can shuttle through the NPC,
+and is disassembled
 on the cytoplasmic side
 by the hydrolysis reaction \eqref{e:hydrolysis}.
 
@@ -1177,30 +1166,29 @@ times
 %
 %
 Note that 
-\[
-	\label{e:NPC-volume}
+$ %\[
+	%\label{e:NPC-volume}
 	%
 	\SI{1}{\micro M} \times \SI{1}{\pico L} 
 	\approx
 	300 \times \SI{2000}{units}
 	,	
-\]
+$ %\]
 which implies a concentration of \SI{1}{\micro M}
 in a computational volume of \SI{1}{\pico L}.
 %
 %
 %
 The computation itself is performed in amounts
-(rather than concentration),
+(not concentration),
 so to convert to apparent concentration
 of Kaps at the NE
 we estimate
 the volume of the NE as \SI{0.01}{\pico L}.
 %
-We emphasize that this choice only scales
+This only scales
 the concentrations 
-shown in the figures
-but does not influence the computation.
+shown in the figures.
 
 
 \item
@@ -1222,8 +1210,7 @@ based on
 
 For the initial concentration of \ce{Imp$\upalpha$}
 we considered 
-\SI{5}{\micro M} throughout the cell,
-slightly below that of \ce{Imp$\upbeta$},
+\SI{5}{\micro M} throughout the cell
 based on
 %
 the immunoblots of
@@ -1241,7 +1228,7 @@ However,
 this seemed incompatible with other parameters,
 %in that the steady state showed unexpected results,
 e.g.~%
-the NLS remained tied to \ce{Imp$\upalpha$}
+the NLS remained tied to {Imp$\upalpha$}
 and nearly equal at nuclear and cytoplasmic sides.
 %
 %
@@ -1316,25 +1303,24 @@ to reproduce those trends.
 
 \begin{enumerate}
 \item 
-	Decrease \ce{Imp$\upbeta$} tenfold.
+	Decrease \ce{Imp$\upbeta$} 10x.
 	%
 	We observe a higher N:C contrast of cargo and of Imp$\upalpha$.
 	
 \item
-	Increase the number of NPCs tenfold.
+	Increase the number of NPCs 10x.
 	%
-	With higher total NPC capacity
-	more transportins are bound to the NPC,
+	More transport receptors are now bound to the NPC,
 	thus exhibiting a higher concentration
-	at the nuclear envelope, cf.~\cite{KalitaETAL2022}.
+ 	at the nuclear envelope, cf.~\cite{KalitaETAL2022}.
 	
 \item
-	Increase \ce{Imp$\upalpha$} tenfold.
+	Increase \ce{Imp$\upalpha$} 10x.
 	%
 	We observe a breakdown of transport.
 
 \item
-	Decrease \ce{Imp$\upalpha$} tenfold.
+	Decrease \ce{Imp$\upalpha$} 10x.
 	%
 	Leads to enhanced N:C contrasts
 	of CAS, Imp$\upalpha$ and NLS cargo.
@@ -1348,6 +1334,18 @@ to reproduce those trends.
 	for all species,
 	as expected.
 \end{enumerate}
+
+
+
+\begin{figure} %[!p]
+	\centering
+	\includegraphics[width=0.95\textwidth]{20211018-Appli/threestage}
+	\caption{%
+		SimBiology diagram for the model 
+		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
+	}
+	\label{f:app:3s-simbio}
+\end{figure}
 
 
 
@@ -1447,7 +1445,7 @@ to reproduce those trends.
 
 %%% BIBLIOGRAPHY %%%
 
-%\clearpage
+\clearpage
 
 \renewcommand*{\bibfont}{\normalfont\small}
 \printbibliography % biblatex
