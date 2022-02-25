@@ -4,7 +4,6 @@
 \usepackage[english]{babel}
 
 \usepackage{upgreek}
-
 % https://tex.stackexchange.com/questions/11778/modifying-everydisplay-causes-the-align-environment-to-stop-working
 \let\displaystyle\textstyle
 
@@ -27,7 +26,13 @@ maxbibnames=100,
 ]{biblatex}
 %
 % https://tex.stackexchange.com/questions/20335/proper-casing-in-citation-bibliography-titles-using-biblatex-biber
+%\usepackage{csquotes}
 %\DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
+%
+% https://github.com/plk/biblatex/issues/1008
+%\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{titlecase}{\MakeSentenceCase*{#1}}
+%\DeclareFieldFormat{citetitle}{\mkbibquote{\MakeSentenceCase{#1}\isdot}}
+%\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{citetitle}{\mkbibquote{\MakeSentenceCase{#1}\isdot}}
 %
 \addbibresource{refs.bib}
 
@@ -298,7 +303,7 @@ in nucleus, cytoplasm and at the nuclear envelope, where applicable.
 \subsubsection*{Ran gradient} \label{s:GSR03:Ran}
 
 The Ran gradient,
-i.e.~the nuclear accumulation of \ce{Ran.GTP},
+i.e.~the nuclear accumulation of {RanGTP},
 is the base layer of nucleocytoplasmic transport.
 %
 %
@@ -316,21 +321,21 @@ Table~\ref{t:GSR-const}.
 %
 This gradient
 can be harnessed
-by converting nuclear \ce{Ran.GTP} back to cytoplasmic \ce{Ran.GDP}.
+by converting nuclear {RanGTP} back to cytoplasmic {RanGDP}.
 %
 For this reason,
 \cite{GoerlichSeewaldRibbeck2003}
 introduced
 the ``dynamic capacity'' \ce{Ex}
 as the maximal possible steady-state (positive) flux
-of nuclear \ce{Ran.GTP} to cytoplasmic \ce{Ran.GDP}.
+of nuclear {RanGTP} to cytoplasmic {RanGDP}.
 %
 We determine it using the additional equation \eqref{e:Ex}.
 
 %
 
 The fluxes 
-are in units of concentration/time (\si{\micro M \per s}).
+are in units of concentration per time (\si{\micro M \per s}).
 %
 The ones across the nuclear boundary
 have positive sign when exiting the nucleus
@@ -352,7 +357,7 @@ see Table~\ref{t:GSR-Ran-Runs}.
 %
 %
 Importantly,
-an order of 1000-fold nuclear enrichment of \ce{Ran.GTP}
+an order of 1000x nuclear enrichment of {RanGTP}
 is sustained in steady-state.
 %
 Moreover, the dynamic capacity clocks in at around
@@ -369,15 +374,15 @@ by a virtual pump
 \[
 	\label{e:pump}
 	%
-	\text{cytoplasmic \ce{Ran . GDP}} 
+	\text{cytoplasmic {RanGDP}} 
 	\ce{->}
-	\text{nuclear \ce{Ran . GTP}} 
+	\text{nuclear {RanGTP}} 
 	\TEXT{with kinetic rate \SI{0.1}{s^{-1}}.}
 \]
 %
 %
 This rate is chosen conservatively
-(a concentration of $\SI{1}{\micro M}$ of cytoplasmic \ce{Ran . GDP} generates
+(a concentration of $\SI{1}{\micro M}$ of cytoplasmic {RanGDP} generates
 a flux of $\SI{0.1}{\micro M / s}$)
 but 
 it will be
@@ -398,7 +403,7 @@ was proposed in
 \cite[\href{https://i.ibb.co/yY816bj/Goerlich-Seewald-Ribbeck-2003-Fig6-A.png}{Fig.~6A}]{GoerlichSeewaldRibbeck2003}.
 %
 This model thus includes
-kinetics of \ce{Imp$\upbeta$} and IBB cargo,
+kinetics of {Imp$\upbeta$} and IBB cargo,
 in addition to the Ran gradient.
 %
 %
@@ -408,7 +413,7 @@ so we formulate a version of it here explicitly.
 %
 The following equations
 comprise
-the handling of cargo by \ce{Imp$\upbeta$} in the cytoplasm,
+the handling of cargo by {Imp$\upbeta$} in the cytoplasm,
 %
 %
 \begin{subequations}
@@ -516,7 +521,7 @@ with forward rate $k_\text{knockoff}$.
 %
 %
 %
-The GSR equations are modified accordingly:
+The equations of \cite{GoerlichSeewaldRibbeck2003} are modified accordingly:
 %
 \[
 	\label{e:Eq1'}
@@ -605,7 +610,7 @@ e.g.,
 	\quad
 	k_{d2} = \SI{7.4e-4}{s^{-1}},
 \]
-for an IBB domain binding to \ce{Imp\beta}.
+for an IBB domain binding to {Imp$\upbeta$}.
 %
 %
 The intermediate state in \eqref{e:A*B} is transient
@@ -824,7 +829,7 @@ of {Imp$\upbeta$}\ce{.}RanGTP required {{RanBP1}} \emph{and} {{Imp$\upalpha$}}
 \cite{FloerBlobelRexach1997}.
 %
 %
-Importantly,
+Notably,
 Kaps and RanBP1
 bind {Ran}
 at distinct sites
@@ -847,7 +852,7 @@ characterizes
 the kinetics of the formation of the complex
 between
 {RanGTP}, {{RanBP1}} and {RanGAP}
-and the hydrolysis.
+and the GTP hydrolysis.
 %
 %
 In particular, 
@@ -1256,20 +1261,20 @@ Simulating this scenario
 we observe
 \begin{itemize}
 \item 
-	strong accumulation of NLS cargo
+	strong accumulation of \ce{NLS} cargo
 	in the nucleus,
 	most of it free;
 \item
-	no N:C contrast for Imp$\upbeta$,
+	no N:C contrast for \ce{Imp$\upbeta$},
 	with some accumulation at the nuclear envelope;
 \item
-	a N:C contrast of 3:1 for Imp$\upalpha$,
+	a N:C contrast of 3:1 for \ce{Imp$\upalpha$},
 	almost all of it bound;
 \item
-	a N:C contrast of about 4:1 for free CAS
-	and 4:3 for all CAS;
+	a N:C contrast of about 4:1 for free \ce{CAS}
+	and 4:3 for all \ce{CAS};
 \item
-	about 70\% of initial RanGTP
+	about 70\% of initial \ce{Ran . GTP}
 	unbound in the nucleus.
 \end{itemize}
 
@@ -1332,7 +1337,7 @@ to reproduce those trends.
 	Decrease \ce{Imp$\upalpha$} 10x.
 	%
 	Leads to enhanced N:C contrasts
-	of CAS, Imp$\upalpha$ and NLS cargo.
+	of \ce{CAS}, \ce{Imp$\upalpha$} and \ce{NLS} cargo.
 	
 \item
 	Turn off \ce{Ran.GTP} regeneration,
@@ -1348,7 +1353,9 @@ to reproduce those trends.
 
 \begin{figure} %[!p]
 	\centering
-	\includegraphics[width=0.95\textwidth]{20211018-Appli/threestage}
+	%
+	\includegraphics[width=0.99\textwidth]{20211018-Appli/threestage}
+	%
 	\caption{%
 		SimBiology diagram for the model 
 		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
@@ -1383,6 +1390,8 @@ to reproduce those trends.
 \begin{figure}[!h]
 
 	\centering
+	
+	\vspace{-1\baselineskip}
 	
 	\newcommand{\figpath}{20211018-Appli/checkpoint/\checkpoint/plot_ss}
 	\newcommand{\figures}{\fig{Free ImpA}\\\fig{Free ImpB}\\\fig{Free CAS}\\\fig{Free NLS}}
