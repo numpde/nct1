@@ -140,10 +140,14 @@ maxbibnames=100,
 \newcommand{\ra}[1]{{\color{Blue}#1}\marginnote{\TODO{review}}}
 
 
-\title{Computational model of minimal NCT}
-\author{R.~Andreev, L.~Kapinos, R.~Y.~H.~Lim}
+\title{%
+A minimalistic computational model of NCT%
+\thanks{%
+R.~Andreev, L.~Kapinos, and R.~Y.~H.~Lim.
+\today
+}}
 
-%\date{\today}
+\date{}
 \newcommand{\linktodoc}{http://bit.ly/}
 
 
@@ -154,52 +158,126 @@ maxbibnames=100,
 \maketitle
 
 
-\section{Introduction}
-
-COMPILATION: \today
-
-
-\TODO{hydrolysis rate!?}
-
-\TODO{what is NCT}
-
-
-\TODO{who is involved -- transport receptors}
-\TODO{why these transport recp}
-\TODO{models}
-
-\TODO{contsrut atrificial cells to reproduce a minimalistic NCT system, with the minimal reasonable number of players and to explain observations in vivo showing down or upregulation of certain species}
-\TODO{the computatino al model, in turn, closely resembles the design of the artificial cell}
-\TODO{here we want to prove that with those players of NCT, the essential observations from  are reproduced}
-
-\TODO{role}
-\TODO{sys with compartments}
-\TODO{visual distribution assuming simple system}
-
-We are particularly
-interested in 
-the nuclear-to-cytoplasmic contrast
-(henceforth, N:C contrast)
-of 
-certain molecular species
-at steady state:
-\ce{Ran.GTP},
-\ce{Imp$\upbeta$},
-\ce{CAS},
-and
-\ce{NLS}.
-
-\TODO{ImpBeta = KapBeta1}
-
-\subsubsection*{Abbreviations}
-
-FG-nups = FG-nucleoporins;
+{
+\small
+Abbreviations:
 NCT = nucleocytoplasmic transport;
 NPC = nuclear pore complex;
 NE = nuclear envelope;
 IBB = importin beta binding; 
 ODE = ordinary differential equations;
-SPR = surface plasmon resonance;
+FG-nups = FG-nucleoporins;
+SPR = surface plasmon resonance.
+}
+
+\section{Introduction}
+
+
+%
+
+In this note we develop a minimalistic computational
+model of 
+NCT
+that mimics
+the live cell and (more closely) the artificial cell.
+%
+%
+We are particularly
+interested in 
+the nuclear-to-cytoplasmic (N:C) contrast
+of 
+certain molecular species,
+at steady state,
+namely,
+RanGTP,
+transport receptors,
+and
+cargo,
+since this can be observed in experiments.
+
+%
+
+The base layer of NCT is the establishment of 
+the RanGTP gradient
+for which we use the ``minimal Ran gradient system''
+of \cite{GoerlichSeewaldRibbeck2003};
+see \S\ref{s:GSR03:Ran}.
+%
+%
+Still following \cite{GoerlichSeewaldRibbeck2003},
+we add importin-mediated transport 
+for IBB cargos.
+%
+i.e.~cargos that do not require an adaptor.
+%
+%
+%
+In this model,
+the nuclear pore is chemically inert 
+and only serves as a diffusion channel,
+but in the cell this is untrue.
+%
+To that end,
+we first abstract
+the base layer into a single
+Ran gradient pump characterized
+by a single rate, Eqn.~\ref{e:pump}. 
+
+%
+
+In \S\ref{ss:ranbp1} we take a look at the role
+of RanBP1
+in the hydrolysis of RanGTP
+and associated species
+but
+for simplicity
+abstract this process into 
+one hydrolysis rate, Eqn.~\eqref{e:hydrolysis}.
+
+%
+
+Finally, in \S\ref{ss:3s}
+we develop 
+a computational model
+that focuses
+on the main players of NCT,
+that is
+{RanGTP},
+{Imp$\upbeta$} (karyopherin-beta),
+{Imp$\upalpha$} (karyopherin-alpha),
+{CAS} (exportin),
+{NLS} (cargo)
+and
+the nuclear pore itself.
+%
+%
+%
+In this model,
+any species transits the NPC
+in these steps:
+binding to one side of the pore,
+passing into the pore channel,
+binding to the other side,
+and unbinding on the other side.
+%
+%
+This allows us
+to reproduce the accumulation
+of transport receptors
+inside the NPC.
+
+% Note: ImpBeta = KapBeta1
+
+Each computational model is formulated as an ODE
+in MATLAB/SimBiology.
+%
+In addition to kinetic parameters
+this requires the initial concentrations of all chemical species.
+%
+We compute the ODE numerically until steady state
+and report the final concentrations
+in nucleus, cytoplasm and at the nuclear envelope, where applicable.
+
 
 
 \section{NCT models}
@@ -219,20 +297,27 @@ the ``minimal Ran gradient system'' from
 %
 %
 The equations are recapitulated in
-\S\ref{ss:app:gsr-ran}
+\S\ref{s:app:gsr-ran}
 and
 the constants are collected in 
 Table~\ref{t:GSR-const}.
 %
 %
-\TODO{simplify:}
-Following \cite{GoerlichSeewaldRibbeck2003},
+This gradient
+can be harnessed
+by converting nuclear \ce{Ran.GTP} back to cytoplasmic \ce{Ran.GDP}.
+%
+For this reason,
+\cite{GoerlichSeewaldRibbeck2003}
+introduced
 the ``dynamic capacity'' \ce{Ex}
-is an optional maximal steady-state (positive) flux
-of nuclear \ce{Ran.GTP} to cytoplasmic \ce{Ran.GDP},
-which we determine using the additional equation \eqref{e:Ex}.
+as the maximal possible steady-state (positive) flux
+of nuclear \ce{Ran.GTP} to cytoplasmic \ce{Ran.GDP}.
 %
+We determine it using the additional equation \eqref{e:Ex}.
+
 %
+
 The fluxes 
 are in units of concentration/time (\si{\micro M \per s}).
 %
@@ -284,16 +369,16 @@ This rate is chosen conservatively
 (a concentration of $\SI{1}{\micro M}$ of cytoplasmic \ce{Ran . GDP} generates
 a flux of $\SI{0.1}{\micro M / s}$)
 but 
-will be
+it will be
 sufficient for our purposes.
+%
+%
+%
+See Code \CODE{main/code/20210225-GSR/v1}.
 
 %
 
-Code \CODE{main/code/20210225-GSR/v1}.
-
-%
-
-\subsubsection*{Coupling to \ce{Imp\beta}-mediated transport} \label{s:GSR03:Imp}
+\subsubsection*{Coupling of importin-mediated transport} \label{s:GSR03:Imp}
 
 A coupling of the Ran gradient
 to 
@@ -301,12 +386,13 @@ importin--cargo transport
 was proposed in 
 \cite[\href{https://i.ibb.co/yY816bj/Goerlich-Seewald-Ribbeck-2003-Fig6-A.png}{Fig.~6A}]{GoerlichSeewaldRibbeck2003}.
 %
-\TODO{do they have a steady-state result}	
-\TODO{kinetic behavior of Imp, in addition to cargo and ran}
-\TODO{no NE}
-\TODO{we look at steady-state}
+This model thus includes
+kinetics of \ce{Imp$\upbeta$} and IBB cargo,
+in addition to the Ran gradient.
 %
-We now formulate a version of it.
+%
+Few details were provided in \cite{GoerlichSeewaldRibbeck2003},
+so we formulate a version of it here explicitly.
 %
 %
 The following equations
@@ -443,7 +529,7 @@ The GSR equations are modified accordingly:
 %
 Analogous nuclear equations
 (without \ce{GAP}) 
-are implemented but are omitted here.
+are implemented, but are omitted here.
 %
 Analogously to \eqref{e:Eq11}/\eqref{e:Eq12}
 we have 
@@ -514,15 +600,14 @@ for an IBB domain binding to \ce{Imp\beta}.
 The intermediate state in \eqref{e:A*B} is transient
 on a moderately relevant time-scale
 %see Fig.~\ref{f:A*B}
-(code \protect\CODE{main/code/20210407-Rearrangement}).
+(Code \protect\CODE{main/code/20210407-Rearrangement}).
 %
 Therefore,
-in the present model
-we lump the complexed states together
+here we lump the complexed states together
 and take
 $k_\text{on}^\text{C} := k_{a1}$ and 
 $k_\text{off}^\text{C} := k_{d1} \frac{k_{d2}}{k_{a2} + k_{d2}}$
-as the effective kinetic constants 
+as the effective kinetic rates 
 for \eqref{e:v2-C}, cf.~Table~\ref{t:GSR-ImpB-const}.
 %
 % LK: 
@@ -584,7 +669,7 @@ the nuclear concentration.
 %
 %
 %
-Code \CODE{main/code/20210225-GSR/v2}.
+See Code \CODE{main/code/20210225-GSR/v2}.
 
 %
 
@@ -593,7 +678,7 @@ of \ce{Img$\upbeta$} in the nucleus,
 with \ce{Imp$\upbeta$.Ran.GTP} contributing most of the excess.
 %
 %
-We improve on it in \S\ref{ss:3s}.
+%We improve on it in \S\ref{ss:3s}.
 
 \TODO{fluxes in Fig 1}
 
@@ -792,15 +877,20 @@ no \ce{GTP} hydrolysis elsewhere.
 %
 This should be compared with 
 the effective \ce{Ran} gradient rate \eqref{e:pump}.
+%
+%
+Reducing this rate even 1000-fold
+does not substantially change the subsequent results
+(not shown).
 
-\TODO{
-cf
-\cite{KalitaKapinosLim2021}
-citing
-\cite{KlebeBischoffPonstinglWittinghofer1995}
-or
-\cite{KlebePrinzWittinghoferGoody1995}
-}
+%\TODO{
+%cf
+%\cite{KalitaKapinosLim2021}
+%citing
+%\cite{KlebeBischoffPonstinglWittinghofer1995}
+%or
+%\cite{KlebePrinzWittinghoferGoody1995}
+%}
 
 %\begin{figure}
 %\centering
@@ -829,11 +919,10 @@ or
 
 \subsubsection*{Introduction}
 
-\TODO{explain initial/final/steady-state}
-
-It has been observed
-\cite{KalitaKapinosLim2021}
-that \ce{Imp\beta} accumulates 
+It has been observed,
+see
+\cite{KalitaKapinosLim2021} and references therein,
+that Imp$\upbeta$ accumulates 
 inside the NPCs
 as they bind to the FG-nups,
 suggesting a regulatory role,
@@ -841,7 +930,6 @@ and
 possibly shuttling
 the cargo across the pore
 repeatedly.
-\TODO{picture}
 %
 %
 To account for this
@@ -853,7 +941,7 @@ the NPCs
 as three compartments.
 %
 %
-The following dual observation is essential (cf.~\cite{Hofmeyr2020}):
+The following dual observation is essential, cf.~\cite[\S10]{Hofmeyr2020}:
 %
 \begin{enumerate}
 \item 
@@ -874,28 +962,29 @@ The following dual observation is essential (cf.~\cite{Hofmeyr2020}):
 %
 
 The model includes the following main components:
+%
 \begin{itemize}
 \item
 	\ce{Imp$\upbeta$}
-	(\ce{Kap$\upbeta${1}})
+	(a.k.a.~\ce{Kap$\upbeta${1}})
 	and the cargo adapter
 	\ce{Imp$\upalpha$}
-	(\ce{Kap$\upalpha$}).
+	(a.k.a.~\ce{Kap$\upalpha$}).
 	%
 	For simplicity,
-	we do not model individual variants or isoforms,
+	we do not model individual variants/paralogs/isoforms,
 	cf.~\cite[p.~2]{KalitaKapinosLim2021}.
 \item
 	Generic \ce{NLS} cargo,
 	by itself unable to transition the nuclear envelope efficiently.
 	%
-	Requires the \ce{Imp$\upalpha$} to 
-	be captured by \ce{Imp$\upbeta$}.
+	Requires the \ce{Imp$\upalpha$} adapter
+	in order to be captured by \ce{Imp$\upbeta$}.
 \item
 	\ce{CAS}
-	(\ce{Exp{2}}, \ce{Xpo{2}})
+	(a.k.a.~\ce{Exp{2}}, \ce{Xpo{2}})
 	%
-	\TODO{on CAS}
+	Recycles \ce{Imp$\upalpha$} back to the cytoplasm.
 \item
 	The NPCs are described
 	as
@@ -942,20 +1031,21 @@ for this model
 are summarized in Fig.~\ref{f:app:3s-plot-ss}.
 %
 For details visit the URL
-\newcommand{\checkpoint}{20220209-143110}
+\newcommand{\checkpoint}{20220225-075632}
 \[
 	\label{e:checkpoint}
 	%
 	\small
 	\text{
+		https://numpde.github.io/nct1/code/20211018-Appli/checkpoint/%
 		\href%
 		{https://numpde.github.io/nct1/code/20211018-Appli/checkpoint/\checkpoint/}%
-		{https://numpde.github.io/nct1/code/20211018-Appli/checkpoint/\checkpoint/}
+		{\checkpoint/}
 	}
 \]
 
 
-\begin{figure}
+\begin{figure}[!p]
 	\centering
 	\includegraphics[width=0.95\textwidth]{20211018-Appli/threestage}
 	\caption{%
@@ -1065,27 +1155,30 @@ such as concentrations and kinetic rates.
 For the complete set 
 see the URL \eqref{e:checkpoint}.
 
-%
+\begin{itemize}
+
+\item
 
 The nucleus and the cytoplasm each have a volume
 of \SI{1}{\pico L}.
 
-%
+
+\item
 
 We estimate the total NPC channel capacity
 as 
 2000 NPCs per nuclear envelope
-(BioNumbers \href{https://bionumbers.hms.harvard.edu/bionumber.aspx?id=111130}{\#111130})
+[BioNumbers, \href{https://bionumbers.hms.harvard.edu/bionumber.aspx?id=111130}{\#111130}]
 times
 300 Kaps per NPC
-\TODO{refs for those numbers}.
+\cite[\href{https://i.ibb.co/8jdLvn1/Paradise-Levin-Korza-Carson-2007-Fig7.jpg}{Fig.~7}]{ParadiseETAL2007}.
 %
 %
 Note that 
 \[
 	\label{e:NPC-volume}
 	%
-	\SI{1}{\pico L} \times \SI{1}{\micro M}
+	\SI{1}{\micro M} \times \SI{1}{\pico L} 
 	\approx
 	300 \times \SI{2000}{units}
 	,	
@@ -1100,9 +1193,15 @@ The computation itself is performed in amounts
 so to convert to apparent concentration
 of Kaps at the NE
 we estimate
-the volume of the NE as \SI{0.01}{\pico L}.`
+the volume of the NE as \SI{0.01}{\pico L}.
+%
+We emphasize that this choice only scales
+the concentrations 
+shown in the figures
+but does not influence the computation.
 
-% ImpB
+
+\item
 
 For the initial concentration of \ce{Imp$\upbeta$}
 we take
@@ -1114,9 +1213,10 @@ based on
 %
 % -- probably from \cite{WuhrETAL2014}
 
-\cite{YangMusser2006}
+% \cite{YangMusser2006}
 
-% ImpA
+
+\item
 
 For the initial concentration of \ce{Imp$\upalpha$}
 we considered taking
@@ -1132,8 +1232,7 @@ and the mass spectrometry measurements for
 from
 \cite[Table~S5]{WuhrETAL2014}.
 %
-This corresponds to all isoforms (\TODO{paralogs?}) of Kap$\upalpha$ (KPNA2,3,4,6)
-\TODO{[unpublished]}.
+This corresponds to all variants of Kap$\upalpha$ (KPNA2,3,4,6; unpublished data).
 %
 %
 However,
@@ -1146,24 +1245,33 @@ and nearly equipartitioned between nuclear and cytoplasmic sides.
 %
 We settled on the \ce{Imp$\upalpha$} concentration of \SI{0.5}{\micro M}
 for the baseline model,
-which is close to isoform Kap$\upalpha$1 (KPNA2).
-\TODO{link gene}
-\TODO{rerun}
+which is close to the previously reported concentration
+of the single Kap$\upalpha$1 (\href{https://www.genecards.org/cgi-bin/carddisp.pl?gene=KPNA2}{KPNA2}).
 
-\cite{KalitaKapinosLim2021}
-\cite{KirliETAL2015}
+%\cite{KalitaKapinosLim2021}
+%\cite{KirliETAL2015}
 
-\TODO{complete section}
+\end{itemize}
 
 
 %
 
 \subsubsection*{Variants}
 
-We have defined a handful of scenarios 
+We define a handful of scenarios 
 to illustrate how 
 parameter choice affects 
 the steady-states.
+%
+These changes could mimic
+different cell types, disease
+or
+configurations of the artificial cell.
+%
+They can be generated in vivo
+by depletion (e.g.~via siRNA)
+or 
+by transfection with a vector overexpressing a protein.
 %
 %
 The results are summarized in Fig.~\ref{f:app:3s-plot-ss}.
@@ -1172,42 +1280,41 @@ The results are summarized in Fig.~\ref{f:app:3s-plot-ss}.
 All parameter changes are
 with respected 
 to the baseline scenario,
-and are reported at the URL \eqref{e:checkpoint}.
+and are documented in full at the URL \eqref{e:checkpoint}.
 %
 %
-\TODO{:} To see the impact of the prameter on the transport
-and its robustness,
-possibly mimicking
-different cell types and disesase
+%
+We expect the artificial cell 
+to reproduce those trends.
 
-\TODO{:}
-Decrease can be validated by depletion 
-via siRNA
-and
-increase by transfection with a vector
-that overexpresses the protein.
+
 
 \begin{enumerate}
 \item 
 	Decrease \ce{Imp$\upbeta$} tenfold.
-	
-	Slighit accumulation in the nucleus
+	%
+	We observe a higher N:C contrast of cargo and of Imp$\upalpha$.
 	
 \item
 	Increase the number of NPCs tenfold.
+	%
+	With higher total NPC capacity
+	more transportins are bound to the NPC,
+	thus exhibiting a higher concentration
+	at the nuclear envelope.
 	
-	Observe incrase of Impb contrast at the NE
-	Kalita 2022
+	\TODO{\cite{KalitaETAL2022}?}
 	
 \item
 	Increase \ce{Imp$\upalpha$} tenfold.
-	
-	Breakdown of transprt..
+	%
+	We observe a breakdown of transport.
 
 \item
 	Decrease \ce{Imp$\upalpha$} tenfold.
-	
-	Trnasport still works..
+	%
+	Leads to enhanced N:C contrasts
+	of CAS, Imp$\upalpha$ and NLS cargo.
 	
 \item
 	Turn off \ce{Ran.GTP} regeneration,
@@ -1220,79 +1327,87 @@ that overexpresses the protein.
 \end{enumerate}
 
 
-\TODO{artificial cell should reproduce these}
 
-
-\begin{figure}
+\begin{figure}[!p]
 	\centering
 
 	\newcommand{\figpath}{20211018-Appli/checkpoint/\checkpoint/plot_ss}
 	\newcommand{\figures}{\fig{Free ImpA}\\\fig{Free ImpB}\\\fig{Free CAS}\\\fig{Free NLS}}
 	
-	\begin{minipage}{0.32\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
 		%
-		Baseline 
-		\\
+		Baseline \\[0.5\baselineskip]
+		%
 		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/a_Baseline/#1}}
 		\figures
 	\end{minipage}
 	%
-	\begin{minipage}{0.32\textwidth}
+	\hfill
+	%
+	\begin{minipage}{0.49\textwidth}
 		\centering
 		%
-		Decrease \ce{Imp$\upbeta$}
-		\\
+		Decrease \ce{Imp$\upbeta$} \\[0.5\baselineskip]
+		%
 		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/b_LowImpB/#1}}
 		\figures
 	\end{minipage}
-	%
-	\begin{minipage}{0.32\textwidth}
+	
+	\vspace{\baselineskip}
+	
+	\begin{minipage}{0.49\textwidth}
 		\centering
 		%
-		\protect\TODO{HIGH NPC} High \ce{Imp$\upalpha$}
-		\\
+		Increase NPC \\[0.5\baselineskip]
+		%
 		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/c_MoreNPC/#1}}
 		\figures
 	\end{minipage}
-	
-	%%
-	
-	\begin{minipage}{0.32\textwidth}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.49\textwidth}
 		\centering
 		%
-		Increase \ce{Imp$\upalpha$}
-		\\
+		Increase \ce{Imp$\upalpha$} \\[0.5\baselineskip]
+		%
 		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_HighImpA/#1}}
 		\figures
 	\end{minipage}
-	%
-	\begin{minipage}{0.32\textwidth}
+	
+	\vspace{\baselineskip}
+	
+	\begin{minipage}{0.49\textwidth}
 		\centering
 		%
-		Decrease \ce{Imp$\upalpha$}
-		\\
+		Decrease \ce{Imp$\upalpha$} \\[0.5\baselineskip]
+		%
 		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_LowImpA/#1}}
 		\figures
 	\end{minipage}
 	%
-	\begin{minipage}{0.32\textwidth}
+	\hfill
+	%
+	\begin{minipage}{0.49\textwidth}
 		\centering
 		%
-		No \ce{Ran.GTP} regeneration
-		\\
+		No \ce{Ran.GTP} regeneration \\[0.5\baselineskip]
+		%
 		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/e_NoEnergy/#1}}
 		\figures
 	\end{minipage}
 	
-	%%
+	\vspace{\baselineskip}
 		
 	\caption{%
-		Initial states and steady-states for the model 
-		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
+		Initial states and final steady-states for the model 
+		``\nameref{ss:3s}'' from \S\ref{ss:3s}
+		for 
+		free ImpA, free ImpB, free CAS and free NLS cargo.
 		%
 		%
-		For more full-size figures, see the URL \eqref{e:checkpoint}.
+		For the full-size figures and time-course plots, see the URL \eqref{e:checkpoint}.
 	}
 	%
 	\label{f:app:3s-plot-ss}
@@ -1325,11 +1440,7 @@ that overexpresses the protein.
 
 `\clearpage
 
-
-\section{Appendix}
-
-
-\subsection{Minimal Ran gradient system} \label{ss:app:gsr-ran}
+\section{Appendix: minimal Ran gradient system} \label{s:app:gsr-ran}
 
 \input{app_gsr.tex}
 
