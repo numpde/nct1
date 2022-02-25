@@ -926,7 +926,7 @@ see
 \cite{KalitaKapinosLim2021} and references therein,
 that Imp$\upbeta$ accumulates 
 inside the NPCs
-as they bind to the FG-nups,
+as they bind to the FG-nups (``rim staining''),
 suggesting a regulatory role,
 and
 possibly shuttling
@@ -1221,7 +1221,7 @@ based on
 \item
 
 For the initial concentration of \ce{Imp$\upalpha$}
-we considered taking
+we considered 
 \SI{5}{\micro M} throughout the cell,
 slightly below that of \ce{Imp$\upbeta$},
 based on
@@ -1234,18 +1234,18 @@ and the mass spectrometry measurements for
 from
 \cite[Table~S5]{WuhrETAL2014}.
 %
-This corresponds to all variants of Kap$\upalpha$ (KPNA2,3,4,6; unpublished data).
+This corresponds to all variants of Kap$\upalpha$ (KPNA2,3,4,6).
 %
 %
 However,
-this seemed incompatible with other parameters
-in that the steady state showed unexpected results,
+this seemed incompatible with other parameters,
+%in that the steady state showed unexpected results,
 e.g.~%
 the NLS remained tied to \ce{Imp$\upalpha$}
-and nearly equipartitioned between nuclear and cytoplasmic sides.
+and nearly equal at nuclear and cytoplasmic sides.
 %
 %
-We settled on the \ce{Imp$\upalpha$} concentration of \SI{0.5}{\micro M}
+We settled on the {Imp$\upalpha$} concentration of \SI{0.5}{\micro M}
 for the baseline model,
 which is close to the previously reported concentration
 of the single Kap$\upalpha$1 (\href{https://www.genecards.org/cgi-bin/carddisp.pl?gene=KPNA2}{KPNA2}).
@@ -1254,6 +1254,29 @@ of the single Kap$\upalpha$1 (\href{https://www.genecards.org/cgi-bin/carddisp.p
 %\cite{KirliETAL2015}
 
 \end{itemize}
+
+  
+Simulating this scenario
+we observe
+\begin{itemize}
+\item 
+	strong accumulation of NLS cargo
+	in the nucleus,
+	most of it free;
+\item
+	no N:C contrast for Imp$\upbeta$,
+	with some accumulation at the nuclear envelope;
+\item
+	a N:C contrast of 3:1 for Imp$\upalpha$,
+	almost all of it bound;
+\item
+	a N:C contrast of about 4:1 for free CAS
+	and 4:3 for all CAS;
+\item
+	about 70\% of initial RanGTP
+	unbound in the nucleus.
+\end{itemize}
+
 
 
 %
@@ -1303,9 +1326,7 @@ to reproduce those trends.
 	With higher total NPC capacity
 	more transportins are bound to the NPC,
 	thus exhibiting a higher concentration
-	at the nuclear envelope.
-	
-	\TODO{\cite{KalitaETAL2022}?}
+	at the nuclear envelope, cf.~\cite{KalitaETAL2022}.
 	
 \item
 	Increase \ce{Imp$\upalpha$} tenfold.
