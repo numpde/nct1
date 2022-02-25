@@ -177,7 +177,7 @@ the live cell and (more closely) the artificial cell.
 %
 We are particularly
 interested in 
-the nuclear-to-cytoplasmic (N:C) contrast
+the nuclear-to-cytoplasmic contrast
 of 
 certain molecular species,
 at steady state,
@@ -200,7 +200,8 @@ NE = nuclear envelope;
 IBB = importin beta binding; 
 ODE = ordinary differential equations;
 FG-nups = FG-nucleoporins;
-SPR = surface plasmon resonance.
+SPR = surface plasmon resonance;
+N:C = nuclear-to-cytoplasmic.
 }
 
 \section{Introduction}
@@ -218,16 +219,16 @@ Still following \cite{GoerlichSeewaldRibbeck2003},
 we add importin-mediated transport 
 for IBB cargos.
 %
-i.e.~cargos that do not require an adaptor.
+i.e.~cargos that do not require an adapter.
 %
 %
 %
 In this model,
 the nuclear pore is chemically inert 
 and only serves as a diffusion channel,
-but in the cell this is untrue.
+but in the cell this is not the case.
 %
-To that end,
+To model that,
 we first abstract
 the base layer into a single
 Ran gradient pump characterized
@@ -1376,10 +1377,13 @@ to reproduce those trends.
 \end{figure}
 
 
+\clearpage
+\thispagestyle{empty}
 
-\begin{figure}[!p]
+\begin{figure}[!h]
+
 	\centering
-
+	
 	\newcommand{\figpath}{20211018-Appli/checkpoint/\checkpoint/plot_ss}
 	\newcommand{\figures}{\fig{Free ImpA}\\\fig{Free ImpB}\\\fig{Free CAS}\\\fig{Free NLS}}
 	
@@ -1452,11 +1456,16 @@ to reproduce those trends.
 	\caption{%
 		Initial states and final steady-states for the model 
 		``\nameref{ss:3s}'' from \S\ref{ss:3s}
+		at the cytoplasmic side (c),
+		inside the NPCs (NPC)
+		and 
+		at the nuclear side (n),
 		for 
 		free ImpA, free ImpB, free CAS and free NLS cargo.
 		%
 		%
-		For the full-size figures and time-course plots, see the URL \eqref{e:checkpoint}.
+		%
+		For full-size figures and time-course plots, see the URL \eqref{e:checkpoint}.
 	}
 	%
 	\label{f:app:3s-plot-ss}
