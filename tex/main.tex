@@ -12,11 +12,14 @@
 %
 \usepackage[
 backend=biber,
+%
+style=alphabetic, % [GSR03]
+% style=nature, % [1]
+%
 giveninits=true,
 url=false,
 isbn=false,
 backref=true,
-style=alphabetic,
 sorting=ynt,
 block=none,
 maxcitenames=3,
@@ -139,6 +142,7 @@ maxbibnames=100,
 \newcommand{\hh}[1]{{\color{Purple}#1}}
 \newcommand{\ra}[1]{{\color{Blue}#1}\marginnote{\TODO{review}}}
 
+%
 
 \title{%
 A minimalistic computational model of NCT%
@@ -154,30 +158,17 @@ R.~Andreev, L.~Kapinos, and R.~Y.~H.~Lim.
 
 
 
-
 \begin{document}
+
+
 
 \maketitle
 
-
 {
 \small
-Abbreviations:
-NCT = nucleocytoplasmic transport;
-NPC = nuclear pore complex;
-NE = nuclear envelope;
-IBB = importin beta binding; 
-ODE = ordinary differential equations;
-FG-nups = FG-nucleoporins;
-SPR = surface plasmon resonance.
-}
-
-\section{Introduction}
-
-
+\textbf{Abstract}.
 %
-
-In this note we develop a minimalistic computational
+We develop a minimalistic computational
 model of 
 NCT
 that mimics
@@ -195,7 +186,24 @@ RanGTP,
 transport receptors,
 and
 cargo,
-since this can be observed in experiments.
+since these can be measured in experiments.
+}
+
+
+{
+\small
+\textbf{Abbreviations}.
+%
+NCT = nucleocytoplasmic transport;
+NPC = nuclear pore complex;
+NE = nuclear envelope;
+IBB = importin beta binding; 
+ODE = ordinary differential equations;
+FG-nups = FG-nucleoporins;
+SPR = surface plasmon resonance.
+}
+
+\section{Introduction}
 
 %
 
@@ -682,7 +690,7 @@ with \ce{Imp$\upbeta$.Ran.GTP} contributing most of the excess.
 %
 %We improve on it in \S\ref{ss:3s}.
 
-\TODO{fluxes in Fig 1}
+%\TODO{fluxes in Fig 1}
 
 \begin{figure}
 \centering
@@ -1343,6 +1351,26 @@ to reproduce those trends.
 	\caption{%
 		SimBiology diagram for the model 
 		``\nameref{ss:3s}'' from \S\ref{ss:3s}.
+		%
+		%
+		The ovals represent chemical species,
+		the yellow circles are reactions
+		(some are reversible).
+		%
+		%
+		The middle row (containing free NPC)
+		are species inside the NPC.
+		%
+		%
+		The row above and below are species
+		bound to 
+		the cytoplasmic-side and nuclear-side 
+		of the NPCs, respectively.
+		%
+		%
+		The top row are cytoplasmic species
+		and
+		the bottom row are nuclear species.  
 	}
 	\label{f:app:3s-simbio}
 \end{figure}
@@ -1468,13 +1496,10 @@ to reproduce those trends.
 
 
 
-
-
-
-\clearpage
-
-\section{TODO}
-\SHOWTODOS
+%\clearpage
+%
+%\section{TODO}
+%\SHOWTODOS
 
 
 
