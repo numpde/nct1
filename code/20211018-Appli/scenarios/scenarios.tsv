@@ -20,9 +20,9 @@ Species	C	ImpA(c)	Value	uM				0.4		0.4		0.4		4	0.04		0.4		0.4
 Species	C	ImpA(n)	Value	uM				0.4		0.4		0.4		4	0.04		0.4		0.4
 																			
 					Kinetic constants														
-Reaction		hydrolysis of Ran·GTP·ImpB·NPC	kf	1/s				0.1		0.1		0.1		0.1	0.1		0.1		1e-9
-Reaction		hydrolysis of ImpA·CAS·Ran·GTP(c)	kf	1/s				0.1		0.1		0.1		0.1	0.1		0.1		1e-9
-Reaction		hydrolysis of ImpA·CAS·Ran·GTP·NPC	kf	1/s				0.1		0.1		0.1		0.1	0.1		0.1		1e-9
+Reaction		hydrolysis of Ran·GTP·ImpB·NPC	kf	1/s				0.1		0.1		0.1		0.1	0.1		0.1		1e-7
+Reaction		hydrolysis of ImpA·CAS·Ran·GTP(c)	kf	1/s				0.1		0.1		0.1		0.1	0.1		0.1		1e-7
+Reaction		hydrolysis of ImpA·CAS·Ran·GTP·NPC	kf	1/s				0.1		0.1		0.1		0.1	0.1		0.1		1e-7
 																			
 Reaction		CAS with Ran	kf	1/uM/s				0.01		0.01		0.01		0.01	0.01		0.01		0.01
 Reaction		CAS with Ran	kr	1/s				0.015		0.015		0.015		0.015	0.015		0.015		0.015
@@ -42,7 +42,7 @@ Reaction		Complex CAS with NPC(n)	kr	1/s				1e-5		1e-5		1e-5		1e-5	1e-5		1e-5		1
 																			
 Reaction		Replenish NLS	kf	1/s				0		0		0		0	0		0		0
 Reaction		Passive diffusion	k_diff	1/s				0		0		0		0	0		0		0
-Reaction		Ran gradient	k_pump	1/s				0.1		0.1		0.1		0.1	0.1		0		1
+Reaction		Ran gradient	k_pump	1/s				0.1		0.1		0.1		0.1	0.1		0		0.1
 																			
 		For uploaded results, see:																	
 		https://numpde.github.io/nct1/code/20211018-Appli/checkpoint/																	
