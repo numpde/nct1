@@ -88,7 +88,7 @@ def plot_total_steadystate(run, spp):
                 alignment = dict(ha="center", va="center")
                 v = x01.iloc[i, j]
                 c = np.round(np.abs([1, 1, 1, 0] - np.array(cmap(norm(v)))))
-                im.axes.text(j, i, "{:.3g}".format(v), fontsize=17, color=c, **alignment)
+                im.axes.text(j, i, "{:.3g}".format(v), fontsize=20, color=c, **alignment)
 
         # (xlim, ylim) = (px.a.get_xlim(), px.a.get_ylim())
 
@@ -119,7 +119,7 @@ def main():
 
                 label = fr"{name}, $\mu$M"
                 label = label.replace("Δ", r"$\Delta$")  # pdflatex issue with UTF
-                px.a.set_title(label)
+                px.a.set_title(label, fontdict={'fontsize': 20})
 
                 log.info(f"Writing: {relpath(img_file)}")
                 px.f.savefig(img_file)
