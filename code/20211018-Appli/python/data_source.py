@@ -78,7 +78,12 @@ sp_specs = {
 
     "ImpA·ImpB": rf"^(ImpA·ImpB)({suffixes})$",
 
+    "All Ran": rf"(.*)(Ran)(.*)",
+    "All Ran·GTP": rf"(.*)(Ran·GTP)(.*)",
+    "All Ran·GDP": rf"(.*)(Ran·GDP)(.*)",
+    
     "Free Ran·GTP": rf"^(Ran·GTP)({suffixes})$",
+    "Free Ran·GDP": rf"^(Ran·GDP)({suffixes})$",
 
     "All NLS": r"(.*)(NLS)(.*)",
     "Free NLS": rf"^(NLS)({suffixes})$",
