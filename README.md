@@ -13,6 +13,6 @@ R Andreev,
 L Kapinos,
 and
 RYH Lim.
-A minimalistic computational model of NCT.
+A minimalistic computational model of NCT. 2022.
 Available at:
 https://numpde.github.io/nct1/
