@@ -81,7 +81,7 @@ sp_specs = {
     "All Ran": rf"(.*)(Ran)(.*)",
     "All Ran·GTP": rf"(.*)(Ran·GTP)(.*)",
     "All Ran·GDP": rf"(.*)(Ran·GDP)(.*)",
-    
+
     "Free Ran·GTP": rf"^(Ran·GTP)({suffixes})$",
     "Free Ran·GDP": rf"^(Ran·GDP)({suffixes})$",
 

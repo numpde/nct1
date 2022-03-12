@@ -72,6 +72,8 @@ def plot_total_steadystate(run, spp):
         # sanity fix
         vmax = (vmax if not np.isclose(vmax, 0) else 1)
 
+        norm = mcolors.Normalize(vmin=0, vmax=vmax)
+
         im = px.a.imshow(x01, cmap=cmap, vmin=0, vmax=vmax, origin="upper", aspect="auto")
 
         assert (2 == len(x01.index)), "Expect initial and final state in rows."
@@ -84,7 +86,9 @@ def plot_total_steadystate(run, spp):
         for i in range(x01.shape[0]):
             for j in range(x01.shape[1]):
                 alignment = dict(ha="center", va="center")
-                im.axes.text(j, i, "{:.3g}".format(x01.iloc[i, j]), fontsize=17, color="red", **alignment)
+                v = x01.iloc[i, j]
+                c = np.round(np.abs([1, 1, 1, 0] - np.array(cmap(norm(v)))))
+                im.axes.text(j, i, "{:.3g}".format(v), fontsize=17, color=c, **alignment)
 
         # (xlim, ylim) = (px.a.get_xlim(), px.a.get_ylim())
 
