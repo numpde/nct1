@@ -23,7 +23,7 @@ out_dir = mkdir(Path(__file__).resolve().with_suffix(''))
 from data_source import style, sp_specs, NPC_CONCENTRATION_FACTOR, IMG_WIDTH
 
 # Wide figure
-style.update({rcParam.Figure.figsize: (9, 1)})
+style.update({rcParam.Figure.figsize: (6, 1)})
 
 
 def plot_total_steadystate(run, spp):
@@ -88,7 +88,7 @@ def plot_total_steadystate(run, spp):
                 alignment = dict(ha="center", va="center")
                 v = x01.iloc[i, j]
                 c = np.round(np.abs([1, 1, 1, 0] - np.array(cmap(norm(v)))))
-                im.axes.text(j, i, "{:.3g}".format(v), fontsize=20, color=c, **alignment)
+                im.axes.text(j, i, "{:.3g}".format(v), fontsize=22, color=c, **alignment)
 
         # (xlim, ylim) = (px.a.get_xlim(), px.a.get_ylim())
 
