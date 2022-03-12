@@ -1061,10 +1061,10 @@ The code is found in Code~\CODE{main/code/20211018-Appli}.
 %
 The computational results 
 for this model 
-are summarized in Fig.~\ref{f:app:3s-plot-ss}.
+are summarized in Fig.~\ref{f:app:3s-plot1-ss}/\ref{f:app:3s-plot2-ss}.
 %
 For details visit the URL
-\newcommand{\checkpoint}{20220225-075632}
+\newcommand{\checkpoint}{20220312-115341}
 \[
 	\label{e:checkpoint}
 	%
@@ -1287,7 +1287,7 @@ we observe
 	a N:C contrast of 3:1 for \ce{Imp$\upalpha$},
 	almost all of it bound;
 \item
-	a N:C contrast of about 4:1 for free \ce{CAS}
+	a N:C contrast of about 1:4 for free \ce{CAS}
 	and 4:3 for all \ce{CAS};
 \item
 	about 70\% of initial \ce{Ran . GTP}
@@ -1316,7 +1316,7 @@ or
 by transfection with a vector overexpressing a protein.
 %
 %
-The results are summarized in Fig.~\ref{f:app:3s-plot-ss}.
+The results are summarized in Fig.~\ref{f:app:3s-plot1-ss}/\ref{f:app:3s-plot2-ss}.
 %
 %
 All parameter changes are
@@ -1394,7 +1394,10 @@ to reproduce those trends.
 		%
 		The top row are cytoplasmic species
 		and
-		the bottom row are nuclear species.  
+		the bottom row are nuclear species.
+		%
+		%
+		Details at URL \eqref{e:checkpoint}.
 	}
 	\label{f:app:3s-simbio}
 \end{figure}
@@ -1404,7 +1407,6 @@ to reproduce those trends.
 \thispagestyle{empty}
 
 \begin{figure}[!h]
-
 	\centering
 	
 	\vspace{-1\baselineskip}
@@ -1493,8 +1495,104 @@ to reproduce those trends.
 		For full-size figures and time-course plots, see the URL \eqref{e:checkpoint}.
 	}
 	%
-	\label{f:app:3s-plot-ss}
+	\label{f:app:3s-plot1-ss}
 \end{figure}
+
+
+
+\begin{figure}[!h]
+	\centering
+	
+	\vspace{-1\baselineskip}
+	
+	\newcommand{\figpath}{20211018-Appli/checkpoint/\checkpoint/plot_ss}
+	\newcommand{\figures}{\fig{All ImpA}\\\fig{All ImpB}\\\fig{All CAS}\\\fig{All NLS}}
+	
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		%
+		Baseline \\[0.5\baselineskip]
+		%
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/a_Baseline/#1}}
+		\figures
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		%
+		Decrease \ce{Imp$\upbeta$} \\[0.5\baselineskip]
+		%
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/b_LowImpB/#1}}
+		\figures
+	\end{minipage}
+	
+	\vspace{\baselineskip}
+	
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		%
+		Increase NPC \\[0.5\baselineskip]
+		%
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/c_MoreNPC/#1}}
+		\figures
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		%
+		Increase \ce{Imp$\upalpha$} \\[0.5\baselineskip]
+		%
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_HighImpA/#1}}
+		\figures
+	\end{minipage}
+	
+	\vspace{\baselineskip}
+	
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		%
+		Decrease \ce{Imp$\upalpha$} \\[0.5\baselineskip]
+		%
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_LowImpA/#1}}
+		\figures
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		%
+		No \ce{Ran.GTP} regeneration \\[0.5\baselineskip]
+		%
+		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/e_NoEnergy/#1}}
+		\figures
+	\end{minipage}
+	
+	\vspace{\baselineskip}
+		
+	\caption{%
+		Initial states and final steady-states for the model 
+		``\nameref{ss:3s}'' from \S\ref{ss:3s}
+		at the cytoplasmic side (c),
+		inside the NPCs (NPC)
+		and 
+		at the nuclear side (n),
+		for 
+		all ImpA, all ImpB, all CAS and all NLS cargo
+		(as if fluorescently labeled).
+		%
+		%
+		%
+		For full-size figures and time-course plots, see the URL \eqref{e:checkpoint}.
+	}
+	%
+	\label{f:app:3s-plot2-ss}
+\end{figure}
+
 
 
 
