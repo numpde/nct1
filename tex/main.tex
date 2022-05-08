@@ -1064,7 +1064,7 @@ for this model
 are summarized in Fig.~\ref{f:app:3s-plot1-ss}/\ref{f:app:3s-plot2-ss}.
 %
 For details visit the URL
-\newcommand{\checkpoint}{20220312-123444}
+\newcommand{\checkpoint}{20220508-082816}
 \[
 	\label{e:checkpoint}
 	%
@@ -1403,23 +1403,25 @@ to reproduce those trends.
 \end{figure}
 
 
-\clearpage
+\clearpage %% STEADY-STATES ("Free" species)
 
 \begin{figure}[!h]
 	\centering
 	
 	\vspace{-1\baselineskip}
 	
-	\newcommand{\figpath}{20211018-Appli/checkpoint/\checkpoint/plot_ss}
-	\newcommand{\figures}{\fig{Free ImpA}\\\fig{Free ImpB}\\\fig{Free CAS}\\\fig{Free NLS}}
+	\newcommand{\fig}[2]{%
+		\includegraphics[width=\textwidth]{20211018-Appli/checkpoint/\checkpoint/plot_ss/#1/#2}%
+	}
+	%
+	\newcommand{\figures}[1]{\fig{#1}{Free ImpA}\\\fig{#1}{Free ImpB}\\\fig{#1}{Free CAS}\\\fig{#1}{Free NLS}}
 	
 	\begin{minipage}{0.32\textwidth}
 		\centering
 		%
 		Baseline \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/a_Baseline/#1}}
-		\figures
+		\figures{a_Baseline}
 	\end{minipage}
 	%
 	\hfill
@@ -1429,8 +1431,7 @@ to reproduce those trends.
 		%
 		Decrease \ce{Imp$\upbeta$} \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/b_LowImpB/#1}}
-		\figures
+		\figures{b_LowImpB}
 	\end{minipage}
 	%
 	\hfill
@@ -1440,8 +1441,7 @@ to reproduce those trends.
 		%
 		Increase NPC \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/c_MoreNPC/#1}}
-		\figures
+		\figures{c_MoreNPC}
 	\end{minipage}
 
 	\vspace{\baselineskip}
@@ -1451,8 +1451,7 @@ to reproduce those trends.
 		%
 		Increase \ce{Imp$\upalpha$} \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_HighImpA/#1}}
-		\figures
+		\figures{d_HighImpA}
 	\end{minipage}
 	%
 	\hfill
@@ -1462,8 +1461,7 @@ to reproduce those trends.
 		%
 		Decrease \ce{Imp$\upalpha$} \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_LowImpA/#1}}
-		\figures
+		\figures{d_LowImpA}
 	\end{minipage}
 	%
 	\hfill
@@ -1473,8 +1471,7 @@ to reproduce those trends.
 		%
 		No \ce{Ran.GTP} regeneration \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/e_NoEnergy/#1}}
-		\figures
+		\figures{e_NoEnergy}
 	\end{minipage}
 	
 	\vspace{\baselineskip}
@@ -1487,7 +1484,11 @@ to reproduce those trends.
 		and 
 		at the nuclear side (n),
 		for 
-		free ImpA, free ImpB, free CAS and free NLS cargo.
+		\textbf{free ImpA},
+		\textbf{free ImpB},
+		\textbf{free CAS}
+		and
+		\textbf{free NLS cargo}.
 		%
 		%
 		%
@@ -1497,23 +1498,25 @@ to reproduce those trends.
 	\label{f:app:3s-plot1-ss}
 \end{figure}
 
-\clearpage
+\clearpage %% STEADY-STATES ("All" species)
 
 \begin{figure}[!h]
 	\centering
 	
 	\vspace{-1\baselineskip}
 	
-	\newcommand{\figpath}{20211018-Appli/checkpoint/\checkpoint/plot_ss}
-	\newcommand{\figures}{\fig{All ImpA}\\\fig{All ImpB}\\\fig{All CAS}\\\fig{All NLS}}
+	\newcommand{\fig}[2]{%
+		\includegraphics[width=\textwidth]{20211018-Appli/checkpoint/\checkpoint/plot_ss/#1/#2}%
+	}
+	%
+	\newcommand{\figures}[1]{\fig{#1}{All ImpA}\\\fig{#1}{All ImpB}\\\fig{#1}{All CAS}\\\fig{#1}{All NLS}}
 	
 	\begin{minipage}{0.32\textwidth}
 		\centering
 		%
 		Baseline \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/a_Baseline/#1}}
-		\figures
+		\figures{a_Baseline}
 	\end{minipage}
 	%
 	\hfill
@@ -1523,8 +1526,7 @@ to reproduce those trends.
 		%
 		Decrease \ce{Imp$\upbeta$} \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/b_LowImpB/#1}}
-		\figures
+		\figures{b_LowImpB}
 	\end{minipage}
 	%
 	\hfill
@@ -1534,19 +1536,17 @@ to reproduce those trends.
 		%
 		Increase NPC \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/c_MoreNPC/#1}}
-		\figures
+		\figures{c_MoreNPC}
 	\end{minipage}
-		
+
 	\vspace{\baselineskip}
-		
+
 	\begin{minipage}{0.32\textwidth}
 		\centering
 		%
 		Increase \ce{Imp$\upalpha$} \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_HighImpA/#1}}
-		\figures
+		\figures{d_HighImpA}
 	\end{minipage}
 	%
 	\hfill
@@ -1556,8 +1556,7 @@ to reproduce those trends.
 		%
 		Decrease \ce{Imp$\upalpha$} \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/d_LowImpA/#1}}
-		\figures
+		\figures{d_LowImpA}
 	\end{minipage}
 	%
 	\hfill
@@ -1567,8 +1566,7 @@ to reproduce those trends.
 		%
 		No \ce{Ran.GTP} regeneration \\[0.5\baselineskip]
 		%
-		\newcommand\fig[1]{\includegraphics[width=\textwidth]{\figpath/e_NoEnergy/#1}}
-		\figures
+		\figures{e_NoEnergy}
 	\end{minipage}
 	
 	\vspace{\baselineskip}
@@ -1581,7 +1579,11 @@ to reproduce those trends.
 		and 
 		at the nuclear side (n),
 		for 
-		all ImpA, all ImpB, all CAS and all NLS cargo
+		\textbf{all ImpA},
+		\textbf{all ImpB},
+		\textbf{all CAS}
+		and
+		\textbf{all NLS cargo}
 		(as if fluorescently labeled).
 		%
 		%
@@ -1591,6 +1593,202 @@ to reproduce those trends.
 	%
 	\label{f:app:3s-plot2-ss}
 \end{figure}
+
+
+
+\clearpage %% TIME-COURSE ("Free" species)
+
+\begin{figure}[!h]
+	\centering
+	
+	\vspace{-1\baselineskip}
+	
+	\newcommand{\fig}[2]{%
+		\includegraphics[width=\textwidth]{20211018-Appli/checkpoint/\checkpoint/plot/#1/#2}%
+		%\includegraphics[width=\textwidth]{20211018-Appli/python/plot/#1/#2}%
+	}
+	%
+	\newcommand{\figures}[1]{\fig{#1}{Free ImpA}\\\fig{#1}{Free ImpB}\\\fig{#1}{Free CAS}\\\fig{#1}{Free NLS}}
+	
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Baseline \\[0.5\baselineskip]
+		%
+		\figures{a_Baseline}
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Decrease \ce{Imp$\upbeta$} \\[0.5\baselineskip]
+		%
+		\figures{b_LowImpB}
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Increase NPC \\[0.5\baselineskip]
+		%
+		\figures{c_MoreNPC}
+	\end{minipage}
+
+	\vspace{\baselineskip}
+
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Increase \ce{Imp$\upalpha$} \\[0.5\baselineskip]
+		%
+		\figures{d_HighImpA}
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Decrease \ce{Imp$\upalpha$} \\[0.5\baselineskip]
+		%
+		\figures{d_LowImpA}
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		No \ce{Ran.GTP} regeneration \\[0.5\baselineskip]
+		%
+		\figures{e_NoEnergy}
+	\end{minipage}
+	
+	\vspace{\baselineskip}
+		
+	\caption{%
+		Concentration time-course for the model 
+		``\nameref{ss:3s}'' from \S\ref{ss:3s}
+		at the cytoplasmic side (c),
+		inside the NPCs (NPC)
+		and 
+		at the nuclear side (n),
+		for 
+		\textbf{free ImpA},
+		\textbf{free ImpB},
+		\textbf{free CAS}
+		and
+		\textbf{free NLS cargo}.
+		%
+		%
+		%
+		For full-size figures and time-course plots, see the URL \eqref{e:checkpoint}.
+	}
+	%
+	\label{f:app:3s-plot1}
+\end{figure}
+
+\clearpage %% TIME-COURSE ("All" species)
+
+\begin{figure}[!h]
+	\centering
+	
+	\vspace{-1\baselineskip}
+	
+	\newcommand{\fig}[2]{%
+		\includegraphics[width=\textwidth]{20211018-Appli/checkpoint/\checkpoint/plot/#1/#2}%
+		%\includegraphics[width=\textwidth]{20211018-Appli/python/plot/#1/#2}%
+	}
+	%
+	\newcommand{\figures}[1]{\fig{#1}{All ImpA}\\\fig{#1}{All ImpB}\\\fig{#1}{All CAS}\\\fig{#1}{All NLS}}
+	
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Baseline \\[0.5\baselineskip]
+		%
+		\figures{a_Baseline}
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Decrease \ce{Imp$\upbeta$} \\[0.5\baselineskip]
+		%
+		\figures{b_LowImpB}
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Increase NPC \\[0.5\baselineskip]
+		%
+		\figures{c_MoreNPC}
+	\end{minipage}
+
+	\vspace{\baselineskip}
+
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Increase \ce{Imp$\upalpha$} \\[0.5\baselineskip]
+		%
+		\figures{d_HighImpA}
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		Decrease \ce{Imp$\upalpha$} \\[0.5\baselineskip]
+		%
+		\figures{d_LowImpA}
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		%
+		No \ce{Ran.GTP} regeneration \\[0.5\baselineskip]
+		%
+		\figures{e_NoEnergy}
+	\end{minipage}
+	
+	\vspace{\baselineskip}
+		
+	\caption{%
+		Concentration time-course for the model 
+		``\nameref{ss:3s}'' from \S\ref{ss:3s}
+		at the cytoplasmic side (c),
+		inside the NPCs (NPC)
+		and 
+		at the nuclear side (n),
+		for 
+		\textbf{all ImpA},
+		\textbf{all ImpB},
+		\textbf{all CAS}
+		and
+		\textbf{all NLS cargo}
+		(as if fluorescently labeled).
+		%
+		%
+		%
+		For full-size figures and time-course plots, see the URL \eqref{e:checkpoint}.
+	}
+	%
+	\label{f:app:3s-plot2}
+\end{figure}
+
 
 
 
