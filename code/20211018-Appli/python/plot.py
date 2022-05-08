@@ -31,9 +31,9 @@ style.update({
 def plot_total_timecourse(run, spp):
     with Plox(style) as px:
         fmt = {
-            '(c)': dict(ls="--", lw=2, alpha=0.5),
-            '(n)': dict(ls="-.", lw=2, alpha=0.9),
-            'NPC': dict(ls="-", lw=2, alpha=0.8),
+            '(c)': dict(ls="--", lw=3, alpha=0.5),
+            '(n)': dict(ls="-.", lw=3, alpha=0.9),
+            'NPC': dict(ls="-", lw=3, alpha=0.8),
         }
 
         for s in fmt:
