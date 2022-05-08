@@ -18,8 +18,14 @@ out_dir = mkdir(Path(__file__).resolve().with_suffix(''))
 
 from data_source import style, sp_specs, NPC_CONCENTRATION_FACTOR, IMG_WIDTH
 
-# Squarish figure
-style.update({rcParam.Figure.figsize: (5, 3)})
+# Wide-ish figure
+style.update({
+    rcParam.Figure.figsize: (8, 3),
+    rcParam.Axes.labelsize: 'large',
+    rcParam.Xtick.labelsize: 'large',
+    rcParam.Ytick.labelsize: 'large',
+    rcParam.Legend.fontsize: 'medium',
+})
 
 
 def plot_total_timecourse(run, spp):
@@ -57,10 +63,13 @@ def plot_total_timecourse(run, spp):
             x = tx[spp].sum(axis=1) * f
             px.a.plot(tx.index / 3600, x, **fmt[suffix], color=color)
 
+        px.a.set_yticks([y for y in px.a.get_yticks() if (y >= 0)])
+        px.a.set_yticklabels([f"{y:.2g}" for y in px.a.get_yticks()])
+
         px.a.set_xlabel(f"Time, h")
 
         px.a.set_xscale('log')
-        px.a.legend(fontsize=10)
+        px.a.legend(loc="upper left")
 
         yield px
 
